@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建商履歷 — 台灣主要建商總覽 | HomeRUN 好宅通</title>
+    <meta name="description" content="買房 18 步的第 5 步：研究建商。收錄 21 家台灣主要建商的公開資料，包含資本額、建案數、司法紀錄與網路輿情。簽約前多看一眼。">
+    <meta name="keywords" content="建商履歷,建商名單,台灣建商,建設公司,建商比較,買房查建商,好宅通">
+    <link rel="canonical" href="https://homerun.com.tw/builders.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="建商履歷 — 台灣主要建商總覽 | HomeRUN 好宅通">
+    <meta property="og:description" content="收錄 21 家台灣主要建商的公開資料，包含資本額、建案數、司法紀錄與網路輿情。">
+    <meta property="og:url" content="https://homerun.com.tw/builders.html">
+    <meta property="og:site_name" content="HomeRUN 好宅通">
+    <meta property="og:locale" content="zh_TW">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="建商履歷 — 台灣主要建商總覽 | HomeRUN 好宅通">
+    <meta name="twitter:description" content="收錄 21 家台灣主要建商的公開資料，包含資本額、建案數、司法紀錄與網路輿情。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#FAFAFA',
+                            100: '#F4F4F4',
+                            200: '#E5E5E5',
+                            800: '#2A2A2A',
+                            900: '#121212',
+                        },
+                        architect: {
+                            bronze: '#A67C52',
+                            terracotta: '#9C4A38',
+                            slate: '#4A5D6A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            word-break: break-word;
+            -webkit-text-size-adjust: 100%;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E5E5; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
+        .architectural-grid {
+            display: grid;
+            gap: 1px;
+            background-color: #E5E5E5;
+            border: 1px solid #E5E5E5;
+        }
+        .architectural-grid > * {
+            background-color: #FAFAFA;
+            transition: background-color 0.4s ease;
+        }
+        .architectural-grid > *:hover {
+            background-color: #FFFFFF;
+        }
+        .blueprint-label {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+        input:focus, select:focus { outline: none; }
+        .mobile-list-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #E5E5E5;
+            cursor: pointer;
+            transition: background-color 0.4s ease;
+        }
+        .mobile-list-row:hover {
+            background-color: #FFFFFF;
+        }
+        .mobile-list-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mobile-list-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .warn-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #9C4A38;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-900 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center font-serif text-2xl text-center">
+            <a href="index.html#buyingFlow" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="builders.html" class="text-stone-900 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="inspection.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="about.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="px-6 md:px-12 py-16 md:py-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div class="lg:col-span-8">
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-stone-900">建商履歷</h1>
+            </div>
+            <div class="lg:col-span-4 pb-2">
+                <p class="font-sans text-base text-stone-600 leading-relaxed">買房 18 步的第 5 步：研究你的建商。公開資料整理，簽約前多看一眼。資料持續更新中，僅供參考。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toolbar -->
+    <div class="px-6 md:px-12 py-10 border-b border-stone-200">
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center justify-between">
+            <!-- Search Input -->
+            <div class="w-full md:w-96">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="搜尋建商名稱、代號..."
+                    class="w-full bg-transparent border-0 border-b border-stone-200 py-3 px-0 font-sans text-base focus:outline-none focus:border-architect-bronze transition-colors duration-500"
+                >
+            </div>
+
+            <!-- Sort Dropdown -->
+            <div class="flex items-center gap-4">
+                <label class="font-sans text-xs tracking-widest text-stone-500">排序</label>
+                <select id="sortSelect" class="bg-transparent border-0 border-b border-stone-200 py-2 px-0 font-sans text-sm focus:outline-none focus:border-architect-bronze transition-colors duration-500 cursor-pointer">
+                    <option value="stroke">名稱（首字筆畫）</option>
+                    <option value="year_asc">成立年份（早→晚）</option>
+                    <option value="year_desc">成立年份（晚→早）</option>
+                    <option value="scale">建案數（多→少）</option>
+                </select>
+            </div>
+
+            <!-- View Toggle & Count -->
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex gap-3 border border-stone-200 p-2">
+                    <button id="gridViewBtn" class="text-architect-bronze p-2 hover:text-architect-bronze transition-colors duration-500" title="Grid View">
+                        <i data-lucide="grid-3x3" class="w-5 h-5 stroke-[1.5]"></i>
+                    </button>
+                    <button id="listViewBtn" class="text-gray-400 p-2 hover:text-architect-bronze transition-colors duration-500" title="List View">
+                        <i data-lucide="list" class="w-5 h-5 stroke-[1.5]"></i>
+                    </button>
+                </div>
+                <div class="text-right">
+                    <span class="font-sans text-xs tracking-widest text-stone-500">共</span>
+                    <span id="countBadge" class="font-serif text-2xl font-bold ml-1">21</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid View Container (desktop only) -->
+    <div id="gridContainer" class="hidden md:block px-6 md:px-12 py-10">
+        <div class="architectural-grid" id="gridContent" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+            <!-- Cards will be inserted here -->
+        </div>
+    </div>
+
+    <!-- List View Container (Desktop) -->
+    <div id="listContainer" class="hidden px-6 md:px-12 py-10">
+        <div id="listContent" class="divide-y divide-stone-200">
+            <!-- Rows will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Mobile List Container -->
+    <div id="mobileListContainer" class="md:hidden px-6 py-10">
+        <div id="mobileListContent" class="divide-y divide-stone-200">
+            <!-- Mobile list rows will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="px-6 md:px-12 py-6">
+        <div class="max-w-7xl mx-auto">
+            <p class="font-sans text-xs text-stone-400 leading-relaxed" style="letter-spacing:0.02em;">
+                免責聲明：本頁所列建商資料（含成立年份、資本額、董事長、建案數量等）係整理自經濟部商業司、各公司公開資訊及媒體報導，部分數據為概估值，可能存在誤差或已過時。本站不保證資料之正確性、完整性及即時性，亦不對因使用本站資訊所生之任何損失負責。所有資料僅供參考，購屋決策前請自行至官方來源查證，並諮詢專業人士。如發現資料錯誤，歡迎<a href="about.html#contact" class="text-architect-slate hover:text-architect-bronze transition-colors">來信回報</a>。
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Builder Data
+        const builders = [
+            { name: '三發地產', en: 'Sanfar Real Estate', file: 'builder-sanfa.html', year: 1993, capital: 327, capitalLabel: 'NT$ 32.7 億', chairman: '鍾鼎晟', listed: true, stock: '9946', strokes: 3, scale: 10, approx: false, tags: ['上市 9946', '成立 1993', '北中南'], warn: true, warnLabel: '涉司法紀錄' },
+            { name: '力麒建設', en: 'Liqi Construction Corp.', file: 'builder-liqi.html', year: 1995, capital: 754, capitalLabel: 'NT$ 75.4 億', chairman: '郭濟綱', listed: true, stock: '5512', strokes: 2, scale: 12, approx: false, tags: ['上市 5512', '成立 1995', '台北核心區'], warn: false },
+            { name: '太子建設', en: 'Prince Housing & Development Corp.', file: 'builder-taizi.html', year: 1973, capital: 1662, capitalLabel: 'NT$ 166.2 億', chairman: '羅智先', listed: true, stock: '2511', strokes: 4, scale: 150, approx: true, tags: ['上市 2511', '成立 1973', '統一集團', '南台灣・雙北'], warn: false },
+            { name: '冠德建設', en: 'Kindom Construction Corp.', file: 'builder-kuander.html', year: 1979, capital: 466, capitalLabel: 'NT$ 46.6 億', chairman: '馬志綱', listed: true, stock: '2520', strokes: 9, scale: 100, approx: true, tags: ['上市 2520', '成立 1979', '雙北・桃園'], warn: false },
+            { name: '長虹建設', en: 'Changhong Construction Co., Ltd.', file: 'builder-longhome.html', year: 1975, capital: 290, capitalLabel: 'NT$ 29 億', chairman: '李文造', listed: true, stock: '5534', strokes: 8, scale: 68, approx: false, tags: ['上市 5534', '成立 1975', '台北精品住宅'], warn: false },
+            { name: '皇翔建設', en: 'Huang Siang Construction Co., Ltd.', file: 'builder-huangsiang.html', year: 1989, capital: 327, capitalLabel: 'NT$ 32.7 億', chairman: '廖年吉', listed: true, stock: '2545', strokes: 9, scale: 80, approx: true, tags: ['上市 2545', '成立 1989', '中高端住宅'], warn: false },
+            { name: '國揚建設', en: 'Kuo Yang Construction Corp.', file: 'builder-guoyang.html', year: 1972, capital: 504, capitalLabel: 'NT$ 50.4 億', chairman: '林子寬', listed: true, stock: '2505', strokes: 11, scale: 80, approx: true, tags: ['上市 2505', '成立 1972', '北台灣'], warn: false },
+            { name: '寶佳建設', en: 'Baojia Construction', file: 'builder-baojia.html', year: 1994, capital: 2, capitalLabel: 'NT$ 2 億（母公司）', chairman: '孔令儀', listed: false, strokes: 20, scale: 500, approx: true, tags: ['未上市', '成立 1994', '多子公司架構'], warn: true, warnLabel: '結構複雜' },
+            { name: '樺輝建設', en: 'Hua Hui Construction', file: 'builder-huahui.html', year: 2004, capital: 12, capitalLabel: 'NT$ 1.18 億', chairman: '侯榮華', listed: false, strokes: 15, scale: 5, approx: false, tags: ['未上市', '成立 2004', '精品小型建商'], warn: false },
+            { name: '遠雄建設', en: 'Far Glory Development Corp.', file: 'builder-farglory.html', year: 1970, capital: 835, capitalLabel: 'NT$ 83.5 億', chairman: '趙文嘉', listed: true, stock: '5522', strokes: 14, scale: 600, approx: true, tags: ['上市 5522', '成立 1970', '雙北・桃園・高雄'], warn: false },
+            { name: '興富發建設', en: 'Highwealth Construction Corp.', file: 'builder-hfd.html', year: 1980, capital: 897, capitalLabel: 'NT$ 89.7 億', chairman: '曹淵博', listed: true, stock: '2542', strokes: 15, scale: 210, approx: true, tags: ['上市 2542', '成立 1980', '全台布局'], warn: false },
+            { name: '國泰建設', en: 'Cathay Real Estate Development Co.', file: 'builder-cathay.html', year: 1964, capital: 1136, capitalLabel: 'NT$ 113.6 億', chairman: '蔡鎮宇', listed: true, stock: '2501', strokes: 11, scale: 50, approx: true, tags: ['上市 2501', '成立 1964', '國泰金控', '北台灣'], warn: false },
+            { name: '宏國建設', en: 'Hung Kuo Construction', file: 'builder-hungkuo.html', year: 1964, capital: 300, capitalLabel: 'NT$ 30 億', chairman: '林鴻道', listed: false, strokes: 7, scale: 17, approx: true, tags: ['未上市', '成立 1964', '京華城', '台北'], warn: false },
+            { name: '潤泰創新', en: 'Ruentex Development Co.', file: 'builder-ruentex.html', year: 1975, capital: 610, capitalLabel: 'NT$ 61 億', chairman: '簡滄圳', listed: true, stock: '9945', strokes: 15, scale: 10, approx: true, tags: ['上市 9945', '成立 1975', '潤泰集團', '日系工法'], warn: false },
+            { name: '華固建設', en: 'Huaku Development Co.', file: 'builder-huaku.html', year: 1996, capital: 448, capitalLabel: 'NT$ 44.8 億', chairman: '鍾榮昌', listed: true, stock: '2548', strokes: 6, scale: 100, approx: true, tags: ['上市 2548', '成立 1996', '台北精品住宅'], warn: false },
+            { name: '京城建設', en: 'Kindom Construction Corp.', file: 'builder-kindom.html', year: 1981, capital: 630, capitalLabel: 'NT$ 63 億', chairman: '蔡天贊', listed: true, stock: '2524', strokes: 8, scale: 25, approx: true, tags: ['上市 2524', '成立 1981', '南台灣・高雄'], warn: false },
+            { name: '達欣工程', en: 'Da-Cin Construction Co.', file: 'builder-dachien.html', year: 1967, capital: 270, capitalLabel: 'NT$ 27 億', chairman: '王人正', listed: true, stock: '2535', strokes: 13, scale: 9, approx: true, tags: ['上市 2535', '成立 1967', '營造・建設雙軌'], warn: false },
+            { name: '大陸建設', en: 'Continental Development Corp.', file: 'builder-continental.html', year: 1964, capital: 600, capitalLabel: 'NT$ 60 億', chairman: '張良吉', listed: true, stock: '5519', strokes: 3, scale: 16, approx: true, tags: ['上市 5519', '成立 1964', '欣陸投控', '都更豪宅'], warn: false },
+            { name: '鴻柏建設', en: 'Hong Bai Construction', file: 'builder-hungpai.html', year: 2010, capital: 30, capitalLabel: 'NT$ 3 億', chairman: '張志宏', listed: false, strokes: 17, scale: 10, approx: false, tags: ['未上市', '成立 2010', '台中精品小宅'], warn: false },
+            { name: '南國建設', en: 'Nankuo Construction', file: 'builder-nanguocc.html', year: 1985, capital: 80, capitalLabel: 'NT$ 8 億', chairman: '陳國良', listed: false, strokes: 9, scale: 7, approx: false, tags: ['未上市', '成立 1985', '高雄・台南'], warn: false },
+            { name: '永慶建設', en: 'Yung Ching Construction', file: 'builder-yungching.html', year: 1988, capital: 50, capitalLabel: 'NT$ 5 億', chairman: '孫慶餘', listed: false, strokes: 5, scale: 5, approx: false, tags: ['未上市', '成立 1988', '永慶集團'], warn: false }
+        ];
+
+        let currentView = 'grid';
+        let filteredBuilders = [...builders];
+
+        // Initialize
+        function init() {
+            // Check URL parameter
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            if (query) {
+                document.getElementById('searchInput').value = query;
+            }
+
+            // Set initial view
+            renderGrid();
+            renderMobileList();
+            setupEventListeners();
+        }
+
+        function setupEventListeners() {
+            document.getElementById('searchInput').addEventListener('input', handleSearch);
+            document.getElementById('sortSelect').addEventListener('change', handleSort);
+            document.getElementById('gridViewBtn').addEventListener('click', switchToGrid);
+            document.getElementById('listViewBtn').addEventListener('click', switchToList);
+        }
+
+        function handleSearch(e) {
+            const query = e.target.value.toLowerCase();
+            filteredBuilders = builders.filter(b =>
+                b.name.toLowerCase().includes(query) ||
+                b.en.toLowerCase().includes(query) ||
+                b.stock?.includes(query) ||
+                b.chairman.includes(query)
+            );
+            updateCount();
+            renderGrid();
+            renderList();
+            renderMobileList();
+        }
+
+        function handleSort(e) {
+            const sortBy = e.target.value;
+            switch(sortBy) {
+                case 'stroke':
+                    filteredBuilders.sort((a, b) => a.strokes - b.strokes);
+                    break;
+                case 'year_asc':
+                    filteredBuilders.sort((a, b) => a.year - b.year);
+                    break;
+                case 'year_desc':
+                    filteredBuilders.sort((a, b) => b.year - a.year);
+                    break;
+                case 'scale':
+                    filteredBuilders.sort((a, b) => b.scale - a.scale);
+                    break;
+            }
+            renderGrid();
+            renderList();
+            renderMobileList();
+        }
+
+        function switchToGrid() {
+            currentView = 'grid';
+            const gc = document.getElementById('gridContainer');
+            gc.classList.remove('hidden');
+            gc.classList.add('hidden', 'md:block');
+            document.getElementById('listContainer').classList.add('hidden');
+            document.getElementById('listContainer').classList.remove('md:block');
+            document.getElementById('gridViewBtn').classList.remove('text-gray-400');
+            document.getElementById('gridViewBtn').classList.add('text-architect-bronze');
+            document.getElementById('listViewBtn').classList.add('text-gray-400');
+            document.getElementById('listViewBtn').classList.remove('text-architect-bronze');
+            renderGrid();
+        }
+
+        function switchToList() {
+            currentView = 'list';
+            document.getElementById('gridContainer').classList.add('hidden');
+            document.getElementById('gridContainer').classList.remove('md:block');
+            const lc = document.getElementById('listContainer');
+            lc.classList.remove('hidden');
+            lc.classList.add('hidden', 'md:block');
+            document.getElementById('listViewBtn').classList.remove('text-gray-400');
+            document.getElementById('listViewBtn').classList.add('text-architect-bronze');
+            document.getElementById('gridViewBtn').classList.add('text-gray-400');
+            document.getElementById('gridViewBtn').classList.remove('text-architect-bronze');
+            renderList();
+        }
+
+        function updateCount() {
+            document.getElementById('countBadge').textContent = filteredBuilders.length;
+        }
+
+        function renderGrid() {
+            const container = document.getElementById('gridContent');
+            container.innerHTML = '';
+
+            filteredBuilders.forEach((builder, index) => {
+                const card = document.createElement('div');
+                card.className = 'p-10 hover:bg-white transition-colors duration-500 cursor-pointer border border-stone-200';
+                card.onclick = () => window.location.href = builder.file;
+
+                card.innerHTML = `
+                    <div class="mb-4">
+                        <h3 class="font-serif text-2xl font-bold mb-1">${builder.name}</h3>
+                        <p class="blueprint-label text-stone-500">${builder.en}</p>
+                    </div>
+                    ${builder.warn ? `<span class="inline-block text-architect-terracotta font-sans text-xs tracking-widest py-1 px-2 border border-architect-terracotta mb-4">${builder.warnLabel}</span>` : ''}
+                    <div class="border-t border-stone-200 pt-4 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <span class="blueprint-label text-stone-500">資本額</span>
+                            <span class="font-serif text-base font-bold">${builder.capitalLabel}</span>
+                        </div>
+                        <div class="flex justify-between items-baseline">
+                            <span class="blueprint-label text-stone-500">建案數</span>
+                            <span class="font-serif text-base font-bold" style="color:#A67C52;">${builder.scale}${builder.approx ? '+' : ''}</span>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function renderList() {
+            const container = document.getElementById('listContent');
+            container.innerHTML = '';
+
+            filteredBuilders.forEach((builder) => {
+                const row = document.createElement('div');
+                row.className = 'py-6 px-0 hover:bg-white transition-colors duration-500 cursor-pointer grid grid-cols-12 gap-4 items-center';
+                row.onclick = () => window.location.href = builder.file;
+
+                let warnHTML = builder.warn ? `<span class="inline-block text-architect-terracotta font-sans text-xs tracking-widest py-0.5 px-1.5 border border-architect-terracotta ml-2">${builder.warnLabel}</span>` : '';
+
+                row.innerHTML = `
+                    <div class="col-span-4">
+                        <h3 class="font-serif text-base font-bold inline">${builder.name}</h3>
+                        ${warnHTML}
+                        <p class="blueprint-label text-stone-500 text-xs mt-1">${builder.en}</p>
+                    </div>
+                    <div class="col-span-3">
+                        <span class="font-sans text-sm text-stone-600">${builder.capitalLabel}</span>
+                    </div>
+                    <div class="col-span-3" style="display:flex;align-items:center;gap:4px;">
+                        <span style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:900;color:#A67C52;">${builder.scale}</span>
+                        <span style="font-size:11px;color:#666;letter-spacing:0.08em;">${builder.approx ? '+' : ''} 建案</span>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                        <i data-lucide="arrow-right" class="w-4 h-4 stroke-[1.5] text-stone-500"></i>
+                    </div>
+                `;
+
+                container.appendChild(row);
+            });
+
+            lucide.createIcons();
+        }
+
+        function renderMobileList() {
+            const container = document.getElementById('mobileListContent');
+            container.innerHTML = '';
+
+            filteredBuilders.forEach((builder) => {
+                const row = document.createElement('div');
+                row.className = 'mobile-list-row';
+                row.onclick = () => window.location.href = builder.file;
+
+                let warnDot = '';
+                if (builder.warn) {
+                    warnDot = '<div class="warn-dot"></div>';
+                }
+
+                row.innerHTML = `
+                    <div class="mobile-list-left">
+                        <span class="font-serif text-base font-bold">${builder.name}</span>
+                        ${warnDot}
+                    </div>
+                    <div class="mobile-list-right">
+                        <span class="font-sans text-xs text-stone-400" style="margin-right:4px;">${builder.capitalLabel}</span>
+                        <span class="font-sans text-sm" style="color:#A67C52;font-weight:600;">${builder.scale} 建案</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 stroke-[1.5] text-stone-500"></i>
+                    </div>
+                `;
+
+                container.appendChild(row);
+            });
+
+            // Recreate icons for the newly added elements
+            lucide.createIcons();
+        }
+
+        // Initialize icons
+        lucide.createIcons();
+
+        // Run init
+        init();
+    </script>
+</body>
+</html>

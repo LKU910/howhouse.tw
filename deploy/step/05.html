@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 05: 建商調查 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="學會調查建商信譽：從商業司、司法院、PTT查詢建商背景，看資本額、過去案件、司法紀錄、住戶評價。用HomeRUN建商資料頁深入了解。">
+    <link rel="canonical" href="https://homerun.com.tw/step/05.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "建商調查",
+        "text": "學會調查建商信譽：從商業司、司法院、PTT查詢建商背景，看資本額、過去案件、司法紀錄、住戶評價。用HomeRUN建商資料頁深入了解。",
+        "url": "https://homerun.com.tw/step/05.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">研究功課</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html" selected>Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 28%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 05: 建商調查</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 05</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">建商調查</h1>
+                <p class="font-sans text-base text-stone-600">不是所有建商都可信，要學會自己查證</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="building-2" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">查建商背景</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="file-search" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">查過往建案</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">查糾紛紀錄</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="star" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">評估信譽度</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+                <!-- Section 1: Why This Step is Important -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        預售屋的風險在於「建商」。建商如果經營不善、資金斷裂、或簽約承諾食言，你的幾百萬可能就泡湯了。台灣每年都有建商跑路或延期交屋的新聞。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        買預售屋前，你應該像投資人一樣，調查這個「公司」的信用狀況、過往紀錄、財務穩定性。不要只聽業務員說「這間建商很大，沒問題」。要自己查。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步會教你：如何查建商背景、如何判斷紅旗警訊、如何看住戶評價、如何善用 HomeRUN 的建商資料。
+                    </p>
+                </section>
+
+                <!-- Section 2: How to Do It -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="list-checks" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">具體怎麼做？</h2>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第1步：基本背景查詢</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        先了解這間建商的基本資訊：成立年份、資本額、營運狀況。這些能判斷公司的財務實力。
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>經濟部商業司：</strong>查詢公司登記資料。成立年份越久越好，資本額越高越好。</li>
+                        <li><strong>Google 搜尋：</strong>建商名字 + 「新聞」或「評價」，快速了解有沒有負面新聞。</li>
+                        <li><strong>全國工業總會或營造業公會：</strong>有些大建商會列在這些機構的會員名單。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>✓ 好的信號：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-2">
+                            <li>成立年份 10 年以上</li>
+                            <li>資本額 5 千萬以上（越高越好）</li>
+                            <li>過去有多個竣工案件</li>
+                            <li>沒有新聞負面紀錄</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第2步：司法紀錄查詢</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        建商有沒有法律糾紛？有沒有被客戶告過？司法院網站可以查。
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>司法院法學檢索系統：</strong>搜尋建商名字，看有沒有判例。</li>
+                        <li><strong>內容重點：</strong>看他們被告的是什麼（品質問題？延期交屋？詐欺？），被告次數多不多，輸贏如何。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong><i data-lucide="alert-triangle" class="w-4 h-4 text-architect-terracotta stroke-[1.5] inline-block mr-1"></i> 黃燈警訊：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-2">
+                            <li>被告次數特別多（超過 5 件）</li>
+                            <li>主要被告類型是品質或交屋問題</li>
+                            <li>有被客戶控告詐欺的紀錄</li>
+                            <li>法院判決多次敗訴</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第3步：過去案件調查</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        看建商過往做過的案件。他們的房子品質好不好？有沒有出過問題？
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>建商官網：</strong>看他們完成了多少案件，地點在哪裡。</li>
+                        <li><strong>實價登錄：</strong>查一些他們過往竣工案件的成交價格，看有沒有退價的跡象。</li>
+                        <li><strong>Google 街景：</strong>看他們的舊案件，房子現況如何，有沒有老化、破損。</li>
+                    </ul>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第4步：居民評價查詢</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        最誠實的評價來自住過建商房子的人。他們最了解品質和售後服務。
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>PTT 房板：</strong>搜尋建商名字，看有沒有負評。注意特定社區的討論串。</li>
+                        <li><strong>Facebook 社團：</strong>各地都有「某某社區」的 FB 社團。加入後問問住戶的評價。</li>
+                        <li><strong>Google 評論：</strong>搜尋建商名字，看有沒有評論。</li>
+                        <li><strong>建商官方客服：</strong>問問他們有沒有過往客戶可以參考。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>提示：</strong>不要只看一兩條評論。要看多個案件、多個來源。如果很多人都說「這建商交屋延遲」或「品質很差」，那就要警戒。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第5步：使用 HomeRUN 建商資料頁</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        HomeRUN 特別整理了台灣主要建商的信譽檔案。我們蒐集了商業背景、司法紀錄、過往案件、住戶評價，讓你一頁就看清楚。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        造訪 <a href="../builders.html" class="text-architect-bronze font-semibold hover:underline">HomeRUN 建商履歷頁面</a>，搜尋你感興趣的建商，快速了解他們的信用度。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第6步：檢查營造資格和甲級營造判定</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        台灣的營造業有分級。資本額和建築歷史不同，決定了建商能接哪些案子。甲級營造代表較強的資本和實力：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>甲級營造的標準（至少滿足以下條件）：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>資本額 2 億以上</li>
+                            <li>營業執照登記為「建築工程業」或「營造業」</li>
+                            <li>有 10 年以上的營運經驗</li>
+                            <li>具有合格的建築師和技師</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        不是甲級營造的建商不一定不好，但甲級營造通常財力較穩定，交屋風險較低。如果是小建商，更要特別檢查資本額和財務狀況。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第7步：識別紅旗警訊 - 公司名字頻繁變更</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        如果一個建商的營業執照從 A 公司改成 B 公司改成 C 公司，這就是一個危險信號。可能原因包括：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>逃避債務：</strong>舊公司申請組織變更或註銷，把負債甩掉，用新公司名義繼續營運</li>
+                        <li><strong>規避法律責任：</strong>如果舊公司被告，用新公司名義做事，法律責任不清楚</li>
+                        <li><strong>資金問題：</strong>融資困難，用新公司名義重新融資</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        查詢時注意：同一個負責人，開設了多個不同名字的公司。經濟部商業司的公司登記資料會記錄歷史。如果發現這種情況，要特別謹慎。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第8步：資本額和實繳資本的差異</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        經濟部的公司登記會顯示「資本額」和「實收資本額」。這兩個數字差很大代表問題：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>健康的狀況：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mt-2">登記資本額 5 億，實收資本額也是 5 億 → 都已經繳進去，公司有真實的資金。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>危險信號：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mt-2">登記資本額 5 億，實收資本額只有 1 億 → 代表 80% 的資本還沒實際繳入。這樣的公司看起來有錢，其實「空心」。如果建築過程中需要額外資金，可能無法籌措。</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        建商買房前，一定要確認「實收資本額」達到登記資本額的 80% 以上。否則融資困難時，你的工程進度會受到影響。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第9步：整合判斷，打分數</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        把上面的資訊整合，給建商打分數。不需要完美，但要達到你的標準。
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>評分表範例：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mb-2 mt-2">• 成立年份和資本額：好，12 年歷史，實收資本 3 億</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">• 司法紀錄：只有 2 件訴訟，都贏了，沒問題</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">• 營造資格：甲級營造，符合標準</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">• 過往案件品質：評價混合，有些人說好，有些人說一般</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">• 交屋時間：準時交屋 2 個案件，延遲 1 個案件（但只延遲 3 個月）</p>
+                        <p class="font-sans text-sm text-stone-700">→ 綜合評分：中等偏上，可以接受，但簽約要小心條款，工程階段要積極催促</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>關鍵提醒：</strong>建商評價不是買或不買的唯一因素。一個評價普通的建商，但房子地點很好、價格合理，你可能還是會買。但至少要知道風險在哪裡。好建商 + 爛地點 = 後悔；爛建商 + 好地點 = 風險大。</p>
+                    </div>
+                </section>
+
+                <!-- Section 3: Common Mistakes -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見錯誤</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 1：「知名大建商，不用調查」</h3>
+                        <p class="font-sans text-sm text-stone-700">大建商也會有問題。宏都拉斯、興富發、遠雄等知名建商過去也有訴訟和交屋延遲。大不等於好，還是要查。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 2：「只看一個來源的評價」</h3>
+                        <p class="font-sans text-sm text-stone-700">網路評論可能不客觀。有人被建商惹火會發狂評論，有人只看外觀不深入了解。要多看幾個來源，尤其是要問實際住戶。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 3：「有訴訟紀錄就不買」</h3>
+                        <p class="font-sans text-sm text-stone-700">有訴訟不一定是壞事。很多合理的糾紛最後都通過法律解決。重點是看被告什麼、輸贏如何。一兩件訴訟不是紅旗。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 4：「只問房仲，不自己調查」</h3>
+                        <p class="font-sans text-sm text-stone-700">房仲當然不會說建商的壞話。他們有銷售目標。要自己做功課，看建商背景。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 5：「建商評價差，但我還是買了」不簽好合約</h3>
+                        <p class="font-sans text-sm text-stone-700">如果你決定買評價差的建商，更要在簽約時保護自己。明確的交屋時間、違約金條款、品質保證。別省那筆律師費。</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Practical Resources -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="bookmark" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">實用資源</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="search" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 建商資料查詢</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>HomeRUN 建商履歷：</strong> <a href="../builders.html" target="_blank" class="text-architect-bronze hover:underline">homerun.com.tw/builders.html</a> - 整合的建商信譽資料</li>
+                            <li><strong>經濟部商業司登記查詢：</strong> <a href="https://findbiz.nat.gov.tw" target="_blank" class="text-architect-bronze hover:underline">findbiz.nat.gov.tw</a> - 公司基本資料</li>
+                            <li><strong>司法院法學檢索系統：</strong> <a href="https://nljra.judicial.gov.tw" target="_blank" class="text-architect-bronze hover:underline">nljra.judicial.gov.tw</a> - 判例查詢</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">👥 居民評價來源</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>PTT 房板：</strong> <a href="https://www.ptt.cc/bbs/Real_Estate/index.html" target="_blank" class="text-architect-bronze hover:underline">PTT.cc</a> - 搜尋建商名字和社區名稱</li>
+                            <li><strong>Facebook 社團：</strong>搜尋「[社區名稱]住戶討論」或「[社區名稱]社團」</li>
+                            <li><strong>Google 評論：</strong>搜尋建商名字，看評論</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 其他參考</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>建商官方網站：</strong>看他們的過往案件列表</li>
+                            <li><strong>內政部實價登錄：</strong>查建商過往案件的成交價格</li>
+                            <li><strong>律師或代書：</strong>簽約前讓專業人士看過合約</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 5: Key Takeaway -->
+                <section>
+                    <div class="border border-stone-200 p-6 bg-white rounded">
+                        <h3 class="font-serif font-bold text-stone-900 text-lg mb-3"><div class="flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i> 重點提醒</div></h3>
+                        <ul class="font-sans text-stone-800 space-y-2">
+                            <li>✓ 查建商的成立年份、資本額、營運狀況</li>
+                            <li>✓ 在司法院網站查有沒有訴訟紀錄</li>
+                            <li>✓ 看他們過往案件，品質和交屋時間</li>
+                            <li>✓ 上 PTT、FB 社團問實際住戶</li>
+                            <li>✓ 使用 HomeRUN 建商資料頁，快速了解</li>
+                            <li>✓ 綜合所有資訊，判斷風險等級</li>
+                            <li>✓ 風險高的建商，簽約時更要小心保護自己</li>
+                        </ul>
+                    </div>
+                </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="04.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 04: 實價登錄怎麼看</p>
+            </a>
+            <a href="06.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 06: 區域評估</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="04.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">5/18</span>
+        <a href="06.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

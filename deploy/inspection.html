@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>驗屋推薦 — 買房第 14 步 | HomeRUN 好宅通</title>
+    <meta name="description" content="買房 18 步流程的第 14 步：交屋前驗屋。HomeRUN 為你精選台灣值得信賴的專業驗屋團隊，200+ 項目系統化檢測，花小錢避免入住後花大錢。">
+    <meta name="keywords" content="驗屋,驗屋推薦,驗屋公司,新成屋驗屋,房屋檢驗,交屋檢查,驗屋報告,HomeRUN,好宅通">
+    <meta name="canonical" href="https://homerun.com.tw/inspection.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="驗屋推薦 | HomeRUN 好宅通 - 精選台灣專業驗屋公司">
+    <meta property="og:description" content="交屋前最重要的一步！HomeRUN 為你精選台灣值得信賴的專業驗屋團隊，200+ 項目系統化檢測。">
+    <meta property="og:url" content="https://homerun.com.tw/inspection.html">
+    <meta property="og:site_name" content="HomeRUN 好宅通">
+    <meta property="og:locale" content="zh_TW">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="驗屋推薦 | HomeRUN 好宅通 - 精選台灣專業驗屋公司">
+    <meta name="twitter:description" content="交屋前最重要的一步！HomeRUN 精選值得信賴的專業驗屋團隊。">
+
+    <!-- Google Fonts: Noto Serif TC & Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#FAFAFA',
+                            100: '#F4F4F4',
+                            200: '#E5E5E5',
+                            800: '#2A2A2A',
+                            900: '#121212',
+                        },
+                        architect: {
+                            bronze: '#A67C52',
+                            terracotta: '#9C4A38',
+                            slate: '#4A5D6A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Schema.org Service Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "HomeRUN 驗屋推薦",
+        "description": "精選台灣值得信賴的專業驗屋團隊",
+        "url": "https://homerun.com.tw/inspection.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "HomeRUN 好宅通",
+            "url": "https://homerun.com.tw"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "TW"
+        }
+    }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E5E5; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(4px);
+            z-index: 50;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu-item {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.5rem;
+            color: #121212;
+            text-decoration: none;
+            margin: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-item:hover {
+            color: #A67C52;
+        }
+
+        .mobile-menu-item.active {
+            color: #121212;
+        }
+
+        /* Underline links style */
+        .link-underline {
+            color: #A67C52;
+            text-decoration: none;
+            border-bottom: 1px solid #A67C52;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .link-underline:hover {
+            color: #9C4A38;
+            border-bottom-color: #9C4A38;
+        }
+
+        /* Card Grid with gaps */
+        .card-grid {
+            display: grid;
+            gap: 1px;
+            background-color: #E5E5E5;
+            margin-bottom: 2rem;
+        }
+
+        .card-grid.cols-3 {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid.cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card-grid-item {
+            background-color: #FAFAFA;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-grid-item:hover {
+            background-color: #FFFFFF;
+        }
+
+        /* FAQ Accordion */
+        .accordion-item {
+            border-bottom: 1px solid #E5E5E5;
+            padding: 1.5rem 0;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #121212;
+            transition: color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            color: #A67C52;
+        }
+
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            color: #A67C52;
+            flex-shrink: 0;
+            stroke-width: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding-top: 1rem;
+            font-size: 0.95rem;
+            color: #2A2A2A;
+            line-height: 1.7;
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col" style="background-color: #FAFAFA; color: #121212;">
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center font-serif text-2xl text-center">
+            <a href="index.html#buyingFlow" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="builders.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <span class="text-stone-900 font-serif text-2xl">驗屋推薦</span>
+            <a href="about.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 w-full">
+        <!-- Hero Section -->
+        <section class="px-6 md:px-12 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-8">
+                    <h1 class="font-serif text-3xl sm:text-4xl md:text-6xl font-black tracking-tight leading-tight text-stone-900">
+                        買房 18 步的第 14 步：<br class="hidden sm:inline"><span class="text-architect-bronze">驗屋</span>
+                    </h1>
+                </div>
+                <div class="lg:col-span-4 pb-2">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">花一筆小錢，避免入住後花大錢修繕。HomeRUN 為你精選值得信賴的專業驗屋團隊——這是我們「買房教練」服務的第一個落地推薦。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Inspection Section -->
+        <section class="w-full border-b border-stone-200 px-6 md:px-12 py-12 md:py-16">
+            <div class="max-w-5xl mx-auto">
+                <span class="font-sans text-xs tracking-widest text-stone-500 uppercase">為什麼需要驗屋</span>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 mt-3 mb-4">為什麼驗屋不能省？</h2>
+                <p class="font-sans text-base text-stone-800 mb-8">新房看起來再漂亮，也可能暗藏防水不良、電線配置錯誤、地板空心等問題。交屋前請專業團隊檢查一次，是保護你幾百萬投資最划算的方式。</p>
+
+                <div class="card-grid cols-3">
+                    <div class="card-grid-item">
+                        <svg class="w-12 h-12 mb-4 text-architect-bronze" data-lucide="microscope" stroke-width="1.5"></svg>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">專業設備</h3>
+                        <p class="font-sans text-sm text-stone-800 leading-relaxed">紅外線熱像儀、水分計等專業工具，肉眼看不到的問題也能發現</p>
+                    </div>
+                    <div class="card-grid-item">
+                        <svg class="w-12 h-12 mb-4 text-architect-bronze" data-lucide="clipboard-check" stroke-width="1.5"></svg>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">系統化檢查</h3>
+                        <p class="font-sans text-sm text-stone-800 leading-relaxed">200+ 項目逐一檢測，不遺漏任何細節</p>
+                    </div>
+                    <div class="card-grid-item">
+                        <svg class="w-12 h-12 mb-4 text-architect-bronze" data-lucide="file-text" stroke-width="1.5"></svg>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">書面報告</h3>
+                        <p class="font-sans text-sm text-stone-800 leading-relaxed">專業驗屋報告是要求建商修繕的有力依據</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Companies Section -->
+        <section class="w-full border-b border-stone-200 px-6 md:px-12 py-12 md:py-16">
+            <div class="max-w-5xl mx-auto">
+                <span class="font-sans text-xs tracking-widest text-stone-500 uppercase">驗屋合作</span>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 mt-3 mb-4">合作驗屋團隊</h2>
+                <p class="font-sans text-base text-stone-800 mb-8">我們正在嚴選全台各區優質驗屋公司，確保每一家都符合 HomeRUN 的推薦標準。</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border border-stone-200 rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 rounded-full bg-architect-bronze/10 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-stone-900 mb-2">北部地區</h3>
+                        <p class="font-sans text-sm text-stone-500">台北・新北・桃園</p>
+                        <span class="inline-block font-sans text-xs tracking-widest text-architect-bronze border border-architect-bronze/30 px-3 py-1 mt-4 rounded-full">洽談中</span>
+                    </div>
+                    <div class="border border-stone-200 rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 rounded-full bg-architect-bronze/10 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-stone-900 mb-2">中部地區</h3>
+                        <p class="font-sans text-sm text-stone-500">台中・彰化・新竹</p>
+                        <span class="inline-block font-sans text-xs tracking-widest text-architect-bronze border border-architect-bronze/30 px-3 py-1 mt-4 rounded-full">洽談中</span>
+                    </div>
+                    <div class="border border-stone-200 rounded-lg p-6 text-center">
+                        <div class="w-12 h-12 rounded-full bg-architect-bronze/10 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold text-stone-900 mb-2">南部地區</h3>
+                        <p class="font-sans text-sm text-stone-500">台南・高雄・屏東</p>
+                        <span class="inline-block font-sans text-xs tracking-widest text-architect-bronze border border-architect-bronze/30 px-3 py-1 mt-4 rounded-full">洽談中</span>
+                    </div>
+                </div>
+
+                <div class="mt-10 bg-stone-100 border border-stone-200 rounded-lg p-6 md:p-8 text-center">
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">我們的篩選標準</h3>
+                    <p class="font-sans text-sm text-stone-600 leading-relaxed max-w-2xl mx-auto mb-4">
+                        HomeRUN 只推薦通過我們審核的驗屋公司：合法登記、專業設備（紅外線熱像儀、水分計等）、提供完整書面報告、市場口碑良好。我們不收取驗屋公司上架費，確保推薦的客觀性。
+                    </p>
+                    <p class="font-sans text-sm text-stone-800 font-medium">你是驗屋公司？歡迎<a href="about.html#contact" class="text-architect-bronze hover:underline">與我們聯繫</a>，加入合作行列。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="w-full border-b border-stone-200 px-6 md:px-12 py-12 md:py-16">
+            <div class="max-w-5xl mx-auto">
+                <span class="font-sans text-xs tracking-widest text-stone-500 uppercase">驗屋流程</span>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 mt-3 mb-4">簡單三個步驟</h2>
+                <p class="font-sans text-base text-stone-800 mb-8">完成房屋檢驗。</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="font-serif text-5xl font-black text-stone-200 mb-3">1</div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">選擇驗屋公司</h3>
+                        <p class="font-sans text-sm text-stone-800">根據地區和需求選擇合適的驗屋團隊</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-serif text-5xl font-black text-stone-200 mb-3">2</div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">預約驗屋時間</h3>
+                        <p class="font-sans text-sm text-stone-800">在建商通知交屋後、正式簽收前安排驗屋</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-serif text-5xl font-black text-stone-200 mb-3">3</div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">收到詳細報告</h3>
+                        <p class="font-sans text-sm text-stone-800">驗屋團隊出具報告，作為要求修繕的依據</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="w-full border-b border-stone-200 px-6 md:px-12 py-12 md:py-16">
+            <div class="max-w-5xl mx-auto">
+                <span class="font-sans text-xs tracking-widest text-stone-500 uppercase">常見問題</span>
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 mt-3 mb-8">你可能想知道的事</h2>
+
+                <div class="space-y-0">
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0">
+                            <span>驗屋費用大約多少？</span>
+                            <svg class="accordion-icon" data-lucide="chevron-down"></svg>
+                        </div>
+                        <div class="accordion-content">
+                            驗屋費用依坪數計算，行情約每坪 500-1,000 元。一般 25-40 坪住宅約 15,000-25,000 元，含完整檢測報告。複檢費用另計，通常 4,000-5,000 元/次。建議向驗屋公司詢問是否有複檢或後續追蹤服務。
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0">
+                            <span>什麼時候應該安排驗屋？</span>
+                            <svg class="accordion-icon" data-lucide="chevron-down"></svg>
+                        </div>
+                        <div class="accordion-content">
+                            最佳時機是建商通知交屋後、你正式簽收房屋鑰匙前。這個時間窗口很重要，因為你還有機會要求建商在交屋前修繕。不要等到簽收後才發現問題，那樣就晚了。
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0">
+                            <span>驗屋會檢查哪些項目？</span>
+                            <svg class="accordion-icon" data-lucide="chevron-down"></svg>
+                        </div>
+                        <div class="accordion-content">
+                            專業驗屋通常涵蓋 200+ 項檢測項目，包括：水電系統（配線、接地、漏電）、防水系統（廚浴、陽台、屋頂）、門窗（玻璃、五金、密封）、地板（平整度、空心）、牆面（裂紋、滲水）、排水系統（通暢度、氣味）、空調、安全設施等。
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0">
+                            <span>驗屋發現問題怎麼辦？</span>
+                            <svg class="accordion-icon" data-lucide="chevron-down"></svg>
+                        </div>
+                        <div class="accordion-content">
+                            你可以拿著驗屋報告向建商提出書面要求修繕。根據法律，建商有義務在交屋前修復重大缺陷。如果建商不願意修繕或修繕不完全，你甚至有權拒絕交屋。這就是為什麼書面的驗屋報告很重要。
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header" role="button" tabindex="0">
+                            <span>中古屋也需要驗屋嗎？</span>
+                            <svg class="accordion-icon" data-lucide="chevron-down"></svg>
+                        </div>
+                        <div class="accordion-content">
+                            強烈建議做，特別是屋齡超過 10 年的房屋。中古屋的隱藏問題往往比新房更多（防水滲漏、電線老化、管線堵塞等）。驗屋成本相比房屋價格微不足道，但能幫你避免買到問題房。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Flow CTA -->
+        <section class="w-full border-b border-stone-200 px-6 md:px-12 py-8 md:py-12">
+            <div class="max-w-5xl mx-auto">
+                <a href="step/14.html" class="link-underline inline-flex items-center gap-2">
+                    <svg class="w-4 h-4" data-lucide="arrow-left"></svg>
+                    回到買房流程 Step 14: 驗屋檢查
+                </a>
+            </div>
+        </section>
+
+        <!-- LINE CTA Section -->
+        <section class="w-full border-y border-stone-200 px-6 md:px-12 py-12 md:py-16" style="background-color: #F4F4F4;">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 mb-3">不確定怎麼選驗屋公司？</h2>
+                <p class="font-sans text-base text-stone-800 mb-6">加入 HomeRUN LINE 好友，告訴我們你的情況（地區、坪數、預算），我們幫你推薦最適合的驗屋團隊。</p>
+                <a href="https://line.me/R/ti/p/@homerun" target="_blank" class="inline-block font-sans font-bold px-6 py-3 rounded text-white transition-all duration-300 hover:opacity-90" style="background-color: #00B900;">
+                    加入 LINE 諮詢 →
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Disclaimer -->
+    <div class="w-full px-6 md:px-12 py-8 border-t border-stone-200">
+        <div class="max-w-5xl mx-auto">
+            <p class="font-sans text-xs text-stone-600 leading-relaxed">
+                本頁為 HomeRUN 驗屋推薦服務預告頁面，合作驗屋團隊正在洽談與審核中。正式上線後，驗屋服務將由各合作公司提供，HomeRUN 不承擔驗屋過程中的責任。推薦資訊僅供參考，請自行評估服務品質。
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Accordion toggle
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.closest('.accordion-header')) {
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

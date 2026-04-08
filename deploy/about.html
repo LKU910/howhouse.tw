@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我們是誰 — 台灣最可信的買房教練 | HomeRUN 好宅通</title>
+    <meta name="description" content="HomeRUN 好宅通是台灣第一個結構化買房流程指引平台，用 18 步帶首購族從「想買房」走到「住進去」。獨立運營、不收建商廣告費，只推薦我們信任的服務。">
+    <meta name="keywords" content="好宅通,HomeRUN,買房教練,買房流程,首購族,台灣房地產,買房指引,18步買房">
+    <link rel="canonical" href="https://homerun.com.tw/about.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="我們是誰 — 台灣最可信的買房教練 | HomeRUN 好宅通">
+    <meta property="og:description" content="台灣第一個結構化買房流程指引平台，用 18 步帶首購族從「想買房」走到「住進去」。">
+    <meta property="og:url" content="https://homerun.com.tw/about.html">
+    <meta property="og:site_name" content="HomeRUN 好宅通">
+    <meta property="og:locale" content="zh_TW">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="我們是誰 — 台灣最可信的買房教練 | HomeRUN 好宅通">
+    <meta name="twitter:description" content="台灣第一個結構化買房流程指引平台，用 18 步帶首購族從「想買房」走到「住進去」。">
+
+    <!-- Google Fonts: Noto Serif TC & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#FAFAFA',
+                            100: '#F4F4F4',
+                            200: '#E5E5E5',
+                            300: '#D4D4D4',
+                            800: '#2A2A2A',
+                            900: '#121212'
+                        },
+                        architect: {
+                            bronze: '#A67C52',
+                            terracotta: '#9C4A38',
+                            slate: '#4A5D6A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E5E5; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
+
+        /* Architectural Grid (3 columns with 1px gaps) */
+        .architectural-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background-color: #E5E5E5;
+            border: 1px solid #E5E5E5;
+        }
+
+        .architectural-grid-item {
+            background-color: #FAFAFA;
+            padding: 2.5rem;
+            transition: background-color 0.4s ease;
+        }
+
+        .architectural-grid-item:hover {
+            background-color: #FFFFFF;
+        }
+
+        @media (max-width: 768px) {
+            .architectural-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .architectural-grid-item {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Form Inputs */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 0;
+            border: none;
+            border-bottom: 1px solid #E5E5E5;
+            background-color: transparent;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.875rem;
+            color: #121212;
+            transition: border-color 0.5s;
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: #A67C52;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 0;
+            border: none;
+            border-bottom: 1px solid #E5E5E5;
+            background-color: transparent;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.875rem;
+            color: #121212;
+            resize: vertical;
+            min-height: 6rem;
+            transition: border-color 0.5s;
+        }
+
+        .form-textarea::placeholder {
+            color: #999;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-bottom-color: #A67C52;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            border: 1px solid #121212;
+            background-color: transparent;
+            color: #121212;
+            padding: 0.75rem 2rem;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .submit-btn:hover {
+            background-color: #121212;
+            color: #FAFAFA;
+        }
+
+        /* Blueprint Label */
+        .blueprint-label {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        /* Chinese typography fundamentals */
+        body {
+            overflow-x: hidden;
+            word-break: break-word;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        input:focus { outline: none; }
+    </style>
+</head>
+<body class="font-sans bg-stone-50 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center font-serif text-2xl text-center">
+            <a href="index.html#buyingFlow" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="builders.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="inspection.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="about.html" class="text-stone-900 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full">
+        <!-- 1. HERO SECTION -->
+        <section class="px-6 md:px-12 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-8">
+                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-stone-900">
+                        我們是誰
+                    </h1>
+                </div>
+                <div class="lg:col-span-4 pb-2">
+                    <div class="font-sans text-base text-stone-600 leading-relaxed">
+                        <span id="aboutDesc"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WHY SECTION -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">01 / 為什麼做這件事</div>
+                <div class="space-y-6 max-w-2xl">
+                    <p class="font-sans text-base md:text-lg text-stone-600 leading-relaxed">
+                        台灣有 591 幫你找物件、有實價登錄幫你查行情、有樂居幫你分析社區。但沒有任何一個平台告訴你：找到房子之後，下一步該做什麼、流程怎麼走、哪些坑要避開。
+                    </p>
+                    <p class="font-sans text-base md:text-lg text-stone-600 leading-relaxed">
+                        HomeRUN 好宅通就是為了填補這個空白。我們用 18 個步驟，帶首購族從「想買房」走到「住進去」——每一步提供公開資源、實務提醒，和可信賴的服務推薦。不收建商廣告費，不做業配推薦。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. METHODOLOGY SECTION (ARCHITECTURAL GRID) -->
+        <section class="px-6 md:px-12 py-14 md:py-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">02 / 我們做什麼</div>
+                <div class="architectural-grid">
+                    <div class="architectural-grid-item">
+                        <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">01</div>
+                        <h3 class="font-serif text-xl font-bold mb-3">18 步流程指引</h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">從需求釐清到入住管理，每一步都有具體的行動清單、注意事項和實務提醒</p>
+                    </div>
+                    <div class="architectural-grid-item">
+                        <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">02</div>
+                        <h3 class="font-serif text-xl font-bold mb-3">建商背景調查</h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">整理公司登記、司法紀錄、裁罰紀錄、網路輿情等公開資料，簽約前多一份參考</p>
+                    </div>
+                    <div class="architectural-grid-item">
+                        <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">03</div>
+                        <h3 class="font-serif text-xl font-bold mb-3">驗屋服務推薦</h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">精選合作驗屋團隊，交屋前幫你找出肉眼看不到的問題，保護你的投資</p>
+                    </div>
+                    <div class="architectural-grid-item">
+                        <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">04</div>
+                        <h3 class="font-serif text-xl font-bold mb-3">市場行情分析</h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">實價登錄趨勢、區域行情比較，用數據幫你看清市場（即將上線）</p>
+                    </div>
+                    <div class="architectural-grid-item">
+                        <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">05</div>
+                        <h3 class="font-serif text-xl font-bold mb-3">LINE 買房教練</h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">追蹤你的買房進度、每週推送實用知識，有問題隨時問（即將上線）</p>
+                    </div>
+                    <div class="architectural-grid-item">
+                        <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">06</div>
+                        <h3 class="font-serif text-xl font-bold mb-3">持續進化中</h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">貸款試算、裝修推薦、社區評比等功能正在規劃，歡迎告訴我們你最需要什麼</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. BOUNDARIES SECTION (DARK) -->
+        <section class="bg-stone-900 w-full px-6 md:px-12 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label text-stone-400">03 / 我們的底線</div>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-10">我們不做的事</h2>
+                <ul class="space-y-6 max-w-2xl">
+                    <li class="flex items-start gap-4">
+                        <span class="text-architect-bronze font-serif text-2xl mt-0 flex-shrink-0">—</span>
+                        <span class="font-sans text-lg text-stone-100">不收建商廣告費，所有推薦基於獨立判斷</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-architect-bronze font-serif text-2xl mt-0 flex-shrink-0">—</span>
+                        <span class="font-sans text-lg text-stone-100">不替你做購買決策（我們提供資訊和工具，判斷永遠留給你）</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-architect-bronze font-serif text-2xl mt-0 flex-shrink-0">—</span>
+                        <span class="font-sans text-lg text-stone-100">不誇大資料的完整性（公開資料有侷限，我們標明來源讓你自行驗證）</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <span class="text-architect-bronze font-serif text-2xl mt-0 flex-shrink-0">—</span>
+                        <span class="font-sans text-lg text-stone-100">不推薦我們不信任的服務（合作夥伴需經過篩選，品質不合格立即下架）</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5. WHO SECTION -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">04 / 團隊</div>
+                <div class="max-w-2xl">
+                    <p class="font-serif text-xl md:text-2xl font-bold leading-relaxed mb-6">
+                        自己第一次買房時發現：<span class="text-architect-bronze">流程沒人教、資訊散落各處，每一步都在踩坑</span>。所以做了這個平台。
+                    </p>
+                    <p class="font-sans text-base md:text-lg text-stone-600 leading-relaxed">
+                        目前是一人獨立專案，借助 AI 工具做內容和開發。我們沒有大團隊，但有清楚的方向：做台灣最可信的買房教練。內容不一定完美，但每天都在變好。如果你發現錯誤或有任何建議，非常歡迎告訴我們。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ SECTION -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">05 / 常見問題</div>
+                <div class="space-y-0 max-w-2xl">
+                    <!-- FAQ Item 1 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            HomeRUN 是什麼？跟 591、樂居有什麼不同？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            591 幫你找物件、樂居幫你看社區數據。HomeRUN 做的是「流程指引」——當你找到想買的房子，接下來該做什麼、怎麼避坑、找誰幫忙，這是我們的核心價值。我們不賣房子，只幫你把買房這件事搞清楚。
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            使用 HomeRUN 要收費嗎？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            所有流程指引、建商資料查詢完全免費，永遠不會收費。我們的收入來自合作服務的推薦佣金（例如驗屋），這讓我們可以保持內容免費、同時維持獨立運營。
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            推薦的服務（如驗屋）可信嗎？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            我們只推薦經過篩選的合作夥伴，不是誰付錢就推誰。合作夥伴的推薦佣金不影響我們的推薦標準——如果服務品質下降，我們會立即下架。透明揭露：推薦頁面會標明合作關係。
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            建商資料從哪裡來？正確嗎？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            主要來自經濟部商業司、司法院裁判書、公平交易委員會、實價登錄，以及 PTT、Mobile01 等公開平台。我們在每筆資料旁標註來源連結，但公開資料有侷限，可能有遺漏或時間差。重要決策前請自行至官方來源查證。
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            HomeRUN 的資訊可以當作買房決策依據嗎？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            本站提供的資訊僅供參考，不構成投資建議或購屋建議。購屋是重大財務決策，建議搭配專業的不動產經紀人、律師或財務顧問的意見。我們的角色是幫你理解流程、提供工具，最終的判斷永遠是你自己的。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT SECTION -->
+        <section id="contact" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-24">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">06 / 聯繫我們</div>
+
+                <!-- Two Column Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-stone-200 border border-stone-200">
+                    <!-- Left Form: 買房需求（Google Forms 整合） -->
+                    <div class="bg-stone-50 p-10 md:p-14">
+                        <h3 class="font-serif text-xl font-bold mb-8">
+                            告訴我們你的買房需求
+                        </h3>
+                        <!--
+                            ★ Google Forms 設定步驟：
+                            1. 到 Google Forms 建立表單，欄位依序為：
+                               - 你目前在哪一步（下拉選單）
+                               - 想了解的建商或區域（簡答）
+                               - 你最想解決的問題（段落）
+                               - Email（簡答，驗證 Email 格式）
+                            2. 取得表單預填連結 → 找出每個欄位的 entry.XXXXXXXXX ID
+                            3. 將下方 GOOGLE_FORM_ACTION_URL 換成你的表單網址
+                               （格式：https://docs.google.com/forms/d/e/XXXXX/formResponse）
+                            4. 將 4 個 name="entry.XXXXXXXXX" 換成對應的 entry ID
+                            5. 回覆會自動進入 Google Sheets（表單 → 回覆 → 試算表圖示）
+                        -->
+                        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                        <form
+                            class="space-y-6"
+                            id="recommend-form"
+                            action="GOOGLE_FORM_ACTION_URL"
+                            method="POST"
+                            target="hidden_iframe"
+                        >
+                            <div>
+                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                    你目前在哪一步？ *
+                                </label>
+                                <select
+                                    class="form-input"
+                                    name="entry.FIELD1_ID"
+                                    required
+                                >
+                                    <option value="" disabled selected>請選擇你的階段</option>
+                                    <option value="剛開始看房">剛開始看房（還在做功課）</option>
+                                    <option value="積極看房中">積極看房中（已經在跑現場）</option>
+                                    <option value="準備簽約">準備簽約（已有心儀物件）</option>
+                                    <option value="已簽約待交屋">已簽約，等待交屋</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                    想了解的建商或區域
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="例：遠雄、新光、竹北、三重"
+                                    class="form-input"
+                                    name="entry.FIELD2_ID"
+                                >
+                            </div>
+                            <div>
+                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                    你最想解決的問題
+                                </label>
+                                <textarea
+                                    placeholder="例：不知道怎麼殺價、想了解驗屋流程..."
+                                    class="form-textarea"
+                                    name="entry.FIELD3_ID"
+                                ></textarea>
+                            </div>
+                            <div>
+                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                    Email *
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="你的 Email"
+                                    class="form-input"
+                                    name="entry.FIELD4_ID"
+                                    required
+                                >
+                            </div>
+                            <button type="submit" class="submit-btn mt-8" id="recommend-btn">
+                                送出
+                            </button>
+                            <div id="recommend-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded text-green-800 text-sm">
+                                ✓ 已收到你的需求！我們會盡快回覆。同時歡迎加入 <a href="https://lin.ee/YOUR_LINE_ID" class="underline font-bold">LINE 官方帳號</a> 獲得即時協助。
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Right Form: Feedback（Google Forms 整合） -->
+                    <div class="bg-stone-50 p-10 md:p-14">
+                        <h3 class="font-serif text-xl font-bold mb-8">
+                            有想法？直接告訴我
+                        </h3>
+                        <!--
+                            ★ 另建一個 Google Form 用於意見回饋：
+                            1. 欄位：意見內容（段落）、Email（簡答，選填）
+                            2. 替換 GOOGLE_FEEDBACK_FORM_URL 和 entry ID
+                        -->
+                        <iframe name="hidden_iframe_fb" id="hidden_iframe_fb" style="display:none;"></iframe>
+                        <form
+                            class="space-y-6"
+                            id="feedback-form"
+                            action="GOOGLE_FEEDBACK_FORM_URL"
+                            method="POST"
+                            target="hidden_iframe_fb"
+                        >
+                            <div>
+                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                    意見內容 *
+                                </label>
+                                <textarea
+                                    placeholder="任何想法、建議或發現的問題..."
+                                    class="form-textarea"
+                                    name="entry.FEEDBACK_FIELD1_ID"
+                                    required
+                                ></textarea>
+                            </div>
+                            <div>
+                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="你的 Email（可留空）"
+                                    class="form-input"
+                                    name="entry.FEEDBACK_FIELD2_ID"
+                                >
+                            </div>
+                            <button type="submit" class="submit-btn mt-8" id="feedback-btn">
+                                提交意見
+                            </button>
+                            <div id="feedback-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded text-green-800 text-sm">
+                                ✓ 感謝你的意見！我們會認真看每一則回覆。
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Handling Script -->
+    <script>
+        lucide.createIcons();
+
+        // Typewriter effect
+        (function() {
+            const el = document.getElementById('aboutDesc');
+            const lines = ['591 上每天 60 萬人在找房子。', '找到之後，不知道下一步該做什麼。', '我們就是那個「下一步」。'];
+            let lineIdx = 0, charIdx = 0;
+            function type() {
+                if (lineIdx >= lines.length) return;
+                if (charIdx <= lines[lineIdx].length) {
+                    let html = '';
+                    for (let i = 0; i < lines.length; i++) {
+                        if (i < lineIdx) html += lines[i] + '<br>';
+                        else if (i === lineIdx) {
+                            html += lines[i].substring(0, charIdx);
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #A67C52;padding-right:2px;">&nbsp;</span>';
+                        }
+                    }
+                    el.innerHTML = html;
+                    charIdx++;
+                    setTimeout(type, 45);
+                } else { lineIdx++; charIdx = 0; setTimeout(type, 400); }
+            }
+            setTimeout(type, 400);
+        })();
+
+        // Google Forms 整合 — 表單送出後顯示成功訊息
+        document.getElementById('recommend-form').addEventListener('submit', function() {
+            const btn = document.getElementById('recommend-btn');
+            btn.disabled = true;
+            btn.textContent = '送出中...';
+            setTimeout(function() {
+                document.getElementById('recommend-success').classList.remove('hidden');
+                btn.textContent = '已送出 ✓';
+                btn.classList.add('opacity-50');
+            }, 1000);
+        });
+
+        document.getElementById('feedback-form').addEventListener('submit', function() {
+            const btn = document.getElementById('feedback-btn');
+            btn.disabled = true;
+            btn.textContent = '送出中...';
+            setTimeout(function() {
+                document.getElementById('feedback-success').classList.remove('hidden');
+                btn.textContent = '已送出 ✓';
+                btn.classList.add('opacity-50');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

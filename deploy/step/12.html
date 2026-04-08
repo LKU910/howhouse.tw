@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 12: 工程追蹤 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="HomeRUN 買房流程 Step 12">
+    <link rel="canonical" href="https://homerun.com.tw/step/12.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "工程追蹤",
+        "text": "HomeRUN 買房流程 Step 12",
+        "url": "https://homerun.com.tw/step/12.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">交易簽約</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html" selected>Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 67%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 12: 工程追蹤</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 12</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">工程追蹤</h1>
+                <p class="font-sans text-base text-stone-600">定期追蹤工程進度，確保建商按時按質施工</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="hard-hat" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">確認工程時程</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="eye" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">定期到場巡查</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="camera" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">拍照存證</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="phone" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">與建商溝通</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+<!-- 為什麼這步很重要 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        簽約後不是完事大吉，接下來 1-3 年的施工期是房屋品質的「決定期」。建築品質的好壞，往往在施工現場就決定了。你必須主動關注施工進度、檢查施工品質，才能確保交屋時的房屋符合約定。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        許多購屋者因為「相信建商」，很少去工地看，結果交屋時發現有漏水、壁癌、工程瑕疵等問題，後悔已晚。更糟的是，有些建商會遲交屋，導致買家無法如期入住，甚至面臨違約責任。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步的目標，是教你如何有效監管施工進度、識別工程問題、與建商溝通權益、以及保護自己的交屋權利。
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- 工程進度追蹤方式 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">如何追蹤工程進度</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">1</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">定期到工地實地查看</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    最直接的方式就是親自到工地看。建議每個月至少去一次，觀察施工進度、拍照存證。你有權利進入工地查看。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">🔍 檢查重點</p>
+                                        <p class="font-sans text-stone-600">基礎工程有無沉陷、結構樑柱是否完整、外牆防水是否施工、內部隔間進度、水電管線配置等。如果發現明顯問題（例如牆體裂縫、漏水痕跡），要拍照並請建商書面說明。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-terracotta text-white font-bold text-sm">2</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">索取施工進度報告</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    建商應該定期（通常每月）提供施工進度報告，詳細說明各工程階段的完成情況。要求索取書面版本，與合約上的預定時程對比。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-1">📋 應包含內容</p>
+                                        <p class="font-sans text-stone-600">各分項工程完成百分比、施工中的問題及解決方案、與預定進度的落差、下月計畫等。如果進度明顯落後，要求建商說明理由和補救計畫。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-slate text-white font-bold text-sm">3</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">加入建案社群和 LINE 群</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    幾乎所有預售屋都有購屋者組成的 LINE 群或 Facebook 社團，大家分享施工照片、進度訊息、問題回報。這是獲取最新信息的最快方式。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">💬 群組的好處</p>
+                                        <p class="font-sans text-stone-600">集體監督施工品質。如果多個人發現同樣的問題（例如某樓層漏水），更容易引起建商重視。群內也會分享購屋知識、交屋驗收經驗等實用信息。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">4</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">與建商保持定期溝通</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    建立與業務員、工程主任的定期聯繫。不要等出問題才聯絡，主動詢問進度、表達關注。保持友好關係有助於獲得更多信息和支持。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-1">📞 溝通管道</p>
+                                        <p class="font-sans text-stone-600">保留業務員、工程主任的聯絡方式，定期致電或簡訊詢問。建議有所疑問時用書面方式紀錄（LINE、Email），以便日後查證。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 建築施工階段與檢查重點 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="building-2" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">各個施工階段的檢查要點</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-sm text-stone-600 mb-3">
+                        建築工程通常分為 5 個主要階段。每個階段都有特定的檢查要點，發現問題要立即回報。
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">第 1 階段：基礎工程（地基、樁基）</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">施工期：約 3-6 個月。這是最隱蔽也最重要的階段，決定整棟建築的穩定性。</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-bronze flex-shrink-0">✓</span>
+                                <p class="font-sans text-stone-600"><strong>檢查重點：</strong> 挖土深度是否符合設計、有無滲水、樁基是否完整、地下室防水層施工狀況</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-terracotta flex-shrink-0">⚠️</span>
+                                <p class="font-sans text-stone-600"><strong>風險信號：</strong> 大量地下水湧出、樁基出現裂縫、施工進度明顯落後</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">第 2 階段：結構工程（主體樑柱、樓板）</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">施工期：約 6-12 個月。鋼筋、混凝土澆置，決定建築物的結構完整性。</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-bronze flex-shrink-0">✓</span>
+                                <p class="font-sans text-stone-600"><strong>檢查重點：</strong> 樑柱尺寸是否符合設計圖、混凝土品質（顏色、平整度）、鋼筋保護層厚度、澆置後是否有蜂窩孔洞</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-terracotta flex-shrink-0">⚠️</span>
+                                <p class="font-sans text-stone-600"><strong>風險信號：</strong> 混凝土出現大面積裂縫、樑柱歪斜變形、鋼筋外露</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">第 3 階段：外牆工程（防水、貼磚）</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">施工期：約 6-9 個月。外牆防水最容易出問題，直接影響住戶入住後的滲漏。</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-bronze flex-shrink-0">✓</span>
+                                <p class="font-sans text-stone-600"><strong>檢查重點：</strong> 防水膜施工是否完整、窗戶周邊防水處理、磁磚品質與鋪貼平整度、陽台排水設計</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-terracotta flex-shrink-0">⚠️</span>
+                                <p class="font-sans text-stone-600"><strong>風險信號：</strong> 防水層有破洞、磁磚空心（敲擊有空響）、窗框周邊有水痕</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">第 4 階段：內部裝修與水電（隔間、配管、配電）</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">施工期：約 6-9 個月。涉及隱蔽工程，交屋後難以檢查和維修。</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-bronze flex-shrink-0">✓</span>
+                                <p class="font-sans text-stone-600"><strong>檢查重點：</strong> 隔間牆是否垂直、水管配置位置（特別是冷熱水管分離）、電線管走線、插座開關位置是否符合合約</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-terracotta flex-shrink-0">⚠️</span>
+                                <p class="font-sans text-stone-600"><strong>風險信號：</strong> 隔間牆歪斜、水管接頭位置不合理（易漏水）、客變項目遺漏或施工不符</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">第 5 階段：最終裝修與驗收（地磚、油漆、廚具、衛浴）</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">施工期：約 3-4 個月。這是最後的衝刺，也是最容易出現品質問題的階段。</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-bronze flex-shrink-0">✓</span>
+                                <p class="font-sans text-stone-600"><strong>檢查重點：</strong> 地磚鋪貼平整、牆面油漆無粗糙不勻、廚具安裝緊固、衛浴五金完整、所有建材品牌規格與合約相符</p>
+                            </div>
+                            <div class="flex gap-3">
+                                <span class="font-bold text-architect-terracotta flex-shrink-0">⚠️</span>
+                                <p class="font-sans text-stone-600"><strong>風險信號：</strong> 地磚翹起、牆面裂縫、建材品牌與合約不符、廚具衛浴功能不正常</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 施工延期與你的權利 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-circle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">建商遲交屋怎麼辦</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-sm text-stone-600">
+                        預售屋常見問題：建商延期交屋。有時只延幾個月，有時拖延 1-2 年。你需要了解自己的權利。
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">建商可以延期交屋嗎？</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            合約中通常有「不可抗力」條款，允許因天災（地震、颱風）或其他不可預見因素延期。但延期時間和條件應該在合約中明確規定。
+                        </p>
+                        <div class="space-y-3 text-sm">
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-3 rounded">
+                                <p class="font-bold text-stone-900 mb-1">合理的延期理由</p>
+                                <ul class="text-stone-600 space-y-1">
+                                    <li>• 地震、颱風、豪雨</li>
+                                    <li>• 政府因素（例如 213-驗建不通過）</li>
+                                </ul>
+                            </div>
+                            <div class="border-l-2 border-architect-terracotta bg-stone-100 p-3 rounded">
+                                <p class="font-bold text-stone-900 mb-1">不合理的延期理由（建商無法以此延期）</p>
+                                <ul class="text-stone-600 space-y-1">
+                                    <li>• 人力不足、材料短缺</li>
+                                    <li>• 建商資金困難</li>
+                                    <li>• 施工品質問題需要重做</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-3">你的權利</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="bg-stone-100 rounded p-3">
+                                <p class="font-bold text-stone-900 mb-1">超期罰款</p>
+                                <p class="font-sans text-stone-600">合約應該明確規定「超期違約金」。例如：「遲交屋超過 30 天，建商賠償購價的 0.5% 為罰金」。要求建商按時支付這筆罰金。</p>
+                            </div>
+                            <div class="bg-stone-100 rounded p-3">
+                                <p class="font-bold text-stone-900 mb-1">無條件解約權</p>
+                                <p class="font-sans text-stone-600">如果遲交屋超過一定期限（通常 6 個月至 1 年），購買人有權無條件解約，建商應退還全部款項及定金。</p>
+                            </div>
+                            <div class="bg-stone-100 rounded p-3">
+                                <p class="font-bold text-stone-900 mb-1">臨時租屋補貼</p>
+                                <p class="font-sans text-stone-600">部分建商會主動提供臨時租屋補貼（例如月補 5,000-10,000 元），但需要在合約中明確約定。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 發現問題如何處理 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="wrench" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">施工期間發現問題怎麼辦</h2>
+                    </div>
+                <div class="border border-stone-200 p-6">
+                    <p class="font-sans text-sm text-stone-600 mb-4">
+                        如果在工地巡查時發現問題（例如混凝土裂縫、防水漏水、客變未按要求施工），要採取以下步驟：
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm flex-shrink-0">1</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">拍照存證</p>
+                                <p class="font-sans text-sm text-stone-600">清楚地拍照問題位置，附上日期。這是日後的重要證據。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-terracotta text-white font-bold text-sm flex-shrink-0">2</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">書面回報</p>
+                                <p class="font-sans text-sm text-stone-600">用 LINE、Email 或正式信函向建商回報問題，要求書面確認並說明改善計畫。不要只用口頭溝通。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-slate text-white font-bold text-sm flex-shrink-0">3</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">要求補救時間表</p>
+                                <p class="font-sans text-sm text-stone-600">建商應提供何時改善的時間表。如果是重大問題（例如結構裂縫），可要求第三方（建築師或結構技師）鑑定。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm flex-shrink-0">4</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">追蹤改善進度</p>
+                                <p class="font-sans text-sm text-stone-600">定期跟進，確認建商是否在約定時間內改善。如果問題未改善，在簽署交屋驗收單時要註明此項瑕疵。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工程追蹤常見誤區 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">工程追蹤的常見誤區</h2>
+                    </div>
+                <div class="space-y-3">
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 1：「相信建商會做好」，很少去工地看</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            建商沒有義務讓品質完美，他們的目標是盡快完工。沒有監督的地方最容易出問題。主動監管、定期視察是保護自己的關鍵。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 2：發現問題只用口頭回報</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            口頭溝通容易被遺忘或否認。一定要書面回報（LINE、Email），保留溝通紀錄，這樣交屋時有據可查。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 3：交屋驗收時才發現問題</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            交屋時發現問題會陷入「先簽名還是先補修」的僵局。應該在施工期間就主動追蹤，確保問題在交屋前解決。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 4：不瞭解客變成果，到交屋才發現遺漏</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            客變項目（插座、隔間、建材等）應該在施工期間定期確認。交屋前最後一次實地查看時，要逐一確認所有客變是否如要求完成。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaway -->
+            <section class="mb-12">
+                <div class="border border-stone-200 p-6">
+                    <h2 class="font-serif text-lg font-bold text-stone-900 mb-4">重點提醒</h2>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>每月至少到工地查看一次，拍照存證。</strong> 這是保護自己的第一步，不要完全相信建商。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>發現問題立即書面回報，不要只用口頭溝通。</strong> 保留紀錄，日後有據可查。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>加入建案 LINE 群，和其他購屋者一起監督施工品質。</strong> 集體力量比個人單獨行動更有效。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>交屋前要逐一檢驗所有客變項目和建材規格，確保符合合約。</strong> 交屋後難以修改。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section></html>

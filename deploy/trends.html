@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>市場趨勢 — 雙北房市觀察 | HomeRUN 好宅通</title>
+    <meta name="description" content="2025–2026 台灣房市趨勢總整理：六都交易量、房價走勢、新青安貸款、央行信用管制，首購族必讀的市場觀察。">
+    <meta name="keywords" content="房市趨勢,雙北房價,台灣房地產,市場分析,房價走勢,好宅通">
+    <link rel="canonical" href="https://homerun.com.tw/trends.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="市場趨勢 — 雙北房市觀察 | HomeRUN 好宅通">
+    <meta property="og:description" content="2025–2026 台灣房市趨勢總整理：六都交易量、房價走勢、新青安貸款、央行信用管制，首購族必讀。">
+    <meta property="og:url" content="https://homerun.com.tw/trends.html">
+    <meta property="og:site_name" content="HomeRUN 好宅通">
+    <meta property="og:locale" content="zh_TW">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="市場趨勢 — 雙北房市觀察 | HomeRUN 好宅通">
+    <meta name="twitter:description" content="2025–2026 台灣房市趨勢總整理：六都交易量、房價走勢、新青安貸款、央行信用管制，首購族必讀。">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#FAFAFA',
+                            100: '#F4F4F4',
+                            200: '#E5E5E5',
+                            800: '#2A2A2A',
+                            900: '#121212',
+                        },
+                        architect: {
+                            bronze: '#A67C52',
+                            terracotta: '#9C4A38',
+                            slate: '#4A5D6A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            word-break: break-word;
+            -webkit-text-size-adjust: 100%;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E5E5; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
+        .architectural-grid {
+            background-color: #E5E5E5;
+            gap: 1px;
+            border: 1px solid #E5E5E5;
+        }
+        .architectural-grid > div {
+            background-color: #FAFAFA;
+            transition: background-color 0.4s ease;
+        }
+        .architectural-grid > div:hover {
+            background-color: #FFFFFF;
+        }
+        input:focus { outline: none; }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center font-serif text-2xl text-center">
+            <a href="index.html#buyingFlow" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="builders.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-stone-900 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="inspection.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="about.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="px-6 md:px-12 py-16 md:py-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div class="lg:col-span-8">
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-stone-900">
+                    市場趨勢
+                </h1>
+            </div>
+            <div class="lg:col-span-4 pb-2">
+                <div class="font-sans text-base text-stone-600 leading-relaxed">
+                    <span id="trendsDesc"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Last Updated -->
+    <section class="px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="border-t border-stone-200 pt-8 pb-4 flex items-center gap-3">
+            <span class="font-sans text-xs tracking-widest text-stone-400 uppercase">最後更新</span>
+            <span class="font-sans text-xs text-stone-500">2026 年 4 月</span>
+        </div>
+    </section>
+
+    <!-- Key Numbers -->
+    <section class="px-6 md:px-12 pb-16 md:pb-20 max-w-7xl mx-auto w-full">
+        <div class="architectural-grid grid grid-cols-2 md:grid-cols-4">
+            <div class="p-6 md:p-8 text-center">
+                <p class="font-serif text-3xl md:text-4xl font-bold text-stone-900">20.4<span class="text-lg">萬棟</span></p>
+                <p class="font-sans text-xs text-stone-500 mt-2 tracking-wide">2025 六都交易量</p>
+            </div>
+            <div class="p-6 md:p-8 text-center">
+                <p class="font-serif text-3xl md:text-4xl font-bold text-architect-terracotta">-24.5%</p>
+                <p class="font-sans text-xs text-stone-500 mt-2 tracking-wide">交易量年減（8 年新低）</p>
+            </div>
+            <div class="p-6 md:p-8 text-center">
+                <p class="font-serif text-3xl md:text-4xl font-bold text-stone-900">1.775%</p>
+                <p class="font-sans text-xs text-stone-500 mt-2 tracking-wide">新青安最低利率</p>
+            </div>
+            <div class="p-6 md:p-8 text-center">
+                <p class="font-serif text-3xl md:text-4xl font-bold text-stone-900">32–36<span class="text-lg">萬戶</span></p>
+                <p class="font-sans text-xs text-stone-500 mt-2 tracking-wide">未來 1-2 年新屋完工</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 01: 2025 回顧 -->
+    <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">01</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">2025 年回顧：<br>量縮價撐</h2>
+            </div>
+            <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
+                <p>
+                    2025 年是台灣房市近 8 年交易量最低的一年。六都全年買賣移轉棟數合計約 20.45 萬棟，較 2024 年大減 24.5%。其中高雄年減 31%、台南年減 28.8%，南部市場衰退最為明顯。台北年減約 22.7%，新北約 25.4%，桃園約 18%，台中約 22.7%，北部相對抗跌但也無法倖免。
+                </p>
+                <p>
+                    交易量急縮的主因有三：央行自 2024 年 6 月起連續祭出第七波選擇性信用管制，大幅限縮多屋族貸款成數；一般房貸利率升至約 2.32%、創近年新高；加上平均地權條例修法後預售屋禁止換約轉售，投資買盤近乎退場。
+                </p>
+                <p>
+                    然而量縮並未帶來等幅的價跌。2025 年預售屋成交均價仍呈上漲態勢：台南年漲 14.6%、新北年漲 14.5%、台中年漲 12%、桃園年漲 8.6%、高雄年漲 8%，即使交易量暴跌，賣方惜售心態濃厚、建商不願降價求售。唯一例外是台北，預售屋僅微漲 1.9%，顯示高總價市場的買氣已趨保守。
+                </p>
+                <p>
+                    推案市場同步降溫。2025 年全台推案總銷額約 2.1 兆元，較前一年減少約一成，十大建商總銷更年減近三成。開發商明顯放緩推案節奏，等待政策風向明朗。
+                </p>
+                <p class="text-xs text-stone-400 border-t border-stone-200 pt-4 mt-2">
+                    📎 資料來源：六都地政局 2025 年全年買賣移轉棟數統計（<a href="https://www.cna.com.tw/news/afe/202601020225.aspx" target="_blank" rel="noopener" class="underline hover:text-stone-600">中央社 2026/1/2</a>）；預售屋漲幅數據整理自內政部實價登錄平台及各房仲研究機構彙整；推案總銷數據參考遠見雜誌（<a href="https://www.gvm.com.tw/article/127657" target="_blank" rel="noopener" class="underline hover:text-stone-600">遠見 2025/12</a>）。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 02: 2026 展望 -->
+    <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">02</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">2026 年展望：<br>盤整與供給壓力</h2>
+            </div>
+            <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
+                <p>
+                    多數市場研究機構預估，2026 年房價將進入盤整修正階段。整體平均跌幅預估約 10%，其中台北因基期高、剛需撐盤，預估修正 5–6%；中南部因前兩年漲幅過大、投資比重較高，修正幅度可能達 10% 以上。多數專家認為 2027 年有望止跌回穩。
+                </p>
+                <p>
+                    供給面是另一個關鍵變數。2024–2025 年大量取得建照的預售案，將在 2026–2027 年陸續完工交屋，預估新增供給量高達 32–36 萬戶。當大量新屋同時釋出，若遇到買氣疲軟與利率持平的環境，部分地區將面臨供過於求的壓力，尤其是重劃區與推案量集中的區段。
+                </p>
+                <p>
+                    央行在 2026 年 3 月 20 日微調信用管制：第二戶房貸最高成數從 50% 放寬至 60%，釋出有限的換屋鬆綁信號，但整體管制架構維持不變。這表明官方仍不希望投機資金回流房市，政策方向是「讓市場慢慢消化」而非刺激。
+                </p>
+                <p>
+                    對首購族來說，2026 年反而可能是相對有利的進場時點：賣方議價空間加大、物件選擇變多、政策對自住買方相對友善。但前提是做好功課 — 區位選擇、建商背景查核、貸款試算，一步都不能省。
+                </p>
+                <p class="text-xs text-stone-400 border-t border-stone-200 pt-4 mt-2">
+                    📎 資料來源：房價修正預測參考李同榮觀點（<a href="https://www.farglory-realty.com.tw/life-proposal/expert_li_housing-challenges-2026/" target="_blank" rel="noopener" class="underline hover:text-stone-600">遠雄房地產</a>）；交屋潮數據引用永慶房產集團分析（<a href="https://house.ettoday.net/news/3089562" target="_blank" rel="noopener" class="underline hover:text-stone-600">ETtoday 2025/12</a>）；央行第二戶放寬資訊參考央行 2026/3/20 理監事會決議（<a href="https://money.udn.com/money/story/7307/9390779" target="_blank" rel="noopener" class="underline hover:text-stone-600">經濟日報</a>）。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: 首購族政策 -->
+    <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">03</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">首購族注意：<br>貸款與政策</h2>
+            </div>
+            <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
+                <p>
+                    <strong style="color:#2A2A2A">新青安貸款</strong>仍是 2026 年首購族最重要的政策工具。最低利率 1.775% 起、貸款年限最長 40 年、寬限期最長 5 年，大幅降低每月還款壓力。但請注意，申請截止日為 <strong style="color:#A67C52">2026 年 7 月 31 日</strong>，逾期不再受理。如果你正在看房，這是一個必須掌握的時間點。
+                </p>
+                <p>
+                    相對的，一般房貸利率已來到約 2.32%（2026/2 五大銀行新承做平均），是近年最高水準。如果不符合新青安資格（例如已有房屋、超過年齡限制、或購買非自住用途），利率成本會明顯增加。以貸款 1,000 萬元、30 年期計算，新青安與一般房貸每月月付差距約 3,000–4,000 元。
+                </p>
+                <p>
+                    央行的選擇性信用管制主要針對多屋族和法人，對首購族影響較小。第一戶房貸成數仍可達 8 成，搭配新青安甚至可貸到 8.5 成。但第二戶以上成數上限僅 60%（2026/3 放寬後），第三戶以上更低。如果你是純首購，目前的政策環境其實是站在你這邊的。
+                </p>
+                <p class="text-xs text-stone-400 border-t border-stone-200 pt-4 mt-2">
+                    📎 資料來源：新青安貸款條件依據財政部公告及各承辦銀行最新方案（<a href="https://rich01.com/young-housing-loans/" target="_blank" rel="noopener" class="underline hover:text-stone-600">Mr.Market 市場先生</a>、<a href="https://www.money101.com.tw/blog/%E5%8F%B0%E7%81%A3%E5%90%84%E5%AE%B6%E9%8A%80%E8%A1%8C%E5%AE%89%E5%BF%83%E6%88%90%E5%AE%B6%E9%9D%92%E5%B9%B4%E8%B3%BC%E5%B1%8B%E8%B2%B8%E6%AC%BE%E5%84%AA%E6%83%A0%E6%AF%94%E8%BC%83" target="_blank" rel="noopener" class="underline hover:text-stone-600">Money101</a>）；一般房貸利率為 2026/2 五大銀行新承做平均（<a href="https://www.money101.com.tw/blog/%E6%88%BF%E8%B2%B8%E5%88%A9%E7%8E%87" target="_blank" rel="noopener" class="underline hover:text-stone-600">Money101 房貸利率</a>）。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 04: 六都比較 -->
+    <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">04</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">六都房價<br>一張表看懂</h2>
+            </div>
+            <div class="lg:col-span-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full font-sans text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-stone-900">
+                                <th class="text-left py-3 pr-4 font-medium text-stone-500 tracking-wide">城市</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-500 tracking-wide">2025 交易量變化</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-500 tracking-wide">預售屋年漲幅</th>
+                                <th class="text-right py-3 pl-4 font-medium text-stone-500 tracking-wide">2026 預估修正</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-stone-200">
+                                <td class="py-4 pr-4 font-medium text-stone-900">台北</td>
+                                <td class="py-4 px-4 text-right text-architect-terracotta">-22.7%</td>
+                                <td class="py-4 px-4 text-right text-stone-700">+1.9%</td>
+                                <td class="py-4 pl-4 text-right text-stone-500">-5 ~ -6%</td>
+                            </tr>
+                            <tr class="border-b border-stone-200">
+                                <td class="py-4 pr-4 font-medium text-stone-900">新北</td>
+                                <td class="py-4 px-4 text-right text-architect-terracotta">-25.4%</td>
+                                <td class="py-4 px-4 text-right text-stone-700">+14.5%</td>
+                                <td class="py-4 pl-4 text-right text-stone-500">-8 ~ -10%</td>
+                            </tr>
+                            <tr class="border-b border-stone-200">
+                                <td class="py-4 pr-4 font-medium text-stone-900">桃園</td>
+                                <td class="py-4 px-4 text-right text-architect-terracotta">-18%</td>
+                                <td class="py-4 px-4 text-right text-stone-700">+8.6%</td>
+                                <td class="py-4 pl-4 text-right text-stone-500">-8 ~ -10%</td>
+                            </tr>
+                            <tr class="border-b border-stone-200">
+                                <td class="py-4 pr-4 font-medium text-stone-900">台中</td>
+                                <td class="py-4 px-4 text-right text-architect-terracotta">-22.7%</td>
+                                <td class="py-4 px-4 text-right text-stone-700">+12%</td>
+                                <td class="py-4 pl-4 text-right text-stone-500">-10 ~ -12%</td>
+                            </tr>
+                            <tr class="border-b border-stone-200">
+                                <td class="py-4 pr-4 font-medium text-stone-900">台南</td>
+                                <td class="py-4 px-4 text-right text-architect-terracotta">-28.8%</td>
+                                <td class="py-4 px-4 text-right text-stone-700">+14.6%</td>
+                                <td class="py-4 pl-4 text-right text-stone-500">-10 ~ -15%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 pr-4 font-medium text-stone-900">高雄</td>
+                                <td class="py-4 px-4 text-right text-architect-terracotta">-31%</td>
+                                <td class="py-4 px-4 text-right text-stone-700">+8%</td>
+                                <td class="py-4 pl-4 text-right text-stone-500">-10 ~ -15%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="font-sans text-xs text-stone-400 mt-4 leading-relaxed">
+                    📎 資料來源：交易量變化 — 六都地政局 2025 全年買賣移轉棟數統計（<a href="https://www.cna.com.tw/news/afe/202601020225.aspx" target="_blank" rel="noopener" class="underline hover:text-stone-600">中央社</a>、<a href="https://money.udn.com/money/story/5621/9240957" target="_blank" rel="noopener" class="underline hover:text-stone-600">經濟日報</a>）；預售屋漲幅 — 內政部實價登錄平台、各房仲研究機構彙整（<a href="https://estate.ltn.com.tw/article/26914" target="_blank" rel="noopener" class="underline hover:text-stone-600">自由時報地產天下</a>）；2026 預估修正 — 李同榮觀點、永慶房產集團研究報告（<a href="https://house.ettoday.net/news/3089562" target="_blank" rel="noopener" class="underline hover:text-stone-600">ETtoday</a>）。數據為概估值，僅供參考。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 05: 買房教練觀點 -->
+    <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-4">
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">05</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">HomeRUN<br>買房教練觀點</h2>
+            </div>
+            <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
+                <p>
+                    很多人問我們：現在到底該不該買？我們的回答是 — 這不是一個「時機」問題，而是一個「準備」問題。
+                </p>
+                <p>
+                    市場盤整期反而是做功課的好時候。當行情火熱，好物件一出就被秒殺，根本沒時間比較、沒餘裕查建商背景。現在不同。你有時間好好走完 <a href="index.html#buyingFlow" class="text-architect-bronze hover:underline">18 步買房流程</a>：從自我評估、區域研究、建商背景查核，到貸款試算、合約審閱、驗屋交屋，每一步都紮實準備。
+                </p>
+                <p>
+                    房價漲跌沒有人能準確預測，但有一件事是確定的：準備充分的買家，不論在什麼行情下都會做出更好的決定。這就是 HomeRUN 存在的理由。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <section class="px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <div class="border-t border-stone-200"></div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="px-6 md:px-12 pb-12 max-w-7xl mx-auto w-full">
+        <div class="bg-stone-100 border border-stone-200 rounded p-6">
+            <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                <strong class="text-stone-500">免責聲明：</strong>本頁數據整理自六都地政局、內政部不動產資訊平台及各房仲研究機構之公開資料（截至 2026 年 4 月），僅供參考，不構成投資建議或購屋建議。房價預測為市場機構觀點，非本站立場。利率、政策資訊可能因央行或政府決策而調整，請以各機構最新公告為準。購屋為重大財務決策，請諮詢專業不動產經紀人、地政士或財務顧問。
+            </p>
+        </div>
+    </section>
+
+    <!-- Dark CTA Block -->
+    <section class="px-6 md:px-12 pb-24 md:pb-32 max-w-7xl mx-auto w-full">
+        <div class="bg-stone-900 text-white p-10 md:p-14">
+            <div class="max-w-2xl">
+                <h3 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-white">
+                    準備好開始了嗎？
+                </h3>
+                <p class="font-sans text-base md:text-lg text-stone-300 leading-relaxed mb-8">
+                    看懂市場只是第一步。接下來，用 18 步流程幫自己做好買房的每一步準備。
+                </p>
+                <a href="index.html#buyingFlow" class="inline-flex items-center font-sans text-sm tracking-widest text-white hover:text-architect-bronze transition-colors duration-500">
+                    開始 18 步流程
+                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        (function() {
+            const el = document.getElementById('trendsDesc');
+            const lines = ['房市數據解讀，幫你看懂行情。', '2025–2026 台灣房市總整理。'];
+            let lineIdx = 0, charIdx = 0;
+            function type() {
+                if (lineIdx >= lines.length) return;
+                if (charIdx <= lines[lineIdx].length) {
+                    let html = '';
+                    for (let i = 0; i < lines.length; i++) {
+                        if (i < lineIdx) html += lines[i] + '<br>';
+                        else if (i === lineIdx) {
+                            html += lines[i].substring(0, charIdx);
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #A67C52;padding-right:2px;">&nbsp;</span>';
+                        }
+                    }
+                    el.innerHTML = html;
+                    charIdx++;
+                    setTimeout(type, 45);
+                } else { lineIdx++; charIdx = 0; setTimeout(type, 400); }
+            }
+            setTimeout(type, 400);
+        })();
+    </script>
+</body>
+</html>

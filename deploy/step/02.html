@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 02: 財務健檢 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="買房前先檢查財務狀況：準備頭期款、房貸負擔、信用紀錄、存款和收入證明。用銀行試算工具確認每月房貸不超過月收入1/3。">
+    <link rel="canonical" href="https://homerun.com.tw/step/02.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "財務健檢",
+        "text": "買房前先檢查財務狀況：準備頭期款、房貸負擔、信用紀錄、存款和收入證明。用銀行試算工具確認每月房貸不超過月收入1/3。",
+        "url": "https://homerun.com.tw/step/02.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">自我準備</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html" selected>Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 11%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 02: 財務健檢</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 02</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">財務健檢</h1>
+                <p class="font-sans text-base text-stone-600">確認你的購房預算是否真實可行</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="wallet" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">算總預算</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="percent" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">估貸款額度</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="calculator" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">算月付金</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="piggy-bank" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">備頭期款</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+                <!-- Section 1: Why This Step is Important -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        銀行願意借你1500萬，不代表1500萬是你「能負擔」的價格。銀行只看報表，但他們不知道你有老人要孝順、有小孩要養、有車要養。他們只看利率和貸款額度。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        做好財務健檢的目的是：<strong>確保你買的起，也付的起</strong>。太多人買完房才發現每月房貸壓得喘不過氣，這是最容易導致破產或被法拍的原因。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步會幫你算清楚：真實預算是多少、每月房貸承擔能力、需要準備的文件有哪些。
+                    </p>
+                </section>
+
+                <!-- Section 2: How to Do It -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="list-checks" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">具體怎麼做？</h2>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第1步：計算你能準備的頭期款</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        頭期款通常是房價的 <strong>20% 到 30%</strong>。首購族銀行最高貸款成數約 8 成；第二戶受信用管制限制最高 6 成（2026/03 起）。預售屋貸款成數通常較高，中古屋較低（約 6-7 成）。
+                    </p>
+                    <div class="border border-architect-slate bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans font-semibold text-stone-900 mb-3">計算範例：</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">房價：1000 萬</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">20% 頭期款：200 萬</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">銀行貸款：800 萬</p>
+                        <p class="font-sans text-sm font-semibold text-architect-bronze">→ 需要先準備好 200 萬現金</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        但這不是全部。你還需要：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>地政登記費：</strong>依房屋評定現值 + 土地申報地價的 0.1%（非市價計算，通常數千至數萬元）</li>
+                        <li><strong>代書費：</strong>全套（含過戶+設定登記）約 15,000-25,000 元</li>
+                        <li><strong>契稅：</strong>房屋評定現值的 6%（注意：非市價，實際金額遠低於市價的 6%）</li>
+                        <li><strong>印花稅：</strong>公告現值的 0.1%</li>
+                        <li><strong>驗屋費：</strong>依坪數計算，約每坪 500-1,000 元，一般 25-40 坪住宅約 15,000-25,000 元（複驗另計約 4,000-5,000 元/次）</li>
+                        <li><strong>搬家費：</strong>5000-50000元（取決於距離和東西多少）</li>
+                        <li><strong>裝修預算：</strong>因人而異，新房可能不用，中古屋可能需要</li>
+                    </ul>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>重要：</strong>所有這些費用加起來，通常要再加 5% 到房價上。一棟 1000 萬的房子，你可能要準備 250-300 萬現金才夠。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第2步：檢查月收入與房貸負擔</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        台灣銀行的 DTI（貸款占收入比）規定，房貸加上其他無擔保貸款的月支出不能超過月收入的 60%。但這是銀行願意借的上限，不是你應該借的上限。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mt-4">
+                        實務上，大多數理財專家建議：<strong>每月房貸不應超過月收入的 1/3</strong>。有些人能接受 1/2，但那已經很吃緊了，一旦失業或升息就會出問題。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        銀行通常用「月收入×22倍」當作房貸核額的參考（保守估算）。台灣銀行會請聯徵中心評估你的「還款能力」，會看：月收入、年齡、工作穩定度、既有債務。
+                    </p>
+                    <div class="border border-architect-slate bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans font-semibold text-stone-900 mb-3">計算範例：</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">月收入：60,000 元</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">銀行可能願意借：60,000 × 22 = 132 萬</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">但你的安全額度（1/3負擔）：20,000 元 × 20年 × 12 = 約 480 萬（2% 利率）</p>
+                        <p class="font-sans text-sm font-semibold text-architect-bronze">→ 建議最多借 480 萬（留安全邊際）</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        如果你的月收入 60,000 元，最多也只能舒適地貸 480 萬。但實際要看利率和貸期。加上你的頭期款，就知道你能買多少價格的房子。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        <strong>2026年新青安方案提醒：</strong>政府推出「新青安貸款」，針對 18-45 歲首購族，最低利率 1.775% 起，額度最高 1,000 萬，貸期最長 40 年，寬限期最長 5 年。<strong style="color:#A67C52">申請截止日為 2026 年 7 月 31 日</strong>，逾期不再受理。這對首購族很有幫助，但要符合資格（收入限制、貸款用途等），建議盡早向合作銀行詢問。
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>提示：</strong>利率會影響月繳金額很大。目前台灣一般房貸利率約 2.32%（2026 年初水準），但也有升息的可能。試算時不要只看 2% 的超樂觀情況，也想想 3-3.5% 你還付得起嗎？這樣才不會在升息時陷入困境。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第2.5步：保留緊急預備金和後續支出</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        很多人買完房才發現，每個月除了房貸外還有一堆支出。這是導致房貸壓力過大的常見原因。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        <strong>每月固定支出：</strong>
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>地價稅、房屋稅：</strong>每年約 5,000-15,000 元（老房子較低，新房子較高）</li>
+                        <li><strong>管理費：</strong>透天 0 元、華廈 800-1,500 元/月、大樓 2,000-5,000 元/月</li>
+                        <li><strong>水電瓦斯費：</strong>約 2,000-4,000 元/月（冬天暖氣和夏天冷氣會飆高）</li>
+                        <li><strong>房屋保險：</strong>約 300-600 元/月（非必須但建議買）</li>
+                        <li><strong>維修預備金：</strong>建議每月存 1,000-3,000 元。中古屋尤其重要，冷氣、水管、馬桶動不動就是 10,000-50,000 元</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        <strong>突發支出（最容易被忽略）：</strong>
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>大樓大修基金：</strong>每年可能被徵收 5,000-20,000 元（屋齡越老越高）</li>
+                        <li><strong>漏水、壁癌修繕：</strong>中古屋常見，可能花 100,000-500,000 元</li>
+                        <li><strong>冷氣、熱水器、瓦斯爐更新：</strong>每台 20,000-60,000 元</li>
+                        <li><strong>防水工程、地板翻修：</strong>整層可能要 200,000-500,000 元</li>
+                    </ul>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>實際案例：</strong>一個月收入 70,000 元的上班族買了 900 萬的房子，房貸每月 35,000 元。再加上管理費 3,000 元、水電 3,000 元、維修預備 2,000 元，每月實際支出達 43,000 元（占月收入 61%），壓力很大。如果再失業一個月，就會開始吃老本。這就是為什麼必須保留緊急預備金。</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>建議做法：</strong>除了頭期款外，再保留 3-6 個月的緊急預備金（含房貸和生活費）。這樣失業、生病或房子突發狀況時才不會陷入困境。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第3步：檢查你的信用紀錄</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        銀行會查你的聯徵紀錄。如果有以下情況，銀行可能會拒貸或提高利率：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li>信用卡欠款或遲繳</li>
+                        <li>之前有貸款不良紀錄</li>
+                        <li>短時間內頻繁申請信貸</li>
+                        <li>個人信用破產或債務協商紀錄</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        你可以申請「個人信用報告」查詢自己的狀況。通常信用卡公司或銀行都能協助。如果有問題，盡早解決。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第4步：準備關鍵文件</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        向銀行申請房貸時，你需要提供這些文件。提早準備可以加快流程：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>身分證：</strong>正本</li>
+                        <li><strong>收入證明：</strong>前 3 個月薪資單，或公司開立的年薪證明</li>
+                        <li><strong>存款證明：</strong>銀行帳戶證明或存摺，證明你有頭期款</li>
+                        <li><strong>個人信用報告：</strong>向銀行申請</li>
+                        <li><strong>會計師簽証（自營商）：</strong>如果是個體戶或自營業主，需要 2-3 年的財務報表</li>
+                        <li><strong>購屋契約書：</strong>看完房子、決定購買後才需要</li>
+                    </ul>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>建議：</strong>現在就把身分證、薪資單、銀行存摺掃描備好。未來需要的時候不用再奔波。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第5步：使用銀行試算工具</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        各大銀行都有房貸試算工具。在看房之前，用這些工具把不同價格、不同利率、不同貸期的組合都算一遍。這樣你就能很快判斷一個房子是否在你的負擔範圍內。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        重點是：<strong>不要只看最樂觀的情況</strong>。也想想如果升息 1%，你還付得起嗎？
+                    </p>
+                </section>
+
+                <!-- Section 3: Common Mistakes -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見錯誤</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 1：「銀行願意借，我就能借」</h3>
+                        <p class="font-sans text-sm text-stone-700">銀行的目標是放貸，不是幫你做理財規劃。你要自己把控。聽過「房貸壓力太大，最後投資失敗」的故事嗎？就是這樣來的。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 2：「現在借得起，未來肯定更借得起」</h3>
+                        <p class="font-sans text-sm text-stone-700">經濟不景氣、失業、升息等等都可能改變你的狀況。買房的時候假設穩定，其實你應該留安全邊際。房貸通常 20-30 年，別太樂觀。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 3：「只考慮房貸，忽略其他支出」</h3>
+                        <p class="font-sans text-sm text-stone-700">房子買完後還要繳房稅、地稅、水電瓦斯、管理費、維修費、裝修費。加上生活費、小孩教育費。房貸只是一部分，別只算房貸。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 4：「信用紀錄沒有問題」其實有問題</h3>
+                        <p class="font-sans text-sm text-stone-700">有些人以為沒有欠錢就是信用好，其實銀行也在看「還款行為」。如果常常遲繳水電費、繳稅，也會被記錄。買房前一定要自己查一遍。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 5：「我先簽約，再想辦法借錢」</h3>
+                        <p class="font-sans text-sm text-stone-700">一旦簽約就有法律效力。如果後來銀行不願意借，或利率不如預期，你會陷入困境。一定要先確認融資沒問題。</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Practical Resources -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="bookmark" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">實用資源</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">🏦 房貸試算工具</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>各大銀行網站：</strong>國泰世華、台灣銀行、台新銀行等都有試算工具，直接搜尋「房貸計算機」</li>
+                            <li><strong>官方金融資訊平台：</strong> <a href="https://www.cbc.gov.tw" target="_blank" class="text-architect-bronze hover:underline">中央銀行</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="clipboard-list" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 信用查詢</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>聯合信用中心：</strong>可申請個人信用報告，電話 02-2175-0818</li>
+                            <li><strong>各銀行客服：</strong>也可向往來銀行或信用卡公司請求協助查詢</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">💰 相關費用試算</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>稅務概念：</strong>詢問代書或會計師，了解印花稅、契稅、地政費</li>
+                            <li><strong>驗屋公司：</strong>大部份公司在官網有價目表，可先了解成本</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 5: Key Takeaway -->
+                <section>
+                    <div class="border border-stone-200 p-6 bg-white rounded">
+                        <h3 class="font-serif font-bold text-stone-900 text-lg mb-3"><div class="flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i> 重點提醒</div></h3>
+                        <ul class="font-sans text-stone-800 space-y-2">
+                            <li>✓ 算清楚真實預算（頭期款 + 相關費用）</li>
+                            <li>✓ 確認月房貸不超過月收入 1/3</li>
+                            <li>✓ 檢查信用紀錄，提早解決問題</li>
+                            <li>✓ 掃描備好收入證明、存款證明</li>
+                            <li>✓ 用銀行試算工具多試幾個組合</li>
+                            <li>✓ 升息情況下，還能負擔嗎？</li>
+                            <li>✓ 別只算房貸，要算房子的所有支出</li>
+                        </ul>
+                    </div>
+                </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="01.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 01: 需求釐清</p>
+            </a>
+            <a href="03.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 03: 認識房型</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="01.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">2/18</span>
+        <a href="03.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

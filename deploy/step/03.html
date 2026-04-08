@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 03: 認識房型 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="了解預售屋、新成屋、中古屋的差異與優缺點，以及透天、大樓、華廈各自適合什麼買家。選擇最適合自己的房型。">
+    <link rel="canonical" href="https://homerun.com.tw/step/03.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "認識房型",
+        "text": "了解預售屋、新成屋、中古屋的差異與優缺點，以及透天、大樓、華廈各自適合什麼買家。選擇最適合自己的房型。",
+        "url": "https://homerun.com.tw/step/03.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">自我準備</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html" selected>Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 17%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 03: 認識房型</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 03</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">認識房型</h1>
+                <p class="font-sans text-base text-stone-600">預售屋、新成屋、中古屋各有優缺點，找到最適合你的</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="building" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">認識預售屋</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="home" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">認識新成屋</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="landmark" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">認識中古屋</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="git-compare" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">比較優缺點</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+                <!-- Section 1: Why This Step is Important -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        台灣房產市場有三大類型：預售屋、新成屋、中古屋。還有建築類型：大樓、華廈、透天。每一種都有完全不同的玩法、風險、和適合的買家族群。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        如果你搞錯了自己適合哪一種，買下來就很難改了。第一次買房的人選錯房型的比例超高，這一步就是幫你提前避免。
+                    </p>
+                </section>
+
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="list-checks" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">具體怎麼做？</h2>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-4">類別 1：預售屋 vs 新成屋 vs 中古屋</h3>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        這三種房子的價格差很大。同樣一個地點、同樣的坪數，預售屋可能 1,000 萬，新成屋 1,150 萬，中古屋 900 萬。選哪一種不只影響錢包，還影響未來 30 年的生活品質和風險。
+                    </p>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-stone-900 mb-3">🆕 預售屋（未來才完成的房子，通常 3-5 年後交屋）</h4>
+                        <div class="bg-green-50 border-l-2 border-green-500 p-4 rounded mb-3">
+                            <p class="font-semibold text-stone-900 mb-2">優點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>客變空間大 - 還沒蓋好，可以改格局、選材料、配置插座位置</li>
+                                <li>價格通常最便宜 - 建商預先銷售，會有 5-10% 的優惠。如果同樣地點，預售屋可能比新成屋便宜 150-200 萬</li>
+                                <li>保固新 - 房子全新，結構保固 15 年、防水及設備保固 1 年起（依民法及合約）</li>
+                                <li>分期付款 - 簽約時付 10-20%、動工時付 20%、上樑時付 20%...最後交屋才全部付清。現金壓力分散，對頭期款較少的人很友善</li>
+                                <li>不用擔心舊房子的問題 - 沒有漏水、壁癌、老舊管線</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
+                            <p class="font-semibold text-stone-900 mb-2">缺點和風險：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>交屋風險 - 建商倒閉、融資失敗、跳票延期。發生過幾次新聞：已付 80% 房款，建商突然倒閉，客戶損失數百萬</li>
+                                <li>無法看到實品 - 只能看模型、3D 想像、示意圖。實際蓋出來可能不一樣</li>
+                                <li>隱藏瑕疵 - 很多施工問題交屋才發現，而且是新屋保固期內才有時間修</li>
+                                <li>客變增加成本 - 客變費用往往比想像高。改一個窗戶位置可能 10,000-30,000 元，改格局可能數十萬</li>
+                                <li>合約複雜且對建商有利 - 容易被建商條款設陷阱，「特殊費用」、「期程延長」難以爭論</li>
+                                <li>房貸對保風險 - 交屋時銀行要鑑估，若建築品質不如預期，銀行可能降低貸款額度</li>
+                                <li>2-5 年才能住進去 - 期間要繳房貸和租房雙重支出</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        <strong>預售屋這幾年爆紅的原因：</strong>政府推新青安貸款、首購優惠，讓年輕人更容易買到便宜的預售屋。但要注意建商信譽和合約細節。
+                    </p>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-stone-900 mb-3">🏢 新成屋（剛蓋好 1-3 年內，有的是預售的樣品屋轉售）</h4>
+                        <div class="bg-green-50 border-l-2 border-green-500 p-4 rounded mb-3">
+                            <p class="font-semibold text-stone-900 mb-2">優點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>即看即住 - 看到實際完成品，沒有延期延宕風險，簽約後通常 30-60 天就能入住</li>
+                                <li>房子全新 - 屋況新，結構保固 15 年、防水及設備保固依合約（通常 1-2 年），保固期從取得使用執照起算</li>
+                                <li>可看社區氛圍 - 實地走訪，了解真實的鄰居和環境品質</li>
+                                <li>避免預售風險 - 建商已經蓋完，沒有倒閉風險或交屋延期風險</li>
+                                <li>格局已實現 - 看到真實的房間大小、採光、窗景</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
+                            <p class="font-semibold text-stone-900 mb-2">缺點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>價格較高 - 比預售屋貴 10-20%（同樣坪數、地點，預售 1,000 萬，新成屋可能 1,100-1,200 萬）</li>
+                                <li>客變機會少 - 已經建好，只能改裝（換磚、改家具、重新配線），沒辦法改格局</li>
+                                <li>現金壓力大 - 通常簽約後 30-60 天內要付清，沒有分期付款的優待</li>
+                                <li>選擇少 - 通常一個建案只剩 1-5 間未售，沒辦法比較挑選</li>
+                                <li>可能是樣品屋 - 如果是前期的樣品屋轉售，已經被很多人看過、踩過、觸摸過，磨損會比較明顯</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-stone-900 mb-3"><i data-lucide="home" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 中古屋（屋齡 10 年以上的房子）</h4>
+                        <div class="bg-green-50 border-l-2 border-green-500 p-4 rounded mb-3">
+                            <p class="font-semibold text-stone-900 mb-2">優點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>價格最實在 - 實價登錄公開，行情透明。不像預售屋可能虛報，中古屋的成交價都上網公布，沒辦法騙</li>
+                                <li>社區已成熟 - 知道真實的鄰居、管理委員會品質、環境品質。可以問住戶口碑</li>
+                                <li>地點選擇多 - 市中心、蛋黃區的房子大多是中古屋。預售屋通常在郊區，中古屋讓你能在精華地段買房</li>
+                                <li>快速入住 - 簽約後 1-2 個月（驗屋、過戶、點交）就可以住，不用等 2-5 年</li>
+                                <li>議價空間大 - 可以殺價，成交價往往比開價低 2-5%。預售屋很少有議價空間</li>
+                                <li>產權清楚 - 房子的之前所有者、屋況、糾紛都有紀錄可查</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
+                            <p class="font-semibold text-stone-900 mb-2">缺點和風險：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>可能需要裝修 - 老房子格局可能過時、管線老舊、天花板可能發霉。整層翻修可能花 200,000-500,000 元</li>
+                                <li>隱藏瑕疵風險 - 漏水、壁癌、結構問題很難從表面看出來。2009 年汶川地震後，台灣開始重視房屋檢驗，一定要請驗屋公司檢查</li>
+                                <li>保修無 - 房子老，保固期早就過了。買下來有問題要自己修，沒有建商保障</li>
+                                <li>房貸成數低 - 老房子銀行願意貸的比例較低。屋齡 30 年的房子，銀行可能只貸 5-6 成，不像新房子 8-8.5 成</li>
+                                <li>增值潛力有限 - 老房子除非是待開發區域或重劃區，否則增值幅度有限</li>
+                                <li>管線、安全設施可能過時 - 20-30 年前的電線、瓦斯管線、防火設施都比現代標準低</li>
+                                <li>大修基金可能被徵收 - 屋齡越老，大樓需要維修的地方越多，每年可能被徵收 10,000-20,000 元大修基金</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        <strong>中古屋屋齡細分：</strong>
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>屋齡 10-20 年：</strong>算是比較新的中古屋，結構和管線還不錯，但已經開始出現一些老化。通常價格是新屋的 90-95%</li>
+                        <li><strong>屋齡 20-30 年：</strong>明顯老化，特別要注意漏水和壁癌問題。價格會便宜 20-30%，但維修成本會明顯增加</li>
+                        <li><strong>屋齡 30 年以上：</strong>銀行不太願意貸，但房價可能超便宜（打到 5-6 折）。適合有資金、有時間改造的人</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-6">
+                        <p class="font-sans text-sm text-stone-800">
+                            <strong>選擇建議：</strong><br/>
+                            • 如果你討厭風險、想快速入住 → 新成屋<br/>
+                            • 如果你想省錢、有耐心等待、相信建商 → 預售屋<br/>
+                            • 如果你想找地點好、價格實在的房子 → 中古屋
+                        </p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-8 mb-4">重要概念：公設比（Common Areas Ratio）</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        買房時常常看到「建坪 50 坪、公設比 35%」，這到底是什麼意思？
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        <strong>公設比 = 共有面積 / 建築面積</strong>。白話說，一棟大樓的樓梯間、電梯、走廊、大廳、交誼廳、健身房等公共設施的面積，佔整棟建築的比例。
+                    </p>
+                    <div class="border border-architect-slate bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans font-semibold text-stone-900 mb-3">計算範例：</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">建坪（銷售坪數）：50 坪</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">公設比：35%</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">你能實際用的坪數（實坪）：50 × (1 - 35%) = 32.5 坪</p>
+                        <p class="font-sans text-sm font-semibold text-architect-bronze">→ 只能用 32.5 坪，但要付 50 坪的房價！</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        台灣公設比通常在 25-40% 之間。新建案平均 30-35%，老房子通常 20-28%（因為當時設施較少）。在同樣的房價下，公設比越低越划算。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        <strong>公設包括什麼？</strong>
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>必要公設：</strong>樓梯、電梯、走廊、通道（這些沒辦法省）</li>
+                        <li><strong>設施公設：</strong>健身房、游泳池、交誼廳、停車場、垃圾室（這些可以選有或沒有）</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        <strong>重點提醒：</strong>你要決定這些公設對自己有沒有用。如果你根本不會用健身房和游泳池，那為什麼要多付 15% 的房價？選擇公設比低、設施簡單的建案，往往更划算。尤其是首購族預算有限的情況下。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-8 mb-4">類別 2：建築類型（透天 vs 大樓 vs 華廈）</h3>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-stone-900 mb-3">🏘️ 透天厝（獨立房子）</h4>
+                        <div class="bg-green-50 border-l-2 border-green-500 p-4 rounded mb-3">
+                            <p class="font-semibold text-stone-900 mb-2">優點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>隱私最高 - 不用跟鄰居共享牆壁或空間，沒有噪音、油煙、貓叫聲糾紛</li>
+                                <li>自主性大 - 想改裝就改裝，不受管委會限制。牆壁、地板、天花板隨便改</li>
+                                <li>戶外空間 - 有前院、後院、頂樓，可以種花草、曬衣服、放機車</li>
+                                <li>停車方便 - 通常有自己的停車位，不用搶停車位或被堵車道</li>
+                                <li>增值潛力 - 土地持有，長期增值潛力比公寓大。土地永遠不會貶值</li>
+                                <li>沒有管理費 - 不用繳每月 2,000-5,000 元的管理費</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
+                            <p class="font-semibold text-stone-900 mb-2">缺點和風險：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>管線自己維修 - 水、電、冷氣故障要自己修。找水電工人要 2,000-5,000 元/次，冷氣維修要 3,000-8,000 元</li>
+                                <li>耗能成本高 - 冷房、供暖費特別高。沒有隔熱，夏天冷氣費可能 6,000-10,000 元/月</li>
+                                <li>安全防護自己來 - 沒有大樓保全、沒有監視器、沒有防盜系統。要自己裝防盜門、監視器</li>
+                                <li>維護成本高 - 房子老化，整修費昂貴。換屋頂、防水工程可能 300,000-500,000 元。定期外牆粉刷、防水每 10 年要花 100,000-200,000 元</li>
+                                <li>政府查稅 - 透天更容易被稽查房產稅。有些人買透天來投資出租，但被認定不是自住，稅務機關會追稅</li>
+                                <li>老年不友善 - 年紀大了爬樓梯很困難。沒有電梯，上下樓梯是日常挑戰</li>
+                                <li>貸款成數低 - 有些銀行不太願意貸透天，即使願意貸也可能只有 6-7 成</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-stone-900 mb-3">🏢 公寓大樓（電梯大樓，10 樓以上）</h4>
+                        <div class="bg-green-50 border-l-2 border-green-500 p-4 rounded mb-3">
+                            <p class="font-semibold text-stone-900 mb-2">優點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>管理完善 - 有管委會、保全、垃圾清運、寶寶車堆放、宅配代收等服務</li>
+                                <li>維護省心 - 管線由管理公司統一維護。水管漏水、電路問題由物業修，不用自己找工人</li>
+                                <li>安全便利 - 電梯出入、停車位充足、監視器、防盜門禁、共同設施（健身房、交誼廳、停車場）</li>
+                                <li>社區交誼 - 居民互動、共同活動、居委會舉辦活動</li>
+                                <li>抗自然災害 - 結構穩定，防震設計達到最新標準。現代大樓都有抗震能力</li>
+                                <li>老年友善 - 電梯上下樓，老人家生活無虞。未來養老住在這裡最方便</li>
+                                <li>隔音良好 - 現代大樓使用隔音建材，鄰里噪音較少</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
+                            <p class="font-semibold text-stone-900 mb-2">缺點和風險：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>管理費昂貴 - 每月 2,000-5,000 元。住 30 年就是 720,000-1,800,000 元。要考慮進去房貸計算</li>
+                                <li>客變受限 - 管委會有規定不能打牆。有些大樓甚至限制更新冷氣機、安裝衛星天線</li>
+                                <li>停車位競爭 - 車位不足常起糾紛。有些社區車位要排隊等，新住戶可能沒車位</li>
+                                <li>鄰里問題 - 樓上噪音、隔壁油煙、樓下狗叫。一旦起糾紛很難解決</li>
+                                <li>公設比高 - 實坪率可能只有 60-70%。建坪 50 坪，實坪只有 30-35 坪。要確認自己是否能接受</li>
+                                <li>大修基金 - 屋齡越老，每年可能被徵收 10,000-30,000 元大修基金</li>
+                                <li>管委會風波 - 主委權力太大，有些社區發生挪用公基金、亂收費的事件</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold text-stone-900 mb-3">🏗️ 華廈（5-7 樓，沒電梯或有電梯）</h4>
+                        <p class="font-sans text-sm text-stone-600 leading-relaxed mb-3">華廈是台灣特有的建築類型，介於透天和大樓之間。沒有電梯的華廈叫「公寓」，有電梯的叫「華廈」。</p>
+                        <div class="bg-green-50 border-l-2 border-green-500 p-4 rounded mb-3">
+                            <p class="font-semibold text-stone-900 mb-2">優點：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>折衷選擇 - 介於透天和大樓之間，結合了兩者的部分優點</li>
+                                <li>管理費便宜 - 通常 500-1,500 元/月，比大樓便宜 50-70%。住 30 年省 180,000-540,000 元</li>
+                                <li>價格合理 - 比同地點的大樓便宜 10-20%，比透天更好維護</li>
+                                <li>隱私不錯 - 戶數少（通常每層 2-4 戶），鄰里比較簡單</li>
+                                <li>有電梯版本 - 如果選有電梯的華廈，獲得了幾乎所有優點（除了隱私少一點）</li>
+                                <li>維護相對簡單 - 不像透天房子那麼複雜，但也不像大樓那麼官僚</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
+                            <p class="font-semibold text-stone-900 mb-2">缺點和重大風險：</p>
+                            <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
+                                <li>沒電梯的非常難爬樓梯 - 上 5-6 樓、扛東西、推嬰兒車非常累。搬家特別麻煩，要雇搬家公司額外費用</li>
+                                <li>管理不如大樓 - 保全、維護品質參差不齊。有些華廈根本沒有保全，垃圾堆放管理混亂</li>
+                                <li>停車位問題 - 停車位通常在一樓，容易被堵。不像大樓有停車場管理</li>
+                                <li>年老不友善 - 沒電梯的華廈是最不適合養老的房子。60 歲以後每天爬樓梯會很痛苦</li>
+                                <li>隱藏瑕疵難修 - 漏水、管線問題難以解決。沒有統一的物業團隊負責</li>
+                                <li>大修基金不夠 - 華廈的大修基金往往不足，一旦屋頂漏水、外牆脆化，住戶要按比例分擔，可能每戶 100,000 元以上</li>
+                                <li>未來難脫手 - 年輕人不想買沒電梯的房子，將來出租或轉售會很困難</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-6">
+                        <p class="font-sans text-sm text-stone-800">
+                            <strong>華廈特別提醒：</strong>買華廈一定要確認有沒有電梯。同樣价格下，有電梯和沒電梯的華廈，長期來看差別很大。沒電梯現在便宜 5-10%，但 20 年後會後悔。許多沒電梯的華廈已成為難脫手的物業，甚至貶值。
+                        </p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-6">
+                        <p class="font-sans text-sm text-stone-800">
+                            <strong>選擇建議：</strong><br/>
+                            • 如果你喜歡自由度、有時間維護、能承受高成本 → 透天<br/>
+                            • 如果你想省心、安全、長期生活 → 大樓<br/>
+                            • 如果你想均衡、省管理費、好維護 → 華廈（優先選有電梯的）
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 3: Common Mistakes -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見錯誤</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 1：「預售屋最便宜，我就買預售」</h3>
+                        <p class="font-sans text-sm text-stone-700">便宜是真的，但風險也是真的。如果建商經營不善、或交屋嚴重延期，你的「便宜」會變成噩夢。請評估自己的風險承受度。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 2：「中古屋看起來沒問題，就直接買」</h3>
+                        <p class="font-sans text-sm text-stone-700">漏水、壁癌、管線問題，表面看不出來。一定要請專業驗屋公司檢查，這筆錢花了能省掉後續數十萬的修繕費。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 3：「透天很划算，買透天」</h3>
+                        <p class="font-sans text-sm text-stone-700">透天的維護成本和時間投入常被低估。如果你沒有時間和預算定期維護，房子會快速老化。老年人尤其不適合沒電梯的透天。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 4：「大樓就一定好，價格高也買」</h3>
+                        <p class="font-sans text-sm text-stone-700">大樓管理品質差別很大。同樣的建築，有些社區和諧，有些糾紛不斷。看房時一定要問住戶、看過管委會風評。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 5：「華廈沒電梯才便宜，爬樓梯沒關係」</h3>
+                        <p class="font-sans text-sm text-stone-700">現在你年輕，但 20 年後呢？要買華廈，一定要買有電梯的。沒電梯的華廈未來出租也難脫手。</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Key Takeaway -->
+                <section>
+                    <div class="border border-stone-200 p-6 bg-white rounded">
+                        <h3 class="font-serif font-bold text-stone-900 text-lg mb-3"><div class="flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i> 重點提醒</div></h3>
+                        <ul class="font-sans text-stone-800 space-y-2">
+                            <li>✓ 預售屋便宜但有風險，適合風險承受度高的人</li>
+                            <li>✓ 新成屋安全但較貴，適合喜歡即看即住的人</li>
+                            <li>✓ 中古屋地點好且實在，適合大多數首購族</li>
+                            <li>✓ 透天自由度高但維護成本高，要評估自己的能力</li>
+                            <li>✓ 大樓管理好但管理費高，要看社區評價</li>
+                            <li>✓ 華廈如果沒電梯，未來會後悔</li>
+                            <li>✓ 中古屋一定要驗屋，費用花了值得</li>
+                        </ul>
+                    </div>
+                </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="02.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 02: 財務健檢</p>
+            </a>
+            <a href="04.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 04: 實價登錄怎麼看</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="02.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">3/18</span>
+        <a href="04.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

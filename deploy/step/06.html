@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 06: 區域評估 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="評估社區周邊生活機能、交通便利性、未來發展潛力，識別嫌惡設施。實地走訪不同時段深入了解社區。">
+    <link rel="canonical" href="https://homerun.com.tw/step/06.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "區域評估",
+        "text": "評估社區周邊生活機能、交通便利性、未來發展潛力，識別嫌惡設施。實地走訪不同時段深入了解社區。",
+        "url": "https://homerun.com.tw/step/06.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">研究功課</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html" selected>Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 33%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 06: 區域評估</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 06</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">區域評估</h1>
+                <p class="font-sans text-base text-stone-600">房子會陪你 20 年，周邊環境也會</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="map" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">劃定搜尋範圍</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="train" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">評估交通便利</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="store" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">檢視生活機能</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="tree-pine" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">考察環境品質</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+                <!-- Section 1: Why This Step is Important -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        「我看中這間房子，只是隔壁是 24 小時加油站，每天都是汽機車聲」。「這間房子買的時候很便宜，後來發現樓下是燒烤店，每晚油煙嗆得不行」。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        買房不只是買房子本身，也是在買周邊環境。如果你選錯了區域，房子本身再好也會變成噩夢。特別是嫌惡設施（加油站、殯儀館、垃圾場、高壓電塔），會嚴重影響生活品質和房價。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步教你：如何評估生活機能、交通便利性、未來發展潛力、如何識別嫌惡設施、如何實地考察。
+                    </p>
+                </section>
+
+                <!-- Section 2: How to Do It -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="list-checks" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">具體怎麼做？</h2>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第1步：生活機能檢查清單</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        走出社區，用這份清單檢查周邊環境：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>必備機能（步行 5-10 分鐘內）：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>☐ 便利商店（7-11、全家等）- 買日常用品</li>
+                            <li>☐ 超市或傳統市場 - 買菜</li>
+                            <li>☐ 診所或醫院 - 就醫</li>
+                            <li>☐ 銀行 ATM - 金融服務</li>
+                            <li>☐ 公園或綠地 - 散步運動</li>
+                        </ul>
+                    </div>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>生活加分項（步行或騎車 15-20 分鐘內）：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>☐ 健身房或瑜伽教室</li>
+                            <li>☐ 咖啡廳或餐廳</li>
+                            <li>☐ 電影院或娛樂場所</li>
+                            <li>☐ 兒童遊樂場（如果有小孩）</li>
+                            <li>☐ 圖書館或文化設施</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第2步：交通便利性評估</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        每天通勤的時間很重要。你會在路上花掉大量時間，所以交通便利度直接影響生活品質。
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>捷運：</strong>是否在捷運站附近（步行 10-15 分鐘內）？到你工作地點需要多久？</li>
+                        <li><strong>公車：</strong>有沒有直達你工作地點的公車？班次多不多？</li>
+                        <li><strong>騎車或開車：</strong>到工作地點需要多久？停車位好不好找？是否塞車？</li>
+                        <li><strong>使用 Google Maps：</strong>查詢不同時段的通勤時間（特別是尖峰時段）。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>秘訣：</strong>一定要在「尖峰時段」測試通勤時間。用 Google Maps 設定出發時間，看看早上 8 點會塞多久。差別可能是 20 分鐘和 50 分鐘。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第3步：識別嫌惡設施</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這些設施不是非法，但會降低居住品質和房價。買房前一定要查清楚。
+                    </p>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>常見嫌惡設施：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>加油站 - 汽機車聲、油污味</li>
+                            <li>高壓電塔或變電所 - 電磁波疑慮</li>
+                            <li>殯儀館或靈骨塔 - 心理困擾</li>
+                            <li>垃圾焚化廠或掩埋場 - 臭味、污染</li>
+                            <li>工業區 - 噪音、污染</li>
+                            <li>高速公路或快速道路 - 噪音、廢氣</li>
+                            <li>夜市或美食街 - 晚上噪音油煙</li>
+                            <li>色情行業聚集地 - 治安問題</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>查詢方法：</strong>Google 地圖上搜尋這些地點，看房子和它們的距離。用街景地圖實際看看周邊長什麼樣。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第4步：評估未來發展潛力</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        買房是長期投資。區域的未來發展會影響房價。要看：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>重劃區：</strong>政府規畫的重劃區通常有建設投資，會帶動房價。但也要小心，重劃區的建設進度常延遲。</li>
+                        <li><strong>捷運延伸線：</strong>政府有沒有計畫在附近興建新捷運線？這會大幅提升交通便利性和房價。</li>
+                        <li><strong>新商圈：</strong>附近有沒有大型百貨、shopping mall 要興建？會帶動商業發展。</li>
+                        <li><strong>新學校：</strong>政府有沒有計畫興建新學校？代表區域被看好。</li>
+                        <li><strong>時事新聞：</strong>查新聞，看這個區有沒有重大建設計畫。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>查詢資源：</strong>各縣市政府網站都會公佈未來建設計畫。搜尋「[地區]都市計畫」可以找到相關資料。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第5步：實地走訪，不同時段都要去</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        看房就要看周邊環境。但要在不同時段走訪，才能真正了解這個社區。
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>走訪計畫：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>☐ 早上上班時段（7-9 點）- 看交通、人潮、環境秩序</li>
+                            <li>☐ 中午時段（12-1 點）- 看學校放學、用餐人潮</li>
+                            <li>☐ 下午下班時段（5-7 點）- 看回家人潮、交通狀況</li>
+                            <li>☐ 晚上時段（8-10 點）- 看有沒有噪音、燈光、治安</li>
+                            <li>☐ 假日白天 - 看假日人潮和休閒設施</li>
+                            <li>☐ 雨天 - 看有沒有淹水風險</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        每次去看房，不要只看房子本身。抽時間走到社區，問問當地居民：「這邊住起來怎麼樣？」他們的答案最誠實。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第6步：精確計算到捷運站的距離和價格差</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        捷運距離對房價的影響非常大。一般來說，每離捷運站 100 公尺，房價就會有明顯的階梯式下降。台灣都市區通常的規律是：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>距離與價格關係（以北市為例）：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>距捷運站 0-100 公尺：基準價格（最高）</li>
+                            <li>距捷運站 100-200 公尺：便宜 2-4%</li>
+                            <li>距捷運站 200-400 公尺：便宜 5-8%</li>
+                            <li>距捷運站 400-600 公尺：便宜 8-12%</li>
+                            <li>距捷運站 600 公尺以外：便宜 12-20% 以上</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>應用技巧：</strong>如果一間房子號稱「準捷運」，但走路其實要 15 分鐘（約 1 公里），那它應該便宜 20% 以上。如果價格沒有反映距離，那房仲可能在唬嚨你。用 Google Maps 實際量一下步行距離，再用實價登錄對比同社區、不同距離的成交價。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第7步：詳細檢查淹水風險和歷史紀錄</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        台灣有些地區淹水風險高，特別是在颱風季。買房前一定要查清楚。淹水不只是麻煩，還會降低房價 10-30%：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>淹水查詢方法：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>經濟部水利署「易淹水地區」地圖：查詢歷史淹水紀錄</li>
+                            <li>新北市、台中市、高雄市等各都市政府也有淹水潛勢圖</li>
+                            <li>問鄰居和當地里長：「過去 10 年有沒有淹過水？」最實在</li>
+                            <li>看房時詢問房主：「你住幾年了，有淹過水嗎？」要求他們誠實回答</li>
+                        </ul>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>高風險淹水地區的特徵：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>靠近河堤或排水溝</li>
+                            <li>地勢低於馬路</li>
+                            <li>地下室特別深</li>
+                            <li>鄰近山區山坡地（土石流風險）</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        曾經淹過水的房子，買賣時通常要主動告知。如果屋主隱瞞淹水史，你簽約後發現，可能可以要求解約或賠償。所以一定要在簽約前查清楚。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第8步：研究重劃區和未來開發計畫</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        「重劃區」是指政府規畫、統一更新的地區。重劃區通常會帶來新的商業設施和房價升值機會，但也有風險：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>重劃區的優點：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>政府投資基礎設施（馬路、公園、學校）</li>
+                            <li>房價通常會升值 20-50%</li>
+                            <li>新房子多，環境相對新穎</li>
+                            <li>商業聚集，形成新商圈</li>
+                        </ul>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>重劃區的風險：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>建設進度常延遲，可能整片區域空蕩蕩 5-10 年</li>
+                            <li>如果計畫落空，房價會下跌</li>
+                            <li>前期買房的人會被「釘子戶」問題困擾</li>
+                            <li>買在重劃前期，可能要等 3-5 年才有生活機能</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        查詢重劃區的方法：各縣市政府的都市計畫課網站，都會公佈重劃區的進度。台北市、新北市、台中市的重劃區資訊最詳細。買房前要確認：重劃進度到哪一步了？預計何時完成？是否有延遲跡象？
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第9步：捷運延伸線的官方公告查詢</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        「聽說這邊要建捷運」是房仲最常用的推銷詞。但「聽說」不算數，一定要查官方資料。政府的捷運計畫通常需要 10-20 年，而且常延遲。只有正式核定、列入預算的計畫才值得參考：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>查詢管道：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-1 mt-2">
+                            <li>台北市政府捷運工程處：北捷的延伸線計畫</li>
+                            <li>新北市政府：新北的捷運計畫</li>
+                            <li>高雄市政府：高雄捷運計畫</li>
+                            <li>交通部運輸研究所：全台灣的交通建設計畫</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        只有在正式列入「中程施政計畫」或「前瞻基礎建設計畫」的捷運延伸線，才真的有可能會建。即使已經公告，也可能因為經費、徵地問題而延遲 5-10 年。不要因為「將來會有捷運」而多付 20% 房價，風險太大。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第10步：檢查公安和環境因素</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        還要考慮一些自然和安全因素：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>淹水：</strong>這個地區有沒有淹水紀錄？在洪氾地圖上查一下。</li>
+                        <li><strong>地震：</strong>台灣任何地方都有地震風險，但某些區域更高。看地震帶。</li>
+                        <li><strong>土質：</strong>某些區域土質差，房子沉陷風險高。這很難自己查，可以問代書。</li>
+                        <li><strong>治安：</strong>查警政署的犯罪地圖，看這區有沒有治安問題。</li>
+                        <li><strong>空污：</strong>查空氣品質監測站，看這區的空污嚴不嚴重。</li>
+                    </ul>
+                </section>
+
+                <!-- Section 3: Common Mistakes -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見錯誤</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 1：「只在周末看房，沒看工作日」</h3>
+                        <p class="font-sans text-sm text-stone-700">周末和工作日完全不同。工作日的早上尖峰時段，交通、噪音、人潮都很不一樣。一定要在工作日的早上試過。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 2：「只看房子內部，沒看外面的社區」</h3>
+                        <p class="font-sans text-sm text-stone-700">房仲會帶你看房子，但你也要自己走出去。不要只在房子裡待 10 分鐘，要花 1 小時在社區周邊逛。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 3：「房仲說這邊很安全，我就相信」</h3>
+                        <p class="font-sans text-sm text-stone-700">房仲當然會說好話。要自己查警政署犯罪地圖、看新聞、問當地居民。不要太相信房仲的話。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 4：「聽說附近要建捷運，房子一定會升值」</h3>
+                        <p class="font-sans text-sm text-stone-700">「聽說」不算證據。要查政府官方網站，看有沒有正式公佈。有些城市傳言捷運延伸 10 年都沒動靜。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 5：「加油站、電塔沒關係，買下來再說」</h3>
+                        <p class="font-sans text-sm text-stone-700">嫌惡設施是永久的，會一直影響你的生活品質和房價。買的時候很便宜，後來會很後悔。三思而行。</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Practical Resources -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="bookmark" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">實用資源</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">🗺️ 地圖和位置查詢</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>Google Maps：</strong>查詢距離、通勤時間、街景、附近設施</li>
+                            <li><strong>Google 街景：</strong>看社區實際長什麼樣</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-architect-terracotta stroke-[1.5] inline-block mr-1"></i> 環境和安全查詢</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>經濟部水利署洪氾地圖：</strong> 查詢淹水風險</li>
+                            <li><strong>中央氣象署地震資訊：</strong> 查詢地震風險</li>
+                            <li><strong>警政署犯罪地圖：</strong> 查詢治安狀況</li>
+                            <li><strong>環保署空氣品質監測：</strong> 查詢空污情況</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="clipboard-list" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 其他資源</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>各縣市政府都市計畫：</strong> 查詢區域未來建設計畫</li>
+                            <li><strong>PTT 或 FB 社團：</strong> 問在地居民的評價</li>
+                            <li><strong>代書或房仲：</strong> 詢問該區的淹水、沉陷風險</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 5: Key Takeaway -->
+                <section>
+                    <div class="border border-stone-200 p-6 bg-white rounded">
+                        <h3 class="font-serif font-bold text-stone-900 text-lg mb-3"><div class="flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i> 重點提醒</div></h3>
+                        <ul class="font-sans text-stone-800 space-y-2">
+                            <li>✓ 檢查生活機能：便利商店、超市、醫院、公園</li>
+                            <li>✓ 測試交通便利性，特別是尖峰時段</li>
+                            <li>✓ 用 Google 地圖識別嫌惡設施距離</li>
+                            <li>✓ 查詢未來發展：重劃區、捷運延伸、新商圈</li>
+                            <li>✓ 實地走訪，早中晚都要去，下雨天也要看</li>
+                            <li>✓ 問當地居民，他們最了解社區</li>
+                            <li>✓ 查詢環境風險：淹水、地震、空污、治安</li>
+                            <li>✓ 不要只看房子，要看周邊整個社區</li>
+                        </ul>
+                    </div>
+                </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="05.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 05: 建商調查</p>
+            </a>
+            <a href="07.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 07: 預約看房</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="05.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">6/18</span>
+        <a href="07.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
