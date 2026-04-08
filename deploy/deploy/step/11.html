@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 11: 客變規劃 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="學習預售屋和成屋合約的關鍵條款、識別陷阱、尋求專業律師協助。">
+    <link rel="canonical" href="https://homerun-taiwan.com/step/11.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "客變規劃",
+        "text": "學習預售屋和成屋合約的關鍵條款、識別陷阱、尋求專業律師協助。",
+        "url": "https://homerun-taiwan.com/step/11.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">交易簽約</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html" selected>Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 61%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 11: 客變規劃</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 11</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">客變規劃</h1>
+                <p class="font-sans text-base text-stone-600">把握客變機會，讓新家更符合你的需求</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="layout-dashboard" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">了解可客變項目</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="palette" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">選材質配色</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="plug" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">調整水電位置</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="clock" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">確認截止日</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+<!-- 為什麼這步很重要 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        簽約後、建築還未完工的這段時間，是你改造房屋的最後機會。一旦交屋，想要修改隔間、增加插座、選擇磁磚顏色，成本會高出 3-5 倍。預售屋的「客變」制度讓你在施工期間客製化，大幅降低後期裝修的費用和麻煩。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        許多首次購屋者不知道有「客變」這回事，或者不清楚什麼時間點必須決定，結果交屋後才想到「哎呀，應該增加一個插座」、「房間隔間應該改一下」。此時後悔已晚——全都要自費，而且施工複雜度大幅提高。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步的目標，是讓你理解「客變」的意義、時間限制、成本差異，並制定合理的客變計畫，讓房屋更符合你的生活需求。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 什麼是客變 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="palette" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">什麼是「客變」？</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        「客變」全名是「客戶變更」，是指預售屋在施工期間，買家可以申請改變房屋的格局、建材、設備等內容，而不是接受建商的標準配置。例如：把客廳隔間變成房間、增加廚房插座數量、選擇磁磚顏色、改變衛浴設備等。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        關鍵點是：客變必須在「特定的施工階段」內申請。錯過時間，建商就不會再受理。而且，不同的客變需求，施工難度和費用差異很大。有些客變是「免費」（建商認為是標準選項），有些需要「加費」（改變結構或增加成本）。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        如果你不在客變期內提交申請，交屋後才想改造，成本會暴漲。例：簽約後加一面隔間牆可能加費 3-5 萬，但交屋後要打掉重砌，可能要 10-15 萬。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 常見的客變項目 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="layers" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見的客變項目與成本</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">1</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">隔間變更（免費或加費 3-8 萬）</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    改變房間隔間配置。例如：把客廳一分為二、把一個房間改成兩個小房間、或移除某些隔牆。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">✓ 通常免費或便宜</p>
+                                        <p class="font-sans text-stone-600">簡單的隔間變更（不動到樑柱、水電、冷媒管），建商通常免費或只收象徵性費用。</p>
+                                    </div>
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">🔴 需要加費</p>
+                                        <p class="font-sans text-stone-600">如果涉及改動樑柱結構、增加防火牆，費用可能 3-8 萬，甚至更高。務必要到工地確認。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-terracotta text-white font-bold text-sm">2</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">插座、開關數量變更（加費 2-5 萬）</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    增加或減少房間裡的電源插座、開關位置。現代家庭電器多，很多人簽約後才發現插座不夠。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-1">💡 建議</p>
+                                        <p class="font-sans text-stone-600">這是相對便宜的客變。如果發現標準配置的插座不夠，一定要在客變期內加。交屋後要增加插座，需要開牆、拉線、補磁磚，麻煩且昂貴。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-slate text-white font-bold text-sm">3</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">建材、磁磚、顏色選擇（通常免費）</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    選擇不同品牌的地磚、牆磚、廚具顏色、衛浴設備款式。大多數建商提供「選項清單」讓購屋者挑選。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">✓ 通常免費</p>
+                                        <p class="font-sans text-stone-600">在建商提供的同級別選項內選擇（例如：磁磚 A、B、C 三種顏色選一個），通常免費。</p>
+                                    </div>
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">🔴 升級需加費</p>
+                                        <p class="font-sans text-stone-600">如果要升級到更好的品牌或規格（例如從標準磁磚升級到進口磁磚），需要補差價，通常 1-3 萬。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">4</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">水電位置調整（加費 2-6 萬）</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    改變廚房排水位置、浴室冷熱水管位置、或瓦斯爐位置等。牽涉到工程難度較大。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-1">⚠️ 風險</p>
+                                        <p class="font-sans text-stone-600">水電變更必須符合建築法規。不是隨便改，有些位置改不了（例如排水無法改向上水樓層）。一定要請建商現場評估是否可行。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-slate text-white font-bold text-sm">5</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">冷氣、空調配置（加費 3-10 萬）</h3>
+                                <p class="font-sans text-sm text-sm text-stone-600 mb-3">
+                                    改變冷媒管路位置、增加冷氣室外機位置、或選擇中央空調。涉及複雜的管路工程。
+                                </p>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-stone-100 rounded p-3">
+                                        <p class="font-bold text-stone-900 mb-1">💰 成本差異大</p>
+                                        <p class="font-sans text-stone-600">簡單的冷媒管移位加費 3-5 萬，但若要裝中央冷氣系統，可能 8-15 萬。一定要取得書面報價。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 客變時間表和流程 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="clock" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">客變時間表：什麼時候必須決定</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-sm text-stone-600 mb-3">
+                        不同類型的客變有不同的「截止時間」，必須趕上施工進度。錯過時間點，建商就不受理。以下是典型的時間表：
+                    </p>
+                    <ul class="space-y-2 text-sm text-stone-600">
+                        <li><strong>簽約後 1-2 個月內：</strong> 申請隔間變更、大規模格局改變（必須在未開始隔間前）</li>
+                        <li><strong>簽約後 2-3 個月內：</strong> 申請水電、冷媒管位置變更（必須在水電未配管前）</li>
+                        <li><strong>簽約後 3-4 個月內：</strong> 申請磁磚、建材選擇（在鋪磁磚前）</li>
+                        <li><strong>簽約後 4-5 個月內：</strong> 申請廚具、衛浴設備規格（在安裝前）</li>
+                    </ul>
+                </div>
+                <div class="border border-stone-200 p-6">
+                    <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">客變申請流程：5 個步驟</h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm flex-shrink-0">1</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">確認客變需求</p>
+                                <p class="font-sans text-sm text-stone-600">明確列出你想改變的項目。建議到工地看過，或請設計師畫圖，確保想法清楚。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-terracotta text-white font-bold text-sm flex-shrink-0">2</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">提交客變申請表</p>
+                                <p class="font-sans text-sm text-stone-600">向建商或業務窗口提交「客變申請書」。要用書面形式（不要只口頭說），保留副本備查。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-slate text-white font-bold text-sm flex-shrink-0">3</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">取得客變報價單</p>
+                                <p class="font-sans text-sm text-stone-600">建商會回覆是否可行、需要加費多少。要求取得書面報價單，清楚列明工項和金額。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm flex-shrink-0">4</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">簽署客變合約並付款</p>
+                                <p class="font-sans text-sm text-stone-600">同意後簽署客變合約，支付客變費用（通常在簽約當時一起結清，或在交屋時扣抵）。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-slate text-white font-bold text-sm flex-shrink-0">5</div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">施工和驗收</p>
+                                <p class="font-sans text-sm text-stone-600">施工期間，定期到工地查看進度。交屋前檢驗客變項目是否按照要求完成。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 客變常見誤區 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">客變常見誤區與注意事項</h2>
+                    </div>
+                <div class="space-y-3">
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 1：以為客變隨時可以提，反正還沒交屋</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            錯！客變有時間限制。隔間變更要在還未砌牆時提出，水電變更要在未配管時提出。錯過時間，建商就不受理。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 2：只靠口頭承諾，沒有書面文件</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            建商口頭說「免費」或「加費 5 萬」，但沒有簽合約。交屋時因為理解不同而起紛爭。一定要取得書面客變申請書和報價單。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 3：貪便宜，選最低成本的方案</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            某些「便宜」的客變方案（例如用廉價磁磚、低端廚具）在交屋後會後悔。建議在預算範圍內，選品質穩定的建材。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 4：客變過於複雜，超出建築法規</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            有些客變可能違反建築法（例如移除承重牆、改變防火分間）。建商會拒絕。要和建築師諮詢，確保客變合法。
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 誤區 5：沒有到工地驗收，交屋才發現有問題</h3>
+                        <p class="font-sans text-sm text-stone-600">
+                            施工期間應該定期到工地檢查，確認客變項目是否如要求施工。交屋時若發現問題（例如插座位置不對），難以要求補救。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaway -->
+            <section class="mb-12">
+                <div class="border border-stone-200 p-6">
+                    <h2 class="font-serif text-lg font-bold text-stone-900 mb-4">重點提醒</h2>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>客變要趕上施工進度，有時間限制。</strong> 簽約後立即確認需求，不要拖到最後一刻。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>一定要取得書面的客變申請書和報價單。</strong> 口頭承諾不算數，交屋時容易起爭議。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>插座、水電變更是最划算的客變。</strong> 交屋後自己加這些，成本會翻倍。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>施工期間定期到工地驗收，確保客變正確執行。</strong> 交屋前發現問題還能補救，交屋後就困難了。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="10.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 10: 簽約須知</p>
+            </a>
+            <a href="12.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 12: 工程追蹤</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="/step/10.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 10 步：貸款申請</a>
+        <a href="/step/12.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 12 步：交屋準備 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="/inspection.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">🔍 驗屋推薦</a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="10.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">11/18</span>
+        <a href="12.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

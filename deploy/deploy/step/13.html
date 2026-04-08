@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 13: 貸款對保 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="HomeRUN 買房流程 Step 13">
+    <link rel="canonical" href="https://homerun-taiwan.com/step/13.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "貸款對保",
+        "text": "HomeRUN 買房流程 Step 13",
+        "url": "https://homerun-taiwan.com/step/13.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">交易簽約</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html" selected>Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 72%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 13: 貸款對保</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 13</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">貸款對保</h1>
+                <p class="font-sans text-base text-stone-600">銀行對保是貸款最後一關，準備齊全一次過</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="landmark" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">選銀行方案</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="folder-open" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">備齊文件</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="handshake" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">銀行對保</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="file-check" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">確認撥款</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+<!-- 為什麼這步很重要 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        「貸款對保」是最後敲定貸款細節的重要一步。簽約買房後，你會先向銀行申請貸款。銀行核准後，會通知你到銀行進行「對保」——也就是面對面簽署貸款合約、確認利率、確認每月還款金額。這一步不能馬虎，因為一旦簽字，就要按這個利率還30年房貸。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        貸款對保的時機通常在交屋前2-4週進行。如果對保時發現利率不符預期、條件有問題，還有調整的餘地。一旦撥款（貸款進入你的帳戶），就代表貸款正式成立，再改就困難了。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步決定了你未來30年每月要還多少房貸。必須理解每一項數字，不要被銀行人員唬住，要主動問清楚。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 什麼是對保 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">什麼是貸款對保？</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">對保就是「簽借據」</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            「對保」就是你和銀行面對面簽署貸款合約。銀行會詳細說明貸款條件，你確認無誤後簽字。簽完之後，銀行會在交屋前數天進行「撥款」（把貸款金額轉入你的帳戶），你再用這筆錢支付購屋的尾款和各項費用。
+                        </p>
+                        <div class="bg-stone-100 p-4 rounded mb-4">
+                            <p class="font-bold text-stone-900 mb-3 text-sm">對保時需要準備的文件：</p>
+                            <ul class="text-sm text-stone-600 space-y-2">
+                                <li>• <strong>身分證：</strong> 銀行會核驗身份。帶正本和影本。</li>
+                                <li>• <strong>印鑑及印鑑證明：</strong> 簽署貸款合約時需要用印鑑蓋章。印鑑證明要到戶政事務所辦理（證明這枚印鑑確實是你的印鑑）。</li>
+                                <li>• <strong>收入證明：</strong> 銀行會再確認一次你的還款能力。帶薪資單、扣繳憑單或個人所得稅申報書。</li>
+                                <li>• <strong>買賣契約書：</strong> 銀行需要看房屋買賣合約，確認貸款金額是否合理。</li>
+                                <li>• <strong>預估額度通知書：</strong> 銀行之前核准貸款時發給你的信函，帶著以確認金額。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">對保時機與流程</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            銀行通常會在你交屋前2-4週通知你進行對保。時間不能太早（建商還沒確定交屋日期），也不能太晚（要給銀行時間準備撥款）。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">1️⃣</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">銀行通知對保</p>
+                                    <p class="font-sans text-sm text-stone-600">銀行會打電話或寄信通知你，約定對保的時間、地點（通常在銀行的分行）、需要準備的文件。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">2️⃣</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">準備文件並赴銀行</p>
+                                    <p class="font-sans text-sm text-stone-600">帶齊上述文件到銀行。如果是夫妻共同貸款，兩人都要到場簽字。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">3️⃣</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">銀行員說明與簽署</p>
+                                    <p class="font-sans text-sm text-stone-600">銀行員會詳細說明貸款合約各項條款、利率、月付金額、還款期限等。你仔細聽，有問題就當場提出，確認無誤再簽字蓋印。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">4️⃣</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">領取貸款合約與撥款通知</p>
+                                    <p class="font-sans text-sm text-stone-600">銀行會給你一份簽好的合約、撥款日期通知單。撥款通常在交屋前1-3天進行。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 利率與還款方式 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">理解利率與還款方式</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">一段式 vs 二段式利率</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            台灣房貸利率有兩種常見方式。你在對保時需要選擇哪一種。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">🟢 一段式利率（定期利率）</p>
+                                <p class="font-sans text-xs text-stone-600 mb-2">例如：「前2年固定2.5%，之後改浮動利率」</p>
+                                <p class="font-sans text-xs text-stone-600">優點：前幾年利率固定，月付金額不變，好預算。缺點：固定期結束後，利率可能上升，月付金會增加。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">🔵 二段式利率（全浮動）</p>
+                                <p class="font-sans text-xs text-stone-600 mb-2">例如：「第一年基準利率+0.5%，之後基準利率+0.8%」</p>
+                                <p class="font-sans text-xs text-stone-600">優點：初期利率較低，省利息。缺點：利率浮動，月付金可能上升，難以預測。前幾年可能省錢，後期可能變貴。</p>
+                            </div>
+                        </div>
+                        <p class="font-sans text-sm text-stone-600 mt-4 p-3 bg-stone-50 rounded">
+                            <strong>建議：</strong> 一般人建議選一段式。雖然可能比二段式貴，但心理上更踏實，不用擔心利率上升。如果你對自己的收入增長有信心，才考慮二段式。
+                        </p>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">寬限期：要還是不要？</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            「寬限期」是銀行給你的恩惠：在這段期間，你只需要支付利息，不用還本金。通常1-3年。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="border border-stone-200 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-2">✅ 寬限期的優點</p>
+                                <div class="space-y-1 text-xs text-stone-600">
+                                    <p>• 最初幾年月付金少，有時間調整財務</p>
+                                    <p>• 適合「房子剛買完，現金流還在恢復」的買家</p>
+                                    <p>• 例如：貸款1,000萬，每月只付利息約3,500元（假設1.7%），而不是要付本利和</p>
+                                </div>
+                            </div>
+                            <div class="border border-stone-200 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-2">❌ 寬限期的缺點</p>
+                                <div class="space-y-1 text-xs text-stone-600">
+                                    <p>• 寬限期結束後，月付金會跳升（因為要開始還本金）</p>
+                                    <p>• 例如：寬限期3年，之後月付金從3,500元跳到8,000元</p>
+                                    <p>• 總利息會增加（延後還本，多付利息）</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="font-sans text-sm text-stone-600 mt-4 p-3 bg-stone-50 rounded">
+                            <strong>建議：</strong> 如果現金充裕，建議不要寬限期，直接本利平均攤還。這樣總利息少，還款期間月付金穩定。只有在現金真的吃緊的時候，才考慮寬限期度過難關。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 比較銀行方案 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">比較不同銀行的貸款方案</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            不是所有銀行的貸款條件都一樣。你可以在對保前向多家銀行詢價，比較利率、手續費、服務等條件。不要被第一家銀行的條件綁住。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">💰</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">重點比較項目</p>
+                                    <div class="text-sm text-stone-600">
+                                        <p><strong>利率：</strong> 哪一家最低？一段式利率、二段式利率各是多少？</p>
+                                        <p><strong>手續費：</strong> 有的銀行收手續費（約5,000-8,000元），有的免手續費。</p>
+                                        <p><strong>設定費：</strong> 銀行設定不動產擔保權時會有費用，通常1,000-2,000元。</p>
+                                        <p><strong>提前清償違約金：</strong> 有的銀行如果你提前還完房貸，會收違約金。好銀行沒有或只收很少。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📊</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">計算實際成本</p>
+                                    <p class="font-sans text-sm text-stone-600">不能只看利率。例如：銀行A利率2.1%但收手續費8,000元，銀行B利率2.15%但不收手續費。你要把所有費用加起來，算哪家總成本最低。30年房貸，0.05%的利率差異就是幾十萬元。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📱</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">線上試算工具</p>
+                                    <p class="font-sans text-sm text-stone-600">大部分銀行網站都有「房貸試算工具」。輸入貸款金額、年限、利率，系統會幫你算月付金和總利息。比較不同銀行的數字，一目了然。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4">
+                        <p class="font-bold text-stone-900 mb-2"><i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5] inline-block mr-1"></i> 實例對比：</p>
+                        <p class="font-sans text-sm text-stone-600 mb-3">
+                            貸款800萬、30年、台灣主流銀行。A銀行2.1%固定2年，B銀行2.35%固定5年。初期A便宜，但5年後B的月付較穩定。你的選擇取決於你認為未來利率會上升還是下降。
+                        </p>
+                        <p class="font-sans text-sm text-stone-600">
+                            <strong>要點：</strong> 銀行方案都差不多，但細節數字差很大。對保前一定要問清楚，把合約詳細看過，不懂的地方當場問銀行員，不要匆匆簽字。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 撥款與交屋 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="file-text" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">對保後的撥款與交屋</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">撥款是什麼？</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            簽好貸款合約後，銀行會在交屋日期前1-3天，將貸款金額轉入你指定的銀行帳戶。這就是「撥款」。你拿到這筆錢後，就用來支付購屋的尾款、登記費、地政規費、稅金等各項費用。
+                        </p>
+                        <div class="bg-stone-100 p-4 rounded mb-4">
+                            <p class="font-bold text-stone-900 mb-3 text-sm">撥款時需要注意：</p>
+                            <ul class="text-sm text-stone-600 space-y-2">
+                                <li>• <strong>確認帳戶無誤：</strong> 對保時銀行會確認你的撥款帳戶。一定要確認帳號正確，免得撥款打到別人帳戶。</li>
+                                <li>• <strong>準備足夠的交屋費用：</strong> 撥款金額不一定夠支付所有費用。例如：貸款800萬，但還要付稅金、規費、代書費、驗屋費等，可能還要自己貼錢。</li>
+                                <li>• <strong>不能更改撥款日期：</strong> 撥款日期已固定，無法提前或延後。建商交屋日期也不能改。這些都要事先協調好。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">從貸款申請到交屋的時間表</h3>
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            整個流程通常需要2-4週。以下是典型時間表：
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">週-4</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">向銀行申請房貸</p>
+                                    <p class="font-sans text-sm text-stone-600">提交貸款申請書、身份證、買賣契約、收入證明等文件。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">週-3</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">銀行審核</p>
+                                    <p class="font-sans text-sm text-stone-600">銀行評估你的信用與還款能力，決定是否核准、核准多少額度、利率多少。通常1-2週內給答覆。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">週-2</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">通知對保時間</p>
+                                    <p class="font-sans text-sm text-stone-600">銀行打電話通知，約定對保日期。通常在你有充足時間準備文件的情況下，約在週內進行。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">週-1</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">對保與簽合約</p>
+                                    <p class="font-sans text-sm text-stone-600">到銀行完成對保，簽署貸款合約。銀行確認撥款時間。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">當日</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">撥款與交屋</p>
+                                    <p class="font-sans text-sm text-stone-600">銀行完成撥款（通常交屋前1-3天），你收到貸款。建商正式交屋，你支付尾款。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <p class="font-bold text-architect-terracotta text-sm mb-2">⚠️ 重要提醒：</p>
+                        <p class="font-sans text-sm text-stone-600">對保後簽署的貸款合約就開始生效。一旦撥款，貸款利息立即開始計算。所以對保時要百分百確定所有條件，不要急著簽。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 需要確認的重要事項 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">對保時必須確認的事項</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            對保簽約前，要仔細檢查合約內容，確保沒有遺漏或誤會的地方。以下是檢查清單：
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">✓</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">貸款金額</p>
+                                    <p class="font-sans text-sm text-stone-600">金額是否正確？是否可以達到你的預期比例（通常貸款購價的75-80%）？</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">✓</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">利率與期限</p>
+                                    <p class="font-sans text-sm text-stone-600">利率是你同意的嗎？是一段式還是二段式？還款年限30年是否正確？</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">✓</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">月付金額</p>
+                                    <p class="font-sans text-sm text-stone-600">計算機算出來的月付金，有沒有寫在合約上？是否在你承受的範圍內？</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">✓</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">寬限期</p>
+                                    <p class="font-sans text-sm text-stone-600">有沒有寬限期？如果有，寬限期有幾年？寬限期後月付金會變多少？</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">✓</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">提前清償</p>
+                                    <p class="font-sans text-sm text-stone-600">如果你想提前還完房貸，有沒有違約金？違約金是多少？</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-sm font-bold text-architect-bronze">✓</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">手續費與雜費</p>
+                                    <p class="font-sans text-sm text-stone-600">有哪些費用？手續費、設定費、開戶費等分別是多少？</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4">
+                        <p class="font-bold text-stone-900 mb-2"><i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5] inline-block mr-1"></i> 不懂就問：</p>
+                        <p class="font-sans text-sm text-stone-600">
+                            任何看不懂的地方，當場問銀行員。不要覺得丟臉或怕麻煩。房貸是30年的承諾，一定要完全理解再簽字。銀行員解釋不清楚，也代表這家銀行服務可能有問題。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 銀行貸款常見問題 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="workflow" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">貸款對保常見問題</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">❓ 貸款被銀行駁回怎麼辦？</p>
+                                <p class="font-sans text-sm text-stone-600">銀行可能因為信用不良、收入不足、負債過高而駁回。要找代書或其他銀行重新申請，或改變貸款條件（例如降低貸款金額、找擔保人）。這會延遲交屋，要提早處理。</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">❓ 對保後可以改利率嗎？</p>
+                                <p class="font-sans text-sm text-stone-600">一般不行。簽署合約就表示雙方同意，銀行不會無故改條件。除非是銀行員填錯（例如本來應該2.1%寫成3.1%），才有改正的餘地。</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">❓ 撥款還要等多久才能交屋？</p>
+                                <p class="font-sans text-sm text-space-600">撥款後通常1-3天內就交屋。建商和銀行會提前協調好日期。撥款金額會進入你的帳戶，你再從帳戶轉給建商或代書。</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">❓ 貸款利息何時開始計算？</p>
+                                <p class="font-sans text-sm text-stone-600">一般從撥款日期開始計算利息。所以即使房子還沒交屋，撥款後利息就開始積累。每月的利息會併入月付金中計算。</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-stone-900 text-sm mb-2">❓ 可以換銀行嗎？</p>
+                                <p class="font-sans text-sm text-stone-600">對保前可以。但對保簽完、撥款後就鎖定了。如果你簽約後又找到更好的銀行，無法更改。所以對保前一定要比較清楚。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 常見錯誤 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">貸款對保常見錯誤</h2>
+                    </div>
+                <div class="space-y-3">
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 1：匆匆簽約，沒有看清楚合約內容</h3>
+                        <p class="font-sans text-sm text-stone-600">「銀行員說簽這裡，我就簽」——對保簽完就無法改。要逐條檢查利率、月付金、手續費，確保所有數字都是自己同意的。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 2：只比較利率，忽視其他費用</h3>
+                        <p class="font-sans text-sm text-stone-600">「A銀行利率2.1%比B銀行2.15%便宜」——但你沒算手續費、設定費。結果A銀行總費用反而更高。要把所有費用加起來算。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 3：不懂二段式利率，以為前期便宜就是划算</h3>
+                        <p class="font-sans text-sm text-stone-600">「第一年只要0.5%，太便宜了」——但之後利率可能跳到2%以上。長期算下來，可能比固定利率更貴。要看全景，不要被前期數字迷惑。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 4：對寬限期認識不清，造成之後月付金跳升</h3>
+                        <p class="font-sans text-sm text-stone-600">「寬限期前月付金只要3,000元，很輕鬆」——但寬限期結束後跳到7,000元，付不起。對保前要看清寬限期時間和之後的月付金。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 5：沒有提前問清楚提前清償費用</h3>
+                        <p class="font-sans text-sm text-stone-600">「未來賺大錢想提前還房貸」——但銀行收違約金，幾十萬元就沒了。對保時要問清楚提前還有沒有違約金、違約金多少。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaway -->
+            <section class="mb-12">
+                <div class="border border-stone-200 p-6">
+                    <h2 class="font-serif text-lg font-bold text-stone-900 mb-4">重點提醒</h2>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>對保就是「簽30年的借據」，要 100% 理解每一項條件。</strong> 不懂就問，絕對不要隨便簽字。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>利率、手續費、月付金都要確認無誤。</strong> 即使低了 0.05% 利率，30 年下來也是幾十萬元差異。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>對保前多家銀行比較，選最划算的方案。</strong> 對保後就無法改，所以事前要做足功課。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>留意寬限期結束後的月付金變化。</strong> 確保自己未來 30 年都負擔得起。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="12.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 12: 工程追蹤</p>
+            </a>
+            <a href="14.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 14: 驗屋準備</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="/step/12.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 12 步：交屋準備</a>
+        <a href="/step/14.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 14 步：交屋點收 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="/inspection.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">🔍 驗屋推薦</a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="12.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">13/18</span>
+        <a href="14.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

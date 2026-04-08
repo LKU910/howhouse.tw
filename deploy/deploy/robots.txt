@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /data-config.json
+Disallow: /line-auto-reply.md
+Disallow: /checklist-*.pdf
+
+# Sitemaps
+Sitemap: https://homerun-taiwan.com/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+# Crawl-delay: 1

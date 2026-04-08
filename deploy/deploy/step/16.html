@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 16: 產權登記 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="HomeRUN 買房流程 Step 16">
+    <link rel="canonical" href="https://homerun-taiwan.com/step/16.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "產權登記",
+        "text": "HomeRUN 買房流程 Step 16",
+        "url": "https://homerun-taiwan.com/step/16.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">交屋入住</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html" selected>Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 89%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 16: 產權登記</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 16</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">產權登記</h1>
+                <p class="font-sans text-base text-stone-600">產權過戶和登記，確保房子真正屬於你</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="stamp" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">準備過戶文件</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="building-2" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">地政事務所</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="credit-card" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">繳稅費</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="scroll-text" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">取得權狀</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+<!-- 為什麼這步很重要 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        房屋過戶不只是簽簽名那麼簡單。如果你沒有正式辦理產權登記，這間房子法律上還不完全屬於你。很多買家在交屋後才發現，原來還要去地政事務所才能真正成為業主，這時才驚覺有那麼多稅費和文件要處理。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        產權登記的過程涉及複雜的法律程序、稅費繳納（契稅 6%、印花稅 0.1%）、代書服務（通常 15,000-25,000 元），還要檢查建物所有權狀上的坪數是否與契約相符。如果在這個步驟出錯，可能導致稅費多繳、權狀有誤、甚至影響後續貸款或賣房。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步的目標，是讓你了解產權登記的完整流程、所需文件、必付費用，以及如何與代書合作，確保房子的所有權真正屬於你，避免後續麻煩。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 具體怎麼做 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="list-checks" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">具體怎麼做：產權登記五步驟</h2>
+                    </div>
+                <div class="space-y-6">
+                    <!-- 1. 了解代書的角色 -->
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">1</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">了解代書的角色：代書和地政士</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    產權登記不是你自己去地政事務所就能辦，通常需要專業的代書（地政士）協助。他們會幫你準備所有文件、計算稅費、到地政所辦理登記。
+                                </p>
+                                <div class="space-y-3 text-sm">
+                                    <div class="bg-stone-100 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-2">代書的主要工作：</p>
+                                        <ul class="text-stone-600 space-y-1">
+                                            <li>• 準備過戶文件（買方身分證、買賣契約、銀行同意函等）</li>
+                                            <li>• 計算契稅、印花稅等應繳稅費</li>
+                                            <li>• 到地政事務所辦理產權移轉登記</li>
+                                            <li>• 確保建物所有權狀和地籍謄本正確無誤</li>
+                                            <li>• 服務費用通常為 15,000-25,000 元（視難度而定）</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-stone-600"><strong>小貼士：</strong>代書通常由建商推薦，但你可以自由選擇。建議找口碑好、有經驗的代書，別只看價格便宜。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 檢查權狀和坪數 -->
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">2</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">檢查權狀和坪數：細節很重要</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    建物所有權狀是你房子的「身分證」，上面會清楚記載房子的位置、面積、樓層、持分等資訊。交屋時務必仔細檢查。
+                                </p>
+                                <div class="space-y-3 text-sm">
+                                    <div class="border border-stone-200 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-2">檢查清單：</p>
+                                        <ul class="text-stone-600 space-y-1">
+                                            <li>✓ 建物面積（權狀登記的坪數）是否與合約相符</li>
+                                            <li>✓ 主建物、附屬建物、共有部分的面積分別是多少</li>
+                                            <li>✓ 地號和建號是否正確</li>
+                                            <li>✓ 房屋座落位置、樓層、門牌號是否無誤</li>
+                                            <li>✓ 權狀上有無任何他項權利（如抵押權）</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-stone-600"><strong>常見問題：</strong>有些新建案的實際坪數會與銷售時宣傳的不同，要求差異通常在 1-2% 以內，但也有超過這個範圍的情況。交屋時一定要確認清楚。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. 了解稅費：契稅和印花稅 -->
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">3</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">了解稅費：契稅和印花稅</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    買房子除了付房款，還要繳產權移轉相關的稅費。最大的是契稅，占了一筆不小的費用。
+                                </p>
+                                <div class="space-y-3 text-sm">
+                                    <div class="bg-stone-100 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-2">主要稅費：</p>
+                                        <ul class="text-stone-600 space-y-1">
+                                            <li>• <strong>契稅（6%）：</strong>按房屋評定現值計算，這是最大的一筆稅費。例如評定現值 1000 萬，需繳 60 萬契稅</li>
+                                            <li>• <strong>印花稅（0.1%）：</strong>按買賣契約金額計算，金額較小，通常幾千元</li>
+                                            <li>• <strong>登記費：</strong>地政事務所收取的登記費用，通常 1,000-2,000 元</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-stone-600"><strong>重要提醒：</strong>房屋評定現值不等於買賣金額。評定現值是政府評估的房屋價值，通常低於實際買賣價格，但契稅就是依此計算。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. 土地登記 vs 建物登記 -->
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">4</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">土地和建物：兩個登記都要完成</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    買房子實際上是買「土地+建物」。產權登記時，土地和建物各需辦理一個登記，都很重要。
+                                </p>
+                                <div class="space-y-3 text-sm">
+                                    <div class="border border-stone-200 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-2">📋 土地登記：</p>
+                                        <p class="text-stone-600">你持有的土地持分，是整個基地的一小部分（例如 1/50），共有人包括整棟建築的所有住戶</p>
+                                    </div>
+                                    <div class="border border-stone-200 p-3 rounded">
+                                        <p class="font-bold text-stone-900 mb-2">📋 建物登記：</p>
+                                        <p class="text-stone-600">你持有的房屋建物本身，包含專有部分（你的室內空間）和應有部分（共同使用的大廳、電梯等）</p>
+                                    </div>
+                                    <p class="text-stone-600"><strong>例子：</strong>如果你買五樓的房子，土地登記會顯示你持有基地的 1/50，建物登記會顯示你擁有 5F 這間房子及相應的共有部分。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. 辦理流程和時間 -->
+                    <div class="border border-stone-200 p-6">
+                        <div class="flex gap-4 mb-4">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">5</div>
+                            <div>
+                                <h3 class="font-sans font-bold text-base text-stone-900 mb-3">辦理流程和時間安排</h3>
+                                <p class="font-sans text-sm text-stone-600 mb-3">
+                                    從交屋到取得權狀，整個流程需要多久？按照什麼順序進行？
+                                </p>
+                                <div class="space-y-3 text-sm text-stone-600">
+                                    <p><strong>📅 典型時間表：</strong></p>
+                                    <ul class="space-y-2">
+                                        <li>• <strong>交屋當天：</strong>驗屋、領鑰匙、確認權狀信息</li>
+                                        <li>• <strong>交屋後 1-3 天：</strong>與代書會面，準備必要文件（身分證、戶籍謄本等）</li>
+                                        <li>• <strong>交屋後 3-7 天：</strong>代書向地政事務所申請登記、繳納契稅和印花稅</li>
+                                        <li>• <strong>交屋後 7-14 天：</strong>地政事務所審查、核發權狀</li>
+                                        <li>• <strong>交屋後 2-3 週：</strong>代書領取權狀並交給你</li>
+                                    </ul>
+                                    <p><strong>重要提醒：</strong>整個流程通常需要 2-3 週。在此期間不要遺失重要文件，也不要主動註銷戶籍（要等產權登記完成後再遷入）。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 常見錯誤 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見錯誤，不要踩坑</h2>
+                    </div>
+                <div class="space-y-3">
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 1：沒有檢查權狀的坪數</h3>
+                        <p class="font-sans text-sm text-stone-600">有人領到權狀後才發現建物面積與合約不符，但為時已晚。務必在交屋時就確認清楚，發現誤差立即通知代書。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 2：忽視代書的建議</h3>
+                        <p class="font-sans text-sm text-stone-600">有些人不信任代書，最後自己去地政所辦理結果出錯，還得花錢重新更正。代書是專業的，你應該信任他們。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 3：沒有預留契稅的資金</h3>
+                        <p class="font-sans text-sm text-stone-600">契稅通常很驚人（評定現值的 6%），有人付完房款後才發現沒有足夠資金繳稅。買房預算務必預留這筆費用。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 4：在產權未登記前就遷戶籍</h3>
+                        <p class="font-sans text-sm text-stone-600">戶籍遷入要在產權登記完成之後。提前遷入可能導致登記程序複雜化，得不償失。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 推薦資源 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">推薦資源</h2>
+                    </div>
+                <div class="space-y-3">
+                    <div class="flex gap-3">
+                        <span class="text-architect-bronze font-bold flex-shrink-0">🔗</span>
+                        <div>
+                            <p class="font-bold text-stone-900 text-sm mb-1">地政事務所線上服務</p>
+                            <p class="font-sans text-sm text-stone-600">全台各地政事務所都有官網，可查詢登記進度、所需文件、費用標準，還有線上申請服務。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-architect-bronze font-bold flex-shrink-0">🔗</span>
+                        <div>
+                            <p class="font-bold text-stone-900 text-sm mb-1">台灣地政士公會</p>
+                            <p class="font-sans text-sm text-stone-600">可查詢合格的地政士（代書），了解專業規範和收費標準。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="text-architect-bronze font-bold flex-shrink-0">🔗</span>
+                        <div>
+                            <p class="font-bold text-stone-900 text-sm mb-1">財政部北/中/南區國稅局</p>
+                            <p class="font-sans text-sm text-stone-600">查詢契稅、印花稅計算方式和相關規定，確保你知道要繳多少稅。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaway -->
+            <section class="mb-12">
+                <div class="border border-stone-200 p-6">
+                    <h2 class="font-serif text-lg font-bold text-stone-900 mb-4">重點提醒</h2>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>信任代書的專業。</strong>代書是協助你順利完成產權登記的關鍵，收費合理且有法律保障。別因小失大。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>預早預留契稅資金。</strong>契稅金額龐大（評定現值的 6%），必須提前計畫，避免臨時手忙腳亂。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>交屋時確認權狀資訊。</strong>檢查坪數、地號、建號等細節，發現誤差立即反映，不要事後才說。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>登記完成後再遷戶籍。</strong>產權登記和戶籍遷入是兩個分開的程序，順序很重要。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="15.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 15: 交屋流程</p>
+            </a>
+            <a href="17.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 17: 入住整理</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="/step/15.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 15 步：裝修規劃</a>
+        <a href="/step/17.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 17 步：社區管理 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="/inspection.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">🔍 驗屋推薦</a>
+    <a href="/trends.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📈 市場趨勢</a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="15.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">16/18</span>
+        <a href="17.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

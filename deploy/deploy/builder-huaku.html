@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>華固建設 — 建商履歷 | HomeRUN 好宅通</title>
+    <meta name="description" content="華固建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。資料僅供參考，購屋前請自行查證。">
+    <meta name="keywords" content="華固建設,華固建設評價,華固建設建案,華固建設司法紀錄,建商履歷,好宅通">
+    <link rel="canonical" href="https://homerun-taiwan.com/builder-huaku.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="華固建設 — 建商履歷 | HomeRUN 好宅通">
+    <meta property="og:description" content="華固建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <meta property="og:url" content="https://homerun-taiwan.com/builder-huaku.html">
+    <meta property="og:site_name" content="HomeRUN 好宅通">
+    <meta property="og:locale" content="zh_TW">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="華固建設 — 建商履歷 | HomeRUN 好宅通">
+    <meta name="twitter:description" content="華固建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com">
+  // Toggle completed projects visibility
+  function toggleCompletedProjects(btn) {
+    const tables = document.querySelectorAll('.proj-table');
+    const isHidden = tables[0] && tables[0].closest('tbody')?.parentElement?.classList.contains('proj-completed-hidden');
+    tables.forEach(t => {
+      if (isHidden) {
+        t.classList.remove('proj-completed-hidden');
+      } else {
+        t.classList.add('proj-completed-hidden');
+      }
+    });
+    btn.textContent = isHidden ? '收合已完工建案' : '顯示已完工建案';
+  }
+
+</script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+* { border-radius: 0 !important; }
+:root { --architect-bronze: #A67C52; --architect-terracotta: #9C4A38; --architect-slate: #4A5D6A; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans TC', sans-serif; background-color: #FAFAFA; color: #121212; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #FAFAFA; }
+::-webkit-scrollbar-thumb { background: #A67C52; }
+.hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-top: 24px; }
+.hs-card { background: #FAFAFA; padding: 24px; }
+.hs-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; }
+.hs-value { font-size: 16px; font-weight: 300; color: #121212; margin-bottom: 8px; }
+.hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
+.hs-src:hover { color: #A67C52; }
+.page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
+.back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; }
+.back-btn:hover { color: #A67C52; }
+.hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; }
+.hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
+@media (min-width: 768px) { .hero-name { font-size: 60px; } }
+.hero-en { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.hero-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; }
+.snav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
+.snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; }
+.snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; }
+.snav-item:hover { color: #121212; }
+.snav-item.is-official:hover { color: #4A5D6A; border-bottom-color: #4A5D6A; }
+.snav-item.is-sentiment:hover { color: #A67C52; border-bottom-color: #A67C52; }
+.snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
+.tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
+.tier-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; }
+.tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
+.tier-kicker.sent { color: #A67C52; border-color: #A67C52; }
+.tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
+.tier-note { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
+.card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px;  background: #fff;}
+.sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; }
+.fact-table { display: flex; flex-direction: column; }
+.fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; }
+.fact-row:last-child { border-bottom: none; }
+.fact-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; }
+.fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
+a.src:hover { color: #A67C52; }
+.proj-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.proj-table th { text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; padding: 16px 16px 16px 0; border-bottom: 1px solid #121212; }
+.proj-table td { padding: 20px 16px 20px 0; border-bottom: 1px solid #E5E5E5; vertical-align: top; }
+.proj-table tr:last-child td { border-bottom: none; }
+.rgroup td { border-bottom: none !important; padding-top: 32px !important; padding-bottom: 8px !important; }
+.region-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; }
+/* Expandable region section */
+.proj-outside-wrap { overflow: hidden; max-height: 0; transition: max-height 0.5s ease; }
+.proj-outside-wrap.open { max-height: 8000px; }
+.proj-region-toggle { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 14px 0; border-top: 1px solid #E5E5E5; cursor: pointer; user-select: none; }
+.proj-region-toggle:hover .proj-region-label { color: var(--architect-bronze); }
+.proj-region-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #121212; }
+.proj-region-count { font-size: 11px; color: #999; }
+.proj-region-chevron { width: 16px; height: 16px; transition: transform 0.3s ease; color: #999; margin-left: auto; }
+.proj-region-toggle.open .proj-region-chevron { transform: rotate(180deg); }
+.proj-summary-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; padding: 12px 16px; background: #F5F3F0; }
+.proj-summary-item { font-size: 11px; color: #666; }
+.proj-summary-item strong { color: var(--architect-bronze); font-weight: 700; font-family: 'Noto Serif TC', serif; }
+.proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
+.proj-sub { font-size: 14px; color: #666666; }
+.status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
+.s-done { color: #4A5D6A; }
+.s-presale { color: #A67C52; }
+.q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
+.q-sub:last-child { border-bottom: none; }
+.q-sub-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; }
+.q-body { font-size: 16px; line-height: 1.7; color: #121212; }
+.q-body strong { font-weight: 600; }
+.contractor-list { display: flex; flex-direction: column; gap: 24px; margin-top: 16px; }
+.contractor-item { display: flex; gap: 16px; }
+.contractor-rank { font-size: 12px; font-weight: 600; color: #666666; min-width: 24px; }
+.contractor-name { font-size: 14px; font-weight: 600; color: #121212; margin-bottom: 4px; }
+.contractor-rel { font-size: 13px; color: #666666; }
+.rel-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; border: 1px solid; }
+.rel-owned { color: #4A5D6A; border-color: #4A5D6A; }
+.legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-bottom: 32px; }
+.lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
+.lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+.lb-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+.lb-green { color: #4A5D6A; }
+.lb-orange { color: #9C4A38; }
+.lb-card.lb-green .lb-num { color: #4A5D6A; }
+.lb-card.lb-orange .lb-num { color: #9C4A38; }
+.legal-item { border-top: 1px solid #E5E5E5; }
+.legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
+.legal-header:hover .legal-title { color: #121212; }
+.sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
+.sev-high { background: #9C4A38; }
+.sev-low { background: #8A8A8A; }
+.legal-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
+.t-admin { color: #666666; }
+.t-civil { color: #4A5D6A; }
+.legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; }
+.legal-year { font-size: 10px; letter-spacing: 0.12em; color: #666666; }
+.legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; flex-shrink: 0; }
+.legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; }
+.legal-body.open { display: block; }
+.legal-body strong { color: #121212; font-weight: 500; }
+.legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
+.t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #A67C52; margin-bottom: 12px; }
+.t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
+.criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
+.criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; }
+.criteria-header:hover { background: #FFFFFF; }
+.criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
+.criteria-chevron { font-size: 14px; color: #666666; }
+.criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
+.criteria-body.open { display: block; }
+.criteria-body strong { color: #121212; font-weight: 500; }
+.sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
+.sent-bars { display: flex; flex-direction: column; gap: 12px; }
+.sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
+.sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
+.sent-fill { height: 100%; }
+.fill-pos { background: #4A5D6A; }
+.fill-neg { background: #9C4A38; }
+.fill-neu { background: #8A8A8A; }
+.sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
+.sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
+.sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.sent-platform { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
+.sent-date { font-size: 11px; color: #666666; }
+.tone { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
+.tone-pos { color: #4A5D6A; }
+.tone-neg { color: #9C4A38; }
+.tone-neu { color: #666666; }
+.sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
+.sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.sent-warning { font-size: 11px; color: #666666; }
+.search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
+.sl-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
+.sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.c-desc { font-size: 13px; color: #666666; }
+.contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+.contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
+.page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; }
+footer { background-color: #FAFAFA; border-top: 1px solid #E5E5E5; padding: 48px 40px; margin-top: 40px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+@media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-logo { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #121212; }
+.footer-links { display: flex; flex-direction: column; gap: 16px; }
+@media (min-width: 768px) { .footer-links { flex-direction: row; gap: 48px; } }
+.footer-link { font-size: 14px; letter-spacing: 0.08em; color: #666666; text-decoration: none; transition: color 500ms; }
+.footer-link:hover { color: #121212; }
+.footer-copyright { font-size: 14px; color: #666666; }
+.data-footnote { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 32px; }
+input:focus, button:focus { outline: none; }
+@media (max-width: 768px) {
+  .page { padding: 0 24px 80px; }
+  .hero-name { font-size: 36px; }
+  .card { padding: 28px; }
+  .hero-bento { grid-template-columns: 1fr 1fr; }
+  .snav-inner { padding: 0 24px; }
+  .legal-bento { grid-template-columns: 1fr; }
+  .contact-block { padding: 28px; }
+  footer { padding: 32px 20px; }
+}
+
+  
+    /* ── 進行中建案行內標注 ── */
+    .proj-table tr.active-row td {
+      background: #FDF8F3;
+    }
+    .proj-table tr.active-row td:first-child {
+      border-left: 3px solid var(--architect-bronze, #A67C52);
+      padding-left: 13px;
+    }
+    .s-planning { color: #7B6BA5; font-weight: 600; }
+    .s-onsale   { color: #B8860B; font-weight: 600; }
+    .s-presale-active { color: #A67C52; font-weight: 600; }
+
+
+    /* Tailwind custom color fallback */
+    .text-architect-bronze { color: #A67C52; }
+    .hover\:text-architect-bronze:hover { color: #A67C52 !important; }
+  
+    /* Collapsible completed projects */
+    .proj-table tr:not(.active-row):not(.rgroup):not(:first-child) {
+      /* These are completed rows - will be hidden by JS */
+    }
+    .proj-completed-hidden tr:not(.active-row):not(.rgroup) {
+      display: none;
+    }
+    .proj-completed-hidden .rgroup {
+      display: none;
+    }
+    .proj-completed-hidden .active-row {
+      display: table-row;
+    }
+    .proj-completed-hidden .rgroup:has(+ .active-row) {
+      display: table-row;
+    }
+    .proj-toggle-completed {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #666;
+      cursor: pointer;
+      padding: 10px 16px;
+      border: 1px solid #E5E5E5;
+      background: none;
+      transition: all 0.3s;
+      margin-top: 12px;
+    }
+    .proj-toggle-completed:hover {
+      border-color: #A67C52;
+      color: #A67C52;
+    }
+
+  </style>
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "華固建設",
+      "url": "https://homerun-taiwan.com/builder-huaku.html",
+      "description": "華固建設 建商履歷與評價 - HomeRUN 好宅通提供的建商資訊頁面",
+      "areaServed": "TW",
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": "Chinese"
+      }
+  }
+  </script>
+</head>
+<body>
+
+<nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+  <div class="flex flex-col">
+    <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none text-stone-900">Home<span style="color:#A67C52">RUN</span></a>
+    <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+  </div>
+  <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+</nav>
+
+<div class="page">
+  <button class="back-btn" onclick="history.back()">← 返回建商履歷卡</button>
+
+  <div class="hero">
+    <h1 class="hero-name">華固建設</h1>
+    <div class="hero-en">Huaku Development Co., Ltd. · 股份有限公司</div>
+    <div class="hero-tags">
+      <span class="hero-tag">上市（2548）</span>
+      <span class="hero-tag">成立 1996 年</span>
+      <span class="hero-tag">台北精品住宅</span>
+      <span class="hero-tag">上市建商</span>
+    </div>
+    <div class="hero-bento">
+      <div class="hs-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:#A67C52;line-height:1;">100<span style="font-size:24px;">+</span></div>
+        <div class="hs-label" style="margin-top:8px;">總建案數</div>
+      </div>
+      <div class="hs-card">
+        <div class="hs-label">上市代號</div>
+        <div class="hs-value">2548</div>
+        <a href="https://www.twincn.com/item.aspx?no=80411313" target="_blank" class="hs-src">商業司 ↗</a>
+      </div>
+      <div class="hs-card">
+        <div class="hs-label">實收資本額</div>
+        <div class="hs-value">NT$ 44.8 億</div>
+        <a href="https://www.twincn.com/item.aspx?no=80411313" target="_blank" class="hs-src">商業司 ↗</a>
+      </div>
+      <div class="hs-card">
+        <div class="hs-label">董事長</div>
+        <div class="hs-value">鍾榮昌</div>
+        <a href="https://www.twincn.com/item.aspx?no=80411313" target="_blank" class="hs-src">商業司 ↗</a>
+      </div>
+      <div class="hs-card">
+        <div class="hs-label">登記地址</div>
+        <div class="hs-value" style="font-size:13px;letter-spacing:0">台北市信義區基隆路一段 100 號</div>
+        <a href="https://www.twincn.com/item.aspx?no=80411313" target="_blank" class="hs-src">商業司 ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="snav">
+    <div class="snav-inner">
+      <span class="snav-item is-official" onclick="jumpTo('sec-reg')">基本資料</span>
+      <span class="snav-item is-official" onclick="jumpTo('sec-legal')">法律紀錄</span>
+      <span class="snav-item is-sentiment" onclick="jumpTo('sec-sentiment')">網路輿情</span>
+      <div class="snav-sep"></div>
+      <span class="snav-item is-official" onclick="jumpTo('sec-quality')">品質相關</span>
+      <span class="snav-item is-official" onclick="jumpTo('sec-proj')">過往建案</span>
+    </div>
+  </div>
+
+  <div class="tier-head">
+    <span class="tier-kicker off">公開資料 · 第一層</span>
+    <div class="tier-rule"></div>
+    <span class="tier-note">來源：政府機關與公開揭露資訊</span>
+  </div>
+
+  <div id="sec-reg" class="card">
+    <div class="sec-label">基本資料</div>
+    <div class="fact-table">
+      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">華固建設股份有限公司 <a class="src" href="https://www.twincn.com/item.aspx?no=80411313" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">80411313 <a class="src" href="https://www.twincn.com/item.aspx?no=80411313" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">1996 年 <a class="src" href="https://www.twincn.com/item.aspx?no=80411313" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">上市公司（上市代號：2548）</span></div>
+      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 44.8 億元 <a class="src" href="https://www.twincn.com/item.aspx?no=80411313" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">董事長</span><span class="fact-val">鍾榮昌 <a class="src" href="https://www.twincn.com/item.aspx?no=80411313" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">台北市信義區基隆路一段 100 號 <a class="src" href="https://www.twincn.com/item.aspx?no=80411313" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">台北市信義區及其他精華地段，專注高端住宅開發</span></div>
+    </div>
+    <div class="data-footnote">資料來源：經濟部商業司 · 台灣證券交易所</div>
+  </div>
+
+  <div id="sec-legal" class="card">
+    <div class="sec-label">法律相關</div>
+    <div class="legal-bento">
+      <div class="lb-card lb-green">
+        <div class="lb-num">0</div>
+        <div class="lb-type">重大裁罰</div>
+      </div>
+      <div class="lb-card lb-green">
+        <div class="lb-num">0</div>
+        <div class="lb-type">重大刑事</div>
+      </div>
+      <div class="lb-card lb-green">
+        <div class="lb-num">少</div>
+        <div class="lb-type">民事糾紛</div>
+      </div>
+    </div>
+    <p style="font-size:15px;color:#666;line-height:1.75;margin-bottom:24px;">華固建設為上市公司，整體司法紀錄良好。</p>
+
+    <div style="padding:14px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#666">自行查詢</span>
+      <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+    </div>
+    <div class="data-footnote">資料來源：司法院 · 台灣證券交易所</div>
+  </div>
+
+  <div class="tier2-divider">
+    <div class="t2d-kicker">第二層 — 網路輿情資料</div>
+    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。HomeRun 僅彙整摘要與連結，<strong>不對內容真實性負責。</strong></div>
+  
+    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#FFF9F0;border-left:3px solid #D4A574;font-size:12px;line-height:1.8;color:#666">⚖️ 以上司法紀錄摘要來自公開資訊整理，連結將前往司法院裁判書查詢系統，需自行輸入當事人名稱搜尋。實際案情請以法院裁判書原文為準。</p>
+  </div>
+
+  <div id="sec-sentiment">
+    <div class="tier-head">
+      <span class="tier-kicker sent">網路輿情 · 第二層</span>
+      <div class="tier-rule"></div>
+      <span class="tier-note">PTT · Mobile01 · Dcard</span>
+    </div>
+
+    <div class="criteria-block">
+      <div class="criteria-header" onclick="toggleCriteria(this)">
+        <span class="criteria-title">本頁輿情篩選標準</span>
+        <span class="criteria-chevron">＋</span>
+      </div>
+      <div class="criteria-body">
+        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文。<br>
+        <strong>② 時效分層</strong>：三年內的討論為主要資料。<br>
+        <strong>③ 人工最終審閱</strong>：所有摘要由 HomeRun 編輯審閱後才發布。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sec-label">輿情概況</div>
+      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">根據公開討論平台的搜尋結果，華固建設網路討論量適中。</p>
+      <div class="sent-overview">
+        <div class="sent-bars">
+          <div class="sent-row"><span class="sent-lbl">正面</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:55%"></div></div><span class="sent-pct">多數</span></div>
+          <div class="sent-row"><span class="sent-lbl">負面</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:25%"></div></div><span class="sent-pct">少數</span></div>
+          <div class="sent-row"><span class="sent-lbl">中性</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:20%"></div></div><span class="sent-pct">部分</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sent-card">
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-date">2023–2024</span><span class="tone tone-pos">正面為主</span></div>
+      <div class="sent-body">華固建設相關討論多為正面評論，購買者普遍表示滿意品質與服務。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E8%8F%AF%E5%9B%BA" target="_blank">搜尋 PTT 討論 ↗</a></div>
+    </div>
+
+    <div class="search-links">
+      <div class="sl-label">自行搜尋更多討論</div>
+      <div class="sl-links">
+        <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E8%8F%AF%E5%9B%BA%E5%BB%BA%E8%A8%AD" target="_blank">PTT 搜尋「華固建設」 ↗</a>
+        <a class="src" href="https://www.mobile01.com/search.php?search=%E8%8F%AF%E5%9B%BA&type=0&category=455" target="_blank">Mobile01 房屋板 ↗</a>
+      </div>
+    </div>
+  
+    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT、Mobile01 等公開論壇的整理歸納，連結將前往對應平台的搜尋頁面，非特定貼文直連。各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
+  </div>
+
+  <div id="sec-quality" class="card">
+    <div class="sec-label">履約保障與品質認證</div>
+    <div class="q-sub">
+      <div class="q-sub-label">預售屋履約擔保方式</div>
+      <div class="q-body">華固建設為上市公司，預售屋履約保障遵循法規要求。購屋前應於建案銷售資料中確認具體擔保機制。</div>
+    </div>
+    <div class="q-sub">
+      <div class="q-sub-label">品質認證與施工</div>
+      <div class="q-body">華固建設以建築品質著稱，多採用國際標準施工流程，建案普遍取得建築物生產履歷認證。</div>
+    </div>
+    <div class="q-sub">
+      <div class="q-sub-label">公司規模與市場地位</div>
+      <div class="q-body">華固建設於 1996 年成立，資本額 NT$44.8 億，為台北市精品住宅開發商。上市公司身份確保透明的財務與治理結構。</div>
+    </div>
+    <div class="q-sub">
+      <div class="q-sub-label">主要合作營造廠</div>
+      <div class="contractor-list">
+        <div class="contractor-item">
+          <span class="contractor-rank">#1</span>
+          <div>
+            <div class="contractor-name">華固營造 <span class="rel-tag rel-owned">集團自有</span></div>
+            <div class="contractor-rel">華固建設自有甲級營造廠，負責施工品質管理。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-footnote">資料來源：台灣證券交易所 · 經濟部商業司</div>
+  </div>
+
+  <div id="sec-proj" class="card">
+    <div class="sec-label">過往建案</div>
+    <div class="proj-summary-bar">
+      <span class="proj-summary-item">共 <strong>17</strong>+ 個建案（以下為已知建案）</span>
+      <span class="proj-summary-item">台北市 <strong>12</strong></span>
+      <span class="proj-summary-item">新北市 <strong>2</strong></span>
+      <span class="proj-summary-item">台中市 <strong>2</strong></span>
+    </div>
+    <div style="margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <a class="src" href="https://www.huaku.com.tw/" target="_blank">華固建設官網 ↗</a>
+      <a class="src" href="https://community.houseprice.tw/builder" target="_blank">5168 完整建案 ↗</a>
+    </div>
+    <p class="sec-note">以下僅列住宅相關建案。如有遺漏歡迎回報。</p>
+<!-- ═══ 雙北建案（預設展開）═══ -->
+    <table class="proj-table proj-completed-hidden" id="proj-table-metro">
+      <thead>
+        <tr>
+          <th style="width:45%">建案名稱</th>
+            <th style="width:20%">地區</th>
+            <th style="width:12%">年份</th>
+            <th style="width:23%">狀態</th>
+</tr>
+      </thead>
+      <tbody>
+        <tr class="rgroup"><td colspan="4"><span class="region-label">台北市（13）</span></td></tr>
+            <tr class="active-row"><td><div class="proj-name">華固創匯園區</div><div class="proj-sub">北投區 · 北士科</div></td><td>北投區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr class="active-row"><td><div class="proj-name">華固中央置地</div><div class="proj-sub">大安區</div></td><td>大安區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr class="active-row"><td><div class="proj-name">華固時代置地</div><div class="proj-sub">信義區</div></td><td>信義區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr class="active-row"><td><div class="proj-name">華固大安學府</div><div class="proj-sub">大安區</div></td><td>大安區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr class="active-row"><td><div class="proj-name">華固得月</div><div class="proj-sub">信義區</div></td><td>信義區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr><td><div class="proj-name">吾雙</div><div class="proj-sub">大安區</div></td><td>大安區</td><td>2021</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固芙心</div><div class="proj-sub">北投區</div></td><td>北投區</td><td>2020</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固碧連天</div><div class="proj-sub">內湖區</div></td><td>內湖區</td><td>2020</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固敦品</div><div class="proj-sub">松山區</div></td><td>松山區</td><td>2019</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">溫歌華花園</div><div class="proj-sub">南港區</div></td><td>南港區</td><td>2019</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固名人道</div><div class="proj-sub">內湖區</div></td><td>內湖區</td><td>2018</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固名鑄</div><div class="proj-sub">信義區</div></td><td>信義區</td><td>2017</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固天鑄</div><div class="proj-sub">士林區</div></td><td>士林區</td><td>2015</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr class="rgroup"><td colspan="4"><span class="region-label">新北市（3）</span></td></tr>
+        <tr class="active-row"><td><div class="proj-name">華固譽誠</div><div class="proj-sub">新店區</div></td><td>新店區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr class="active-row"><td><div class="proj-name">華固崇德十路案</div><div class="proj-sub">北屯區</div></td><td>北屯區</td><td>2025</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
+        <tr><td><div class="proj-name">華固織幸</div><div class="proj-sub">三重區</div></td><td>三重區</td><td>2024</td><td><span class="status-pill s-done">完工</span></td></tr>
+      </tbody>
+</table>
+
+    <!-- ═══ 雙北以外建案（點擊展開）═══ -->
+    <div class="proj-region-toggle" onclick="toggleOutsideMetro(this)">
+      <span class="proj-region-label">查看雙北以外建案</span>
+      <span class="proj-region-count">（台中市 2）</span>
+      <svg class="proj-region-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+    <div class="proj-outside-wrap" id="proj-outside">
+      <table class="proj-table proj-completed-hidden">
+        <thead>
+          <tr>
+            <th style="width:45%">建案名稱</th>
+            <th style="width:20%">地區</th>
+            <th style="width:12%">年份</th>
+            <th style="width:23%">狀態</th>
+</tr>
+        </thead>
+        <tbody>
+          <tr class="rgroup"><td colspan="4"><span class="region-label">台中市（2）</span></td></tr>
+        <tr><td><div class="proj-name">華固頂滙</div><div class="proj-sub">西屯區</div></td><td>西屯區</td><td>2024</td><td><span class="status-pill s-done">完工</span></td></tr>
+        <tr><td><div class="proj-name">華固豐滙</div><div class="proj-sub">北屯區</div></td><td>北屯區</td><td>2023</td><td><span class="status-pill s-done">完工</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11.5px;color:#666;margin-top:14px">建案資料整理自公開來源，如有遺漏或錯誤歡迎透過下方連結回報。</p>
+  </div>
+
+  <div class="contact-block">
+    <div>
+      <div class="c-title">發現資料錯誤或有補充？</div>
+      <div class="c-desc">包括登記資料有誤、建案資訊不完整、司法判決、輿情摘要等，歡迎來信告知。</div>
+    </div>
+    <a href="mailto:lku910@gmail.com?subject=建商資料回報：華固建設" class="contact-btn">聯絡 HomeRUN ↗</a>
+  </div>
+
+  <div class="page-footer">
+    公開資料（第一層）來源標示於每個欄位旁。輿情資料（第二層）為 HomeRun 編輯彙整之公開討論摘要。本頁最後更新：2026 年 4 月。
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Home<span style="color:#A67C52">RUN</span></div>
+    <div class="footer-links">
+      <p class="footer-copyright">© 2026 HomeRUN 好宅通. All rights reserved.</p>
+      <div style="display: flex; gap: 48px;">
+        <a href="about.html" class="footer-link">我們是誰</a>
+        <a href="about.html#contact" class="footer-link">聯繫我們</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  if (typeof lucide !== 'undefined') lucide.createIcons();
+  function toggleLegal(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.legal-chevron');
+    body.classList.toggle('open');
+    chevron.textContent = body.classList.contains('open') ? '－' : '＋';
+  }
+  function toggleCriteria(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.criteria-chevron');
+    body.classList.toggle('open');
+    chevron.textContent = body.classList.contains('open') ? '－' : '＋';
+  }
+  function toggleOutsideMetro(toggleEl) {
+    const wrap = document.getElementById('proj-outside');
+    const isOpen = wrap.classList.contains('open');
+    wrap.classList.toggle('open');
+    toggleEl.classList.toggle('open');
+    const label = toggleEl.querySelector('.proj-region-label');
+    if (label) {
+      label.textContent = isOpen ? '查看雙北以外建案' : '收合雙北以外建案';
+    }
+  }
+
+  function jumpTo(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navH = document.querySelector('.snav');
+    const offset = navH ? navH.offsetHeight + 16 : 60;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

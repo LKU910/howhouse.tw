@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 15: 交屋流程 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="HomeRUN 買房流程 Step 15">
+    <link rel="canonical" href="https://homerun-taiwan.com/step/15.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "交屋流程",
+        "text": "HomeRUN 買房流程 Step 15",
+        "url": "https://homerun-taiwan.com/step/15.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">交屋入住</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html" selected>Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 83%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 15: 交屋流程</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 15</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">交屋流程</h1>
+                <p class="font-sans text-base text-stone-600">從點交到入住，每個環節都不能馬虎</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="key" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">確認交屋日</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="file-text" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">核對文件</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="scan-line" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">現場點交</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">簽收完成</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+<!-- 為什麼這步很重要 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 mb-6">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        買房最後一個大關卡就是「交屋手續」。從驗屋完成、支付尾款（通常 20-30% 的購買價格）、過戶登記、領取權狀，這一系列的動作看起來簡單，但細節很多。交屋通常需要 2-4 週時間完成。一個不小心，可能會延遲取得房屋所有權、漏掉某個文件、或者遺漏重要的權益。在台灣，新建案交屋到完全可以辦貸款轉貸或轉賣，通常需要 5-8 週，所以不能馬虎。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        交屋手續涉及法律、財務、和物業管理等多個面向。你需要了解每個步驟的意義，準備好所需的文件，確認產權的完整性。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步決定了你是否真的成為房屋的合法所有人，以及之後能否順利辦理貸款、出租、或轉賣。馬虎不得。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 交屋流程 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="workflow" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">交屋的完整流程</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            交屋是一個有順序的過程。每一步都很重要，需要有相應的文件證明和簽字確認。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">1️⃣ 驗屋通過 → 修繕完成</p>
+                                <p class="font-sans text-xs text-stone-600">複驗後確認所有問題都修好了，簽署「驗收合格」單據。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">2️⃣ 補繳尾款</p>
+                                <p class="font-sans text-xs text-stone-600">根據合約，支付剩餘的尾款（通常 20-30%）。通常是銀行轉帳，記得保存轉帳紀錄。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">3️⃣ 過戶登記 → 領取權狀</p>
+                                <p class="font-sans text-xs text-stone-600">由地政士（代書）協助辦理產權移轉登記。你是新屋主，建商從登記簿上移除。地政事務所核可後，領取「權狀」（房屋所有權狀）。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">4️⃣ 點交鑰匙和物品</p>
+                                <p class="font-sans text-xs text-stone-600">建商交付鑰匙、遙控器、保固書、使用手冊等物品。根據「點交清單」逐一確認。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">5️⃣ 正式入住</p>
+                                <p class="font-sans text-xs text-stone-600">你成為正式屋主，可以搬家、裝修、居住。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 過戶登記所需文件 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="file-text" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">過戶登記需要的文件</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            過戶是法律程序，需要多個文件證明。通常由地政士協助蒐集和準備，但你也要知道有哪些文件。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📄</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">身分證正本</p>
+                                    <p class="font-sans text-sm text-stone-600">買家本人的身分證。如果有配偶共同購買，配偶的身分證也需要。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📄</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">印鑑（印章）</p>
+                                    <p class="font-sans text-sm text-stone-600">台灣交易通常需要用印鑑簽署文件。如果沒有，地政士會建議你到派出所申請登記印鑑。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📄</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">戶籍謄本</p>
+                                    <p class="font-sans text-sm text-stone-600">到戶政事務所申請，證明你的身份和現住地址。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📄</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">印鑑證明</p>
+                                    <p class="font-sans text-sm text-stone-600">到派出所申請，證明你的印鑑是真實的。通常需要配合身分證和印鑑。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📄</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">買賣合約書</p>
+                                    <p class="font-sans text-sm text-stone-600">你和建商簽署的要約書或買賣契約。地政士會用這份文件辦理過戶。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📄</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">建商的身分證和印鑑</p>
+                                    <p class="font-sans text-sm text-stone-600">建商（或建商代理人）也需要提供這些文件來簽署轉移文件。通常由建商或地政士負責蒐集。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4">
+                        <p class="font-bold text-stone-900 mb-2"><i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5] inline-block mr-1"></i> 建議：</p>
+                        <p class="font-sans text-sm text-stone-600">在交屋前，和地政士確認你需要準備哪些文件。提前準備好，避免臨時倉促或遺漏。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 地政士的角色 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">地政士（代書）的角色</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            地政士（通常稱為「代書」）是專業的過戶和不動產登記專家。他們協助買賣雙方完成法律程序。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">🏛️</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">地政士的主要職責</p>
+                                    <div class="font-sans text-sm text-stone-600">
+                                        <ul class="space-y-1">
+                                            <li>• 審閱買賣合約，確認內容合法</li>
+                                            <li>• 蒐集所需的文件和身份證明</li>
+                                            <li>• 準備過戶登記申請書</li>
+                                            <li>• 陪同去地政事務所辦理登記</li>
+                                            <li>• 領取權狀和其他登記文件</li>
+                                            <li>• 協助處理稅務和契稅</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-stone-200 p-6">
+                        <h3 class="font-sans font-bold text-base text-architect-bronze mb-4">地政士費用和流程</h3>
+                        <div class="space-y-3">
+                            <div class="bg-stone-100 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-1">💰 費用</p>
+                                <p class="font-sans text-xs text-stone-600">地政士全套服務費（含過戶+設定登記）通常 15,000-25,000 元，視過戶複雜度而定。這費用通常由買方負擔，或根據合約約定分攤。</p>
+                            </div>
+                            <div class="bg-stone-100 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-1">📅 時程</p>
+                                <p class="font-sans text-xs text-stone-600">從提交申請到獲得權狀，地政事務所通常需要 7-10 個工作天。地政士會追蹤進度。</p>
+                            </div>
+                            <div class="bg-stone-100 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-1">✅ 地政士的選擇</p>
+                                <p class="font-sans text-xs text-stone-600">通常房仲會推薦配合的地政士，但你也可以自己選擇。選擇有好評、經驗豐富的地政士，交屋會更順利。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 點交清單 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="clipboard-list" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">點交（點收）項目清單</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            交屋時，建商會交付各種物品和文件。你需要根據「點交清單」逐一確認。通常點交會有見證人（如房仲或第三方）在場，確保雙方權益。建議用手機拍照、錄影作為佐證。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">1</div>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">鑰匙</p>
+                                    <p class="font-sans text-xs text-stone-600">確認鑰匙數量（通常 2-3 把）。測試是否都能開啟房門、大門、信箱等。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">2</div>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">遙控器、感應卡等控制設備</p>
+                                    <p class="font-sans text-xs text-stone-600">大門、車位、管委會系統的遙控或感應卡。測試是否都能正常使用。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">3</div>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">保固書和使用手冊</p>
+                                    <p class="font-sans text-xs text-stone-600">對於各項設備（冷氣、熱水器、廚具等）的保固書和使用說明書。保存好，日後需要維修時會用到。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-architect-bronze text-white font-bold text-sm">4</div>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">驗收合格單</p>
+                                    <p class="font-sans text-xs text-stone-600">確認驗屋問題都修好的證明文件。建商應該簽署並交給你。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 flex-shrink-0 flex items-center justify center rounded-full bg-architect-bronze text-white font-bold text-sm">5</div>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">管委會文件</p>
+                                    <p class="font-sans text-xs text-stone-600">社區管委會的章程、住戶公約、歷年帳務等。了解你要進入的社區的規則。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 預售屋 vs 中古屋交屋時間 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">預售屋 vs 中古屋交屋時間</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            交屋時間因房屋類型而異。預售屋和中古屋的流程不同，需要的時間也不同。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="border border-stone-200 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-2">🏗️ 預售屋（新成屋）</p>
+                                <p class="font-sans text-xs text-stone-600 mb-2">通常需要 4-8 週</p>
+                                <div class="space-y-1 text-xs text-stone-600">
+                                    <p><strong>流程：</strong> 驗屋 → 修繕 → 複驗 → 補尾款 → 過戶登記 → 領權狀</p>
+                                    <p><strong>特點：</strong> 建商會配合，整個流程通常比較順利。從驗屋通知到正式領取權狀，平均 5-8 週。</p>
+                                </div>
+                            </div>
+                            <div class="border border-stone-200 rounded p-3">
+                                <p class="font-bold text-stone-900 text-sm mb-2">🏠 中古屋（二手房）</p>
+                                <p class="font-sans text-xs text-stone-600 mb-2">通常需要 2-4 週</p>
+                                <div class="space-y-1 text-xs text-stone-600">
+                                    <p><strong>流程：</strong> 轉帳尾款 → 過戶登記 → 領權狀（通常沒有驗屋和修繕）</p>
+                                    <p><strong>特點：</strong> 步驟較少，但需要和舊屋主協調時間。從簽署買賣合約到領權狀，平均 3-4 週。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 水電瓦斯過戶 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">水、電、瓦斯過戶</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            取得房屋後，需要將水、電、瓦斯等公用事業過戶到你的名下。這是居住的基本前提。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">💧</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">自來水（台灣）</p>
+                                    <p class="font-sans text-sm text-stone-600">聯絡「台灣自來水公司」或當地水務部門，提供新屋主身份證明、房屋地址、原屋主帳號。通常 3-5 個工作天完成過戶。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">⚡</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">電力（台電）</p>
+                                    <p class="font-sans text-sm text-stone-600">聯絡「台灣電力公司」，同樣提供身份和房屋信息。過戶後，就可以使用你自己的電表帳號。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">🔥</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">瓦斯（分區）</p>
+                                    <p class="font-sans text-sm text-stone-600">台灣瓦斯供應商多種（如欣XX瓦斯），根據你所在地區。聯絡當地瓦斯公司辦理過戶，需要新屋主身份證和房屋證明。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                        <p class="font-bold text-stone-900 mb-2"><i data-lucide="clipboard-list" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 建議：</p>
+                        <p class="font-sans text-sm text-stone-600">準備一張清單，記錄下水、電、瓦斯的過戶日期和帳號。交屋當天或過戶完成後立即申請，確保入住前都已過戶完成。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 管委會報到和繳費 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">管委會報到和管理費</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            如果購買的是公寓或社區住宅，需要向「管理委員會」或「物業管理公司」報到。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0"><i data-lucide="clipboard-list" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i></span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">報到流程</p>
+                                    <p class="font-sans text-sm text-stone-600">帶著身份證、新的房屋所有權狀（或權狀申請中的證明）到管委會辦公室，填寫「新屋主登記表」。提供你的聯絡電話和地址。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">💰</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">管理費</p>
+                                    <p class="font-sans text-sm text-stone-600">每月需要繳納「管理費」給管委會。華廈約 800-1,500 元/月、大樓約 2,000-5,000 元/月（依社區規模和設施而定）。從報到之月開始計算，直到你賣房為止。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">🎫</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">門禁卡和停車證</p>
+                                    <p class="font-sans text-sm text-stone-600">管委會會發放新的門禁感應卡、停車證等。確認領取。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="text-2xl flex-shrink-0">📖</span>
+                                <div>
+                                    <p class="font-bold text-stone-900 text-sm mb-1">社區規約</p>
+                                    <p class="font-sans text-sm text-stone-600">了解社區的規則，例如停車位分配、垃圾分類、噪音管制等。這些影響你的日常居住。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 保固條款 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">保固條款：知道你的權利</h2>
+                    </div>
+                <div class="space-y-6">
+                    <div class="border border-stone-200 p-6">
+                        <p class="font-sans text-sm text-stone-600 mb-4">
+                            建商會提供「建屋保固」，保證在一定期限內免費修繕由建商施工造成的缺陷。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">結構體保固：15 年</p>
+                                <p class="font-sans text-xs text-stone-600">混凝土、鋼構等主體結構。如果發現重大裂縫、沉陷等問題，在 15 年內可要求建商賠償。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">防水保固：1 年（民法）/ 合約可能延長至 3-5 年</p>
+                                <p class="font-sans text-xs text-stone-600">浴室、廚房、露台的防水工程。民法規定最低保固 1 年，但部分建商合約會提供 3-5 年。務必確認你的合約條款。</p>
+                            </div>
+                            <div class="border-l-2 border-architect-bronze bg-stone-100 p-4">
+                                <p class="font-bold text-stone-900 text-sm mb-2">一般設備保固：1-2 年</p>
+                                <p class="font-sans text-xs text-stone-600">冷氣、熱水器、廚具、衛浴設備等。通常只保固 1 年，有些可延長到 2 年。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <p class="font-bold text-architect-terracotta text-sm mb-2"><i data-lucide="alert-triangle" class="w-4 h-4 text-architect-terracotta stroke-[1.5] inline-block mr-1"></i> 注意：</p>
+                        <p class="font-sans text-sm text-stone-600">保固期是從交屋日開始計算。如果問題在保固期外才被發現，建商可能不願意負責。所以交屋後有問題要及早通知建商，別等到保固期快過期才要求修繕。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 常見錯誤 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">交屋常見錯誤</h2>
+                    </div>
+                <div class="space-y-3">
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 1：忘記確認權狀內容</h3>
+                        <p class="font-sans text-sm text-stone-600">領取權狀後，一定要檢查房屋地址、面積、所有人名字是否正確。若有錯誤，要立即向地政事務所申請更正。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 2：沒有做水電瓦斯過戶</h3>
+                        <p class="font-sans text-sm text-stone-600">以為舊屋主會自動轉過戶，其實需要你主動申請。不過戶的話，帳單會繼續寄給舊屋主。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 3：不知道管理費金額</h3>
+                        <p class="font-sans text-sm text-stone-600">報到時沒有確認月管理費金額和繳費方式，等到收到帳單才嚇一跳。應該提前向管委會確認。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 4：沒有領取保固書</h3>
+                        <p class="font-sans text-sm text-stone-600">交屋時沒有索取建商的保固承諾書或保固說明，日後有問題時無法舉證。一定要拿到。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4">
+                        <h3 class="font-sans font-bold text-sm text-architect-terracotta mb-1">❌ 錯誤 5：保固期內沒有及時反映問題</h3>
+                        <p class="font-sans text-sm text-stone-600">發現問題後拖延，等保固期快過期了才通知。要及早向建商或物業公司報修，留下書面紀錄。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Takeaway -->
+            <section class="mb-12">
+                <div class="border border-stone-200 p-6">
+                    <h2 class="font-serif text-lg font-bold text-stone-900 mb-4">重點提醒</h2>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>交屋是多步驟的過程，每步都要確認無誤。</strong> 帶著清單，一項一項確認。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>權狀是房屋所有權的證明，領取後立即檢查內容。</strong> 有錯誤要馬上申請更正。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>水、電、瓦斯要立即過戶，不要延遲。</strong> 這是居住的基本。</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="flex-shrink-0">✨</span>
+                            <span class="font-sans text-stone-600"><strong>入住後有問題要及時通知，別超過保固期。</strong> 保固期只有 1-3 年，要把握。</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="14.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 14: 驗屋準備</p>
+            </a>
+            <a href="16.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 16: 產權登記</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="/step/14.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 14 步：交屋點收</a>
+        <a href="/step/16.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 16 步：入住準備 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="/inspection.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">🔍 驗屋推薦</a>
+    <a href="/trends.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📈 市場趨勢</a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="14.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">15/18</span>
+        <a href="16.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

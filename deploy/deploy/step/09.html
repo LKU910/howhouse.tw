@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 09: 比較決策 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="學習如何建立比較表格、理性分析房屋優缺點、與家人討論決策，以及第二次看房的重要性。">
+    <link rel="canonical" href="https://homerun-taiwan.com/step/09.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "比較決策",
+        "text": "學習如何建立比較表格、理性分析房屋優缺點、與家人討論決策，以及第二次看房的重要性。",
+        "url": "https://homerun-taiwan.com/step/09.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">實地看房</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html" selected>Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 50%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 09: 比較決策</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 09</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">比較決策</h1>
+                <p class="font-sans text-base text-stone-600">用數據和理性，從多個候選房屋中找到最適合的那一間</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="layout-grid" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">建立比較表</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="weight" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">量化評分</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="heart" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">評估感受</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="trophy" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">選出最佳</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+                <!-- Section 1: Why This Step is Important -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        看過幾間房子後，你可能陷入「選擇困境」。這間採光好但交通不便；那間靠近捷運但價格較高。感覺每間都有優缺點，無法決定。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步的目標，是用系統化的方法來比較候選房屋，用數據而非直覺決策，降低決策後悔的機率。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        同時，要平衡「理性分析」與「感受直覺」——好房子不只是數據好看，住進去的感覺也要舒服。
+                    </p>
+                </section>
+
+                <!-- Section 2: Comparison Framework -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="git-compare" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">建立比較表格</h2>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mb-4">
+                        列出 3-5 間最有興趣的候選房屋，用以下維度進行比較。可以建立 Excel 表格、Google Sheet 或簡單的文字檔案。
+                    </p>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mt-4">比較項目可包括：</p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li>地點與區域</li>
+                        <li>總價與每坪單價</li>
+                        <li>坪數（實用坪數）</li>
+                        <li>屋齡</li>
+                        <li>採光與通風評分</li>
+                        <li>交通便利度（距捷運、開車時間）</li>
+                        <li>格局評分</li>
+                        <li>社區評分</li>
+                        <li>漏水風險</li>
+                        <li>整體感受（喜歡度百分比）</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>提示：</strong> 也可以加入「每坪單價」這個重要指標，幫助你評估價格是否合理（與周邊實價登錄比較）。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">設定權重，找出「最適合」的房子</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        每個人的優先順序不同。有的人重視交通，有的人看重學區，有的人最重視採光。在表格中加入「權重」，讓決策更科學。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        根據權重為每間房子的各項指標打分（1-10 分）。最後加權計算，得分最高的通常就是最符合你需求的房子。
+                    </p>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>權重參考範例：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-2">
+                            <li>• 交通便利度：25%</li>
+                            <li>• 採光與通風：20%</li>
+                            <li>• 價格合理性（每坪單價）：20%</li>
+                            <li>• 格局與空間規劃：15%</li>
+                            <li>• 漏水風險（結構安全）：20%</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 3: Rational vs Emotional -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">理性分析 vs 感受直覺</h2>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mb-3">理性面</p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        用數據驅動決策。比較表格、權重計分、價格分析——這些冷硬的指標能幫你過濾掉明顯不符合的房子，避免被短期情緒影響。避免衝動購買，確保價格合理，識別隱形風險，方便與家人討論。
+                    </p>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mt-4 mb-3">感性面</p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        信任你的直覺感受。進入房子時的第一印象、走進房間時是否感到舒適、能否想像自己在這裡生活——這些感受很重要。好的直覺能捕捉無法量化的舒適度，識別房子的「靈魂」，避免住進不喜歡的房子，提高長期居住滿意度。
+                    </p>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-base text-stone-800"><strong>最好的決策，是理性和感性的結合。</strong> 用表格篩選出「理性上符合條件」的房子；再靠直覺從中選出「感覺最對」的那一間。如果數據最好的房子，你進去卻感到不舒服，那就別硬買——先看看有沒有其他更平衡的選擇。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">必要條件 vs 加分條件</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        為了提高決策效率，先區分「必要條件」和「加分條件」：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3 mt-2">
+                        <li><strong>必要條件（Pass/Fail）：</strong> 這些條件必須滿足，否則直接淘汰。例如：沒有漏水、距捷運 10 分鐘內、總價在預算範圍內。如果房子漏水，再便宜也別買。</li>
+                        <li><strong>加分條件（Scoring）：</strong> 這些條件越好越好，但不是必須。例如：高樓層、大陽台、靠近公園。符合越多加分條件，得分越高。</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
+                        用這個方法，你能快速篩選出真正符合需求的房子，避免浪費時間在「可能不適合」的房子上。
+                    </p>
+                </section>
+
+                <!-- Section 4: When to Stop Searching -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="clock-alert" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">「再看一間」的陷阱 — 何時該停止看房</h2>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mb-3">常見的無限迴圈：</p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        「這間不錯，但我想再看一間。」「那間也不錯，但我想再看一間。」一個月過去，你看了 30 間房子，還是沒決定。更糟的是，房價在漲，你原本看中的幾間房子已經被別人買了。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">機會成本（Opportunity Cost）</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        「再看一間」的隱形代價很高。假設你每月房價上升 1%（年漲 12%），耗費 3 個月「完美決策」，你最終可能要多付 100 萬元才能買到相同品質的房子。更重要的是，你失去了 3 個月的「擁有期」——在房子裡的居住時光。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">何時應該停止看房、開始議價？</h3>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed space-y-3 ml-2">
+                        <li><strong>當你找到符合「必要條件」的房子：</strong> 如果房子通過了所有硬性要求（沒漏水、價格合理、交通不錯），就值得進一步深入。不要因為「還想看看有沒有更好的」就拖延。</li>
+                        <li><strong>當同一價位同一區域已經看了 5-8 間：</strong> 你應該對市場有足夠的了解。再看第 9 間、第 10 間，獲得的新資訊其實不多。</li>
+                        <li><strong>當你對某間房子的感受很穩定：</strong> 看了第一次、第二次，甚至第三次，感受都一樣——這就是信號。不用再看了。</li>
+                        <li><strong>當家人達成共識：</strong> 如果配偶、父母都同意某間房子，就不要再猶豫。決策由共識支撐，比獨自完美決策更重要。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-base text-stone-800"><strong>判斷標準：</strong> 當你發現「新看的房子都沒有比先前的更好」，就是停止看房、開始談判的時刻。</p>
+                    </div>
+                </section>
+
+                <!-- Section 5: Avoid Impulsive Decisions -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">不要因為怕買不到就衝動決定</h2>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mb-3">常見的衝動購買情況：</p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li>「這間房子很搶手，已經有人來看了，你今天不下決定，明天就沒了」</li>
+                        <li>「我朋友看中同一間房子，等等也會來看」</li>
+                        <li>「屋主說最多只能等三天，要不要現在先斡旋」</li>
+                        <li>「房價在漲，再過幾個月會更貴，不如現在買」</li>
+                    </ul>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">為什麼這些說法不可靠？</h3>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed space-y-3 ml-2">
+                        <li><strong>房地產市場永遠有房子：</strong> 台灣房屋存量充足，不是「買不到就沒機會」。錯過這一間，下個月還有下一間。寧可多花一個月找，也別買到後悔的房子。</li>
+                        <li><strong>仲介的緊迫感經常是銷售策略：</strong> 「這房子很搶手」「已經有人來看」——這些話能加速買家的決策。但事實往往沒那麼緊急。自信的買家會說：「我需要時間考慮，趕不上就算了。」</li>
+                        <li><strong>房價漲跌難以預測：</strong> 「房價會漲」「要趁現在便宜」——如果這麼容易預測，仲介早就自己買房投資了。房價的短期波動不應該是你匆忙決策的理由。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>正確的決策心態：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-2">
+                            <li>• 「我需要時間充分考慮」——好房子能等，錯誤決策等不起</li>
+                            <li>• 「趕不上這一間，還有下一間」——放鬆心態，不要被緊迫感綁架</li>
+                            <li>• 「如果要我衝動決定，說明你不夠自信」——真正的好房子，買家不需要被催促</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 6: Family Discussion -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">與家人討論決策的方法</h2>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">準備充分的資訊</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">不要只靠口頭描述。帶著以下資料與家人討論：</p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3 mt-2">
+                        <li>比較表格（價格、坪數、屋齡、交通等關鍵數據）</li>
+                        <li>拍攝的照片和影片（多角度、不同時段）</li>
+                        <li>地點圖片（周邊交通、超市、公園等生活機能）</li>
+                        <li>仲介或屋主提供的房屋資訊、社區管理規約</li>
+                        <li>貸款試算（月付金、利息成本等）</li>
+                    </ul>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">組織討論會議</h3>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed space-y-3 ml-2">
+                        <li><strong>第一步：資訊分享</strong> — 展示比較表格和照片，讓每個人對候選房屋有基本理解。</li>
+                        <li><strong>第二步：各自意見</strong> — 讓每位家庭成員表達自己的看法和顧慮。不要打斷，認真聽。</li>
+                        <li><strong>第三步：討論優缺點</strong> — 逐間房子進行分析。「這間房子最好的地方是什麼？」「最令人擔憂的是什麼？」</li>
+                        <li><strong>第四步：決策</strong> — 如果家庭成員有不同意見，不要強硬決策。進一步收集資訊或約第二次看房，讓大家都有信心。</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>討論技巧：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-2">
+                            <li>• 鼓勵提問，而非單方面說服</li>
+                            <li>• 尊重不同意見，一起找解決方案</li>
+                            <li>• 如果重要家庭成員反對，要認真考慮原因，別勉強</li>
+                            <li>• 決策一旦做出，就要齊心協力往前走</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 7: Second Viewing -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">「第二次看房」的重要性</h2>
+                    </div>
+
+                    <p class="font-sans text-base text-stone-600 leading-relaxed font-semibold mb-3">重點：喜歡的房子，至少要看兩次。</p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        很多首次購屋者在簽約後才後悔，往往是因為只看過一次房子。第二次看房能讓你以更冷靜、更客觀的心態重新評估房屋。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">何時進行第二次看房？</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>第一次看房後 2-7 天內。</strong> 這個時間段，你已經冷靜下來，但房子的記憶還很新鮮。避免當天看完立即決定（還在高度情緒中），也避免超過 2 周後（記憶變模糊，會混淆細節）。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第二次看房的檢查重點</h3>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed space-y-3 ml-2">
+                        <li><strong>選擇不同時段：</strong> 如果第一次早上看，第二次改傍晚或晚上；看看不同時段的採光、噪音、人流。</li>
+                        <li><strong>帶上重要家庭成員：</strong> 配偶或父母應該也看過一遍。第二次看房時，讓他們驗證自己的感受。</li>
+                        <li><strong>再次檢查細節：</strong> 重點檢查漏水跡象、採光、格局。帶著第一次的筆記，對比有無遺漏。</li>
+                        <li><strong>與屋主深度溝通：</strong> 這次可以提更深入的問題：「為什麼賣房？」「有過什麼大修繕嗎？」「社區裡有什麼我應該知道的？」</li>
+                        <li><strong>檢驗你的感受：</strong> 第一次的興奮是否褪去？這次進去還是感到舒適嗎？能想像自己在這裡住 10、20 年嗎？</li>
+                    </ul>
+
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>第二次看房的關鍵問題：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-2">
+                            <li>✓ 「我對這間房子的感受有變化嗎？」</li>
+                            <li>✓ 「有任何新發現的缺點嗎？」</li>
+                            <li>✓ 「如果現在要決定，我願意簽約嗎？」</li>
+                            <li>✓ 「與其他候選房子比較，這間仍然是最適合的嗎？」</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 8: Common Mistakes -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">比較決策常見錯誤</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 錯誤 1：只看最便宜的房子</h3>
+                        <p class="font-sans text-sm text-stone-700">最便宜的房子通常有原因——屋齡老、地點差、結構問題。便宜不等於划算。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 錯誤 2：靠直覺，不看數據</h3>
+                        <p class="font-sans text-sm text-stone-700">「感覺這間不錯」就下決定，等到交屋才發現管理費超高、格局有缺陷。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 錯誤 3：過度重視未來發展</h3>
+                        <p class="font-sans text-sm text-stone-700">「這區域快要發展」「房價一定會漲」——未來難以預測。應該按現狀評估房屋。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 錯誤 4：沒有與家人充分討論</h3>
+                        <p class="font-sans text-sm text-stone-700">一個人決定，家庭其他成員不同意，往往導致購買後的後悔和糾紛。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 錯誤 5：只看一次房就簽約</h3>
+                        <p class="font-sans text-sm text-stone-700">這是最常見的後悔原因。第二次看房往往能發現第一次忽視的細節。</p>
+                    </div>
+                </section>
+
+                <!-- Section 9: Key Takeaway -->
+                <section>
+                    <div class="border border-stone-200 p-6 bg-white rounded">
+                        <h3 class="font-serif font-bold text-stone-900 text-lg mb-3"><div class="flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i> 重點提醒</div></h3>
+                        <ul class="font-sans text-stone-800 space-y-2">
+                            <li>✓ 用表格比較，用權重計分。讓決策有數據支撐，避免全憑感覺。</li>
+                            <li>✓ 理性和感性結合。數據最好的房子，感受不舒適也不要買。</li>
+                            <li>✓ 不要被緊迫感綁架。好房子永遠有，別為了「趕上」而買到後悔的房子。</li>
+                            <li>✓ 一定要看第二次。冷靜之後再看一遍，才能真正確認是否適合。</li>
+                        </ul>
+                    </div>
+                </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="08.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 08: 現場評估</p>
+            </a>
+            <a href="10.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 10: 簽約須知</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="/step/08.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 8 步：斡旋出價</a>
+        <a href="/step/10.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 10 步：貸款申請 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="/inspection.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">🔍 驗屋推薦</a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="08.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">9/18</span>
+        <a href="10.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 04: 實價登錄怎麼看 | HomeRUN 買房流程指引</title>
+    <meta name="description" content="學會使用實價登錄系統判斷房屋合理行情，注意親友交易和法拍房屋的價格偏差，比較單價與總價，分析同社區不同樓層的價差。">
+    <link rel="canonical" href="https://homerun-taiwan.com/step/04.html">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
+                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowToStep",
+        "name": "實價登錄怎麼看",
+        "text": "學會使用實價登錄系統判斷房屋合理行情，注意親友交易和法拍房屋的價格偏差，比較單價與總價，分析同社區不同樓層的價差。",
+        "url": "https://homerun-taiwan.com/step/04.html"
+    }
+    </script>
+
+    <style>
+        body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
+        /* ===== Mobile-first typography (手機優先) ===== */
+        @media (max-width: 640px) {
+            /* Nav */
+            nav.w-full { padding: 1rem 1rem; }
+            /* Progress bar */
+            .progress-phase-labels { gap: 0; }
+            .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
+            /* Timeline scroll */
+            .timeline-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .timeline-scroll::-webkit-scrollbar { height: 2px; }
+            .timeline-scroll::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 4px; }
+
+            /* === 文章排版（手機核心） === */
+            article section { margin-bottom: 2.5rem; }
+            article p {
+                font-size: 16px;
+                line-height: 2;
+                margin-bottom: 1.25rem;
+            }
+            article li {
+                font-size: 16px;
+                line-height: 1.95;
+                margin-bottom: 1rem;
+            }
+            article h3 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+            article h2 { font-size: 1.2rem; }
+            /* Info boxes */
+            article .border-l-2 {
+                padding: 1rem 1rem 1rem 0.85rem;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            article .border-l-2 p {
+                font-size: 15px;
+                line-height: 1.9;
+                margin-bottom: 0;
+            }
+            /* Lists: more indent for outside bullets */
+            article ul, article ol {
+                padding-left: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            /* Bold labels inside li: visual break */
+            article li strong {
+                display: inline;
+            }
+            /* Step nav cards */
+            .step-nav-grid { gap: 0.75rem; }
+            /* Footer */
+            footer { padding: 1.5rem 1rem; }
+            /* Breadcrumb */
+            .breadcrumb-nav { font-size: 11px; letter-spacing: 0.08em; }
+            /* Icon headers */
+            .icon-header h2 { font-size: 1.15rem; }
+            /* Select dropdown */
+            select { min-width: 160px; font-size: 13px; }
+        }
+        /* Smooth scroll for anchor links */
+        html { scroll-behavior: smooth; }
+        /* Touch-friendly tap targets */
+        a, button, select { min-height: 44px; }
+        select { min-height: 36px; }
+        /* Active states for touch */
+        a:active { opacity: 0.7; }
+        /* Sticky progress bar on mobile */
+        @media (max-width: 640px) {
+            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+        /* ===== Article base (all screens) ===== */
+        article p { margin-bottom: 1.25rem; }
+        article ul, article ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        article li { margin-bottom: 0.85rem; padding-left: 0.25rem; }
+        article section { margin-bottom: 2.5rem; }
+        article h3 { margin-top: 2rem; margin-bottom: 0.75rem; }
+        article ul { list-style-position: outside; }
+
+        /* ===== Desktop typography ===== */
+        @media (min-width: 641px) {
+            article p { font-size: 16px; line-height: 2; }
+            article li { font-size: 15.5px; line-height: 1.95; }
+            article h3 { font-size: 17px; }
+            article .border-l-2 { margin-bottom: 1.5rem; }
+            article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- Nav -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="../builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="../inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-3">
+                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">研究功課</span>
+                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
+                    <optgroup label="自我準備">
+                        <option value="01.html">Step 01: 需求釐清</option>
+                        <option value="02.html">Step 02: 財務健檢</option>
+                        <option value="03.html">Step 03: 認識房型</option>
+                    </optgroup>
+                    <optgroup label="研究功課">
+                        <option value="04.html" selected>Step 04: 實價登錄怎麼看</option>
+                        <option value="05.html">Step 05: 建商調查</option>
+                        <option value="06.html">Step 06: 區域評估</option>
+                    </optgroup>
+                    <optgroup label="實地看房">
+                        <option value="07.html">Step 07: 預約看房</option>
+                        <option value="08.html">Step 08: 現場評估</option>
+                        <option value="09.html">Step 09: 比較決策</option>
+                    </optgroup>
+                    <optgroup label="交易簽約">
+                        <option value="10.html">Step 10: 簽約須知</option>
+                        <option value="11.html">Step 11: 客變規劃</option>
+                        <option value="12.html">Step 12: 工程追蹤</option>
+                        <option value="13.html">Step 13: 貸款對保</option>
+                    </optgroup>
+                    <optgroup label="交屋入住">
+                        <option value="14.html">Step 14: 驗屋準備</option>
+                        <option value="15.html">Step 15: 交屋流程</option>
+                        <option value="16.html">Step 16: 產權登記</option>
+                    </optgroup>
+                    <optgroup label="安居樂業">
+                        <option value="17.html">Step 17: 入住整理</option>
+                        <option value="18.html">Step 18: 保固追蹤</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
+                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 22%"></div>
+            </div>
+            <div class="flex justify-between mt-2 progress-phase-labels">
+                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
+                <a href="04.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">研究功課</a>
+                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
+                <a href="10.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交易簽約</a>
+                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
+                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="font-sans text-xs tracking-widest text-stone-500 breadcrumb-nav">
+                <a href="../index.html" class="hover:text-architect-bronze transition-colors">首頁</a>
+                <span class="mx-2">›</span>
+                <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">買房流程</a>
+                <span class="mx-2">›</span>
+                <span class="text-stone-900">Step 04: 實價登錄怎麼看</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-8 sm:py-14">
+            <div class="mb-8">
+                <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 04</div>
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">實價登錄怎麼看</h1>
+                <p class="font-sans text-base text-stone-600">用公開資料判斷房屋行情，避免被房仲唬嚨</p>
+            </div>
+
+
+            <!-- Action Timeline -->
+            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
+                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="database" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">開啟實價登錄</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">選目標區域</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">比較成交價</span>
+                </div>
+                <div class="hidden sm:flex flex-1 items-center px-1">
+                    <div class="w-full border-t border-dashed border-stone-300"></div>
+                </div>
+                <div class="flex flex-col items-center text-center min-w-0">
+                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
+                        <i data-lucide="trending-up" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <span class="font-sans text-xs text-stone-600 leading-tight">判斷行情趨勢</span>
+                </div>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none space-y-8">
+                <!-- Section 1: Why This Step is Important -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">為什麼這步很重要？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        「我建議你這間房子，在這個位置算很划算啦」。多少人被房仲這句話騙過？房仲當然想賣，所以會把所有房子都說成「划算」。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        實價登錄就是政府公開的房屋成交價資料。它讓你有「客觀證據」判斷一間房子是否真的划算。台灣房市資訊相對透明，就是因為有實價登錄。你應該好好用。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這一步會教你：如何查詢實價、如何判斷行情、如何識別異常交易、如何比較不同房子的實際價值。
+                    </p>
+                </section>
+
+                <!-- Section 2: How to Do It -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="list-checks" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">具體怎麼做？</h2>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第1步：上內政部實價登錄網站</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        政府提供的實價登錄查詢平台是最官方、最可信的來源。網址是 <strong>lvr.land.moi.gov.tw</strong>
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        登入後，輸入你感興趣的「地址」或「里別」，系統會列出該地區最近 5 年的所有成交紀錄。包括：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li>成交日期</li>
+                        <li>地址和樓層</li>
+                        <li>建物坪數（權狀坪數）</li>
+                        <li>總成交價</li>
+                        <li>單價（元/坪）</li>
+                        <li>交易類型（一般、親友、預售等）</li>
+                    </ul>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第2步：辨別交易類型，過濾異常資料</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        不是所有成交價都能當參考。某些交易類型會導致價格明顯偏低或偏高：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>要注意的特殊交易：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 list-disc list-inside space-y-2 mt-2">
+                            <li><strong>親友交易：</strong>父母和小孩買賣、親戚間交易，通常價格偏低。不能當正常行情參考。</li>
+                            <li><strong>法拍房屋：</strong>被銀行拍賣的房子，成交價通常比市價低 10-30%。也不算正常行情。</li>
+                            <li><strong>預售屋轉讓：</strong>有些人簽約後轉讓出去，價格可能異常高。</li>
+                            <li><strong>共有物分割：</strong>因為產權問題交易，價格可能不正常。</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        實價登錄通常會標註這些交易類型。<strong>看行情時，要過濾掉親友交易和法拍房屋</strong>，只看「一般交易」。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第3步：計算中位數，判斷區間行情</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        不要只看一筆成交記錄，要看<strong>過去 6-12 個月的所有成交</strong>，然後：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>計算方法：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mb-2 mt-2">1. 列出最近 6-12 個月、同棟或同社區的所有一般交易</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">2. 計算這些交易的<strong>中位數單價</strong>（不是平均價，是把所有數字排序後取中間那個）</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">3. 看看最高和最低的單價是多少，了解波動範圍</p>
+                        <p class="font-sans text-sm text-stone-700">→ 中位數就是你該參考的「行情」</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        為什麼要用中位數而不是平均數？因為有些異常交易（雖然標註過濾了，但可能還有漏網之魚）會拉高或拉低平均數。中位數更能代表真實行情。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第4步：理解「單價 vs 總價」</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        這是最多人搞混的地方。房仲常常只說「我這間房子是每坪 50 萬」，但不同樓層、不同房型的房子，坪數不一樣，所以總價會有差。
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>實際案例：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mb-2 mt-2">同棟大樓，近 6 個月成交記錄：</p>
+                        <p class="font-sans text-sm text-stone-700 mb-1">• 2F 28 坪，成交價 1,400 萬 → 單價 50 萬/坪</p>
+                        <p class="font-sans text-sm text-stone-700 mb-1">• 10F 30 坪，成交價 1,620 萬 → 單價 54 萬/坪</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">• 20F 32 坪，成交價 1,760 萬 → 單價 55 萬/坪</p>
+                        <p class="font-sans text-sm text-stone-700">→ 如果房仲說「我這間 50 萬/坪很便宜」，但他的房子在 15 樓 30 坪，行情應該是 54-55 萬/坪，那根本沒有便宜！</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第5步：比較同社區不同樓層的價差</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        同一棟建築，高樓層通常比低樓層貴。中古屋的樓層價差更明顯。用實價登錄可以看出：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li>低樓層（2-5 樓）通常便宜 5-10%</li>
+                        <li>中樓層（10-15 樓）是中等價位</li>
+                        <li>高樓層（20 樓以上）通常貴 5-15%</li>
+                        <li>頂樓可能特別便宜（因為夏天熱），或特別貴（有天台）</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        如果房仲報價和這個規律不符，代表可能有問題。例如：「2 樓報 50 萬/坪，20 樓卻只報 48 萬/坪」，這很奇怪，要問清楚。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第6步：注意時間因素</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        房價會隨著時間變化。不要用兩年前的行情判斷現在的價格。如果近期（最近 3-6 個月）沒有交易，就要小心評估。可能是：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li>房價過高，沒人買</li>
+                        <li>這個社區買家少</li>
+                        <li>房子有隱藏瑕疵</li>
+                        <li>只是巧合，最近沒人在這社區買</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        對於交易冷清的區域，可以參考「周邊類似社區」的行情，但要打個折扣。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第7步：預售屋 vs 成屋的實價登錄差異</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        實價登錄上會標註「房屋類別」。新房（預售屋）和既成屋的成交邏輯完全不同，所以一定要區分：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>預售屋實價登錄：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mt-2 mb-2">預售屋簽約時就會登錄，但交屋時間可能還要 1-3 年。這筆實價代表的是「建商當時的報價」，不完全反映實際市場行情。有些預售屋簽約價高，後來成屋成交時反而降價。所以看預售屋的實價時，要參考「同棟的成屋成交價」，才能判斷是否划算。</p>
+                    </div>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>既成屋實價登錄：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mt-2 mb-2">成屋已經交屋，這筆成交價是真實的市場價格。參考價值最高。如果你要比較一間預售屋的合理價格，最好就是看同社區的既成屋成交記錄。例如：「A 社區 20 樓既成屋最近以 1,800 萬成交」，那同樓層的預售屋報價超過 2,000 萬，可能就高估了。</p>
+                    </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第8步：理解「含車位」和「不含車位」的價格差</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        台灣房屋登記時，車位有時候會分開計算，有時候合併計算。同一棟房子，含車位和不含車位的成交價完全不同，你一定要搞清楚才不會比價時出現錯誤：
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>實際案例：</strong></p>
+                        <p class="font-sans text-sm text-stone-700 mb-1 mt-2">同棟大樓 15 樓：</p>
+                        <p class="font-sans text-sm text-stone-700 mb-1">• 房號 A：含停車位，成交價 1,500 萬</p>
+                        <p class="font-sans text-sm text-stone-700 mb-2">• 房號 B：不含停車位，成交價 1,350 萬</p>
+                        <p class="font-sans text-sm text-stone-700">→ 停車位價差約 150 萬。如果你不需要停車位，房號 B 其實更划算。但房仲可能只強調房號 A 的單價低，隱瞞停車位這件事。</p>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>查詢技巧：</strong>實價登錄上通常會註記「停車位」。看交易總價時，要確認是否包含車位。台灣停車位一般值 150-300 萬，視地區而定。如果你不需要停車位，記得從總價減掉。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第9步：觀察季節性的行情波動</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        房市有季節性。淡季和旺季的價格可能差 3-5%。用實價登錄追蹤 12 個月的資料，就能看出這個社區的季節波動：
+                    </p>
+                    <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
+                        <li><strong>傳統旺季（3-5 月春天）：</strong>想搬家的人多，價格偏高</li>
+                        <li><strong>淡季（6-8 月夏天）：</strong>天氣熱，看房人少，價格可能會低一點</li>
+                        <li><strong>秋季轉暖（9-11 月）：</strong>又開始回升</li>
+                        <li><strong>冬季年末（12 月 - 1 月）：</strong>想在新年前買房的人會推高價格</li>
+                    </ul>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        如果你時間彈性，可以在淡季去談價。但淡季也代表交易少，可能更難成交。所以還是要看具體情況。
+                    </p>
+                </section>
+
+                <!-- Section 3: Common Mistakes -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">常見錯誤</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 1：「只看一筆成交記錄，就判斷行情」</h3>
+                        <p class="font-sans text-sm text-stone-700">實價登錄中每棟房子幾乎每個月都有成交。看一筆記錄說不出行情，必須看過去 6-12 個月的資料，取中位數。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 2：「親友交易和法拍房屋也能當參考」</h3>
+                        <p class="font-sans text-sm text-stone-700">這些交易的成交價都不正常。法拍房通常便宜 20-30%，親友交易更是各有各的考量。一定要過濾掉。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 3：「實價登錄很複雜，我就相信房仲」</h3>
+                        <p class="font-sans text-sm text-stone-700">實價登錄沒那麼複雜，花 20 分鐘就能查清楚一個社區的行情。偷懶就會被唬嚨。不要怕麻煩。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 4：「所有交易價格都是真實的」</h3>
+                        <p class="font-sans text-sm text-stone-700">實價登錄中有些數字是虛報的。例如為了避稅、或為了某種融資目的，報的價格和實際成交價不同。這很難判斷，但看起來「太奇怪」的價格就要警戒。</p>
+                    </div>
+
+                    <div class="border-l-2 border-architect-terracotta bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2">❌ 誤區 5：「比較不同區域的單價」</h3>
+                        <p class="font-sans text-sm text-stone-700">松山區和文山區單價怎麼能比？區位、交通、環境完全不同。實價登錄是用來比較「同一區」或「同一社區」的房子。</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Practical Resources -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="bookmark" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">實用資源</h2>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 實價登錄官方網站</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>內政部地政司實價登錄：</strong> <a href="https://lvr.land.moi.gov.tw" target="_blank" class="text-architect-bronze hover:underline">lvr.land.moi.gov.tw</a> - 官方完整資料</li>
+                            <li><strong>內政部實價登錄App：</strong>手機版本，隨時隨地查詢</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded mb-4">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="home" class="w-4 h-4 text-architect-slate stroke-[1.5] inline-block mr-1"></i> 民間實價登錄整理網站</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>樂居：</strong> <a href="https://www.leju.com.tw" target="_blank" class="text-architect-bronze hover:underline">leju.com.tw</a> - 實價登錄資料視覺化，方便查看</li>
+                            <li><strong>591 房屋交易：</strong> <a href="https://www.591.com.tw" target="_blank" class="text-architect-bronze hover:underline">591.com.tw</a> - 有整理的實價行情</li>
+                            <li><strong>信義房屋成交行情：</strong>信義房屋網站也有整理的成交資料</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-2"><i data-lucide="lightbulb" class="w-4 h-4 text-architect-bronze stroke-[1.5] inline-block mr-1"></i> 學習資源</h3>
+                        <ul class="font-sans text-sm text-stone-700 space-y-2">
+                            <li><strong>YouTube 教學：</strong>搜尋「實價登錄教學」，有許多實務操作影片</li>
+                            <li><strong>內政部說明文件：</strong>官網提供詳細的查詢說明和常見問題</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 5: Key Takeaway -->
+                <section>
+                    <div class="border border-stone-200 p-6 bg-white rounded">
+                        <h3 class="font-serif font-bold text-stone-900 text-lg mb-3"><div class="flex items-center gap-2"><i data-lucide="target" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i> 重點提醒</div></h3>
+                        <ul class="font-sans text-stone-800 space-y-2">
+                            <li>✓ 實價登錄是查行情最可靠的工具</li>
+                            <li>✓ 看過去 6-12 個月的交易，計算中位數</li>
+                            <li>✓ 過濾掉親友交易和法拍房屋</li>
+                            <li>✓ 理解單價和總價的關係</li>
+                            <li>✓ 比較同社區不同樓層的價差</li>
+                            <li>✓ 注意時間因素，最近有沒有交易？</li>
+                            <li>✓ 如果房仲報價和實價登錄差太多，要問清楚</li>
+                        </ul>
+                    </div>
+                </section>
+            
+            <!-- Disclaimer -->
+            <section class="mt-8">
+                <div class="bg-stone-100 border border-stone-200 rounded p-4">
+                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                        <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
+                    </p>
+                </div>
+            </section>
+            </article>
+        </div>
+    </main>
+
+    <!-- Step Navigation -->
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
+            <a href="03.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 03: 認識房型</p>
+            </a>
+            <a href="05.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors text-right">
+                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">下一步 →</span>
+                <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 05: 建商調查</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- LINE CTA -->
+    <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
+            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+        </div>
+    </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="/step/03.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 3 步：貸款試算</a>
+        <a href="/step/05.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 5 步：看房技巧 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="/trends.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📈 市場趨勢</a>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Bottom Nav -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
+        <a href="03.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>
+        <span class="text-xs font-medium text-stone-900">4/18</span>
+        <a href="05.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><span class="text-xs">下一步</span><i data-lucide="chevron-right" class="w-5 h-5 stroke-[1.5]"></i></a>
+    </div>
+    <!-- Bottom padding for fixed nav -->
+    <div class="sm:hidden h-14"></div>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
