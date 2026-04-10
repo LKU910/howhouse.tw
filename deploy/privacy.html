@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私政策｜好宅通</title>
+    <meta name="description" content="好宅通隱私政策：說明我們如何蒐集、使用、保護您的個人資料，符合台灣個人資料保護法規範。">
+    <meta name="keywords" content="隱私政策,個人資料保護,好宅通">
+    <link rel="canonical" href="https://howhouse.tw/privacy.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="隱私政策｜好宅通">
+    <meta property="og:description" content="好宅通隱私政策：說明我們如何蒐集、使用、保護您的個人資料。">
+    <meta property="og:url" content="https://howhouse.tw/privacy.html">
+    <meta property="og:site_name" content="好宅通">
+    <meta property="og:locale" content="zh_TW">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="隱私政策｜好宅通">
+    <meta name="twitter:description" content="好宅通隱私政策。">
+
+    <!-- Google Fonts: Noto Serif TC & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#FAFAFA',
+                            100: '#F4F4F4',
+                            200: '#E5E5E5',
+                            300: '#D4D4D4',
+                            800: '#2A2A2A',
+                            900: '#121212'
+                        },
+                        architect: {
+                            bronze: '#A67C52',
+                            terracotta: '#9C4A38',
+                            slate: '#4A5D6A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E5E5; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
+
+        /* Blueprint Label */
+        .blueprint-label {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        /* Chinese typography fundamentals */
+        body {
+            overflow-x: hidden;
+            word-break: break-word;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        input:focus { outline: none; }
+
+        /* Policy sections styling */
+        .policy-section {
+            border-top: 1px solid #E5E5E5;
+        }
+
+        .policy-section:first-of-type {
+            border-top: none;
+        }
+
+        .policy-heading {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #A67C52;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #2A2A2A;
+            margin-bottom: 2rem;
+        }
+
+        .policy-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .policy-content li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #A67C52;
+        }
+
+        .policy-content strong {
+            color: #121212;
+            font-weight: 500;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://howhouse.tw/"},
+            {"@type": "ListItem", "position": 2, "name": "隱私政策", "item": "https://howhouse.tw/privacy.html"}
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans bg-stone-50 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">好<span style="color:#A67C52">宅</span>通</a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">台灣買房教練</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center font-serif text-2xl text-center">
+            <a href="index.html#buyingFlow" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="builders.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="inspection.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="about.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="w-full flex-grow">
+        <!-- HERO SECTION -->
+        <section class="px-6 md:px-12 py-16 md:py-24">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="font-serif text-4xl md:text-5xl font-black tracking-tight leading-tight text-stone-900 mb-4">
+                    隱私政策
+                </h1>
+                <p class="font-sans text-base text-stone-500 leading-relaxed">
+                    最後更新：2026 年 4 月
+                </p>
+            </div>
+        </section>
+
+        <!-- POLICY CONTENT -->
+        <section class="px-6 md:px-12 py-14 md:py-24 border-t border-stone-200">
+            <div class="max-w-3xl mx-auto space-y-12">
+
+                <!-- 簡介 -->
+                <div class="policy-section">
+                    <p class="policy-content">
+                        好宅通（以下簡稱「本站」）重視您的個人資料隱私。本隱私政策說明我們如何蒐集、使用、保護及處理您的個人資料，並遵守台灣《個人資料保護法》之規定。
+                    </p>
+                </div>
+
+                <!-- 1. 資料蒐集項目 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">一、資料蒐集項目</h2>
+                    <div class="policy-content">
+                        <p>
+                            本站蒐集以下個人資料：
+                        </p>
+                        <ul class="mt-4">
+                            <li><strong>電子郵件位址</strong>：經由聯繫表單、Google Forms 反饋表單提交的 Email 地址</li>
+                            <li><strong>使用者交互資訊</strong>：頁面訪問記錄、點擊行為（如透過 Google Analytics）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. 蒐集目的 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">二、蒐集目的</h2>
+                    <div class="policy-content">
+                        <p>
+                            我們蒐集您的個人資料之目的如下：
+                        </p>
+                        <ul class="mt-4">
+                            <li>回覆您的買房諮詢需求</li>
+                            <li>提供好宅通買房教練相關資訊與服務更新</li>
+                            <li>改進本站內容品質與使用者體驗</li>
+                            <li>分析網站流量與用戶行為，優化服務</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. 資料利用範圍 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">三、資料利用範圍</h2>
+                    <div class="policy-content">
+                        <p>
+                            您的個人資料僅用於下列目的：
+                        </p>
+                        <ul class="mt-4">
+                            <li>回覆您通過聯繫表單提交的問題與諮詢</li>
+                            <li>發送與好宅通服務相關的資訊、更新或重要通知</li>
+                            <li>進行網站流量分析與改善使用體驗</li>
+                        </ul>
+                        <p class="mt-6">
+                            本站不會將您的個人資料出售給第三方，也不會以其他方式將資料授權予無關的第三方機構。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. 資料保管方式 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">四、資料保管方式</h2>
+                    <div class="policy-content">
+                        <p>
+                            您的個人資料透過以下方式保管：
+                        </p>
+                        <ul class="mt-4">
+                            <li><strong>Google Forms 與 Google Sheets</strong>：聯繫表單及反饋資料儲存於 Google 提供的雲端服務，採用 Google 提供之標準安全措施（包含加密傳輸與存儲）</li>
+                            <li><strong>Google Analytics</strong>：流量分析資料由 Google 管理，受 Google 隱私政策保護</li>
+                            <li><strong>Netlify 主機服務</strong>：本站託管於 Netlify，受其安全政策保護</li>
+                        </ul>
+                        <p class="mt-6">
+                            我們採取業界標準之安全措施保護您的資料，然而因網際網路性質，無法完全保證絕對安全。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. 資料保留期限 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">五、資料保留期限</h2>
+                    <div class="policy-content">
+                        <p>
+                            您的個人資料保留期限如下：
+                        </p>
+                        <ul class="mt-4">
+                            <li>聯繫表單資料：保留 1 年後刪除，或於回覆您的查詢後刪除，以較短者為準</li>
+                            <li>反饋與建議：保留 1 年後刪除，用於改進服務期間內保留</li>
+                            <li>流量分析資料（Google Analytics）：本站設定資料保留期限為 14 個月，詳見 <a href="https://support.google.com/analytics/answer/7667196" target="_blank" class="text-architect-bronze hover:underline">Google Analytics 資料保留說明</a></li>
+                        </ul>
+                        <p class="mt-6">
+                            您可隨時要求刪除您的個人資料，本站將在合理期限內應允。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5.5 資料安全事件通知 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">五之一、資料安全事件通知</h2>
+                    <div class="policy-content">
+                        <p>
+                            依據《個人資料保護法》第 12 條，若發生個人資料遭竊取、洩漏、竄改或其他侵害之情事，本站將於查明後 72 小時內以電子郵件或網站公告方式通知受影響之使用者，並說明以下事項：
+                        </p>
+                        <ul class="mt-4">
+                            <li>事件概要與發生時間</li>
+                            <li>遭洩漏或侵害之個人資料類型</li>
+                            <li>對當事人可能造成之影響</li>
+                            <li>本站已採取及後續預定之因應措施</li>
+                            <li>當事人可自行採取之保護建議</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6. 當事人權利 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">六、當事人權利</h2>
+                    <div class="policy-content">
+                        <p>
+                            依據台灣《個人資料保護法》，您享有下列權利：
+                        </p>
+                        <ul class="mt-4">
+                            <li><strong>查閱權</strong>：請求查閱本站保有之您的個人資料</li>
+                            <li><strong>複製權</strong>：請求取得您個人資料之複製本</li>
+                            <li><strong>補充與更正權</strong>：請求補充或更正不完整或不正確的個人資料</li>
+                            <li><strong>停止蒐集、處理或利用權</strong>：在特定情況下請求停止蒐集、處理或利用您的個人資料</li>
+                            <li><strong>刪除權</strong>：請求刪除您的個人資料</li>
+                        </ul>
+                        <p class="mt-6">
+                            如欲行使上述權利，請透過下方聯繫方式與我們聯繫。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. 聯繫方式 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">七、聯繫我們</h2>
+                    <div class="policy-content">
+                        <p>
+                            如您對本隱私政策有疑問，或欲行使上述權利，請透過以下方式聯繫我們：
+                        </p>
+                        <ul class="mt-4">
+                            <li><strong>Email</strong>：homerun.taiwan@gmail.com</li>
+                        </ul>
+                        <p class="mt-6">
+                            我們將在收到您的請求後 30 日內進行回覆。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 8. Cookie 與追蹤技術 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">八、Cookie 與追蹤技術</h2>
+                    <div class="policy-content">
+                        <p>
+                            本站可能使用 Cookie 與類似技術：
+                        </p>
+                        <ul class="mt-4">
+                            <li><strong>Google Analytics Cookie</strong>：用於分析訪客行為、流量來源與頁面使用情況，幫助我們改進服務</li>
+                            <li><strong>必要型 Cookie</strong>：確保網站基本功能正常運作</li>
+                        </ul>
+                        <p class="mt-6">
+                            本站使用之 Cookie 可透過瀏覽器設定關閉或管理。若您繼續使用本站，即視為同意本站之 Cookie 政策。如需撤回同意，請透過下方「聯繫我們」所列方式通知我們，我們將協助處理。若您停用 Cookie，部分功能可能受到影響。如欲了解更多 Google Analytics 的隱私實踐，請參閱 <a href="https://policies.google.com/privacy" target="_blank" class="text-architect-bronze hover:underline">Google 隱私政策</a>。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 9. 第三方服務 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">九、第三方服務</h2>
+                    <div class="policy-content">
+                        <p>
+                            本站使用以下第三方服務，這些服務可能蒐集您的個人資料：
+                        </p>
+                        <ul class="mt-4">
+                            <li><strong>Google Forms</strong>：用於聯繫與反饋表單，受 <a href="https://policies.google.com/privacy" target="_blank" class="text-architect-bronze hover:underline">Google 隱私政策</a> 保護</li>
+                            <li><strong>Google Analytics</strong>：用於網站流量分析</li>
+                            <li><strong>Netlify</strong>：網站託管服務提供商</li>
+                        </ul>
+                        <p class="mt-6">
+                            上述第三方的隱私實踐不在本站控制範圍內，請參閱各服務商之隱私政策。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 10. 政策更新 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">十、政策更新</h2>
+                    <div class="policy-content">
+                        <p>
+                            本隱私政策可能不定期更新，以反映法律變化或本站運營需求之調整。我們將在本頁面公布任何重大變更，並視情況透過 Email 或其他方式通知您。您繼續使用本站，視為同意更新後的隱私政策。
+                        </p>
+                        <p class="mt-6">
+                            最後更新日期記載於本頁面頂部。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 11. 法律適用與管轄 -->
+                <div class="policy-section py-8">
+                    <h2 class="policy-heading">十一、法律適用與管轄</h2>
+                    <div class="policy-content">
+                        <p>
+                            本隱私政策受台灣法律管轄，並適用台灣之有關法律，特別是《個人資料保護法》。任何爭議或糾紛應於台灣法院提起訴訟。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-wider text-stone-400 mt-1 font-normal">台灣買房教練</span></div>
+                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                    <a href="privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

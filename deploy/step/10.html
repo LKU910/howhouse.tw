@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 10: 簽約須知 | HomeRUN 買房流程指引</title>
+    <title>斡旋金與要約書差別｜買房出價與簽約教學｜好宅通</title>
     <meta name="description" content="學習斡旋金與要約書的差別、出價策略、合理的殺價幅度、如何應對仲介緊迫感。">
-    <link rel="canonical" href="https://homerun.com.tw/step/10.html">
+    <link rel="canonical" href="https://howhouse.tw/step/10.html">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,7 +32,7 @@
         "@type": "HowToStep",
         "name": "簽約須知",
         "text": "學習斡旋金與要約書的差別、出價策略、合理的殺價幅度、如何應對仲介緊迫感。",
-        "url": "https://homerun.com.tw/step/10.html"
+        "url": "https://howhouse.tw/step/10.html"
     }
     </script>
 
@@ -40,8 +40,6 @@
         body { background-color: #FAFAFA; color: #121212; -webkit-text-size-adjust: 100%; }
         /* ===== Mobile-first typography (手機優先) ===== */
         @media (max-width: 640px) {
-            /* Nav */
-            nav.w-full { padding: 1rem 1rem; }
             /* Progress bar */
             .progress-phase-labels { gap: 0; }
             .progress-phase-labels a { font-size: 9px; letter-spacing: 0.05em; }
@@ -105,12 +103,25 @@
         html { scroll-behavior: smooth; }
         /* Touch-friendly tap targets */
         a, button, select { min-height: 44px; }
+        nav .flex-col a { min-height: auto; }
         select { min-height: 36px; }
         /* Active states for touch */
         a:active { opacity: 0.7; }
         /* Sticky progress bar on mobile */
         @media (max-width: 640px) {
             .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+        }
+
+
+
+        /* === Step Select === */
+        .step-select-wrap { position: relative; }
+        .step-select { font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 600; color: #44403C; background: #fff; border: 1.5px solid #D6D3D1; border-radius: 10px; padding: 8px 36px 8px 14px; cursor: pointer; appearance: none; -webkit-appearance: none; min-width: 200px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .step-select:hover { border-color: #A67C52; box-shadow: 0 2px 6px rgba(166,124,82,0.12); }
+        .step-select:focus { outline: none; border-color: #A67C52; box-shadow: 0 0 0 3px rgba(166,124,82,0.15); }
+        .step-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #A67C52; font-size: 14px; pointer-events: none; font-weight: 700; }
+        @media (max-width: 640px) {
+            .step-select { font-size: 13px; min-width: 170px; padding: 7px 32px 7px 12px; }
         }
 
         /* ===== Article base (all screens) ===== */
@@ -136,8 +147,8 @@
     <!-- Nav -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
         <div class="flex flex-col">
-            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">Home<span class="text-architect-bronze">RUN</span></a>
-            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">好宅通</span>
+            <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">好<span style="color:#A67C52">宅</span>通</a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">台灣買房教練</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
             <a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
@@ -168,55 +179,45 @@
     <!-- Progress Bar -->
     <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between mb-3">
-                <span class="font-sans text-xs tracking-widest text-architect-bronze font-medium">交易簽約</span>
-                <select onchange="if(this.value)window.location.href=this.value" class="font-sans text-xs tracking-widest text-stone-500 bg-transparent border border-stone-200 rounded px-2 py-1 cursor-pointer hover:border-architect-bronze transition-colors">
-                    <optgroup label="自我準備">
-                        <option value="01.html">Step 01: 需求釐清</option>
-                        <option value="02.html">Step 02: 財務健檢</option>
-                        <option value="03.html">Step 03: 認識房型</option>
-                    </optgroup>
-                    <optgroup label="研究功課">
-                        <option value="04.html">Step 04: 實價登錄怎麼看</option>
-                        <option value="05.html">Step 05: 建商調查</option>
-                        <option value="06.html">Step 06: 區域評估</option>
-                    </optgroup>
-                    <optgroup label="實地看房">
-                        <option value="07.html">Step 07: 預約看房</option>
-                        <option value="08.html">Step 08: 現場評估</option>
-                        <option value="09.html">Step 09: 比較決策</option>
-                    </optgroup>
-                    <optgroup label="交易簽約">
-                        <option value="10.html" selected>Step 10: 簽約須知</option>
-                        <option value="11.html">Step 11: 客變規劃</option>
-                        <option value="12.html">Step 12: 工程追蹤</option>
-                        <option value="13.html">Step 13: 貸款對保</option>
-                    </optgroup>
-                    <optgroup label="交屋入住">
-                        <option value="14.html">Step 14: 驗屋準備</option>
-                        <option value="15.html">Step 15: 交屋流程</option>
-                        <option value="16.html">Step 16: 產權登記</option>
-                    </optgroup>
-                    <optgroup label="安居樂業">
-                        <option value="17.html">Step 17: 入住整理</option>
-                        <option value="18.html">Step 18: 保固追蹤</option>
-                    </optgroup>
-                </select>
-            </div>
-            <div class="w-full h-2 bg-stone-200 rounded-full overflow-hidden">
-                <div class="h-full bg-architect-bronze rounded-full transition-all" style="width: 56%"></div>
-            </div>
-            <div class="flex justify-between mt-2 progress-phase-labels">
-                <a href="01.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">自我準備</a>
-                <a href="04.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">研究功課</a>
-                <a href="07.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">實地看房</a>
-                <a href="10.html" class="font-sans text-[10px] tracking-widest text-architect-bronze font-medium transition-colors">交易簽約</a>
-                <a href="14.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">交屋入住</a>
-                <a href="17.html" class="font-sans text-[10px] tracking-widest text-stone-400 hover:text-architect-bronze transition-colors">安居樂業</a>
+            <div class="flex items-center justify-center gap-3">
+                <span class="font-sans text-xs tracking-widest text-stone-400">快速跳轉</span>
+                <div class="step-select-wrap">
+                    <select onchange="if(this.value)window.location.href=this.value" class="step-select">
+                        <optgroup label="自我準備">
+                          <option value="01.html">Step 01: 需求釐清</option>
+                          <option value="02.html">Step 02: 財務健檢</option>
+                          <option value="03.html">Step 03: 認識房型</option>
+                        </optgroup>
+                        <optgroup label="研究功課">
+                          <option value="04.html">Step 04: 實價登錄</option>
+                          <option value="05.html">Step 05: 建商調查</option>
+                          <option value="06.html">Step 06: 區域評估</option>
+                        </optgroup>
+                        <optgroup label="實地看房">
+                          <option value="07.html">Step 07: 預約看房</option>
+                          <option value="08.html">Step 08: 現場評估</option>
+                          <option value="09.html">Step 09: 比較決策</option>
+                        </optgroup>
+                        <optgroup label="交易簽約">
+                          <option value="10.html" selected>Step 10: 簽約須知</option>
+                          <option value="11.html">Step 11: 客變規劃</option>
+                          <option value="12.html">Step 12: 工程追蹤</option>
+                          <option value="13.html">Step 13: 貸款對保</option>
+                        </optgroup>
+                        <optgroup label="交屋入住">
+                          <option value="14.html">Step 14: 驗屋準備</option>
+                          <option value="15.html">Step 15: 交屋流程</option>
+                          <option value="16.html">Step 16: 產權登記</option>
+                        </optgroup>
+                        <optgroup label="安居樂業">
+                          <option value="17.html">Step 17: 入住整理</option>
+                          <option value="18.html">Step 18: 保固追蹤</option>
+                        </optgroup>
+                    </select>
+                </div>
             </div>
         </div>
     </div>
-
     <!-- Breadcrumb -->
     <div class="border-b border-stone-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -237,46 +238,6 @@
                 <div class="font-sans text-xs tracking-widest text-architect-bronze uppercase font-medium mb-4">Step 10</div>
                 <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl font-black text-stone-900 mb-3 sm:mb-4">簽約須知</h1>
                 <p class="font-sans text-base text-stone-600">合約細節不可忽略，簽下去之前一定要看清楚</p>
-            </div>
-
-
-            <!-- Action Timeline -->
-            <div class="bg-white border border-stone-200 rounded-lg p-4 sm:p-6 mb-8 sm:mb-10">
-                <div class="flex flex-nowrap items-start justify-between gap-3 sm:gap-0 timeline-scroll">
-                <div class="flex flex-col items-center text-center min-w-0">
-                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
-                        <i data-lucide="file-text" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
-                    </div>
-                    <span class="font-sans text-xs text-stone-600 leading-tight">逐條讀合約</span>
-                </div>
-                <div class="hidden sm:flex flex-1 items-center px-1">
-                    <div class="w-full border-t border-dashed border-stone-300"></div>
-                </div>
-                <div class="flex flex-col items-center text-center min-w-0">
-                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
-                        <i data-lucide="alert-triangle" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
-                    </div>
-                    <span class="font-sans text-xs text-stone-600 leading-tight">標注疑點</span>
-                </div>
-                <div class="hidden sm:flex flex-1 items-center px-1">
-                    <div class="w-full border-t border-dashed border-stone-300"></div>
-                </div>
-                <div class="flex flex-col items-center text-center min-w-0">
-                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
-                        <i data-lucide="scale" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
-                    </div>
-                    <span class="font-sans text-xs text-stone-600 leading-tight">確認付款條件</span>
-                </div>
-                <div class="hidden sm:flex flex-1 items-center px-1">
-                    <div class="w-full border-t border-dashed border-stone-300"></div>
-                </div>
-                <div class="flex flex-col items-center text-center min-w-0">
-                    <div class="w-10 h-10 rounded-full bg-architect-bronze/10 flex items-center justify-center mb-2">
-                        <i data-lucide="pen-line" class="w-5 h-5 text-architect-bronze stroke-[1.5]"></i>
-                    </div>
-                    <span class="font-sans text-xs text-stone-600 leading-tight">簽約</span>
-                </div>
-                </div>
             </div>
 
             <article class="prose prose-lg max-w-none space-y-8">
@@ -527,6 +488,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="border-l-2 border-architect-slate bg-stone-100 p-4 mt-6">
+                        <p class="font-sans text-sm text-stone-700">以上議價空間為市場經驗參考值，實際成交價格因物件條件、屋主心態及市場狀況而異。</p>
+                    </div>
                 </div>
             </section>
 
@@ -715,25 +679,44 @@
     <section class="bg-white border-y border-stone-200 py-8 sm:py-12">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
-            <p class="font-sans text-stone-700 mb-6">加入 HomeRUN 的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
+            <p class="font-sans text-stone-700 mb-6">加入好宅通的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
             <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
         </div>
     </section>
+
+    <!-- Internal Navigation -->
+    <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
+      <div class="flex justify-between items-center mb-8">
+        <a href="09.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 9 步：簽約流程</a>
+        <a href="11.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 11 步：過戶流程 →</a>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="../index.html#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
+    <a href="../inspection.html" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">🔍 驗屋推薦</a>
+      </div>
+    </nav>
+
+    <div class="bg-stone-100 border-t border-stone-200 py-4 px-6 text-center text-xs text-stone-500 mt-12">
+        本內容僅供參考，不構成投資、法律或財務建議。實際情況因個案而異，請諮詢專業人士。
+    </div>
 
     <!-- Footer -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-bold tracking-widest">Home<span class="text-architect-bronze">RUN</span><span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">好宅通</span></div>
+                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">台灣買房教練</span></div>
                 <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                    <a href="/privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="/terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 HomeRUN 好宅通. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 好宅通. All rights reserved.</p>
                 <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2"><a href="../privacy.html" class="underline hover:text-stone-600">隱私政策</a> · <a href="../terms.html" class="underline hover:text-stone-600">服務條款</a></p>
             </div>
         </div>
     </footer>

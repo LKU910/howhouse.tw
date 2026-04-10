@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /data-config.json
+Disallow: /line-auto-reply.md
+Disallow: /checklist-*.pdf
 
-Sitemap: https://homerun.com.tw/sitemap.xml
+# Sitemaps
+Sitemap: https://howhouse.tw/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+# Crawl-delay: 1
