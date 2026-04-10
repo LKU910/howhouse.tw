@@ -7,7 +7,7 @@
     <title>第一次看房怎麼準備？預約看房流程與技巧｜好宅通</title>
     <meta name="description" content="學習如何準備看房清單、預約看房的各種管道，以及第一次看房的心態調整與實用技巧。">
     <link rel="canonical" href="https://howhouse.tw/step/07.html">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -144,7 +144,7 @@
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
-    <!-- Nav -->
+<!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
         <div class="flex flex-col">
             <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">好<span style="color:#A67C52">宅</span>通</a>
@@ -168,14 +168,14 @@
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
-            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
-            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
-            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
-            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
-            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
         </nav>
     </div>
-
+<!-- NAV:END -->
     <!-- Progress Bar -->
     <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -322,7 +322,7 @@
 
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">2. 房仲帶看</h3>
                     <p class="font-sans text-base text-stone-600 leading-relaxed">
-                        最常見的方式。好的仲介能提供專業意見、解答疑慮、協助議價，但要注意有些仲介可能用「高壓銷售」加速你的決策。依規定買賣雙方仲介費合計不超過成交價 6%，行情為賣方付 4%、買方付 1-2%。
+                        最常見的方式。好的仲介能提供專業意見、解答疑慮、協助議價，但要注意有些仲介可能用「高壓銷售」加速你的決策。依《不動產經紀業管理條例》第 19 條，服務報酬上限：賣方不超過成交價 4%、買方不超過成交價 2%，分別計算。實務上賣方多付 3-4%、買方多付 1-2%，此費率可在法定上限內議價。
                     </p>
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-4 mb-3">與仲介電話洽詢的重點問題</h3>
                     <p class="font-sans text-base text-stone-600 leading-relaxed">看房前打電話給仲介，問清楚這些問題，能大大節省時間：</p>
@@ -331,12 +331,43 @@
                         <li>「公設比是多少？月管理費大約多少？」— 了解真實成本</li>
                         <li>「屋主為什麼賣房？需要多快交屋？」— 了解交易急迫性和屋況</li>
                         <li>「這間房子有多久沒有人住了？有租出去嗎？」— 了解屋況維護狀況</li>
-                        <li>「這間房子有哪些客戶看過？有人下斡旋嗎？」— 了解市場熱度（但不要被急迫感騙）</li>
+                        <li>「您能告訴我這個物件目前的市場熱度如何嗎？有沒有多組買家在看？」— 了解市場熱度（但不要被急迫感騙）</li>
                         <li>「什麼時段看房效果最好？」— 有些房子早上採光好，有些適合晚上看</li>
                     </ul>
                     <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
                         <p class="font-sans text-sm text-stone-800"><strong>小提示：</strong> 與仲介清楚溝通你的需求與預算（例如：「我預算 1000 萬以內，想要 3 房 2 廳，靠近捷運」），他們才能帶你看真正符合條件的房子，節省看房時間。</p>
                     </div>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">委託類型：專任委託 vs 一般委託</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        看房前可詢問仲介：這個物件是『專任委託』還是『一般委託』？專任委託的物件，單一仲介掌握完整資訊，但議價空間可能較小；一般委託可向多家仲介詢價比較。了解委託類型有助你規劃議價策略。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-4 mb-3">雙邊代理：了解仲介的立場</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        看房時可直接問仲介：『您同時代理賣方嗎？您的服務費由哪一方支付？』了解仲介的代理關係，有助你正確解讀仲介提供的建議。若同一仲介同時服務買賣兩方，建議在議價時保持獨立判斷。
+                    </p>
+
+                    <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">要求查看不動產說明書</h3>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>不動產說明書是買家最重要的法律保護。</strong> 根據《不動產經紀業管理條例》第 23 條，仲介業者必須書面說明物件狀況，包括建築物是否有漏水、壁癌、結構問題、法律爭議等重要資訊。這份文件是由<strong>賣方填寫、經仲介提交</strong>給買方的正式紀錄。
+                    </p>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>你有權利要求查看不動產說明書。</strong> 不要讓仲介搪塞「看房前不用看」或「後面再給」的說法。這份文件應該在簽署任何合約前交到你手上。
+                    </p>
+                    <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-800"><strong>說明書內容包含：</strong></p>
+                        <ul class="font-sans text-sm text-stone-800 mt-2 space-y-1 list-disc pl-5">
+                            <li>漏水、壁癌、白蟻或其他結構問題</li>
+                            <li>海砂屋、輻射屋、凶宅等重大瑕疵</li>
+                            <li>法律糾紛、產權爭議或占用他人土地</li>
+                            <li>嫌惡設施（例如高壓電塔、垃圾場、寺廟）</li>
+                            <li>曾經違建或有違建紀錄</li>
+                        </ul>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        <strong>如果賣方在說明書上作虛假陳述，你可以請求賠償損害。</strong> 這是買家最重要的民事救濟。因此，認真閱讀、核實每一項資訊，是看房的關鍵步驟之一。
+                    </p>
 
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">3. 建商接待中心或樣品屋</h3>
                     <p class="font-sans text-base text-stone-600 leading-relaxed">
@@ -360,13 +391,13 @@
                     <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3">
                         <li>穿著舒適的鞋子，需要上下樓梯、走社區</li>
                         <li>選擇方便活動的服裝，可能需要抬頭看天花板</li>
-                        <li>最佳看房時間是上午 9-11 點，採光效果最真實，社區狀況也能看清楚</li>
+                        <li>看房時段應根據房屋座向調整：南向、東南向→上午 9-11 點看採光效果；西向→下午 3-5 點親身感受西曬程度；北向→各時段採光都有限，重點看通風。建議早晚各看一次。</li>
                         <li>如果可以，晚上或假日再看一次同一間房子，體驗社區的人流和噪音狀況</li>
                     </ul>
 
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">每天看幾間房子最好？</h3>
                     <p class="font-sans text-base text-stone-600 leading-relaxed">
-                        <strong>建議一天最多看 3-4 間房子。</strong> 很多人第一次看房想「一口氣看完」，但看到第 5 間時，所有房子都混在一起了。最理想的方式是：
+                        <strong>一天以 3-4 間為宜。</strong> 同一條件的房子累計看過 5-8 間後，對市場行情的掌握通常較為充分，可以進入比較決策階段。很多人第一次看房想「一口氣看完」，但看到第 5 間時，所有房子都混在一起了。最理想的方式是：
                     </p>
                     <ul class="font-sans text-base text-stone-600 leading-relaxed list-disc space-y-3 mt-2">
                         <li>三間房子之間間隔 30-45 分鐘，讓你有時間消化感受</li>
@@ -517,15 +548,19 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
             <p class="font-sans text-stone-700 mb-6">加入好宅通的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
-            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+            <a href="https://line.me/R/ti/p/@howhouse" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #06C755;">
+                <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                加入 LINE 好友
+            </a>
+            <p class="font-sans text-xs text-stone-400 mt-3">點擊按鈕直接開啟 LINE</p>
         </div>
     </section>
 
     <!-- Internal Navigation -->
     <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
       <div class="flex justify-between items-center mb-8">
-        <a href="06.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 6 步：建商調查</a>
-        <a href="08.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 8 步：斡旋出價 →</a>
+        <a href="06.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 6 步：區域評估</a>
+        <a href="08.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 8 步：現場評估 →</a>
       </div>
       <div class="flex flex-wrap gap-4 justify-center">
         <a href="../index.html#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
@@ -537,28 +572,25 @@
         本內容僅供參考，不構成投資、法律或財務建議。實際情況因個案而異，請諮詢專業人士。
     </div>
 
-    <!-- Footer -->
+<!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">台灣買房教練</span></div>
-                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
-                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">台灣買房教練</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
-                    <a href="/privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
-                    <a href="/terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                    <a href="../privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="../terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
                 <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 好宅通. All rights reserved.</p>
                 <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2"><a href="../privacy.html" class="underline hover:text-stone-600">隱私政策</a> · <a href="../terms.html" class="underline hover:text-stone-600">服務條款</a></p>
             </div>
         </div>
     </footer>
-
-
+<!-- FOOTER:END -->
     <!-- Mobile Bottom Nav -->
     <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
         <a href="06.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>

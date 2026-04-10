@@ -7,7 +7,7 @@
     <title>實價登錄怎麼看？房價查詢與行情判斷教學｜好宅通</title>
     <meta name="description" content="學會使用實價登錄系統判斷房屋合理行情，注意親友交易和法拍房屋的價格偏差，比較單價與總價，分析同社區不同樓層的價差。">
     <link rel="canonical" href="https://howhouse.tw/step/04.html">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -144,7 +144,7 @@
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
-    <!-- Nav -->
+<!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
         <div class="flex flex-col">
             <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">好<span style="color:#A67C52">宅</span>通</a>
@@ -168,14 +168,14 @@
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
-            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
-            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
-            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
-            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
-            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
         </nav>
     </div>
-
+<!-- NAV:END -->
     <!-- Progress Bar -->
     <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -327,7 +327,7 @@
                         <p class="font-sans text-sm text-stone-700 mb-1">• 2F 28 坪，成交價 1,400 萬 → 單價 50 萬/坪</p>
                         <p class="font-sans text-sm text-stone-700 mb-1">• 10F 30 坪，成交價 1,620 萬 → 單價 54 萬/坪</p>
                         <p class="font-sans text-sm text-stone-700 mb-2">• 20F 32 坪，成交價 1,760 萬 → 單價 55 萬/坪</p>
-                        <p class="font-sans text-sm text-stone-700">→ 如果房仲說「我這間 50 萬/坪很便宜」，但他的房子在 15 樓 30 坪，行情應該是 54-55 萬/坪，那根本沒有便宜！</p>
+                        <p class="font-sans text-sm text-stone-700">→ 如果房仲說「我這間 50 萬/坪很便宜」，但他的房子在 15 樓 30 坪，行情應該是 54-55 萬/坪，那其實 50 萬/坪 確實低於行情，是真的便宜。要確認房仲有沒有提到樓層差異才能判斷。</p>
                     </div>
 
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第5步：比較同社區不同樓層的價差</h3>
@@ -383,7 +383,7 @@
                         <p class="font-sans text-sm text-stone-700">→ 停車位價差約 150 萬。如果你不需要停車位，房號 B 其實更划算。但房仲可能只強調房號 A 的單價低，隱瞞停車位這件事。</p>
                     </div>
                     <p class="font-sans text-base text-stone-600 leading-relaxed">
-                        <strong>查詢技巧：</strong>實價登錄上通常會註記「停車位」。看交易總價時，要確認是否包含車位。台灣停車位一般值 150-300 萬，視地區而定。如果你不需要停車位，記得從總價減掉。
+                        <strong>查詢技巧：</strong>實價登錄上通常會註記「停車位」。看交易總價時，要確認是否包含車位。停車位價格視縣市差異：台北市均價約 200 萬（核心區可達 300-500 萬以上）；新北市約 175 萬；桃園/台中約 110-130 萬；台南約 90-100 萬；高雄約 140 萬。視縣市差異，需查詢當地實價登錄確認。如果你不需要停車位，記得從總價減掉。
                     </p>
 
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-6 mb-3">第9步：觀察季節性的行情波動</h3>
@@ -397,7 +397,7 @@
                         <li><strong>冬季年末（12 月 - 1 月）：</strong>想在新年前買房的人會推高價格</li>
                     </ul>
                     <p class="font-sans text-base text-stone-600 leading-relaxed">
-                        如果你時間彈性，可以在淡季去談價。但淡季也代表交易少，可能更難成交。所以還是要看具體情況。
+                        淡季是議價的好時機，但需有耐心等待屋主讓步，適合不急著入住的買家；若急著入住，淡季談判的時間成本可能抵銷議價優勢。
                     </p>
                 </section>
 
@@ -518,15 +518,19 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
             <p class="font-sans text-stone-700 mb-6">加入好宅通的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
-            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+            <a href="https://line.me/R/ti/p/@howhouse" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #06C755;">
+                <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                加入 LINE 好友
+            </a>
+            <p class="font-sans text-xs text-stone-400 mt-3">點擊按鈕直接開啟 LINE</p>
         </div>
     </section>
 
     <!-- Internal Navigation -->
     <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
       <div class="flex justify-between items-center mb-8">
-        <a href="03.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 3 步：貸款試算</a>
-        <a href="05.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 5 步：看房技巧 →</a>
+        <a href="03.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 3 步：認識房型</a>
+        <a href="05.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 5 步：建商調查 →</a>
       </div>
       <div class="flex flex-wrap gap-4 justify-center">
         <a href="../index.html#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
@@ -538,28 +542,25 @@
         本內容僅供參考，不構成投資、法律或財務建議。實際情況因個案而異，請諮詢專業人士。
     </div>
 
-    <!-- Footer -->
+<!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">台灣買房教練</span></div>
-                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
-                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">台灣買房教練</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
-                    <a href="/privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
-                    <a href="/terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                    <a href="../privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="../terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
                 <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 好宅通. All rights reserved.</p>
                 <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2"><a href="../privacy.html" class="underline hover:text-stone-600">隱私政策</a> · <a href="../terms.html" class="underline hover:text-stone-600">服務條款</a></p>
             </div>
         </div>
     </footer>
-
-
+<!-- FOOTER:END -->
     <!-- Mobile Bottom Nav -->
     <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
         <a href="03.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>

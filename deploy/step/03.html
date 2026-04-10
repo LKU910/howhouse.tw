@@ -7,7 +7,7 @@
     <title>預售屋、新成屋、中古屋怎麼選？房型完整比較｜好宅通</title>
     <meta name="description" content="了解預售屋、新成屋、中古屋的差異與優缺點，以及透天、大樓、華廈各自適合什麼買家。選擇最適合自己的房型。">
     <link rel="canonical" href="https://howhouse.tw/step/03.html">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -144,7 +144,7 @@
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
-    <!-- Nav -->
+<!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
         <div class="flex flex-col">
             <a href="../index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">好<span style="color:#A67C52">宅</span>通</a>
@@ -168,14 +168,14 @@
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
-            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">買房流程</a>
-            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">建商履歷</a>
-            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">市場趨勢</a>
-            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">驗屋推薦</a>
-            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors">我們是誰</a>
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="../inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
         </nav>
     </div>
-
+<!-- NAV:END -->
     <!-- Progress Bar -->
     <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -279,7 +279,7 @@
                                 <li>客變空間大 - 還沒蓋好，可以改格局、選材料、配置插座位置</li>
                                 <li>價格通常最便宜 - 建商預先銷售，會有 5-10% 的優惠。如果同樣地點，預售屋可能比新成屋便宜 150-200 萬</li>
                                 <li>保固新 - 房子全新，結構保固 15 年、防水及設備保固 1 年起（依民法及合約）</li>
-                                <li>分期付款 - 簽約時付 10-20%、動工時付 20%、上樑時付 20%...最後交屋才全部付清。現金壓力分散，對頭期款較少的人很友善</li>
+                                <li>分期付款 - 簽約時付 10-20%、動工時付 20%、上樑時付 20%...最後交屋才全部付清。現金壓力分散，對頭期款較少的人很友善。各期款項佔比加總為房價的 100%，分散在約 5-8 個施工里程碑，各建商比例不同，需確認合約中的付款時程表。</li>
                                 <li>不用擔心舊房子的問題 - 沒有漏水、壁癌、老舊管線</li>
                             </ul>
                         </div>
@@ -307,7 +307,7 @@
                             <p class="font-semibold text-stone-900 mb-2">優點：</p>
                             <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
                                 <li>即看即住 - 看到實際完成品，沒有延期延宕風險，簽約後通常 30-60 天就能入住</li>
-                                <li>房子全新 - 屋況新，結構保固 15 年、防水及設備保固依合約（通常 1-2 年），保固期從取得使用執照起算</li>
+                                <li>房子全新 - 屋況新，結構保固 15 年、防水及設備保固依合約（通常 1-2 年）。保固期起算日依個案買賣契約約定，最常見以驗收日或交屋日為起算點。實際應以您的合約條款為準。</li>
                                 <li>可看社區氛圍 - 實地走訪，了解真實的鄰居和環境品質</li>
                                 <li>避免預售風險 - 建商已經蓋完，沒有倒閉風險或交屋延期風險</li>
                                 <li>格局已實現 - 看到真實的房間大小、採光、窗景</li>
@@ -333,15 +333,15 @@
                                 <li>價格最實在 - 實價登錄公開，行情透明。不像預售屋可能虛報，中古屋的成交價都上網公布，沒辦法騙</li>
                                 <li>社區已成熟 - 知道真實的鄰居、管理委員會品質、環境品質。可以問住戶口碑</li>
                                 <li>地點選擇多 - 市中心、蛋黃區的房子大多是中古屋。預售屋通常在郊區，中古屋讓你能在精華地段買房</li>
-                                <li>快速入住 - 簽約後 1-2 個月（驗屋、過戶、點交）就可以住，不用等 2-5 年</li>
-                                <li>議價空間大 - 可以殺價，成交價往往比開價低 2-5%。預售屋很少有議價空間</li>
+                                <li>快速入住 - 中古屋從簽署買賣合約到過戶完成通常約 3-6 週（快者 2 週、複雜案例可能 6-8 週），不用等 2-5 年</li>
+                                <li>議價空間大 - 可以殺價，成交價往往比開價低 2-5%。預售屋的議價空間視建商規模、推案進度和市場時機而定：推案初期熱銷時議價空間通常極小；推案末期或市場降溫時，建商可能釋出一定優惠（裝修補貼、車位優惠等）。議價前先了解推案進度和建商狀況。</li>
                                 <li>產權清楚 - 房子的之前所有者、屋況、糾紛都有紀錄可查</li>
                             </ul>
                         </div>
                         <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
                             <p class="font-semibold text-stone-900 mb-2">缺點和風險：</p>
                             <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
-                                <li>可能需要裝修 - 老房子格局可能過時、管線老舊、天花板可能發霉。整層翻修可能花 200,000-500,000 元</li>
+                                <li>可能需要裝修 - 老房子格局可能過時、管線老舊、天花板可能發霉。新成屋 30 坪基本裝潢約 150-300 萬（每坪 5-10 萬）；10-20 年中古屋約 250-400 萬（每坪 8-13 萬）；20-30 年老屋全翻新約 350-500 萬（每坪 12-17 萬）。南部城市費用通常比北部低 15-30%。</li>
                                 <li>隱藏瑕疵風險 - 漏水、壁癌、結構問題很難從表面看出來。2009 年汶川地震後，台灣開始重視房屋檢驗，一定要請驗屋公司檢查</li>
                                 <li>保修無 - 房子老，保固期早就過了。買下來有問題要自己修，沒有建商保障</li>
                                 <li>房貸成數低 - 老房子銀行願意貸的比例較低。屋齡 30 年的房子，銀行可能只貸 5-6 成，不像新房子 8-8.5 成</li>
@@ -385,7 +385,7 @@
                         <p class="font-sans text-sm font-semibold text-architect-bronze">→ 只能用 32.5 坪，但要付 50 坪的房價！</p>
                     </div>
                     <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
-                        台灣公設比通常在 25-40% 之間。新建案平均 30-35%，老房子通常 20-28%（因為當時設施較少）。在同樣的房價下，公設比越低越划算。
+                        台灣公設比依建築類型有明顯差異：無電梯公寓 8-15%；華廈（有電梯）15-20%；大樓（新建）30-40%，部分高達 40% 以上。25% 以下已屬低公設建案。在同樣的房價下，公設比越低越划算。
                     </p>
                     <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
                         <strong>公設包括什麼？</strong>
@@ -398,6 +398,12 @@
                         <strong>重點提醒：</strong>你要決定這些公設對自己有沒有用。如果你根本不會用健身房和游泳池，那為什麼要多付 15% 的房價？選擇公設比低、設施簡單的建案，往往更划算。尤其是首購族預算有限的情況下。
                     </p>
 
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded my-6">
+                        <p class="font-semibold text-stone-900 mb-2">⚠️ 重要警告：土地使用分區</p>
+                        <p class="font-sans text-sm text-stone-700 leading-relaxed mb-3">購屋前務必查詢房屋的土地使用分區。工業用地（工業住宅）、農業用地（農舍）雖然價格較低，但無法辦理戶籍、貸款困難，也不適用政府首購補助，應盡量避免。</p>
+                        <p class="font-sans text-sm text-stone-700"><strong>查詢方式：</strong>各縣市都市計畫查詢平台，或向地政事務所洽詢。</p>
+                    </div>
+
                     <h3 class="font-sans text-base font-bold text-stone-900 mt-8 mb-4">類別 2：建築類型（透天 vs 大樓 vs 華廈）</h3>
 
                     <div class="mb-6">
@@ -409,7 +415,7 @@
                                 <li>自主性大 - 想改裝就改裝，不受管委會限制。牆壁、地板、天花板隨便改</li>
                                 <li>戶外空間 - 有前院、後院、頂樓，可以種花草、曬衣服、放機車</li>
                                 <li>停車方便 - 通常有自己的停車位，不用搶停車位或被堵車道</li>
-                                <li>增值潛力 - 土地持有，長期來看通常較有保值潛力，但仍可能因區域發展、環境變遷等因素影響價值</li>
+                                <li>增值潛力 - 土地持有，因地點稀缺性相對保值，但需承擔高維護成本。老年時期高樓層爬梯會成為困難，且轉售時可能面臨維修需求龐大的隱憂，影響買家意願</li>
                                 <li>沒有管理費 - 不用繳每月 2,000-5,000 元的管理費</li>
                             </ul>
                         </div>
@@ -444,7 +450,7 @@
                         <div class="bg-red-50 border-l-2 border-red-500 p-4 rounded">
                             <p class="font-semibold text-stone-900 mb-2">缺點和風險：</p>
                             <ul class="font-sans text-stone-700 text-sm list-disc list-inside space-y-1">
-                                <li>管理費昂貴 - 每月 2,000-5,000 元。住 30 年就是 720,000-1,800,000 元。要考慮進去房貸計算</li>
+                                <li>管理費昂貴 - 各城市費用不同：台北市 120-160 元/坪/月（30 坪約 3,600-4,800 元）；新北市 90-120 元/坪/月；台中 80-120 元/坪/月；台南/高雄 60-80 元/坪/月（1,800-2,400 元）。住 30 年累計可能 數百萬元。要一起計入每月固定支出預算中評估，確認房貸＋管理費＋水電等合計後，月支出仍在可負擔範圍內。</li>
                                 <li>客變受限 - 管委會有規定不能打牆。有些大樓甚至限制更新冷氣機、安裝衛星天線</li>
                                 <li>停車位競爭 - 車位不足常起糾紛。有些社區車位要排隊等，新住戶可能沒車位</li>
                                 <li>鄰里問題 - 樓上噪音、隔壁油煙、樓下狗叫。一旦起糾紛很難解決</li>
@@ -581,7 +587,11 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">需要買房教練提醒你？</h3>
             <p class="font-sans text-stone-700 mb-6">加入好宅通的 LINE 社群，讓我們在每一步陪著你，回答你的所有疑問。</p>
-            <a href="https://line.me/R/ti/p/@homerun" class="inline-block bg-architect-bronze text-white px-8 py-4 rounded-lg font-semibold hover:bg-architect-terracotta transition text-base">加入 LINE 社群</a>
+            <a href="https://line.me/R/ti/p/@howhouse" class="inline-flex items-center gap-3 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #06C755;">
+                <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                加入 LINE 好友
+            </a>
+            <p class="font-sans text-xs text-stone-400 mt-3">點擊按鈕直接開啟 LINE</p>
         </div>
     </section>
 
@@ -589,7 +599,7 @@
     <nav class="px-6 md:px-12 py-12 border-t border-stone-200 max-w-4xl mx-auto w-full" aria-label="步驟導航">
       <div class="flex justify-between items-center mb-8">
         <a href="02.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 2 步：財務健檢</a>
-        <a href="04.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 4 步：區域挑選 →</a>
+        <a href="04.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">第 4 步：實價登錄 →</a>
       </div>
       <div class="flex flex-wrap gap-4 justify-center">
         <a href="../index.html#buyingFlow" class="font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-300 rounded-full px-4 py-2 transition-colors">📋 回到 18 步總覽</a>
@@ -601,28 +611,25 @@
         本內容僅供參考，不構成投資、法律或財務建議。實際情況因個案而異，請諮詢專業人士。
     </div>
 
-    <!-- Footer -->
+<!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-400 mt-1 font-normal">台灣買房教練</span></div>
-                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
-                    <a href="../inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">台灣買房教練</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
-                    <a href="/privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
-                    <a href="/terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                    <a href="../privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="../terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
                 <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 好宅通. All rights reserved.</p>
                 <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2"><a href="../privacy.html" class="underline hover:text-stone-600">隱私政策</a> · <a href="../terms.html" class="underline hover:text-stone-600">服務條款</a></p>
             </div>
         </div>
     </footer>
-
-
+<!-- FOOTER:END -->
     <!-- Mobile Bottom Nav -->
     <div class="sm:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-stone-200 px-4 py-3 z-40 flex items-center justify-between">
         <a href="02.html" class="flex items-center gap-1 text-stone-600 active:text-architect-bronze"><i data-lucide="chevron-left" class="w-5 h-5 stroke-[1.5]"></i><span class="text-xs">上一步</span></a>

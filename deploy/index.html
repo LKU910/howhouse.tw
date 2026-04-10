@@ -176,7 +176,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -465,13 +465,12 @@
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
-    <!-- Nav -->
+<!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
         <div class="flex flex-col">
             <a href="index.html" class="font-serif text-2xl font-bold tracking-widest leading-none">好<span style="color:#A67C52">宅</span>通</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">台灣買房教練</span>
         </div>
-
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
             <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房流程</a>
             <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
@@ -479,7 +478,6 @@
             <a href="inspection.html" class="hover:text-architect-bronze transition-colors duration-500">驗屋推薦</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">我們是誰</a>
         </div>
-
         <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
@@ -490,15 +488,15 @@
         <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
-        <nav class="flex flex-col gap-8 items-center font-serif text-2xl text-center">
-            <a href="#buyingFlow" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
-            <a href="builders.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
-            <a href="trends.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
-            <a href="inspection.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
-            <a href="about.html" class="text-stone-500 hover:text-architect-bronze transition-colors duration-500" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房流程</a>
+            <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="inspection.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">驗屋推薦</a>
+            <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">我們是誰</a>
         </nav>
     </div>
-
+<!-- NAV:END -->
     <!-- Hero -->
     <header class="flex-grow flex flex-col justify-center px-6 md:px-12 py-10 md:py-32 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -1127,9 +1125,7 @@
                                 </div>
                                 <div class="accordion-body mt-3">
                                     <div class="flex flex-col gap-1">
-                                        <a href="https://www.cbc.gov.tw" target="_blank" class="resource-link">央行 — 最新房貸政策 <i data-lucide="external-link" class="w-3 h-3"></i></a>
-                                        <a href="https://www.banking.gov.tw" target="_blank" class="resource-link">金管會銀行局 — 利率比較 <i data-lucide="external-link" class="w-3 h-3"></i></a>
-                                        <a href="https://pip.moi.gov.tw" target="_blank" class="resource-link">內政部 — 青年安心成家方案 <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://bcis.cpami.gov.tw" target="_blank" class="resource-link">營建署 — 施工進度查詢 <i data-lucide="external-link" class="w-3 h-3"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -1159,7 +1155,9 @@
                                 </div>
                                 <div class="accordion-body mt-3">
                                     <div class="flex flex-col gap-1">
-                                        <a href="https://bcis.cpami.gov.tw" target="_blank" class="resource-link">營建署 — 施工進度查詢 <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://www.cbc.gov.tw" target="_blank" class="resource-link">央行 — 最新房貸政策 <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://www.banking.gov.tw" target="_blank" class="resource-link">金管會銀行局 — 利率比較 <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://pip.moi.gov.tw" target="_blank" class="resource-link">內政部 — 青年安心成家方案 <i data-lucide="external-link" class="w-3 h-3"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -1291,9 +1289,9 @@
                                 </div>
                                 <div class="accordion-body mt-3">
                                     <div class="flex flex-col gap-1">
-                                        <a href="about.html#contact" class="resource-link">好宅通推薦室內設計公司 — 聯繫我們 <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
-                                        <a href="https://www.100.com.tw" target="_blank" class="resource-link">100室內設計 — 作品與報價 <i data-lucide="external-link" class="w-3 h-3"></i></a>
-                                        <a href="https://www.searchome.net" target="_blank" class="resource-link">設計家 Searchome <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://www.land.moi.gov.tw" target="_blank" class="resource-link">內政部地政司 — 產權登記說明 <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://www.nls.org.tw" target="_blank" class="resource-link">全國地政士公會 — 地政士查詢與諮詢 <i data-lucide="external-link" class="w-3 h-3"></i></a>
+                                        <a href="https://www.lawbank.com.tw" target="_blank" class="resource-link">法律諮詢平台 — 產權登記相關法律問題 <i data-lucide="external-link" class="w-3 h-3"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -1478,7 +1476,7 @@
                 </button>
                 <div class="faq-content bg-white px-6 py-0 max-h-0 overflow-hidden transition-all duration-300" data-faq="3">
                     <div class="py-4 pb-6 font-sans text-sm md:text-base text-stone-700 leading-relaxed">
-                        台灣首購族享有多項優惠政策，包括首購貸款最高可貸 85%、較低房貸利率（約 1.775% 起，利率隨政策調整）、地價稅減免、房屋稅減半等。首購認定以購買人及配偶名下無房產為準。建議諮詢銀行了解最新利率方案，並向地方稅務局確認稅務優惠資格。
+                        台灣首購族享有多項優惠政策。一般首購銀行貸款約7-8成；新青安方案符合資格者可能更高，但需符合年齡（18歲以上）、無房等條件限制。新青安申請截止 2026 年 7 月 31 日，撥款最遲 2026 年 10 月 31 日，建議及早向銀行確認申請資格。較低房貸利率（約 1.775% 起，利率隨政策調整）、地價稅減免、房屋稅減半等。首購認定以購買人及配偶名下無房產為準。建議諮詢銀行了解最新利率方案與最新政策，並向地方稅務局確認稅務優惠資格。
                     </div>
                 </div>
             </div>
@@ -1523,7 +1521,7 @@
                 </button>
                 <div class="faq-content bg-white px-6 py-0 max-h-0 overflow-hidden transition-all duration-300" data-faq="6">
                     <div class="py-4 pb-6 font-sans text-sm md:text-base text-stone-700 leading-relaxed">
-                        房貸利率通常分為固定利率和浮動利率。台灣當前新青安利率約 1.775% 起，一般房貸約 2.32%（利率隨政策調整，請向銀行確認最新數字）。月付金以本金、利率、年限計算：每月還款額 = 本金 × [利率(1+利率)年限] / [(1+利率)年限-1]。建議至少諮詢 3 間銀行比較利率、手續費、優惠條件，選擇最有利方案。
+                        房貸利率通常分為固定利率和浮動利率。台灣當前新青安利率約 1.775% 起，一般房貸約 2.32%（利率隨政策調整，請向銀行確認最新數字）。月付金計算公式：<br>月還款額 = 本金 × [月利率 × (1+月利率)^n] / [(1+月利率)^n - 1]<br>其中月利率 = 年利率÷12，n = 總還款月數。<br>例如：貸款 500 萬元、年利率 2.32%、20 年攤還，月利率約 0.1933%，總月數 240 個月，月還款額約為 26,000 元。建議至少諮詢 3 間銀行比較利率、手續費、優惠條件，選擇最有利方案。
                     </div>
                 </div>
             </div>
@@ -1565,26 +1563,34 @@
         <span class="font-sans text-xs tracking-widest text-stone-500">LINE 官方帳號</span>
         <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 mb-4">讓買房教練陪你走每一步</h2>
         <p class="font-sans text-sm text-stone-500 leading-relaxed mb-8 max-w-md mx-auto">加入 LINE 好友，追蹤你的買房進度、接收每週買房小知識、隨時問問買房教練。</p>
-        <a href="https://line.me/R/ti/p/@homerun" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 font-sans text-sm tracking-widest text-white transition-colors duration-500" style="background-color: #06C755; hover:opacity-90;">
+
+        <!-- Mobile: 直接點擊加好友按鈕 -->
+        <a href="https://line.me/R/ti/p/@howhouse" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 font-sans text-base tracking-widest text-white rounded-lg transition-all duration-300 hover:opacity-90 shadow-lg" style="background-color: #06C755;">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             加入 LINE 好友
         </a>
+        <p class="font-sans text-xs text-stone-400 mt-4">點擊按鈕直接開啟 LINE 加入好友</p>
+
+        <!-- Desktop: 額外顯示 ID 方便搜尋 -->
+        <div class="hidden md:block mt-6">
+            <p class="font-sans text-xs text-stone-400">或在 LINE 搜尋 ID：<span class="font-bold text-stone-600">@howhouse</span></p>
+        </div>
     </section>
 
     <div class="bg-stone-100 border-t border-stone-200 py-4 px-6 text-center text-xs text-stone-500 mt-12">
         本站內容僅供參考，不構成投資、法律或財務建議。資訊來源為公開資料，可能存在誤差或已過時。購屋決策請諮詢專業人士。<a href="/terms.html" class="underline hover:text-stone-700 ml-1">服務條款</a> · <a href="/privacy.html" class="underline hover:text-stone-700">隱私政策</a>
     </div>
 
-    <!-- Footer -->
+<!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-wider text-stone-400 mt-1 font-normal">台灣買房教練</span></div>
-                <div class="flex gap-6 font-sans text-sm text-stone-500 tracking-wide">
-                    <a href="inspection.html" class="hover:text-stone-900 transition-colors duration-500">驗屋推薦</a>
+                <div class="font-serif text-xl font-bold tracking-widest">好<span style="color:#A67C52">宅</span>通<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">台灣買房教練</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">我們是誰</a>
                     <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
-                    <a href="/privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
-                    <a href="/terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                    <a href="privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
@@ -1593,7 +1599,7 @@
             </div>
         </div>
     </footer>
-
+<!-- FOOTER:END -->
     <script>
         lucide.createIcons();
 
