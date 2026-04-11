@@ -19,37 +19,11 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="建商履歷查詢｜台灣建商評價與資訊｜好宅通">
     <meta name="twitter:description" content="查詢台灣主要建商履歷、資本額、建案數、司法紀錄。好宅通整理公開資訊，協助你評估建商信譽。">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        serif: ['"Noto Serif TC"', 'serif'],
-                    },
-                    colors: {
-                        stone: {
-                            50: '#FAFAFA',
-                            100: '#F4F4F4',
-                            200: '#E5E5E5',
-                            800: '#2A2A2A',
-                            900: '#121212',
-                        },
-                        architect: {
-                            bronze: '#A67C52',
-                            terracotta: '#9C4A38',
-                            slate: '#4A5D6A',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #FAFAFA;
@@ -133,6 +107,7 @@
         "about": "台灣建商資料庫"
     }
     </script>
+
 </head>
 <body class="font-sans bg-stone-50 text-stone-900 min-h-screen flex flex-col">
 <!-- NAV:START -->
@@ -221,6 +196,13 @@
         </div>
     </div>
 
+    <!-- Notice: No warning ≠ Safe -->
+    <div class="px-6 md:px-12 pt-6">
+        <div class="max-w-5xl mx-auto bg-stone-100 border border-stone-200 rounded-lg p-4" style="font-size:13px;line-height:1.8;color:#666">
+            <strong style="color:#444">提醒：</strong>建商頁面「未顯示警示標籤」不代表該建商沒有任何風險或問題，僅代表好宅通目前未蒐集到相關公開紀錄。買房前仍應自行查證建商信譽（可參考<a href="step/05.html" style="color:#A67C52;text-decoration:underline">步驟 5：建商調查教學</a>）。有警示標籤的建商，請點入查看具體內容與建議行動。
+        </div>
+    </div>
+
     <!-- Grid View Container (desktop only) -->
     <div id="gridContainer" class="hidden md:block px-6 md:px-12 py-10">
         <div class="architectural-grid" id="gridContent" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
@@ -246,7 +228,13 @@
     <div class="px-6 md:px-12 py-6">
         <div class="max-w-7xl mx-auto">
             <p class="font-sans text-xs text-stone-400 leading-relaxed" style="letter-spacing:0.02em;">
-                免責聲明：本頁所列建商資料（含成立年份、資本額、董事長、建案數量等）係整理自經濟部商業司、各公司公開資訊及媒體報導，部分數據為概估值，可能存在誤差或已過時。本站不保證資料之正確性、完整性及即時性，亦不對因使用本站資訊所生之任何損失負責。所有資料僅供參考，購屋決策前請自行至官方來源查證，並諮詢專業人士。如發現資料錯誤，歡迎<a href="about.html#contact" class="text-architect-slate hover:text-architect-bronze transition-colors">來信回報</a>。
+                免責聲明：本頁所列建商資料（含成立年份、資本額、董事長、建案數量等）係整理自經濟部商業司、各公司公開資訊及媒體報導，部分數據為概估值，可能存在誤差或已過時。本站不保證資料之正確性、完整性及即時性，亦不對因使用本站資訊所生之任何損失負責。所有資料僅供參考，購屋決策前請自行至官方來源查證，並諮詢專業人士。
+            </p>
+            <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2" style="letter-spacing:0.02em;">
+                警示標籤說明：部分建商頁面顯示的警示標籤，係依據以下標準標註——（1）經營階層涉入經司法機關偵查或起訴之案件；（2）公司組織架構經公開資料查證具有特殊性且可能影響消費者權益判斷者。標籤僅反映公開事實之摘要，不代表本站對該建商之整體評價。如建商認為標籤內容有誤或需要更新，歡迎透過<a href="about.html#builder-appeal" class="text-architect-slate hover:text-architect-bronze transition-colors">建商資料更正申請</a>提出。
+            </p>
+            <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2" style="letter-spacing:0.02em;">
+                如發現資料錯誤，歡迎<a href="about.html#contact" class="text-architect-slate hover:text-architect-bronze transition-colors">來信回報</a>。
             </p>
         </div>
     </div>

@@ -17,34 +17,10 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="冠德建設 建商履歷｜好宅通">
     <meta name="twitter:description" content="冠德建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['"Noto Sans TC"', 'sans-serif'],
-                    serif: ['"Noto Serif TC"', 'serif'],
-                },
-                colors: {
-                    stone: {
-                        50: '#FAFAFA',
-                        100: '#F4F4F4',
-                        200: '#E5E5E5',
-                        800: '#2A2A2A',
-                        900: '#121212',
-                    },
-                    architect: {
-                        bronze: '#A67C52',
-                        terracotta: '#9C4A38',
-                        slate: '#4A5D6A',
-                    }
-                }
-            }
-        }
-    }
-  </script>
+    <link rel="stylesheet" href="tailwind.css">
   <script>
   // Toggle completed projects visibility
   function toggleCompletedProjects(btn) {
@@ -1461,14 +1437,22 @@
       </div>
     </div>
 
-    <p class="sec-note">以下紀錄均來自政府機關公開資料或媒體報導，每筆均附來源連結可供驗證。如需完整判決書，請至 <a href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank" style="color:var(--blue);text-decoration:underline;text-underline-offset:2px">司法院裁判書查詢系統</a> 搜尋「冠德建設」。</p>
+    <p class="sec-note">以下紀錄均來自政府機關公開資料或媒體報導整理，部分連結將導向公開查詢系統供自行驗證。如需完整判決書，請至 <a href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank" style="color:var(--blue);text-decoration:underline;text-underline-offset:2px">司法院裁判書查詢系統</a> 搜尋「冠德建設」。</p>
+    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
+      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">前任個人</span>涉案人為前任經營者，非現任管理團隊
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
+    </div>
 
     <div class="legal-item">
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-high"></span>
         <span class="legal-type t-admin">行政</span>
-        <span class="legal-title">公平交易委員會裁罰：冠德泰極廣告不實，罰款 NT$120 萬</span>
-        <span class="legal-year">2022</span>
+        <span class="legal-title">公平交易委員會裁罰：「冠德泰極」廣告不實（公平會 111.12.21 第 1630 次會議，違反公平法第 21 條）</span>
+        <span class="legal-year">2022</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#E0E7FF;color:#3730A3;margin-left:6px">已結案</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
         <a class="src" href="https://www.mygonews.com.tw/news/detail/news_id/209846" target="_blank" onclick="event.stopPropagation()">新聞 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
@@ -1478,10 +1462,11 @@
         <strong>違規內容（違反公平交易法第 21 條第 1 項）：</strong><br>
         ① 廣告展示德國 Duravit 品牌馬桶圖片，但實際安裝品牌與外觀不符。<br>
         ② 廣告宣稱「24 小時防塵換氣窗」，實際安裝者為「氣密窗 + 一般紗窗」組合。<br><br>
-        <strong>裁罰金額：</strong>NT$ 120 萬元
+        <strong>裁罰金額：</strong>NT$ 120 萬元<br><br>
+        <strong>查詢方式：</strong>至公平交易委員會網站「行政決定」查詢「冠德建設」，可找到裁處書全文。
         <div class="legal-links">
-          <a class="src" href="https://www.ftc.gov.tw/" target="_blank">公平交易委員會官網 ↗</a>
-          <a class="src" href="https://vocus.cc/article/63c51b8afd89780001468e5c" target="_blank">詳細報導 ↗</a>
+          <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會行政決定查詢 ↗</a>
+          <a class="src" href="https://udn.com/news/story/7241/6856743" target="_blank">聯合新聞網報導 ↗</a>
         </div>
       </div>
     </div>
@@ -1490,8 +1475,8 @@
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-high"></span>
         <span class="legal-type t-criminal">刑事</span>
-        <span class="legal-title">前副董馬紹齡侵占子公司資金案（士林地方法院）</span>
-        <span class="legal-year">2011–2018</span>
+        <span class="legal-title">前副總馬紹齡以假發票掏空公司 7,200 萬元（士林地院，判 2 年、緩刑 5 年確定）</span>
+        <span class="legal-year">2011–2018</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#E0E7FF;color:#3730A3;margin-left:6px">已結案</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
         <a class="src" href="https://www.ettoday.net/news/20180906/1252900.htm" target="_blank" onclick="event.stopPropagation()">判決報導 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
@@ -1500,11 +1485,12 @@
         <strong>犯罪期間：</strong>2011–2014 年<br><br>
         <strong>涉嫌內容：</strong>以假發票方式從子公司提取資金共約 NT$ 7,200 萬元。<br><br>
         <strong>一審判決（2018 年 9 月 6 日，士林地院）：</strong>違反證券交易法、業務侵占罪，判處有期徒刑 2 年、緩刑 5 年。<br><br>
-        <strong>重要背景：</strong>本案為前高管個人行為，非公司整體犯罪。現任董事長馬志綱 2017 年接掌後已有領導層更替。
+        <strong>重要背景：</strong>本案為前高管個人行為，非公司整體犯罪。現任董事長馬志綱 2017 年接掌後已有領導層更替。<br><br>
+        <strong>查詢方式：</strong>至司法院裁判書系統以「馬紹齡」為當事人、「士林地院」為法院查詢。
         <div class="legal-links">
-          <a class="src" href="https://news.ltn.com.tw/news/society/breakingnews/2507109" target="_blank">自由時報 ↗</a>
-          <a class="src" href="https://news.ltn.com.tw/news/society/breakingnews/2136103" target="_blank">偵查報導 ↗</a>
-          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">司法院判決全文 ↗</a>
+          <a class="src" href="https://news.ltn.com.tw/news/society/breakingnews/2542805" target="_blank">自由時報判決報導 ↗</a>
+          <a class="src" href="https://www.ettoday.net/news/20180906/1252900.htm" target="_blank">ETtoday 判決報導 ↗</a>
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">司法院裁判書查詢（查「馬紹齡」） ↗</a>
         </div>
       </div>
     </div>
@@ -1514,7 +1500,7 @@
         <span class="sev-dot sev-low"></span>
         <span class="legal-type t-civil">民事</span>
         <span class="legal-title">中和大洋舊廠 500 億合建案協議終止</span>
-        <span class="legal-year">2023</span>
+        <span class="legal-year">2023</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#E5E5E5;color:#555555;margin-left:6px">協議終止</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
         <a class="src" href="https://money.udn.com/money/story/5621/7109834" target="_blank" onclick="event.stopPropagation()">經濟日報 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
@@ -1612,7 +1598,7 @@
         <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%86%A0%E5%BE%B7" target="_blank">PTT 搜尋「冠德」 ↗</a>
         <a class="src" href="https://www.mobile01.com/search.php?search=%E5%86%A0%E5%BE%B7%E5%BB%BA%E8%A8%AD&type=0&category=455" target="_blank">Mobile01 房屋板 ↗</a>
         <a class="src" href="https://www.dcard.tw/search?query=%E5%86%A0%E5%BE%B7%E5%BB%BA%E8%A8%AD" target="_blank">搜尋 Dcard 討論 ↗</a>
-        <a class="src" href="https://community.5168.com.tw/builder/9457/" target="_blank">5168 建商評分 ↗</a>
+        <a class="src" href="https://www.twincn.com/item.aspx?no=30900892" target="_blank">台灣公司網 建商資料 ↗</a>
       </div>
       <p style="font-size:11px;color:var(--t3);margin-top:10px">好宅通 定期更新彙整，但無法涵蓋所有討論。建議自行搜尋確認近期評論。</p>
     </div>
@@ -1684,7 +1670,7 @@
     </div>
     <div style="margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
       <a class="src" href="https://www.kindom.com.tw/" target="_blank">冠德建設官網 ↗</a>
-      <a class="src" href="https://community.houseprice.tw/builder" target="_blank">5168 完整建案 ↗</a>
+      <a class="src" href="https://www.twincn.com/item.aspx?no=30900892" target="_blank">台灣公司網 建商資料 ↗</a>
     </div>
     <p class="sec-note">以下僅列住宅相關建案。如有遺漏歡迎回報。</p>
 <!-- ═══ 雙北建案（預設展開）═══ -->
@@ -1799,7 +1785,7 @@
   // Toggle Legal Items
   function toggleLegal(header) {
     const body = header.nextElementSibling;
-    const chevron = header.querySelector('.legal-item-chevron');
+    const chevron = header.querySelector('.legal-chevron');
 
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
@@ -1833,9 +1819,6 @@
     if (label) {
       label.textContent = isOpen ? '查看雙北以外建案' : '收合雙北以外建案';
     }
-  });
-
-    button.textContent = isHidden ? '收合，只看雙北 ↑' : '查看全台建案 ↓';
   }
 
   // Initialize on DOM ready

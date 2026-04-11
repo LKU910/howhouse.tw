@@ -26,34 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        serif: ['"Noto Serif TC"', 'serif'],
-                    },
-                    colors: {
-                        stone: {
-                            50: '#FAFAFA',
-                            100: '#F4F4F4',
-                            200: '#E5E5E5',
-                            300: '#D4D4D4',
-                            800: '#2A2A2A',
-                            900: '#121212'
-                        },
-                        architect: {
-                            bronze: '#A67C52',
-                            terracotta: '#9C4A38',
-                            slate: '#4A5D6A'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="tailwind.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -282,7 +255,7 @@
                     <div class="architectural-grid-item">
                         <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">03</div>
                         <h3 class="font-serif text-xl font-bold mb-3">驗屋服務推薦</h3>
-                        <p class="font-sans text-base text-stone-600 leading-relaxed">精選合作驗屋團隊，交屋前幫你找出肉眼看不到的問題，保護你的投資</p>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">嚴格篩選合作驗屋團隊，交屋前幫你找出肉眼看不到的問題，保護你的投資</p>
                     </div>
                     <div class="architectural-grid-item">
                         <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">04</div>
@@ -292,7 +265,7 @@
                     <div class="architectural-grid-item">
                         <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">05</div>
                         <h3 class="font-serif text-xl font-bold mb-3">LINE 買房教練</h3>
-                        <p class="font-sans text-base text-stone-600 leading-relaxed">追蹤你的買房進度、每週推送實用知識，有問題隨時問（即將上線）</p>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">追蹤你的買房進度、每週推送實用知識，有問題隨時問（已上線，持續優化中）</p>
                     </div>
                     <div class="architectural-grid-item">
                         <div class="text-xs tracking-widest text-stone-500 font-sans mb-4">06</div>
@@ -389,6 +362,26 @@
                         </p>
                     </div>
 
+                    <!-- FAQ Item 4b: 司法紀錄處理 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            司法紀錄是怎麼處理的？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            我們會依據以下維度區分司法紀錄的參考權重：（1）<strong>時間</strong>——近五年內的案件與較早期已結案的事件，在呈現時會標註年份供讀者自行判斷；（2）<strong>結果</strong>——不起訴、和解、判決確定等不同階段會盡可能註明；（3）<strong>性質</strong>——區分結構安全、延遲交屋、財務糾紛等不同類型；（4）<strong>當事人</strong>——公司涉案與前任個人涉案會明確區隔。我們持續優化這套區分機制，若建商認為相關紀錄的呈現方式有誤，歡迎透過建商資料更正申請提出。
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 4c: 網路輿情方法論 -->
+                    <div class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            網路輿情（PTT、Mobile01）的篩選標準是什麼？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            網路輿情僅作為輔助參考，與經濟部登記、司法判決等官方資料明確區隔呈現。篩選原則如下：（1）僅收錄有具體事實描述的討論（如交屋時間、施工品質、售後服務經驗），排除純情緒性發言；（2）標註文章來源平台與發布時間，讓讀者自行評估時效性；（3）正面與負面評論皆收錄，不做單方面篩選；（4）匿名論壇資訊的可信度本質上低於官方資料，因此在建商頁面中以獨立區塊呈現，並加註「網路討論僅供參考」的提醒。我們理解匿名平台可能存在不實資訊，若建商發現特定內容有明顯錯誤，歡迎來信說明。
+                        </p>
+                    </div>
+
                     <!-- FAQ Item 5 -->
                     <div class="border-b border-stone-200 py-8">
                         <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
@@ -396,6 +389,16 @@
                         </h3>
                         <p class="font-sans text-base text-stone-600 leading-relaxed">
                             本站提供的資訊僅供參考，不構成投資建議或購屋建議。購屋是重大財務決策，建議搭配專業的不動產經紀人、律師或財務顧問的意見。我們的角色是幫你理解流程、提供工具，最終的判斷永遠是你自己的。
+                        </p>
+                    </div>
+
+                    <!-- FAQ Item 6: 建商申訴機制 -->
+                    <div id="builder-appeal" class="border-b border-stone-200 py-8">
+                        <h3 class="font-sans text-lg font-medium text-stone-900 mb-4">
+                            建商如何申請資料更正？
+                        </h3>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">
+                            我們重視資訊的正確性，並提供正式的建商資料更正流程：（1）建商或其授權代表可來信至 <a href="mailto:info@howhouse.tw" class="text-architect-slate hover:text-architect-bronze transition-colors">info@howhouse.tw</a>，主旨請註明「建商資料更正申請」；（2）來信請附上需更正的具體內容、正確資訊及佐證文件；（3）我們承諾在收到申請後 <strong>7 個工作日內</strong>回覆處理結果；（4）經查證確認的錯誤將立即更正，並在該建商頁面加註更正日期。我們的目標是呈現正確且公允的資訊，感謝各方協助我們持續改善。
                         </p>
                     </div>
                 </div>

@@ -17,34 +17,10 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="遠雄建設 建商履歷｜好宅通">
     <meta name="twitter:description" content="遠雄建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['"Noto Sans TC"', 'sans-serif'],
-                    serif: ['"Noto Serif TC"', 'serif'],
-                },
-                colors: {
-                    stone: {
-                        50: '#FAFAFA',
-                        100: '#F4F4F4',
-                        200: '#E5E5E5',
-                        800: '#2A2A2A',
-                        900: '#121212',
-                    },
-                    architect: {
-                        bronze: '#A67C52',
-                        terracotta: '#9C4A38',
-                        slate: '#4A5D6A',
-                    }
-                }
-            }
-        }
-    }
-  </script>
+    <link rel="stylesheet" href="tailwind.css">
   <script>
   // Toggle completed projects visibility
   function toggleCompletedProjects(btn) {
@@ -1453,24 +1429,36 @@
       </div>
     </div>
     <p class="sec-note">以下紀錄均來自政府機關公開資料、裁判書查詢、及新聞報導，惟紀錄可能不完整。詳細內容請逐一驗證原始來源。</p>
+    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
+      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">前任個人</span>涉案人為前任經營者，非現任管理團隊
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
+    </div>
 
     <div class="legal-item">
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-high"></span>
         <span class="legal-type t-admin">行政</span>
-        <span class="legal-title">公平交易委員會廣告不實裁罰</span>
-        <span class="legal-year">2015–2023</span>
+        <span class="legal-title">公平交易委員會廣告不實裁罰（公平會第1581次會議決議等多次處分）</span>
+        <span class="legal-year">2014–2022</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#E0E7FF;color:#3730A3;margin-left:6px">已結案</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
         <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank" onclick="event.stopPropagation()">公平會 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
       <div class="legal-body">
         <strong>主要內容：</strong>遠雄建設多次遭公平交易委員會以廣告不符、誇大宣傳為由裁罰。<br><br>
-        <strong>涉及建案：</strong>林口遠雄未來City（A7捷運站距離宣傳不符）、遠雄 The One（景觀宣傳不符）。<br><br>
-        <strong>罰款合計：</strong>約 NT$ 940 萬元。<br><br>
-        <strong>主要違規類型：</strong>①捷運距離夸大（實際距離與廣告不符）；②完工期限延遲；③景觀及公設宣傳不實。
+        <strong>主要裁處紀錄：</strong><br>
+        ① 107.12.12 公平會決議：「遠雄首品」建案廣告不實，遠雄建設罰 250 萬、遠雄房地產罰 120 萬，共 370 萬<br>
+        ② 111.10.26 公平會第 1622 次會議：「遠雄文心匯」中庭花園宣傳不符，遠雄建設罰 120 萬、遠雄房地產罰 100 萬，共 220 萬<br>
+        ③ 103 年公平會決議：「遠雄山綺」生態園區宣傳不符，各罰 20 萬，共 40 萬<br><br>
+        <strong>罰款合計：</strong>累計逾 NT$ 630 萬元（含其他較小額裁處）。<br><br>
+        <strong>主要違規類型：</strong>①捷運距離誇大（實際距離與廣告不符）；②公設宣傳不實（健身房、會議室等實為停車區/機電設備）；③景觀及中庭宣傳與實際落差。<br><br>
+        <strong>查詢方式：</strong>至公平交易委員會網站「行政決定」查詢「遠雄建設」，可找到各次裁處書全文。
         <div class="legal-links">
-          <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會查詢 ↗</a>
-          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會行政決定查詢 ↗</a>
+          <a class="src" href="https://cpc.ey.gov.tw/Page/8AC028685E311A7/1f5c4426-5268-4d92-bb6d-f8d11d93750e" target="_blank">行政院消保處：遠雄首品裁罰公告 ↗</a>
         </div>
       </div>
     </div>
@@ -1479,19 +1467,23 @@
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-high"></span>
         <span class="legal-type t-criminal">刑事</span>
-        <span class="legal-title">前董事長趙藤雄行賄立委案</span>
-        <span class="legal-year">2017–2019</span>
+        <span class="legal-title">前董事長趙藤雄行賄案（臺北地院 107 年度金重訴字第 12 號）</span>
+        <span class="legal-year">2017–</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEF3C7;color:#92400E;margin-left:6px">上訴審理中</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#F3E8FF;color:#6B21A8;margin-left:6px">前任個人</span>
         <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank" onclick="event.stopPropagation()">裁判書 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
       <div class="legal-body">
+        <strong>案號：</strong>臺灣臺北地方法院 107 年度金重訴字第 12 號<br><br>
         <strong>涉案人員：</strong>遠雄集團創辦人暨前董事長趙藤雄。<br><br>
-        <strong>案件性質：</strong>涉嫌行賄立委，干預司法及行政決策。<br><br>
-        <strong>一審判決：</strong>2019 年判有期徒刑 7 年。<br><br>
-        <strong>後續進展：</strong>案件經三審，最終判決結果以司法院裁判書為準。<br><br>
+        <strong>案件性質：</strong>涉大巨蛋弊案、財報不實、行賄新北市議員周勝考等官員以加速土城開發案審議。另涉行賄前桃園縣副縣長葉世文以取得八德合宜住宅標案。<br><br>
+        <strong>一審判決：</strong>2022 年 10 月 28 日宣判，趙藤雄依行賄等罪判有期徒刑 7 年。前財政部長李述德判 9 年，新北市議員周勝考判 10 年。<br><br>
+        <strong>合宜宅案：</strong>趙藤雄行賄葉世文部分，高等法院依不違背職務行賄罪判 2 年、緩刑 5 年，已確定。<br><br>
+        <strong>主案現況：</strong>大巨蛋等主要案件一審判決後，全案上訴至臺灣高等法院二審審理中。被告持續受限制出境處分。<br><br>
+        <strong>查詢方式：</strong>至司法院裁判書系統查詢「107年度金重訴字第12號」或以「趙藤雄」為當事人搜尋。<br><br>
         <strong>重要背景：</strong>此案對遠雄集團聲譽造成重大影響，趙藤雄卸任董事長，由其子趙文嘉接任。（以上為前董事長個人案件，與遠雄企業團現行營運為獨立事件）
         <div class="legal-links">
-          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://www.judicial.gov.tw/tw/cp-1888-522099-664de-1.html" target="_blank">臺北地院 107 年金重訴字第 12 號新聞稿 ↗</a>
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">司法院裁判書查詢（查「趙藤雄」） ↗</a>
         </div>
       </div>
     </div>
@@ -1500,15 +1492,16 @@
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-low"></span>
         <span class="legal-type t-civil">民事</span>
-        <span class="legal-title">遠雄未來City 廣告不符民事求償</span>
-        <span class="legal-year">2020–</span>
+        <span class="legal-title">遠雄未來City 廣告不符民事求償（住戶集體訴訟）</span>
+        <span class="legal-year">2020–</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEF3C7;color:#92400E;margin-left:6px">審理中</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
         <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank" onclick="event.stopPropagation()">裁判書 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
       <div class="legal-body">
         <strong>背景：</strong>部分遠雄未來City 住戶因廣告宣傳（尤其是 A7 捷運站距離、景觀視野）與實際不符，提起民事求償訴訟。<br><br>
         <strong>主要爭議：</strong>廣告標示距離與實際測量距離不符；景觀及採光宣傳與實際落差大。<br><br>
-        <strong>訴訟狀態：</strong>目前仍在各級法院審理，未有終局判決。
+        <strong>訴訟狀態：</strong>目前仍在各級法院審理，未有終局判決。<br><br>
+        <strong>查詢方式：</strong>至司法院裁判書系統以「遠雄建設」及「廣告不實」為關鍵字查詢。
         <div class="legal-links">
           <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
           <a class="src" href="https://www.ftc.gov.tw/" target="_blank">公平交易委員會 ↗</a>
@@ -1645,7 +1638,7 @@
     </div>
     <div style="margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
       <a class="src" href="https://www.farglory.com.tw/" target="_blank">遠雄建設官網 ↗</a>
-      <a class="src" href="https://community.houseprice.tw/builder" target="_blank">5168 完整建案 ↗</a>
+      <a class="src" href="https://www.twincn.com/item.aspx?no=04673318" target="_blank">台灣公司網 建商資料 ↗</a>
     </div>
     <p class="sec-note">以下僅列住宅相關建案。如有遺漏歡迎回報。</p>
 <!-- ═══ 雙北建案（預設展開）═══ -->

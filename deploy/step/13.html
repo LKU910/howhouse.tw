@@ -7,24 +7,10 @@
     <title>房貸對保流程｜利率比較與貸款申請完整教學｜好宅通</title>
     <meta name="description" content="房貸對保是什麼？了解房貸申請流程、各銀行利率比較、寬限期選擇，以及對保當天需要準備的文件與注意事項。">
     <link rel="canonical" href="https://howhouse.tw/step/13.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        serif: ['"Noto Serif TC"', 'serif'],
-                    },
-                    colors: {
-                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
-                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="application/ld+json">
     {
@@ -141,6 +127,7 @@
             article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
         }
     </style>
+
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
@@ -241,6 +228,16 @@
             </div>
 
             <article class="prose prose-lg max-w-none space-y-8">
+
+<!-- 新青安截止日提醒 -->
+            <div style="background:linear-gradient(135deg,#FFF8F0,#FFF3E0);border:1px solid #E8D5C0;border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px;">
+                <span style="font-size:20px;flex-shrink:0;margin-top:2px;">⏰</span>
+                <div style="font-family:'Noto Sans TC',sans-serif;font-size:14px;color:#5D4037;line-height:1.7;">
+                    <strong style="color:#A67C52;font-size:15px;">新青安貸款申請截止日：2026 年 7 月 31 日</strong><br>
+                    針對年滿 18 歲、名下無自有住宅的首購族。最低利率 1.775% 起，額度最高 1,000 萬，貸期最長 40 年，寬限期最長 5 年。逾期不再受理，如符合資格請盡早向銀行詢問。
+                </div>
+            </div>
+
 <!-- 為什麼這步很重要 -->
             <section class="mb-12">
                 <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
@@ -683,7 +680,53 @@
                     </ul>
                 </div>
             </section>
-            
+
+            <!-- 問銀行的 7 個問題 -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                    <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="phone" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                    </div>
+                    <h2 class="font-serif text-xl font-bold text-stone-900">第一次打電話給銀行，問這 7 個問題</h2>
+                </div>
+                <p class="font-sans text-base text-stone-600 mb-6 leading-relaxed">打電話給銀行時不用害羞，把以下這些問題寫下來，一個一個問清楚。銀行員習慣回答這些問題，他們也會尊重問這些問題的客戶。</p>
+
+                <div class="space-y-4 mb-6">
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">1</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">目前房貸利率是多少？一段式還是分段式？</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">2</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">寬限期最長可以多久？寬限期後利率怎麼調整？</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">3</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">提前還款有沒有違約金？</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">4</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">開辦費、設定費分別是多少？</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">5</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">可以搭配新青安嗎？條件是什麼？</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">6</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">如果鑑價低於買價，最多差多少？</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="w-8 h-8 rounded-full bg-architect-bronze text-white font-bold flex items-center justify-center flex-shrink-0 text-sm">7</div>
+                        <p class="font-sans text-base text-stone-600 leading-relaxed">從申請到核貸大概要多久？</p>
+                    </div>
+                </div>
+
+                <div class="border-l-2 border-architect-bronze bg-stone-100 p-4 rounded">
+                    <p class="font-sans text-base text-stone-600 leading-relaxed"><strong>💡 小提醒：</strong>建議至少問 3 家銀行，比較利率、手續費、核貸速度。不要只問一家就決定——同樣的條件，不同銀行的利率可能差 0.1–0.3%，30 年下來差距可達數十萬元。</p>
+                </div>
+            </section>
+
             <!-- Disclaimer -->
             <section class="mt-8">
                 <div class="bg-stone-100 border border-stone-200 rounded p-4">

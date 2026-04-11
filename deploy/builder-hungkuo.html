@@ -17,34 +17,10 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="宏國建設 建商履歷｜好宅通">
     <meta name="twitter:description" content="宏國建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['"Noto Sans TC"', 'sans-serif'],
-                    serif: ['"Noto Serif TC"', 'serif'],
-                },
-                colors: {
-                    stone: {
-                        50: '#FAFAFA',
-                        100: '#F4F4F4',
-                        200: '#E5E5E5',
-                        800: '#2A2A2A',
-                        900: '#121212',
-                    },
-                    architect: {
-                        bronze: '#A67C52',
-                        terracotta: '#9C4A38',
-                        slate: '#4A5D6A',
-                    }
-                }
-            }
-        }
-    }
-  </script>
+    <link rel="stylesheet" href="tailwind.css">
   <script>
   // Toggle completed projects visibility
   function toggleCompletedProjects(btn) {
@@ -561,34 +537,47 @@
     <div class="sec-label">法律相關</div>
     <div class="legal-bento">
       <div class="lb-card lb-orange">
-        <div class="lb-num">少</div>
+        <div class="lb-num">0</div>
         <div class="lb-type">行政裁罰</div>
       </div>
       <div class="lb-card lb-green">
         <div class="lb-num">0</div>
-        <div class="lb-type">重大刑事</div>
+        <div class="lb-type">刑事紀錄</div>
       </div>
       <div class="lb-card lb-blue">
-        <div class="lb-num">2</div>
+        <div class="lb-num">1</div>
         <div class="lb-type">民事糾紛</div>
       </div>
     </div>
     <p class="sec-note">宏國建設為未上市公司，整體司法紀錄相對有限。以下為已知案件。</p>
+    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
+      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">前任個人</span>涉案人為前任經營者，非現任管理團隊
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
+    </div>
 
     <div class="legal-item">
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-low"></span>
         <span class="legal-type t-civil">民事</span>
-        <span class="legal-title">京華城相關租賃與商業糾紛</span>
-        <span class="legal-year">多年</span>
+        <span class="legal-title">京華城容積率爭議及行政訴訟（宏國關係企業威京集團開發案）</span>
+        <span class="legal-year">2019–</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEF3C7;color:#92400E;margin-left:6px">審理中</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
         <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank" onclick="event.stopPropagation()">前往司法院查詢 ↗</a>
         <span class="legal-chevron">＋</span>
       </div>
       <div class="legal-body">
-        <strong>說明：</strong>京華城為大型購物中心，涉及多承租戶與業主間的商業糾紛，部分案件進入訴訟程序。<br><br>
-        <strong>建議：</strong>購屋前確認建案狀況與履約保障。<br><br>
+        <strong>事件背景：</strong>京華城購物中心為宏國關係企業威京集團旗下開發案，曾是台北市知名地標。2019 年結束營業後，威京集團推動京華城都更案，過程中涉及容積率爭議。<br><br>
+        <strong>爭議核心：</strong>京華城都更案取得 840% 容積率，遠高於一般水準，引發外界質疑是否有不當圖利。台北市議員及監察院均曾介入調查。2024 年，前台北市長柯文哲因此案涉貪污罪嫌遭羈押。<br><br>
+        <strong>與宏國關係：</strong>宏國建設與威京集團同屬沈慶京家族事業體系，但京華城案主要涉案方為威京總部集團，宏國建設本身並非直接被告。購屋者應區分集團旗下不同法人實體的法律責任。<br><br>
+        <strong>一審判決：</strong>2026 年 3 月 26 日，臺北地方法院一審宣判。前台北市長柯文哲依違背職務收賄罪判處有期徒刑 17 年，威京集團主席沈慶京判處 10 年。全案可上訴。<br><br>
+        <strong>現況：</strong>一審判決已宣判，預期將上訴至高等法院。最終結果以終審判決為準。<br><br>
+        <strong>查詢方式：</strong>至司法院裁判書系統以「京華城」或「威京」為關鍵字查詢。
         <div class="legal-links">
-          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">司法院裁判書查詢 ↗</a>
+          <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會查詢 ↗</a>
         </div>
       </div>
     </div>

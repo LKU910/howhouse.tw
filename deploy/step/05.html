@@ -7,24 +7,10 @@
     <title>建商評價怎麼查？建商信譽調查完整教學｜好宅通</title>
     <meta name="description" content="學會調查建商信譽：從商業司、司法院、PTT查詢建商背景，看資本額、過去案件、司法紀錄、住戶評價。用好宅通建商資料頁深入了解。">
     <link rel="canonical" href="https://howhouse.tw/step/05.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        serif: ['"Noto Serif TC"', 'serif'],
-                    },
-                    colors: {
-                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
-                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="application/ld+json">
     {
@@ -141,6 +127,7 @@
             article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
         }
     </style>
+
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
@@ -493,7 +480,142 @@
                         </ul>
                     </div>
                 </section>
-            
+
+                <!-- Section: Red Light Severity Matrix -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="shield-alert" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">查到負面資訊後，怎麼判斷嚴重程度？</h2>
+                    </div>
+                    <p class="font-sans text-base text-stone-600 leading-relaxed">
+                        查到建商有負面紀錄，不代表一定不能買——但也不能當作沒看到。以下是一個「紅黃綠燈」分級框架，幫你把模糊的不安轉化為具體的行動計畫：
+                    </p>
+
+                    <!-- Green -->
+                    <div class="border-l-4 bg-stone-50 p-4 rounded my-4" style="border-color:#4CAF50">
+                        <h3 class="font-sans font-bold text-stone-900 mb-2" style="color:#2E7D32">🟢 綠燈：風險可控，可繼續考慮</h3>
+                        <p class="font-sans text-sm text-stone-700 mb-2"><strong>情況：</strong>行政裁罰（廣告不實、輕微違規）、已結案的民事糾紛、單次輕微裁罰</p>
+                        <p class="font-sans text-sm text-stone-700"><strong>建議行動：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-1">
+                            <li>可繼續考慮該建商</li>
+                            <li>簽約時確認合約條款是否與廣告內容一致</li>
+                            <li>留存建商的廣告文宣作為日後依據</li>
+                        </ul>
+                    </div>
+
+                    <!-- Yellow -->
+                    <div class="border-l-4 bg-stone-50 p-4 rounded my-4" style="border-color:#FF9800">
+                        <h3 class="font-sans font-bold text-stone-900 mb-2" style="color:#E65100">🟡 黃燈：需額外保護措施</h3>
+                        <p class="font-sans text-sm text-stone-700 mb-2"><strong>情況：</strong>多次行政裁罰紀錄、未結案的民事訴訟、曾有延遲交屋紀錄、公司更名紀錄</p>
+                        <p class="font-sans text-sm text-stone-700"><strong>建議行動：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-1">
+                            <li>可考慮但需額外保護：委託律師審閱合約（費用約 3,000–8,000 元）</li>
+                            <li>確認該建案是否有「履約保證機制」（價金信託最佳）</li>
+                            <li>合約中明確約定交屋時間、延遲違約金、品質保證條款</li>
+                            <li>預留額外 3–6 個月的交屋等待時間</li>
+                        </ul>
+                    </div>
+
+                    <!-- Red -->
+                    <div class="border-l-4 bg-stone-50 p-4 rounded my-4" style="border-color:#F44336">
+                        <h3 class="font-sans font-bold text-stone-900 mb-2" style="color:#C62828">🔴 紅燈：建議慎重考慮是否繼續</h3>
+                        <p class="font-sans text-sm text-stone-700 mb-2"><strong>情況：</strong>刑事案件（詐欺、行賄、偽造文書）、結構安全糾紛、資本額過低且無履約保證、負責人有重大前科</p>
+                        <p class="font-sans text-sm text-stone-700"><strong>建議行動：</strong></p>
+                        <ul class="font-sans text-sm text-stone-700 space-y-1 mt-1">
+                            <li>建議優先轉向其他建商</li>
+                            <li>如仍想購買，務必委託律師全程協助</li>
+                            <li>確認履約保證機制完善（僅接受「價金信託」）</li>
+                            <li>考慮是否值得承擔這個風險——市場上有其他選擇</li>
+                        </ul>
+                    </div>
+
+                    <div class="border border-stone-200 bg-white p-4 rounded my-4">
+                        <p class="font-sans text-sm text-stone-600">
+                            <strong>重要提醒：</strong>這個分級框架是協助你「判斷」，不是替你「決定」。每個人的風險承受度不同。如果你對某個建商有疑慮但仍然想買，最好的保護是：<strong>委託律師審閱合約 + 確認履約保證機制</strong>。此外，好宅通建商頁面「未顯示警示」不代表該建商沒有任何問題，僅代表我們目前未蒐集到相關紀錄，買房前仍應自行查證。
+                        </p>
+                    </div>
+                </section>
+
+            <!-- What If Something Goes Wrong Section -->
+            <section class="mt-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <svg class="w-8 h-8 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <h2 class="font-serif text-3xl font-bold text-stone-900">萬一怎麼辦？</h2>
+                </div>
+                <p class="font-sans text-stone-700 mb-6">5 大突發狀況應對指南</p>
+
+                <!-- Scenario 1: 銀行鑑價低於買價 -->
+                <div class="border border-stone-200 p-6 bg-white rounded mb-6">
+                    <h3 class="font-sans font-bold text-stone-900 mb-4 text-lg">情境一：銀行鑑價低於買價（差額貸不到）</h3>
+                    <p class="font-sans text-stone-700 mb-4"><strong>例子：</strong>買價 1,200 萬，銀行鑑價 1,100 萬，差額 100 萬</p>
+                    <p class="font-sans text-stone-700 font-semibold mb-3">應對步驟：</p>
+                    <ol class="font-sans text-stone-700 space-y-2 list-decimal list-inside">
+                        <li>向建商提出：「鑑價結果出來了，有落差，能否討論調整？」（開啟對話，而非要求降價）</li>
+                        <li>同時向第二家銀行送件——不同銀行鑑價可能差 5–10%</li>
+                        <li>差額在 50 萬以內，評估自備款是否可增加；超過 100 萬認真考慮放棄</li>
+                        <li>確認合約中是否有「貸款未過條款」，確保訂金可取回</li>
+                    </ol>
+                </div>
+
+                <!-- Scenario 2: 驗屋發現重大缺失 -->
+                <div class="border border-stone-200 p-6 bg-white rounded mb-6">
+                    <h3 class="font-sans font-bold text-stone-900 mb-4 text-lg">情境二：驗屋發現重大缺失，建商卻說「這是正常的」</h3>
+                    <p class="font-sans text-stone-700 font-semibold mb-3">應對步驟：</p>
+                    <ol class="font-sans text-stone-700 space-y-2 list-decimal list-inside">
+                        <li>書面通知（不要只用 LINE）——附上驗屋報告照片，要求限期修復</li>
+                        <li>14 天內未回應，發存證信函（郵局可辦，約 50 元）</li>
+                        <li>依民法 354、359 條「瑕疵擔保責任」，可主張減少價金或解除合約</li>
+                        <li>向各縣市「消費爭議調解委員會」申請調解（免費）</li>
+                    </ol>
+                </div>
+
+                <!-- Scenario 3: 簽約後失業或貸款未過 -->
+                <div class="border border-stone-200 p-6 bg-white rounded mb-6">
+                    <h3 class="font-sans font-bold text-stone-900 mb-4 text-lg">情境三：已付訂金但突然失業，貸款過不了</h3>
+                    <p class="font-sans text-stone-700 font-semibold mb-3">應對步驟：</p>
+                    <ol class="font-sans text-stone-700 space-y-2 list-decimal list-inside">
+                        <li>確認合約中的「貸款未過條款」——大多數預售合約有此條款，可無條件解約並取回訂金</li>
+                        <li>如果合約無此條款，可依民法「情事變更原則」試著協議，但不保證成功</li>
+                        <li>教訓：簽約前一定要確認「貸款未過條款」存在且內容明確</li>
+                    </ol>
+                </div>
+
+                <!-- Scenario 4: 建商交屋前破產或停工 -->
+                <div class="border border-stone-200 p-6 bg-white rounded mb-6">
+                    <h3 class="font-sans font-bold text-stone-900 mb-4 text-lg">情境四：預售屋已付 30% 頭期款，建商傳出財務困難</h3>
+                    <p class="font-sans text-stone-700 font-semibold mb-3">應對步驟：</p>
+                    <ol class="font-sans text-stone-700 space-y-2 list-decimal list-inside">
+                        <li>確認是否有「履約保證機制」（依預售屋買賣定型化合約第 7 條）：價金信託、同業保證、公會連帶保證、不動產信託</li>
+                        <li>有價金信託：已付款項在信託專戶中，可依信託合約申請返還</li>
+                        <li>沒有履約保證：立即諮詢律師，評估是否可及時假扣押或申請保全處分</li>
+                        <li>教訓：簽約前必確認建商採用何種履約保證機制，最好是「價金信託」</li>
+                    </ol>
+                </div>
+
+                <!-- Scenario 5: 管委會糾紛 -->
+                <div class="border border-stone-200 p-6 bg-white rounded mb-6">
+                    <h3 class="font-sans font-bold text-stone-900 mb-4 text-lg">情境五：入住後管理費大幅調漲，管委會運作不透明</h3>
+                    <p class="font-sans text-stone-700 font-semibold mb-3">應對步驟：</p>
+                    <ol class="font-sans text-stone-700 space-y-2 list-decimal list-inside">
+                        <li>依公寓大廈管理條例：管理費調漲需經區分所有權人會議表決（過半數同意）</li>
+                        <li>可要求查閱管委會財務報表、會議紀錄（依法不得拒絕）</li>
+                        <li>如管理公司服務不佳：區分所有權人會議可表決更換管理公司</li>
+                        <li>買房前可先查詢：該社區管委會是否已成立、管理基金餘額多少</li>
+                    </ol>
+                </div>
+
+                <!-- Closing Note -->
+                <div class="border border-stone-200 bg-white p-4 rounded">
+                    <p class="font-sans text-sm text-stone-700">
+                        這些「萬一」的情境不一定會發生，但提前知道應對方式，能讓你在最慌張的時刻保持冷靜。如果真的遇到法律問題，建議優先諮詢律師——許多縣市提供免費法律諮詢服務（法律扶助基金會：(02) 412-8518）。
+                    </p>
+                </div>
+            </section>
+
             <!-- Disclaimer -->
             <section class="mt-8">
                 <div class="bg-stone-100 border border-stone-200 rounded p-4">

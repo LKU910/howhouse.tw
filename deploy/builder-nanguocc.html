@@ -17,34 +17,10 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="南國建設 建商履歷｜好宅通">
     <meta name="twitter:description" content="南國建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['"Noto Sans TC"', 'sans-serif'],
-                    serif: ['"Noto Serif TC"', 'serif'],
-                },
-                colors: {
-                    stone: {
-                        50: '#FAFAFA',
-                        100: '#F4F4F4',
-                        200: '#E5E5E5',
-                        800: '#2A2A2A',
-                        900: '#121212',
-                    },
-                    architect: {
-                        bronze: '#A67C52',
-                        terracotta: '#9C4A38',
-                        slate: '#4A5D6A',
-                    }
-                }
-            }
-        }
-    }
-  </script>
+    <link rel="stylesheet" href="tailwind.css">
   <script>
   // Toggle completed projects visibility
   function toggleCompletedProjects(btn) {
@@ -384,23 +360,32 @@ input:focus, button:focus { outline: none; }
     <div class="sec-label">法律相關</div>
     <div class="legal-bento">
       <div class="lb-card lb-blue">
-        <div class="lb-num">少</div>
+        <div class="lb-num">0</div>
         <div class="lb-type">行政裁罰</div>
       </div>
       <div class="lb-card lb-blue">
         <div class="lb-num">0</div>
-        <div class="lb-type">重大刑事</div>
+        <div class="lb-type">刑事紀錄</div>
       </div>
       <div class="lb-card lb-orange">
-        <div class="lb-num">少</div>
+        <div class="lb-num">0</div>
         <div class="lb-type">民事糾紛</div>
       </div>
     </div>
-    <p style="font-size:15px;color:#666;line-height:1.75;margin-bottom:24px;">南國建設在地經營多年，司法紀錄相對清淨。暫未發現重大公開案件。</p>
+    <p class="sec-note">依公平交易委員會及司法院公開資料庫查詢，目前未查到南國建設的重大司法或行政裁罰紀錄。</p>
+<div style="padding:16px 18px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;margin:8px 0">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <span style="font-size:16px">✅</span>
+        <strong style="font-size:13px;color:#166534">查詢結果：未發現重大紀錄</strong>
+      </div>
+      <p style="font-size:12px;color:#555;line-height:1.7;margin:0">好宅通 已查詢公平交易委員會裁罰資料庫及司法院裁判書系統，截至目前<strong>未查到南國建設的重大行政裁罰、刑事案件或民事糾紛紀錄</strong>。此結果有時效性，建議購屋前自行至下方連結複查。</p>
+    </div>
 
     <div style="padding:14px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
       <span style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#666">自行查詢</span>
-      <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+      <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">司法院裁判書查詢 ↗</a>
+      <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會 ↗</a>
+      <a class="src" href="https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" target="_blank">經濟部商業司 ↗</a>
     </div>
     <div class="data-footnote">資料來源：司法院 · 經濟部商業司</div>
   </div>

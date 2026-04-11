@@ -7,24 +7,10 @@
     <title>買房預算怎麼抓？頭期款與財務健檢完整教學｜好宅通</title>
     <meta name="description" content="買房前先檢查財務狀況：準備頭期款、房貸負擔、信用紀錄、存款和收入證明。根據理財專家建議，評估合理的房貸負擔比例。">
     <link rel="canonical" href="https://howhouse.tw/step/02.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        serif: ['"Noto Serif TC"', 'serif'],
-                    },
-                    colors: {
-                        stone: { 50: '#FAFAFA', 100: '#F4F4F4', 200: '#E5E5E5', 800: '#2A2A2A', 900: '#121212' },
-                        architect: { bronze: '#A67C52', terracotta: '#9C4A38', slate: '#4A5D6A' }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="application/ld+json">
     {
@@ -141,6 +127,7 @@
             article .border-l-2 p { font-size: 15px; line-height: 1.9; margin-bottom: 0; }
         }
     </style>
+
 </head>
 <body class="font-sans min-h-screen flex flex-col">
 
@@ -488,7 +475,78 @@
                         </ul>
                     </div>
                 </section>
-            
+
+                <!-- Section 6: True Monthly Costs -->
+                <section>
+                    <div class="flex items-center gap-3 border-b border-stone-200 pb-3 mb-4 sm:mb-6 icon-header">
+                        <div class="w-8 h-8 rounded-lg bg-architect-bronze/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="calculator" class="w-4 h-4 text-architect-bronze stroke-[1.5]"></i>
+                        </div>
+                        <h2 class="font-serif text-xl font-bold text-stone-900">真正的「每月支出」：不只是房貸</h2>
+                    </div>
+
+                    <p class="font-sans text-stone-700 mb-6">許多首購族只計算房貸月付額，但實際上每月要支出的費用遠遠不止房貸。以下是一份完整的月度支出清單，幫助你算出真正的負擔。</p>
+
+                    <div class="border border-stone-200 p-6 bg-white rounded mb-6">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start pb-4 border-b border-stone-200">
+                                <div>
+                                    <h3 class="font-sans font-semibold text-stone-900 mb-1">大樓管理費</h3>
+                                    <p class="font-sans text-sm text-stone-600">約 60–80 元/坪</p>
+                                </div>
+                                <p class="font-sans font-semibold text-architect-bronze text-right">2,000–5,000 元/月</p>
+                            </div>
+
+                            <div class="flex justify-between items-start pb-4 border-b border-stone-200">
+                                <div>
+                                    <h3 class="font-sans font-semibold text-stone-900 mb-1">停車位管理費</h3>
+                                    <p class="font-sans text-sm text-stone-600">含車位費用</p>
+                                </div>
+                                <p class="font-sans font-semibold text-architect-bronze text-right">500–1,500 元/月</p>
+                            </div>
+
+                            <div class="flex justify-between items-start pb-4 border-b border-stone-200">
+                                <div>
+                                    <h3 class="font-sans font-semibold text-stone-900 mb-1">住宅火險 + 地震基本保</h3>
+                                    <p class="font-sans text-sm text-stone-600">年費攤月計</p>
+                                </div>
+                                <p class="font-sans font-semibold text-architect-bronze text-right">約 170–330 元/月</p>
+                            </div>
+
+                            <div class="flex justify-between items-start pb-4 border-b border-stone-200">
+                                <div>
+                                    <h3 class="font-sans font-semibold text-stone-900 mb-1">房屋稅（自住）</h3>
+                                    <p class="font-sans text-sm text-stone-600">年費攤月計</p>
+                                </div>
+                                <p class="font-sans font-semibold text-architect-bronze text-right">約 330–830 元/月</p>
+                            </div>
+
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-sans font-semibold text-stone-900 mb-1">地價稅（自用）</h3>
+                                    <p class="font-sans text-sm text-stone-600">年費攤月計</p>
+                                </div>
+                                <p class="font-sans font-semibold text-architect-bronze text-right">約 170–670 元/月</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-architect-bronze bg-stone-100 p-6 rounded">
+                        <h3 class="font-sans font-semibold text-stone-900 mb-3">📊 實例計算</h3>
+                        <p class="font-sans text-stone-700 mb-3"><strong>假設情況：</strong></p>
+                        <ul class="font-sans text-stone-700 space-y-2 mb-4">
+                            <li>房貸月付：<span class="font-semibold">25,000 元</span></li>
+                            <li>管理費：<span class="font-semibold">3,000 元</span></li>
+                            <li>停車位費：<span class="font-semibold">1,000 元</span></li>
+                            <li>稅費保險攤提：<span class="font-semibold">1,000 元</span></li>
+                        </ul>
+                        <div class="bg-white p-4 rounded border border-stone-300 mb-3">
+                            <p class="font-sans text-stone-700"><strong class="text-stone-900">實際每月支出 =</strong> <span class="font-semibold text-architect-bronze text-lg">30,000 元</span></p>
+                        </div>
+                        <p class="font-sans text-sm text-stone-600">比只算房貸的 25,000 元多出 <strong class="text-stone-900">20%</strong>，這才是你每個月真正要準備的金額。</p>
+                    </div>
+                </section>
+
             <!-- Disclaimer -->
             <section class="mt-8">
                 <div class="bg-stone-100 border border-stone-200 rounded p-4">
