@@ -111,14 +111,14 @@
 </head>
 <body class="font-sans bg-stone-50 text-stone-900 min-h-screen flex flex-col">
 <!-- NAV:START -->
-    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200">
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
             <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
             <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
-            <a href="quiz.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
+            <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
             <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
@@ -135,7 +135,7 @@
         </button>
         <nav class="flex flex-col gap-8 items-center">
             <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
-            <a href="quiz.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+            <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
             <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
             <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
             <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
@@ -149,7 +149,9 @@
                 <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-stone-900">建商履歷</h1>
             </div>
             <div class="lg:col-span-4 pb-2">
-                <p class="font-sans text-base text-stone-600 leading-relaxed">買房 18 步的第 5 步：研究你的建商。公開資料整理，簽約前多看一眼。資料持續更新中，僅供參考。</p>
+                <div class="font-sans text-base text-stone-600 leading-relaxed">
+                    <span id="buildersDesc"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -193,13 +195,6 @@
                     <span id="countBadge" class="font-serif text-2xl font-bold ml-1">21</span>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Notice: No warning ≠ Safe -->
-    <div class="px-6 md:px-12 pt-6">
-        <div class="max-w-5xl mx-auto bg-stone-100 border border-stone-200 rounded-lg p-4" style="font-size:13px;line-height:1.8;color:#666">
-            <strong style="color:#444">提醒：</strong>建商頁面「未顯示警示標籤」不代表該建商沒有任何風險或問題，僅代表擇居目前未蒐集到相關公開紀錄。買房前仍應自行查證建商信譽（可參考<a href="step/05.html" style="color:#B8956A;text-decoration:underline">步驟 5：建商調查教學</a>）。有警示標籤的建商，請點入查看具體內容與建議行動。
         </div>
     </div>
 
@@ -485,6 +480,30 @@
 
         // Run init
         init();
+
+        // Typewriter effect
+        (function() {
+            const el = document.getElementById('buildersDesc');
+            const lines = ['買房 18 步的第 5 步：研究你的建商。', '公開資料整理，簽約前多看一眼。'];
+            let lineIdx = 0, charIdx = 0;
+            function type() {
+                if (lineIdx >= lines.length) return;
+                if (charIdx <= lines[lineIdx].length) {
+                    let html = '';
+                    for (let i = 0; i < lines.length; i++) {
+                        if (i < lineIdx) html += lines[i] + '<br>';
+                        else if (i === lineIdx) {
+                            html += lines[i].substring(0, charIdx);
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #B8956A;padding-right:2px;">&nbsp;</span>';
+                        }
+                    }
+                    el.innerHTML = html;
+                    charIdx++;
+                    setTimeout(type, 45);
+                } else { lineIdx++; charIdx = 0; setTimeout(type, 400); }
+            }
+            setTimeout(type, 400);
+        })();
     </script>
 </body>
 </html>
