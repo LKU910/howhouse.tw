@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>從第一個選擇開始｜買房方向診斷｜擇居</title>
+    <meta name="description" content="12 個情境，幫你看清楚自己怎麼做選擇。不打分、不評判，只幫你認識自己的買房決策模式。">
+    <meta name="keywords" content="買房,買房人格,買房決策,首購族,擇居">
+    <link rel="canonical" href="https://howhouse.tw/quiz.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="從第一個選擇開始｜擇居">
+    <meta property="og:description" content="12 個情境，幫你看清楚自己怎麼做選擇。">
+    <meta property="og:url" content="https://howhouse.tw/quiz.html">
+    <meta property="og:image" content="https://howhouse.tw/og/quiz-default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="擇居">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="從第一個選擇開始｜擇居">
+    <meta name="twitter:description" content="12 個情境，幫你看清楚自己怎麼做選擇。">
+    <meta name="twitter:image" content="https://howhouse.tw/og/quiz-default.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "擇居：買房方向診斷",
+      "description": "12 個情境選擇題，幫你認識自己的買房決策模式",
+      "about": { "@type": "Thing", "name": "房屋購買決策" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background-color: #EDEBE8;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            word-break: break-word;
+            min-height: 100vh;
+        }
+
+        .quiz-backdrop {
+            position: fixed;
+            inset: 0;
+            background: #EDEBE8;
+            z-index: 0;
+        }
+        .quiz-backdrop::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #F5F3F0 0%, #EDEBE8 40%, #E5E2DE 100%);
+        }
+        .quiz-backdrop::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image:
+                linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .quiz-panel {
+            position: relative;
+            z-index: 10;
+            max-width: 680px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #FFFFFF;
+            border-left: 1px solid #E0DCD6;
+            border-right: 1px solid #E0DCD6;
+        }
+        @media (max-width: 720px) {
+            .quiz-panel { border-left: none; border-right: none; }
+        }
+
+        .panel-accent-line {
+            height: 3px;
+            background: linear-gradient(90deg, #A67C52, #C4A882, #A67C52);
+        }
+
+        .quiz-page { display: none; }
+        .quiz-page.active {
+            display: block;
+            animation: panelSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes panelSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .option-card {
+            border: 1.5px solid #E5E2DE;
+            border-radius: 10px;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            background: #FAFAFA;
+        }
+        .option-card:hover {
+            border-color: #C4A882;
+            background: #FBF9F6;
+        }
+        .option-card.selected {
+            border-color: #A67C52;
+            background: #F8F3ED;
+            border-width: 2px;
+            padding: 17px 19px;
+        }
+        .option-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            width: 22px;
+            height: 22px;
+            background: #A67C52;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .option-card.selected p { color: #8B6A45; font-weight: 500; }
+
+        .progress-track {
+            height: 2px;
+            background: #E5E2DE;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #A67C52;
+            transition: width 0.4s ease;
+            border-radius: 10px;
+        }
+
+        .btn-next {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            padding: 13px 28px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-next.primary { background: #A67C52; color: white; }
+        .btn-next.primary:hover { background: #8B6A45; }
+        .btn-next.primary.button-disabled {
+            background: #D5D0CB;
+            color: #9A9590;
+            cursor: not-allowed;
+        }
+        .btn-next.primary.button-disabled:hover { background: #D5D0CB; }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            padding: 13px 28px;
+            border-radius: 8px;
+            border: 1px solid #D5D0CB;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover { border-color: #121212; color: #121212; }
+
+        .result-container { display: none; }
+        .result-container.active {
+            display: block;
+            animation: panelSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .step-link-card {
+            border: 1px solid #E5E2DE;
+            border-radius: 10px;
+            padding: 18px;
+            background: #FAFAFA;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: start;
+            gap: 14px;
+        }
+        .step-link-card:hover {
+            border-color: #A67C52;
+            background: #FFFFFF;
+        }
+
+        .dim-bar-track {
+            height: 6px;
+            background: #EDEBE8;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .dim-bar-fill {
+            height: 100%;
+            background: #A67C52;
+            border-radius: 3px;
+            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .theory-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 11px;
+            color: #A67C52;
+            background: #FAF7F3;
+            border: 1px solid #EDE6DC;
+            border-radius: 20px;
+            padding: 3px 10px 3px 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            margin-left: 8px;
+        }
+        .theory-tag:hover { background: #F5EFEA; border-color: #C4A882; }
+        .theory-tag .tag-icon {
+            width: 13px; height: 13px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 10px; font-weight: 600; color: #A67C52;
+            transition: transform 0.2s ease;
+        }
+        .theory-tag.open .tag-icon { transform: rotate(45deg); }
+        .theory-detail {
+            display: none;
+            margin-top: 10px;
+            padding: 14px 16px;
+            background: #FAF8F5;
+            border-radius: 8px;
+            border: 1px solid #EDE6DC;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 13px;
+            color: #6B6560;
+            line-height: 1.7;
+        }
+        .theory-detail.open {
+            display: block;
+            animation: panelSlideUp 0.25s ease forwards;
+        }
+        .theory-detail strong { color: #A67C52; font-weight: 600; }
+        .theory-detail .theory-source {
+            display: block; margin-top: 6px;
+            font-size: 11px; color: #A0998F;
+        }
+
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: 'Noto Sans TC', sans-serif; font-size: 13px;
+            padding: 10px 20px; border-radius: 8px; cursor: pointer;
+            transition: all 0.2s ease; border: 1px solid #D5D0CB;
+            background: white; color: #555;
+        }
+        .share-btn:hover { border-color: #A67C52; color: #A67C52; }
+        .share-btn.line-btn { background: #06C755; color: white; border-color: #06C755; }
+        .share-btn.line-btn:hover { background: #05b34c; }
+
+        .feedback-option {
+            padding: 8px 16px; border: 1px solid #E5E2DE; border-radius: 20px;
+            font-family: 'Noto Sans TC', sans-serif; font-size: 13px;
+            color: #888; cursor: pointer; background: white;
+            transition: all 0.2s ease;
+        }
+        .feedback-option:hover { border-color: #C4A882; color: #A67C52; }
+        .feedback-option.selected { border-color: #A67C52; background: #F8F3ED; color: #8B6A45; }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #D5D0CB; }
+        ::-webkit-scrollbar-thumb:hover { background: #A67C52; }
+    </style>
+</head>
+<body>
+    <div class="quiz-backdrop"></div>
+
+    <div class="quiz-panel">
+        <div class="panel-accent-line"></div>
+
+        <!-- 頂部：返回 + 品牌 -->
+        <div style="padding: 20px 28px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #EDEBE8;">
+            <a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#A67C52'" onmouseout="this.style.color='#999'">
+                <span style="font-size: 16px;">←</span> 回到擇居
+            </a>
+            <span style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; letter-spacing: 0.15em; color: #C4A882;">擇居</span>
+        </div>
+
+        <!-- 標頭 -->
+        <div style="padding: 32px 28px 24px;" id="quizHeader">
+            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: #A67C52; text-transform: uppercase;">第一個選擇</span>
+            <h1 style="font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 700; color: #121212; margin: 10px 0 0;">你是什麼樣的買房決策者？</h1>
+            <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; color: #888; margin: 8px 0 0;">12 個情境，幫你看清楚自己怎麼做選擇</p>
+        </div>
+
+        <!-- 進度列 -->
+        <div style="padding: 0 28px 20px; border-bottom: 1px solid #EDEBE8;" id="progressArea">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999;" id="pageIndicator">第 1 頁 / 3 頁</span>
+                <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999;" id="questionCount">Q1 – Q4</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 第 1 頁：你在哪裡 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="quiz-page active" data-page="1" style="padding: 28px;">
+            <div style="margin-bottom: 28px;">
+                <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你現在站在哪裡</h2>
+                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">不是考試，只是幫你定個位</p>
+                <span class="theory-tag" onclick="toggleTheory('t-page1')">
+                    <span class="tag-icon">+</span> 設計邏輯
+                </span>
+                <div class="theory-detail" id="t-page1">
+                    這四題在幫你定位兩件事：你走到哪了，以及你覺得自己能掌控多少。後者往往比客觀條件更影響你的下一步。
+                    <span class="theory-source">Ajzen, 1991 — Theory of Planned Behavior: Perceived Behavioral Control</span>
+                </div>
+            </div>
+
+            <!-- Q1 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q1. 如果要用一句話形容你現在跟「買房」的關係，最接近哪一個？</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 1, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">偶爾想想，但覺得還很遠</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 1, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">認真在研究，但還沒行動</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 1, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">已經在看房了，但還沒方向感</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 1, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有明確目標，準備出手</p></div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q2. 你覺得「搞懂買房這件事」對你來說…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 2, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">太複雜了，不知道從何開始</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 2, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有點多，但慢慢來應該可以</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 2, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">花時間就能搞懂，不擔心</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 2, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">大部分我都查過了</p></div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q3. 身邊有人最近在買房或剛買完嗎？</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 3, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">沒有，我是周圍第一個想買的</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 3, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有聽朋友聊過，但不太了解細節</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 3, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有，而且有跟他們請教過</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 3, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有，他們的經驗讓我覺得自己準備得差不多</p></div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q4. 你跟一起買房的人（伴侶、家人）在「要不要買」這件事上…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 4, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">還沒認真討論過</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 4, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">想法不太一致，還在磨合</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 4, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">方向一致，但細節還沒談</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 4, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">預算、區域、時間都有共識了</p></div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; padding-top: 16px; border-top: 1px solid #EDEBE8;">
+                <button onclick="handleNext(1)" class="btn-next primary button-disabled" id="nextBtn1">下一頁 <span style="font-size: 16px;">→</span></button>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 第 2 頁：你怎麼做決定 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="quiz-page" data-page="2" style="padding: 28px;">
+            <div style="margin-bottom: 28px;">
+                <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你怎麼做選擇</h2>
+                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">沒有好壞，只有不同</p>
+                <span class="theory-tag" onclick="toggleTheory('t-page2')">
+                    <span class="tag-icon">+</span> 設計邏輯
+                </span>
+                <div class="theory-detail" id="t-page2">
+                    這四題偵測你的<strong>決策風格</strong>和<strong>思考模式</strong>。你是蒐集到「夠好」就行動，還是一直覺得「可能還有更好的」？你靠數據判斷，還是靠感覺？兩者都不是缺點，但會影響你適合的看房策略。
+                    <span class="theory-source">Schwartz, 2002 — Maximizing vs Satisficing; Kahneman, 2011 — System 1 & System 2</span>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q5. 如果同一個社區有兩間格局不同的房子，你會怎麼比較？</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 5, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">列表比較坪數、價格、朝向，找出客觀最優</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 5, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">兩間都去看，看哪間走進去感覺對</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 5, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">問有經驗的人「你會選哪間」</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 5, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">兩間都好就很痛苦，可能再多看幾間</p></div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q6. 你看過一間還不錯的房子。回家之後，你第一件事是…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 6, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">上實價登錄查這棟和附近的成交價</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 6, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">腦中一直浮現那個客廳的採光</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 6, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">打開 Google 搜建商名字，看有沒有負評</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 6, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">開始焦慮是不是該趕快下斡旋</p></div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q7. 仲介傳來一個物件，條件不錯但你從沒去過那個區域。你會…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 7, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">先查那個區域的生活機能和交通數據再說</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 7, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">直接約看，去了才知道喜不喜歡</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 7, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">問問住那邊的朋友，打聽一下</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 7, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">不在我原本的範圍內，先不考慮</p></div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q8. 你在做重大決定之前（不只買房），通常的模式是…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 8, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">資料蒐集到一定程度就做決定，不追求完美</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 8, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">會一直覺得資料還不夠，想再多看看</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 8, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">看感覺，覺得對了就會很果斷</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 8, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">猶豫很久，最後常被截止日推著走</p></div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #EDEBE8;">
+                <button onclick="prevPage()" class="btn-back"><span style="font-size: 16px;">←</span> 上一頁</button>
+                <button onclick="handleNext(2)" class="btn-next primary button-disabled" id="nextBtn2">下一頁 <span style="font-size: 16px;">→</span></button>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 第 3 頁：你怎麼面對壓力 -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="quiz-page" data-page="3" style="padding: 28px;">
+            <div style="margin-bottom: 28px;">
+                <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你怎麼面對不確定</h2>
+                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">買房最大的壓力，不是錢</p>
+                <span class="theory-tag" onclick="toggleTheory('t-page3')">
+                    <span class="tag-icon">+</span> 設計邏輯
+                </span>
+                <div class="theory-detail" id="t-page3">
+                    這四題偵測你的<strong>風險態度</strong>：你更怕「買貴」還是更怕「錯過」？兩種恐懼會把你推向完全不同的決策節奏。同時驗證你在壓力下的反應模式。
+                    <span class="theory-source">Kahneman & Tversky, 1979 — Prospect Theory; Loss Aversion</span>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q9. 銷售員跟你說：「這間上週已經有三組在談了。」你心裡的第一個反應是…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 9, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">那我要加快，不然就被別人買走了</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 9, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">真的假的？我先自己查一下這個社區的餘屋量</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 9, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有點緊張，但提醒自己不要被帶著走</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 9, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">不太在意，搶手不搶手跟我的需求無關</p></div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q10. 你聽到「現在不買以後會更貴」這句話，什麼感覺？</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 10, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有道理，確實會擔心</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 10, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有壓力，但我知道沒人能預測房價</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 10, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">每次聽到都焦慮，但又不知道該怎麼判斷</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 10, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">不太被影響了，漲跌是市場的事</p></div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q11. 如果你買了一間房，交屋後發現隔壁社區更便宜、條件更好，你覺得自己會…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 11, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">非常後悔，會一直想著</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 11, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">有點不舒服，但買了就買了</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 11, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">會去算差多少錢，看值不值得計較</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 11, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">不會在意，我的選擇有我的理由</p></div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div style="margin-bottom: 24px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: #121212; margin: 0 0 12px;">Q12. 對你來說，買房最大的壓力來源是…</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="option-card" onclick="selectAnswer(this, 12, 'A')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">怕買貴，多付的每一塊錢都心痛</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 12, 'B')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">怕錯過好的物件，機會不等人</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 12, 'C')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">怕自己判斷力不夠，做錯決定</p></div>
+                    <div class="option-card" onclick="selectAnswer(this, 12, 'D')"><p style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #333; margin: 0;">其實還好，想清楚就不怕</p></div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #EDEBE8;">
+                <button onclick="prevPage()" class="btn-back"><span style="font-size: 16px;">←</span> 上一頁</button>
+                <button onclick="handleSubmit()" class="btn-next primary button-disabled" id="submitBtn">看診斷結果</button>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- 結果頁面（JS 動態填充） -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="result-container" id="resultContainer" style="padding: 28px;">
+
+            <!-- 人格標籤 -->
+            <div style="margin-bottom: 28px;">
+                <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: #A67C52;">你的決策傾向</span>
+                <h2 id="personaTitle" style="font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 700; color: #121212; margin: 10px 0 0; line-height: 1.3;"></h2>
+            </div>
+
+            <!-- 描述 -->
+            <div style="background: #FAF8F5; border: 1px solid #EDE6DC; border-radius: 10px; padding: 22px; margin-bottom: 28px;">
+                <p id="personaDesc" style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #555; line-height: 1.8; margin: 0;"></p>
+            </div>
+
+            <!-- 四維度圖 -->
+            <div style="margin-bottom: 28px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 20px;">你的四個維度</h3>
+                <div id="dimensionBars" style="display: flex; flex-direction: column; gap: 18px;"></div>
+            </div>
+
+            <!-- 盲點 -->
+            <div style="border-left: 3px solid #A67C52; padding: 16px 20px; background: #FAF8F5; border-radius: 0 8px 8px 0; margin-bottom: 28px;">
+                <h4 style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #A67C52; margin: 0 0 8px;">值得留意的是</h4>
+                <p id="personaBlindspot" style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; color: #555; line-height: 1.8; margin: 0;"></p>
+            </div>
+
+            <!-- 次要傾向（邊界時顯示） -->
+            <div id="secondaryPersona" style="display: none; background: #FAFAFA; border: 1px solid #E5E2DE; border-radius: 10px; padding: 16px 20px; margin-bottom: 28px;">
+                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;" id="secondaryText"></p>
+            </div>
+
+            <!-- 建議起點 -->
+            <div style="margin-bottom: 28px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 16px;">從這裡開始看</h3>
+                <div id="stepLinks" style="display: flex; flex-direction: column; gap: 10px;"></div>
+            </div>
+
+            <!-- 其他工具 -->
+            <div style="margin-bottom: 28px;">
+                <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 16px;">其他工具</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="step-link-card" style="opacity: 0.5; cursor: not-allowed; display: block;">
+                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">真實代價</h4>
+                        <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999; margin: 0;">財務試算・即將推出</p>
+                    </div>
+                    <div class="step-link-card" style="opacity: 0.5; cursor: not-allowed; display: block;">
+                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">走到哪了</h4>
+                        <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999; margin: 0;">進度追蹤・即將推出</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分享 -->
+            <div style="margin-bottom: 28px; padding: 20px; background: #FAFAFA; border: 1px solid #E5E2DE; border-radius: 10px;">
+                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; color: #555; margin: 0 0 14px;">你的朋友可能也在想買房</p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="copyResultLink()" class="share-btn" id="copyBtn">📋 複製我的結果連結</button>
+                    <button onclick="shareToLine()" class="share-btn line-btn">💬 分享到 LINE</button>
+                </div>
+            </div>
+
+            <!-- 回饋 -->
+            <div style="margin-bottom: 28px; text-align: center;" id="feedbackArea">
+                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 0 0 12px;">你看完這段描述，覺得像在說你嗎？</p>
+                <div style="display: flex; gap: 8px; justify-content: center;">
+                    <button class="feedback-option" onclick="submitFeedback('very')">很像</button>
+                    <button class="feedback-option" onclick="submitFeedback('somewhat')">有些像</button>
+                    <button class="feedback-option" onclick="submitFeedback('not_really')">不太像</button>
+                </div>
+                <div id="feedbackThanks" style="display: none; margin-top: 12px;">
+                    <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #A67C52; margin: 0;">收到，謝謝你的回饋。</p>
+                </div>
+            </div>
+
+            <!-- 重來 -->
+            <div style="text-align: center; padding-top: 16px;">
+                <button onclick="resetQuiz()" style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; background: none; border: none; cursor: pointer;">重新開始</button>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <div style="padding: 24px 28px; border-top: 1px solid #EDEBE8; text-align: center;" id="panelFooter">
+            <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; color: #BBB; margin: 0;">&copy; 2026 擇居 — 本診斷不構成投資或財務建議</p>
+        </div>
+
+    </div>
+
+    <script>
+    // ══════════════════════════════════════════════
+    // 計分矩陣（與 quiz-matrix-v2.xlsx 完全同步）
+    // ══════════════════════════════════════════════
+    const scoringMap = {
+        '1A': {},
+        '1B': { D: 1, stage: 1 },
+        '1C': { stage: 2 },
+        '1D': { D: 2, stage: 3 },
+
+        '2A': {},
+        '2B': { D: 1 },
+        '2C': { D: 2, stage: 1 },
+        '2D': { D: 3, stage: 2 },
+
+        '3A': {},
+        '3B': {},
+        '3C': { D: 1, stage: 1 },
+        '3D': { D: 2, stage: 1 },
+
+        '4A': {},
+        '4B': { A: 1 },
+        '4C': { D: 1 },
+        '4D': { A: 2, D: 2 },
+
+        '5A': { B: 2 },
+        '5B': { A: 1 },
+        '5C': { A: 1, B: 1 },
+        '5D': { A: 2, B: 1 },
+
+        '6A': { B: 2 },
+        '6B': {},
+        '6C': { A: 1, B: 2 },
+        '6D': {},
+
+        '7A': { A: 1, B: 2 },
+        '7B': {},
+        '7C': { B: 1 },
+        '7D': { A: 2, B: 1 },
+
+        '8A': { B: 1 },
+        '8B': { A: 2, B: 1 },
+        '8C': {},
+        '8D': { A: 2 },
+
+        '9A': {},
+        '9B': { C: 2, D: 2 },
+        '9C': { C: 1, D: 1 },
+        '9D': { C: 2, D: 2 },
+
+        '10A': {},
+        '10B': { C: 1, B: 1 },
+        '10C': {},
+        '10D': { C: 2, B: 2 },
+
+        '11A': { A: 2 },
+        '11B': { C: 1 },
+        '11C': { C: 2, A: 1 },
+        '11D': { C: 2 },
+
+        '12A': { C: 2 },
+        '12B': {},
+        '12C': { C: 1 },
+        '12D': { C: 2, D: 2 }
+    };
+
+    const MAX = { A: 11, B: 9, C: 8, D: 13, stage: 6 };
+
+    // ══════════════════════════════════════════════
+    // 人格資料
+    // ══════════════════════════════════════════════
+    const personas = {
+        steady_player: {
+            title: '穩健棋手',
+            desc: '你習慣用數據和邏輯做判斷，設好標準之後就能行動。這在買房這件事上是很好的底子——你不容易被銷售話術帶走，也不會因為「怕錯過」就倉促決定。',
+            blindspot: '你的理性有時候會讓你低估「住」這件事的感性面。格局數據很好，但住起來舒不舒服，有些東西只有到現場站在那裡才知道。建議你在數據篩選完之後，給自己一個「放空感受」的看房機會——不帶清單，就在那個社區走一圈。',
+            steps: [
+                { num: '09', name: '比較決策', tip: '你有框架了，現在需要把物件放進去比' },
+                { num: '07', name: '預約看房', tip: '約看房，白天晚上各去一次' },
+                { num: '08', name: '現場評估', tip: '帶著你的清單，但也留空間給感受' }
+            ]
+        },
+        intuitive_hunter: {
+            title: '直覺獵手',
+            desc: '你做決定靠的是感覺和直覺，而且一旦覺得對了，行動力很強。在買房這件事上，你不會陷入無止盡的比較，這是一個優勢——很多人就是比較到最後反而更焦慮。',
+            blindspot: '你的直覺在「喜不喜歡」這件事上通常很準，但在「值不值得」這件事上容易被現場氛圍放大。樣品屋的燈光、音樂、銷售員的親切都是設計過的。建議你每次看完房，回家隔一天再看自己的筆記——如果隔天還是覺得好，那大概真的不錯。',
+            steps: [
+                { num: '07', name: '預約看房', tip: '去看吧，但帶著清單去，別空手' },
+                { num: '08', name: '現場評估', tip: '記錄你的感受，也記錄數字' },
+                { num: '09', name: '比較決策', tip: '把看過的房子放在一起比，你會更清楚' }
+            ]
+        },
+        perfectionist: {
+            title: '完美主義者',
+            desc: '你對資訊的品質要求很高，每個物件都想找到更好的，每個數據都想確認再三。這讓你在買房的前期研究階段非常扎實——但也讓你在需要做決定的時候特別煎熬。',
+            blindspot: '「再多看一間」的念頭永遠不會停。研究顯示，追求最佳選擇的人比「夠好就行動」的人更容易在決定後後悔——不是因為選擇比較差，而是因為永遠覺得可能有更好的。建議你在開始看房前就設好框架：總價上限、必要條件、最多看幾間。到了就停，不回頭。',
+            steps: [
+                { num: '09', name: '比較決策', tip: '先建框架、設停損點，再開始看' },
+                { num: '02', name: '財務健檢', tip: '用數字幫自己畫一條明確的線' },
+                { num: '05', name: '建商調查', tip: '查清楚建商紀錄，這是值得花時間的地方' }
+            ]
+        },
+        anxious_actor: {
+            title: '焦慮行動者',
+            desc: '你對「時機」很敏感——怕現在不買以後更貴，怕好物件被別人搶走。這種感覺很真實，但它常常讓人在還沒準備好的時候就出手。',
+            blindspot: '銷售現場的「限量」「搶手」話術對你特別有效。這不是你的問題——行為經濟學把它叫做「損失趨避」，是人類大腦的出廠設定。兩個具體建議：出門前先把預算上限和底線條件寫在手機備忘錄裡；任何現場想做的決定，回家睡一晚再說。一晚之後還想要的，才是真的想要。',
+            steps: [
+                { num: '02', name: '財務健檢', tip: '有數字你就不會被情緒帶著走' },
+                { num: '01', name: '需求釐清', tip: '寫下你的條件，出門帶著' },
+                { num: '04', name: '實價登錄', tip: '查行情，有底才不會被唬住' }
+            ]
+        },
+        cautious_observer: {
+            title: '謹慎觀望者',
+            desc: '你覺得買房這件事風險很大，所以傾向多看、多想、多等。你不是不想買，而是還沒找到讓你安心的切入點。',
+            blindspot: '「等到準備好」有時候是一個迴圈——因為不確定所以不行動，因為不行動所以永遠不確定。買房不需要什麼都搞懂才能開始，但需要有一個結構幫你把大問題拆成小問題。18 步就是這個結構。建議你從第一步開始，每次只處理一步，不要想後面的。走過三步之後，你會發現自己比想像的更有判斷力。',
+            steps: [
+                { num: '01', name: '需求釐清', tip: '從最不需要做決定的地方開始' },
+                { num: '02', name: '財務健檢', tip: '算清楚，有數字就不那麼模糊了' },
+                { num: '03', name: '認識房型', tip: '了解差異，你會發現沒那麼複雜' }
+            ]
+        },
+        rational_novice: {
+            title: '理性新手',
+            desc: '你有研究精神，遇到不懂的會去查、會去算、會做筆記。但在買房這個領域，你的實戰經驗還不多——你知道該分析，但不太確定該分析什麼。',
+            blindspot: '研究能力強的人容易掉進一個陷阱：花大量時間在容易量化的事情上（價格、坪數、公設比），而忽略不容易量化但同樣重要的事（社區管理品質、鄰居素質、生活的實際感受）。建議你做完數據功課之後，找一個已經買過房的朋友聊聊——問他們「買之前覺得重要但其實還好」和「買之前沒想到但其實很重要」的各三件事。',
+            steps: [
+                { num: '03', name: '認識房型', tip: '搞清楚預售、中古、大樓、透天的差異' },
+                { num: '05', name: '建商調查', tip: '你會研究，這裡最值得花時間' },
+                { num: '06', name: '區域評估', tip: '比較生活機能和通勤，你擅長這個' }
+            ]
+        },
+        emotional_explorer: {
+            title: '感性探索者',
+            desc: '你對「家」有很多想像——可能是某個畫面、某種生活方式、某個讓你覺得安定的感覺。這些想像是真實的，也是買房最重要的動力。但從想像到行動之間，你還不太確定該怎麼走。',
+            blindspot: '想像和現實之間的落差是買房最常見的挫折來源。不是說你的想像不對，而是你需要一個方法把它轉化成具體的條件清單——「我想要有陽光的客廳」可以變成「朝南或朝東、樓層 5 樓以上、前方無遮蔽」。這樣你在看房時就有判斷標準，而不是每間都覺得「好像可以又好像不行」。',
+            steps: [
+                { num: '01', name: '需求釐清', tip: '把你的想像寫成具體的條件' },
+                { num: '06', name: '區域評估', tip: '去你想住的地方走走，感受一下' },
+                { num: '07', name: '預約看房', tip: '看房會讓想像變具體' }
+            ]
+        },
+        composed: {
+            title: '從容決策者',
+            desc: '你的準備程度和心態都算穩定——你知道自己要什麼，也大致知道市場的狀況。你現在需要的不是更多資訊，而是一個幫你做最終比較的框架。',
+            blindspot: '準備充分的人有時候會低估「最後一步」的心理壓力。真的要簽約、真的要付幾百萬的時候，再理性的人都會猶豫。這是正常的。建議你在進入簽約階段之前，先把你的「不可妥協條件」和「可以接受的次優選項」寫下來。有了這份清單，簽約那天你不需要重新做決定——你只需要確認這份合約有沒有符合你早就想好的標準。',
+            steps: [
+                { num: '09', name: '比較決策', tip: '建立你的物件比較框架' },
+                { num: '10', name: '簽約須知', tip: '了解合約裡哪些條款可以談' },
+                { num: '14', name: '驗屋準備', tip: '提前了解驗屋重點' }
+            ]
+        }
+    };
+
+    const dimLabels = {
+        A: {
+            name: '決策風格',
+            low: '果斷行動',
+            high: '反覆比較',
+            meaning: '影響你看房的節奏和停損點'
+        },
+        B: {
+            name: '思考模式',
+            low: '直覺主導',
+            high: '分析導向',
+            meaning: '影響你需要什麼類型的資訊'
+        },
+        C: {
+            name: '風險態度',
+            low: '怕錯過',
+            high: '怕買貴',
+            meaning: '影響你的出價節奏和議價策略'
+        },
+        D: {
+            name: '掌控感',
+            low: '需要同行',
+            high: '胸有成竹',
+            meaning: '影響你需要多少引導'
+        }
+    };
+
+    // ══════════════════════════════════════════════
+    // Quiz State
+    // ══════════════════════════════════════════════
+    const answers = {};
+    const scores = { A: 0, B: 0, C: 0, D: 0, stage: 0 };
+
+    function selectAnswer(el, q, ans) {
+        el.parentElement.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        answers[q] = ans;
+        try { localStorage.setItem('quizAnswersV2', JSON.stringify(answers)); } catch(e) {}
+        updatePageProgress();
+    }
+
+    function updatePageProgress() {
+        const page = document.querySelector('.quiz-page.active');
+        if (!page) return;
+        const p = parseInt(page.dataset.page);
+        const startQ = (p - 1) * 4 + 1;
+        let count = 0;
+        for (let i = startQ; i < startQ + 4; i++) { if (answers[i]) count++; }
+        const btn = p === 3 ? document.getElementById('submitBtn') : document.getElementById('nextBtn' + p);
+        if (btn) {
+            if (count === 4) btn.classList.remove('button-disabled');
+            else btn.classList.add('button-disabled');
+        }
+    }
+
+    function handleNext(p) {
+        const btn = document.getElementById('nextBtn' + p);
+        if (btn && btn.classList.contains('button-disabled')) return;
+        nextPage();
+    }
+    function handleSubmit() {
+        const btn = document.getElementById('submitBtn');
+        if (btn && btn.classList.contains('button-disabled')) return;
+        showResults();
+    }
+
+    function nextPage() {
+        const cur = document.querySelector('.quiz-page.active');
+        const p = parseInt(cur.dataset.page);
+        if (p < 3) {
+            cur.classList.remove('active');
+            document.querySelector(`.quiz-page[data-page="${p+1}"]`).classList.add('active');
+            updateProgressBar();
+            updatePageIndicator();
+            updatePageProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+    function prevPage() {
+        const cur = document.querySelector('.quiz-page.active');
+        const p = parseInt(cur.dataset.page);
+        if (p > 1) {
+            cur.classList.remove('active');
+            document.querySelector(`.quiz-page[data-page="${p-1}"]`).classList.add('active');
+            updateProgressBar();
+            updatePageIndicator();
+            updatePageProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    function updateProgressBar() {
+        const p = parseInt(document.querySelector('.quiz-page.active')?.dataset.page || 1);
+        document.getElementById('progressBar').style.width = (p / 3 * 100) + '%';
+    }
+    function updatePageIndicator() {
+        const p = parseInt(document.querySelector('.quiz-page.active')?.dataset.page || 1);
+        document.getElementById('pageIndicator').textContent = `第 ${p} 頁 / 3 頁`;
+        const qMap = { 1: 'Q1 – Q4', 2: 'Q5 – Q8', 3: 'Q9 – Q12' };
+        document.getElementById('questionCount').textContent = qMap[p];
+    }
+
+    // ══════════════════════════════════════════════
+    // 結果計算
+    // ══════════════════════════════════════════════
+    function calcScores() {
+        Object.keys(scores).forEach(k => { scores[k] = 0; });
+        Object.keys(answers).forEach(q => {
+            const key = q + answers[q];
+            const map = scoringMap[key];
+            if (map) {
+                Object.keys(map).forEach(dim => { scores[dim] += map[dim]; });
+            }
+        });
+    }
+
+    function norm(dim) {
+        return Math.round((scores[dim] / MAX[dim]) * 100);
+    }
+
+    function getPersona() {
+        const a = norm('A'), b = norm('B'), c = norm('C'), d = norm('D');
+
+        // 主要人格：優先序判定（已驗證 N=10000 分佈均勻度）
+        let primary;
+        if (d >= 62 && a <= 45)       primary = 'composed';
+        else if (d <= 35 && c <= 35)  primary = 'anxious_actor';
+        else if (d <= 35 && c >= 50)  primary = 'cautious_observer';
+        else if (a <= 36 && b >= 56)  primary = 'steady_player';
+        else if (a <= 36 && b <= 33)  primary = 'intuitive_hunter';
+        else if (a >= 55 && b >= 55)  primary = 'perfectionist';
+        else if (b >= 45 && d <= 45)  primary = 'rational_novice';
+        else if (b <= 44 && d <= 45)  primary = 'emotional_explorer';
+        else if (a >= 45)             primary = 'perfectionist';
+        else if (b >= 50)             primary = 'steady_player';
+        else                          primary = 'rational_novice';
+
+        // 次要傾向：找最接近的另一種人格
+        const checks = [
+            { id: 'composed',          match: d >= 55 && a <= 50 },
+            { id: 'anxious_actor',     match: d <= 40 && c <= 40 },
+            { id: 'cautious_observer', match: d <= 40 && c >= 45 },
+            { id: 'steady_player',     match: a <= 40 && b >= 50 },
+            { id: 'intuitive_hunter',  match: a <= 40 && b <= 40 },
+            { id: 'perfectionist',     match: a >= 50 && b >= 50 },
+            { id: 'rational_novice',   match: b >= 45 && d <= 50 },
+            { id: 'emotional_explorer',match: b <= 45 && d <= 50 }
+        ];
+        const secondary = checks.find(c => c.id !== primary && c.match);
+
+        return {
+            primary: primary,
+            secondary: secondary ? secondary.id : null
+        };
+    }
+
+    function showResults() {
+        calcScores();
+        const result = getPersona();
+        const persona = personas[result.primary];
+
+        // 隱藏測驗，顯示結果
+        document.querySelectorAll('.quiz-page').forEach(p => p.classList.remove('active'));
+        document.getElementById('progressArea').style.display = 'none';
+        document.getElementById('quizHeader').style.display = 'none';
+
+        // 填充結果
+        document.getElementById('personaTitle').textContent = persona.title;
+        document.getElementById('personaDesc').textContent = persona.desc;
+        document.getElementById('personaBlindspot').textContent = persona.blindspot;
+
+        // 四維度長條圖
+        const barsEl = document.getElementById('dimensionBars');
+        barsEl.innerHTML = '';
+        ['A', 'B', 'C', 'D'].forEach(dim => {
+            const pct = norm(dim);
+            const label = dimLabels[dim];
+            const descText = pct <= 30 ? label.low : pct >= 70 ? label.high : '兩者兼具';
+            barsEl.innerHTML += `
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #333;">${label.name}</span>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #A67C52;">${descText}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; text-align: right; flex-shrink: 0;">${label.low}</span>
+                        <div class="dim-bar-track" style="flex: 1;">
+                            <div class="dim-bar-fill" style="width: 0%;" data-target="${pct}"></div>
+                        </div>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; flex-shrink: 0;">${label.high}</span>
+                    </div>
+                    <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; color: #BBB; margin: 4px 0 0; padding-left: 56px;">${label.meaning}</p>
+                </div>`;
+        });
+
+        // 次要傾向
+        if (result.secondary && personas[result.secondary]) {
+            const sec = personas[result.secondary];
+            document.getElementById('secondaryText').textContent =
+                `你也有一些「${sec.title}」的傾向——在某些情境下，你可能會切換到那個模式。`;
+            document.getElementById('secondaryPersona').style.display = 'block';
+        }
+
+        // 步驟連結
+        const stepsEl = document.getElementById('stepLinks');
+        stepsEl.innerHTML = '';
+        persona.steps.forEach(s => {
+            stepsEl.innerHTML += `
+                <a href="step/${s.num}.html" class="step-link-card">
+                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #A67C52; flex-shrink: 0;">${s.num}</span>
+                    <div>
+                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #121212; margin: 0 0 4px;">第 ${parseInt(s.num)} 步：${s.name}</h4>
+                        <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;">${s.tip}</p>
+                    </div>
+                </a>`;
+        });
+
+        // 顯示結果容器
+        document.getElementById('resultContainer').classList.add('active');
+
+        // 更新 URL hash
+        history.replaceState(null, '', '#result=' + result.primary);
+
+        // 動畫：長條圖延遲填入
+        setTimeout(() => {
+            document.querySelectorAll('.dim-bar-fill').forEach(bar => {
+                bar.style.width = bar.dataset.target + '%';
+            });
+        }, 100);
+
+        // 儲存
+        try {
+            localStorage.setItem('quizResultV2', JSON.stringify({
+                version: 2,
+                answers: answers,
+                scores: scores,
+                persona: result.primary,
+                secondary: result.secondary,
+                timestamp: new Date().toISOString()
+            }));
+        } catch(e) {}
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ══════════════════════════════════════════════
+    // 分享
+    // ══════════════════════════════════════════════
+    function getShareUrl() {
+        const hash = window.location.hash;
+        const personaId = hash.replace('#result=', '');
+        return `https://howhouse.tw/quiz-result/${personaId}.html`;
+    }
+
+    function copyResultLink() {
+        const url = getShareUrl();
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('copyBtn');
+            btn.textContent = '✓ 已複製';
+            setTimeout(() => { btn.textContent = '📋 複製我的結果連結'; }, 2000);
+        }).catch(() => {
+            prompt('複製這個連結：', url);
+        });
+    }
+
+    function shareToLine() {
+        const hash = window.location.hash;
+        const personaId = hash.replace('#result=', '');
+        const persona = personas[personaId];
+        const title = persona ? persona.title : '買房決策者';
+        const shareUrl = getShareUrl();
+        const text = `我做了擇居的買房方向診斷，結果是「${title}」。你也來試試？ ${shareUrl}`;
+        window.open('https://line.me/R/msg/text/?' + encodeURIComponent(text), '_blank');
+    }
+
+    // ══════════════════════════════════════════════
+    // 回饋
+    // ══════════════════════════════════════════════
+    function submitFeedback(value) {
+        document.querySelectorAll('.feedback-option').forEach(b => b.classList.remove('selected'));
+        event.target.classList.add('selected');
+        document.getElementById('feedbackThanks').style.display = 'block';
+        try {
+            const existing = JSON.parse(localStorage.getItem('quizResultV2') || '{}');
+            existing.feedback = value;
+            localStorage.setItem('quizResultV2', JSON.stringify(existing));
+        } catch(e) {}
+    }
+
+    // ══════════════════════════════════════════════
+    // 重置
+    // ══════════════════════════════════════════════
+    function resetQuiz() {
+        Object.keys(answers).forEach(k => delete answers[k]);
+        Object.keys(scores).forEach(k => { scores[k] = 0; });
+        try { localStorage.removeItem('quizAnswersV2'); } catch(e) {}
+        document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+        document.querySelectorAll('.quiz-page').forEach(p => p.classList.remove('active'));
+        document.getElementById('resultContainer').classList.remove('active');
+        document.querySelector('.quiz-page[data-page="1"]').classList.add('active');
+        document.getElementById('progressArea').style.display = '';
+        document.getElementById('quizHeader').style.display = '';
+        document.getElementById('secondaryPersona').style.display = 'none';
+        document.getElementById('feedbackThanks').style.display = 'none';
+        document.querySelectorAll('.feedback-option').forEach(b => b.classList.remove('selected'));
+        ['nextBtn1', 'nextBtn2', 'submitBtn'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.classList.add('button-disabled');
+        });
+        document.querySelectorAll('.theory-detail.open').forEach(el => el.classList.remove('open'));
+        document.querySelectorAll('.theory-tag.open').forEach(el => el.classList.remove('open'));
+        history.replaceState(null, '', window.location.pathname);
+        updateProgressBar();
+        updatePageIndicator();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheory(id) {
+        const detail = document.getElementById(id);
+        const tag = detail.previousElementSibling;
+        detail.classList.toggle('open');
+        tag.classList.toggle('open');
+    }
+
+    // ══════════════════════════════════════════════
+    // 初始化
+    // ══════════════════════════════════════════════
+    window.addEventListener('load', function() {
+        // 從 hash 直接顯示結果
+        const hash = window.location.hash;
+        if (hash.startsWith('#result=')) {
+            const personaId = hash.replace('#result=', '');
+            if (personas[personaId]) {
+                // 嘗試讀取存檔
+                try {
+                    const saved = JSON.parse(localStorage.getItem('quizResultV2') || '{}');
+                    if (saved.persona === personaId && saved.scores) {
+                        Object.assign(answers, saved.answers || {});
+                        Object.assign(scores, saved.scores);
+                        renderResultDirectly(personaId, saved.secondary);
+                        return;
+                    }
+                } catch(e) {}
+                // 無存檔，顯示精簡結果
+                renderResultDirectly(personaId, null);
+                return;
+            }
+        }
+
+        // 恢復進行中的答題
+        try {
+            const saved = localStorage.getItem('quizAnswersV2');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                Object.assign(answers, parsed);
+                document.querySelectorAll('.option-card').forEach(card => {
+                    const onclick = card.getAttribute('onclick');
+                    if (!onclick) return;
+                    const match = onclick.match(/selectAnswer\(this,\s*(\d+),\s*'([A-D])'\)/);
+                    if (match && answers[parseInt(match[1])] === match[2]) {
+                        card.classList.add('selected');
+                    }
+                });
+            }
+        } catch(e) {}
+
+        // 偵測 v1 資料
+        try {
+            const v1 = localStorage.getItem('quizAnswers');
+            if (v1 && !localStorage.getItem('quizAnswersV2')) {
+                // v1 存在但 v2 不存在，不主動提示，讓用戶自然重做
+            }
+        } catch(e) {}
+
+        updateProgressBar();
+        updatePageIndicator();
+        updatePageProgress();
+    });
+
+    function renderResultDirectly(personaId, secondaryId) {
+        const persona = personas[personaId];
+        document.querySelectorAll('.quiz-page').forEach(p => p.classList.remove('active'));
+        document.getElementById('progressArea').style.display = 'none';
+        document.getElementById('quizHeader').style.display = 'none';
+
+        document.getElementById('personaTitle').textContent = persona.title;
+        document.getElementById('personaDesc').textContent = persona.desc;
+        document.getElementById('personaBlindspot').textContent = persona.blindspot;
+
+        // 維度圖
+        const barsEl = document.getElementById('dimensionBars');
+        barsEl.innerHTML = '';
+        ['A', 'B', 'C', 'D'].forEach(dim => {
+            const pct = scores[dim] ? norm(dim) : 50;
+            const label = dimLabels[dim];
+            const descText = pct <= 30 ? label.low : pct >= 70 ? label.high : '兩者兼具';
+            barsEl.innerHTML += `
+                <div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #333;">${label.name}</span>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #A67C52;">${descText}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; text-align: right; flex-shrink: 0;">${label.low}</span>
+                        <div class="dim-bar-track" style="flex: 1;">
+                            <div class="dim-bar-fill" style="width: 0%;" data-target="${pct}"></div>
+                        </div>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; flex-shrink: 0;">${label.high}</span>
+                    </div>
+                    <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; color: #BBB; margin: 4px 0 0; padding-left: 56px;">${label.meaning}</p>
+                </div>`;
+        });
+
+        if (secondaryId && personas[secondaryId]) {
+            document.getElementById('secondaryText').textContent =
+                `你也有一些「${personas[secondaryId].title}」的傾向——在某些情境下，你可能會切換到那個模式。`;
+            document.getElementById('secondaryPersona').style.display = 'block';
+        }
+
+        const stepsEl = document.getElementById('stepLinks');
+        stepsEl.innerHTML = '';
+        persona.steps.forEach(s => {
+            stepsEl.innerHTML += `
+                <a href="step/${s.num}.html" class="step-link-card">
+                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #A67C52; flex-shrink: 0;">${s.num}</span>
+                    <div>
+                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #121212; margin: 0 0 4px;">第 ${parseInt(s.num)} 步：${s.name}</h4>
+                        <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;">${s.tip}</p>
+                    </div>
+                </a>`;
+        });
+
+        document.getElementById('resultContainer').classList.add('active');
+
+        setTimeout(() => {
+            document.querySelectorAll('.dim-bar-fill').forEach(bar => {
+                bar.style.width = bar.dataset.target + '%';
+            });
+        }, 100);
+    }
+
+    updateProgressBar();
+    updatePageIndicator();
+    </script>
+</body>
+</html>

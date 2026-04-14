@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看看你走到哪了｜買房進度地圖｜擇居</title>
+    <meta name="description" content="你的買房旅程，走到哪了？標記進度、寫下筆記，隨時回來看看自己的位置。">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://howhouse.tw/progress.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css">
+
+    <!-- Firebase SDK (compat mode for static site) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBJ7p-UJQnFNuRGZUC9GrTXNkvhTf6eMjA",
+            authDomain: "zeju-howhouse.firebaseapp.com",
+            projectId: "zeju-howhouse",
+            storageBucket: "zeju-howhouse.firebasestorage.app",
+            messagingSenderId: "68831706244",
+            appId: "1:68831706244:web:4caac2feef181fe46a96d1",
+            measurementId: "G-977GTZY37F"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0; background: #EDEBE8; color: #121212;
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Noto Sans TC', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* ── Layout ── */
+        .progress-container { max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
+        .progress-header {
+            text-align: center; padding: 48px 20px 32px;
+        }
+        .progress-header h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 28px; font-weight: 700; margin: 0 0 8px; color: #121212;
+        }
+        .progress-header .subtitle {
+            font-size: 14px; color: #888; line-height: 1.6;
+        }
+
+        /* ── Persona Banner ── */
+        .persona-banner {
+            background: #fff; border-radius: 16px; padding: 20px 24px;
+            margin-bottom: 32px; border: 1px solid #E5E2DE;
+            display: none;
+        }
+        .persona-banner.visible { display: block; }
+        .persona-banner .label { font-size: 12px; color: #B8956A; letter-spacing: 0.1em; margin-bottom: 6px; }
+        .persona-banner .persona-title { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .persona-banner .persona-hint { font-size: 13px; color: #888; line-height: 1.6; }
+        .persona-banner .retake-link { font-size: 12px; color: #B8956A; text-decoration: none; margin-top: 8px; display: inline-block; }
+        .persona-banner .retake-link:hover { text-decoration: underline; }
+
+        /* ── Overall Summary ── */
+        .overall-summary {
+            display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap;
+        }
+        .summary-chip {
+            background: #fff; border: 1px solid #E5E2DE; border-radius: 12px;
+            padding: 12px 16px; flex: 1; min-width: 140px; text-align: center;
+        }
+        .summary-chip .num { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 700; color: #B8956A; }
+        .summary-chip .label { font-size: 12px; color: #888; margin-top: 2px; }
+
+        /* ── Phase Section ── */
+        .phase-section { margin-bottom: 24px; }
+        .phase-header {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px 16px; background: #fff; border-radius: 14px;
+            border: 1px solid #E5E2DE; cursor: pointer;
+            transition: border-color 0.2s;
+            user-select: none;
+        }
+        .phase-header:hover { border-color: #B8956A; }
+        .phase-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; flex-shrink: 0;
+        }
+        .phase-info { flex: 1; }
+        .phase-name { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; }
+        .phase-meta { font-size: 12px; color: #888; margin-top: 2px; }
+        .phase-status {
+            font-size: 11px; padding: 3px 10px; border-radius: 20px;
+            white-space: nowrap; flex-shrink: 0;
+        }
+        .phase-status.not-started { background: #F5F3F0; color: #AAA; }
+        .phase-status.in-progress { background: #FDF6EE; color: #B8956A; }
+        .phase-status.done { background: #F0F5F0; color: #6B8E6B; }
+        .phase-chevron {
+            font-size: 14px; color: #BBB; transition: transform 0.3s; flex-shrink: 0;
+        }
+        .phase-section.open .phase-chevron { transform: rotate(180deg); }
+
+        /* ── Phase connector ── */
+        .phase-connector {
+            display: flex; justify-content: center; padding: 4px 0;
+        }
+        .phase-connector svg { color: #D6D3D1; }
+
+        /* ── Step Cards ── */
+        .phase-steps {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .phase-section.open .phase-steps { max-height: 3000px; }
+
+        .step-card {
+            background: #fff; border: 1px solid #E5E2DE; border-radius: 14px;
+            margin: 10px 0 0 0; padding: 16px 18px; position: relative;
+            transition: border-color 0.2s;
+        }
+        .step-card:hover { border-color: #CCC; }
+
+        .step-top { display: flex; align-items: flex-start; gap: 12px; }
+        .step-num {
+            font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700;
+            color: #D6D3D1; flex-shrink: 0; width: 32px; text-align: center;
+            line-height: 1.2; transition: color 0.3s;
+        }
+        .step-card[data-status="thinking"] .step-num { color: #B8956A; }
+        .step-card[data-status="clear"] .step-num { color: #6B8E6B; }
+
+        .step-content { flex: 1; min-width: 0; }
+        .step-title {
+            font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700;
+            margin-bottom: 3px; color: #121212;
+        }
+        .step-desc { font-size: 12px; color: #999; line-height: 1.5; }
+
+        /* ── Status Switcher ── */
+        .status-switcher {
+            display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap;
+        }
+        .status-btn {
+            font-size: 12px; padding: 5px 12px; border-radius: 20px;
+            border: 1px solid #E5E2DE; background: #FAFAFA; color: #888;
+            cursor: pointer; transition: all 0.2s; font-family: 'Noto Sans TC', sans-serif;
+        }
+        .status-btn:hover { border-color: #CCC; }
+        .status-btn.active-not_started { background: #F5F3F0; color: #999; border-color: #D6D3D1; }
+        .status-btn.active-thinking { background: #FDF6EE; color: #B8956A; border-color: #B8956A; }
+        .status-btn.active-clear { background: #F0F5F0; color: #6B8E6B; border-color: #6B8E6B; }
+
+        /* ── Notes ── */
+        .step-notes-area { margin-top: 10px; display: none; }
+        .step-card[data-status="thinking"] .step-notes-area,
+        .step-card[data-status="clear"] .step-notes-area { display: block; }
+
+        .step-notes {
+            width: 100%; border: 1px solid #E5E2DE; border-radius: 10px;
+            padding: 10px 14px; font-size: 13px; font-family: 'Noto Sans TC', sans-serif;
+            color: #333; background: #FAFAF8; resize: vertical; min-height: 60px;
+            line-height: 1.7; transition: border-color 0.2s;
+        }
+        .step-notes:focus { outline: none; border-color: #B8956A; }
+        .step-notes::placeholder { color: #CCC; }
+
+        /* ── Persona Tip ── */
+        .persona-tip {
+            font-size: 12px; color: #B8956A; background: #FDF6EE;
+            border-radius: 8px; padding: 8px 12px; margin-top: 8px;
+            line-height: 1.6; display: none;
+        }
+        .persona-tip.visible { display: block; }
+
+        /* ── Step Link ── */
+        .step-link {
+            display: inline-block; font-size: 12px; color: #B8956A;
+            text-decoration: none; margin-top: 8px;
+        }
+        .step-link:hover { text-decoration: underline; }
+
+        /* ── Dependency hint ── */
+        .dep-hint {
+            font-size: 11px; color: #BBB; margin-top: 6px; display: none;
+        }
+        .dep-hint.visible { display: block; }
+
+        /* ── Toolbar ── */
+        .toolbar {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(237, 235, 232, 0.95); backdrop-filter: blur(8px);
+            border-top: 1px solid #E5E2DE; padding: 12px 20px;
+            display: flex; justify-content: center; gap: 12px; z-index: 50;
+        }
+        .toolbar-btn {
+            font-size: 13px; padding: 8px 18px; border-radius: 10px;
+            border: 1px solid #D6D3D1; background: #fff; color: #555;
+            cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+            transition: all 0.2s;
+        }
+        .toolbar-btn:hover { border-color: #B8956A; color: #B8956A; }
+        .toolbar-btn.primary {
+            background: #B8956A; color: #fff; border-color: #B8956A;
+        }
+        .toolbar-btn.primary:hover { background: #8B6844; }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+            background: #333; color: #fff; padding: 10px 24px; border-radius: 10px;
+            font-size: 13px; opacity: 0; transition: opacity 0.3s; pointer-events: none;
+            z-index: 60;
+        }
+        .toast.show { opacity: 1; }
+
+        /* ── Empty State ── */
+        .empty-cta {
+            text-align: center; padding: 40px 20px; background: #fff;
+            border-radius: 16px; border: 1px solid #E5E2DE; margin-bottom: 32px;
+        }
+        .empty-cta h3 { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; margin: 0 0 8px; }
+        .empty-cta p { font-size: 14px; color: #888; margin: 0 0 16px; }
+        .empty-cta a {
+            display: inline-block; padding: 10px 24px; background: #B8956A; color: #fff;
+            border-radius: 10px; text-decoration: none; font-size: 14px;
+            transition: background 0.2s;
+        }
+        .empty-cta a:hover { background: #8B6844; }
+
+        /* ── Import Modal ── */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.3);
+            display: none; align-items: center; justify-content: center; z-index: 100;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal-box {
+            background: #fff; border-radius: 16px; padding: 28px; max-width: 420px;
+            width: calc(100% - 40px); box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .modal-box h3 { font-family: 'Noto Serif TC', serif; font-size: 18px; margin: 0 0 12px; }
+        .modal-box p { font-size: 13px; color: #888; margin: 0 0 16px; line-height: 1.6; }
+        .modal-box textarea {
+            width: 100%; height: 120px; border: 1px solid #E5E2DE; border-radius: 10px;
+            padding: 10px; font-size: 12px; font-family: monospace; resize: vertical;
+        }
+        .modal-box textarea:focus { outline: none; border-color: #B8956A; }
+        .modal-actions { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
+        .modal-actions button {
+            padding: 8px 18px; border-radius: 8px; font-size: 13px; cursor: pointer;
+            font-family: 'Noto Sans TC', sans-serif; border: 1px solid #E5E2DE;
+        }
+        .modal-actions .cancel { background: #fff; color: #888; }
+        .modal-actions .confirm { background: #B8956A; color: #fff; border-color: #B8956A; }
+
+        /* ── Nav ── */
+        .top-nav {
+            padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #E5E2DE;
+        }
+        .top-nav a { color: #B8956A; text-decoration: none; font-size: 14px; }
+        .top-nav a:hover { text-decoration: underline; }
+        .top-nav .brand {
+            font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700;
+            color: #121212; text-decoration: none;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 640px) {
+            .progress-header { padding: 32px 16px 24px; }
+            .progress-header h1 { font-size: 24px; }
+            .progress-container { padding: 0 16px 80px; }
+            .summary-chip .num { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Nav -->
+<div class="top-nav">
+    <a href="index.html" class="brand">擇居</a>
+    <a href="index.html">← 回到首頁</a>
+</div>
+
+<!-- Header -->
+<div class="progress-header">
+    <h1>走到哪了</h1>
+    <p class="subtitle">你的買房旅程地圖。不急，按自己的節奏走。</p>
+</div>
+
+<div class="progress-container">
+
+    <!-- Persona Banner (shown if quiz taken) -->
+    <div class="persona-banner" id="personaBanner">
+        <div class="label">你的決策傾向</div>
+        <div class="persona-title" id="bannerPersonaTitle"></div>
+        <div class="persona-hint" id="bannerPersonaHint"></div>
+        <a href="quiz.html" class="retake-link">重新測驗 →</a>
+    </div>
+
+    <!-- Empty State CTA (shown if no quiz taken) -->
+    <div class="empty-cta" id="quizCta" style="display:none;">
+        <h3>還不確定從哪裡開始？</h3>
+        <p>花三分鐘做個簡單的方向診斷，幫你找到適合的起點。</p>
+        <a href="quiz.html">從第一個選擇開始</a>
+    </div>
+
+    <!-- Overall Summary -->
+    <div class="overall-summary" id="overallSummary">
+        <div class="summary-chip">
+            <div class="num" id="countClear">0</div>
+            <div class="label">想清楚了</div>
+        </div>
+        <div class="summary-chip">
+            <div class="num" id="countThinking">0</div>
+            <div class="label">正在想</div>
+        </div>
+        <div class="summary-chip">
+            <div class="num" id="countRemaining">18</div>
+            <div class="label">還沒走到</div>
+        </div>
+    </div>
+
+    <!-- Path Map -->
+    <div id="pathMap"></div>
+
+</div>
+
+<!-- Toolbar -->
+<div class="toolbar">
+    <button class="toolbar-btn" onclick="exportProgress()">匯出備份</button>
+    <button class="toolbar-btn" onclick="showImportModal()">匯入還原</button>
+    <button class="toolbar-btn primary" onclick="expandAll()">展開全部</button>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Import Modal -->
+<div class="modal-overlay" id="importModal">
+    <div class="modal-box">
+        <h3>匯入進度</h3>
+        <p>把之前匯出的備份碼貼在下面，就能還原你的進度和筆記。</p>
+        <textarea id="importInput" placeholder="貼上備份碼..."></textarea>
+        <div class="modal-actions">
+            <button class="cancel" onclick="hideImportModal()">取消</button>
+            <button class="confirm" onclick="importProgress()">匯入</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+// Data Definitions
+// ══════════════════════════════════════════════
+const PHASES = [
+    {
+        id: 'prep', name: '自我準備', icon: '🪞', steps: ['01','02'],
+        color: '#A8A098'
+    },
+    {
+        id: 'research', name: '研究功課', icon: '🔍', steps: ['03','04','05','06'],
+        color: '#B8976A'
+    },
+    {
+        id: 'visit', name: '實地勘查', icon: '👁', steps: ['07','08'],
+        color: '#B8956A'
+    },
+    {
+        id: 'deal', name: '議價成交', icon: '🤝', steps: ['09','10','11'],
+        color: '#96704A'
+    },
+    {
+        id: 'wait', name: '等待期', icon: '⏳', steps: ['12','13'],
+        color: '#8A8A8A'
+    },
+    {
+        id: 'handover', name: '交屋收尾', icon: '🔑', steps: ['14','15'],
+        color: '#7A6B5D'
+    },
+    {
+        id: 'movein', name: '佈置入住', icon: '🏠', steps: ['16','17','18'],
+        color: '#6B7B6B'
+    }
+];
+
+const STEPS = {
+    '01': { name: '需求釐清', desc: '幾房？通勤多遠？學區？先把條件寫下來', placeholder: '例：3房、通勤30分鐘內、有學區...' },
+    '02': { name: '財務健檢', desc: '頭期款夠嗎？月付能扛多少？先算清楚', placeholder: '例：頭款目標300萬、月付上限3.5萬...' },
+    '03': { name: '認識房型', desc: '大樓、透天、華廈、公寓差在哪？公設比怎麼看？', placeholder: '例：傾向大樓、公設比希望<33%...' },
+    '04': { name: '實價登錄', desc: '價格合不合理？同區域別人成交多少？', placeholder: '例：目標區域近一年均價...' },
+    '05': { name: '建商調查', desc: '蓋過什麼？被告過嗎？網路風評如何？', placeholder: '例：看好的建商名稱、評價紀錄...' },
+    '06': { name: '區域評估', desc: '生活機能、交通、學區，把比較表列出來', placeholder: '例：考慮A區 vs B區，通勤差異...' },
+    '07': { name: '預約看房', desc: '白天晚上各去一次，代銷話術不要全信', placeholder: '例：已約看哪些案場、日期...' },
+    '08': { name: '現場評估', desc: '平面圖、樑柱位置、管線配置，仔細確認', placeholder: '例：這間的優缺點紀錄...' },
+    '09': { name: '比較決策', desc: '開價不等於成交價，查實價登錄再談', placeholder: '例：目前前三名物件比較...' },
+    '10': { name: '簽約須知', desc: '合約帶回家看五天，違約罰則要問清楚', placeholder: '例：合約裡需要注意的條款...' },
+    '11': { name: '客變規劃', desc: '預售屋可以改格局，但要在期限內提出', placeholder: '例：想改的格局、客變期限...' },
+    '12': { name: '工程追蹤', desc: '定期去工地看進度，留意建材變更通知', placeholder: '例：上次去工地的觀察...' },
+    '13': { name: '貸款對保', desc: '多比幾家銀行利率，問清寬限期與優惠', placeholder: '例：比較的銀行利率...' },
+    '14': { name: '驗屋準備', desc: '自己帶清單或請專業驗屋公司，交屋前必做', placeholder: '例：驗屋公司選擇、清單...' },
+    '15': { name: '交屋流程', desc: '水電瓦斯過戶、管委會交接、拿鑰匙', placeholder: '例：過戶進度、待辦事項...' },
+    '16': { name: '產權登記', desc: '確認產權清楚、地政過戶、抵押權設定', placeholder: '例：地政進度紀錄...' },
+    '17': { name: '裝修與入住', desc: '裝修、動線規劃、收納設計，提前準備', placeholder: '例：裝修預算、風格想法...' },
+    '18': { name: '保固追蹤', desc: '記錄缺陷、追蹤保固期限、定期維護', placeholder: '例：需要追蹤的保固項目...' }
+};
+
+// Step dependencies: { step: [depends_on_steps] }
+const DEPENDENCIES = {
+    '04': ['02'], // 實價登錄 ← 財務健檢（知道預算才知道查什麼範圍）
+    '09': ['07','08'], // 比較決策 ← 看房 + 現場評估
+    '10': ['05'], // 簽約須知 ← 建商調查
+    '13': ['02'], // 貸款對保 ← 財務健檢
+    '14': ['10'] // 驗屋準備 ← 簽約須知
+};
+
+const DEP_HINTS = {
+    '04': '這一步會用到你在第 2 步算的預算範圍',
+    '09': '回顧你在第 7、8 步的看房紀錄會更清楚',
+    '10': '你在第 5 步查的建商紀錄，簽約時很重要',
+    '13': '你在第 2 步算的月付上限是這裡的底線',
+    '14': '對照你在第 10 步記的合約條款來驗'
+};
+
+// Persona data (matches quiz.html)
+const PERSONAS = {
+    steady_player: {
+        title: '穩健棋手',
+        hint: '你習慣用數據做判斷。留意不要因為太理性而忽略住的「感覺」。',
+        tips: { '08': '帶著清單去看，但也留 10 分鐘不看清單，純粹感受', '09': '你的框架是優勢——設好停損點就行動' }
+    },
+    intuitive_hunter: {
+        title: '直覺獵手',
+        hint: '你的直覺很準，但記得用數字幫感覺做確認。',
+        tips: { '07': '去看吧，但帶著清單去，別空手', '09': '看完隔一天再看筆記——隔天還想要的才是真的' }
+    },
+    perfectionist: {
+        title: '完美主義者',
+        hint: '你的研究很扎實。挑戰是知道什麼時候該停止比較、開始行動。',
+        tips: { '09': '「再多看一間」的念頭永遠不會停——還記得你設的停損點嗎？', '02': '用數字畫一條線，到了就停' }
+    },
+    anxious_actor: {
+        title: '焦慮行動者',
+        hint: '「怕錯過」的感覺很真實，但先把底線寫下來再出門。',
+        tips: { '02': '有數字你就不會被情緒帶著走', '10': '任何現場想做的決定，回家睡一晚再說' }
+    },
+    cautious_observer: {
+        title: '謹慎觀望者',
+        hint: '每次只處理一步就好。走過三步之後，你會發現自己比想像的更有判斷力。',
+        tips: { '01': '從最不需要做決定的地方開始', '03': '了解差異，你會發現沒那麼複雜' }
+    },
+    rational_novice: {
+        title: '理性新手',
+        hint: '你會研究，但記得也問問已經買過房的人那些「數據查不到」的事。',
+        tips: { '05': '你擅長研究——建商調查最值得花時間', '06': '比較生活機能和通勤，你擅長這個' }
+    },
+    emotional_explorer: {
+        title: '感性探索者',
+        hint: '你對家的想像是買房最重要的動力。下一步是把想像轉成具體條件。',
+        tips: { '01': '把「想要有陽光的客廳」轉成「朝南、5 樓以上、前方無遮蔽」', '07': '看房會讓想像變具體' }
+    },
+    composed: {
+        title: '從容決策者',
+        hint: '你準備得差不多了。需要的不是更多資訊，而是一個比較框架。',
+        tips: { '09': '建立你的物件比較框架', '10': '先把「不可妥協」和「可接受次優」寫下來' }
+    }
+};
+
+// ══════════════════════════════════════════════
+// State
+// ══════════════════════════════════════════════
+const STORAGE_KEY = 'zeju-progress';
+let state = loadState();
+let personaId = null;
+
+function defaultState() {
+    const steps = {};
+    Object.keys(STEPS).forEach(id => {
+        steps[id] = { status: 'not_started', notes: '', updatedAt: null };
+    });
+    return { version: 1, startedAt: new Date().toISOString().slice(0,10), steps };
+}
+
+function loadState() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+    } catch(e) {}
+    return defaultState();
+}
+
+function saveState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+function loadPersona() {
+    try {
+        const quiz = JSON.parse(localStorage.getItem('quizResultV2') || '{}');
+        if (quiz.persona && PERSONAS[quiz.persona]) {
+            personaId = quiz.persona;
+        }
+    } catch(e) {}
+}
+
+// ══════════════════════════════════════════════
+// Render
+// ══════════════════════════════════════════════
+function render() {
+    loadPersona();
+    renderPersonaBanner();
+    renderSummary();
+    renderPath();
+}
+
+function renderPersonaBanner() {
+    const banner = document.getElementById('personaBanner');
+    const cta = document.getElementById('quizCta');
+    if (personaId) {
+        const p = PERSONAS[personaId];
+        document.getElementById('bannerPersonaTitle').textContent = p.title;
+        document.getElementById('bannerPersonaHint').textContent = p.hint;
+        banner.classList.add('visible');
+        cta.style.display = 'none';
+    } else {
+        banner.classList.remove('visible');
+        cta.style.display = 'block';
+    }
+}
+
+function renderSummary() {
+    let clear = 0, thinking = 0, notStarted = 0;
+    Object.values(state.steps).forEach(s => {
+        if (s.status === 'clear') clear++;
+        else if (s.status === 'thinking') thinking++;
+        else notStarted++;
+    });
+    document.getElementById('countClear').textContent = clear;
+    document.getElementById('countThinking').textContent = thinking;
+    document.getElementById('countRemaining').textContent = notStarted;
+}
+
+function getPhaseStatus(phase) {
+    const statuses = phase.steps.map(id => state.steps[id].status);
+    if (statuses.every(s => s === 'clear')) return 'done';
+    if (statuses.every(s => s === 'not_started')) return 'not-started';
+    return 'in-progress';
+}
+
+function getPhaseLabel(status) {
+    if (status === 'done') return '想清楚了';
+    if (status === 'in-progress') return '正在這個階段';
+    return '還沒走到';
+}
+
+function renderPath() {
+    const map = document.getElementById('pathMap');
+    map.innerHTML = '';
+
+    PHASES.forEach((phase, pi) => {
+        const phaseStatus = getPhaseStatus(phase);
+
+        // Phase section
+        const section = document.createElement('div');
+        section.className = 'phase-section';
+        section.id = 'phase-' + phase.id;
+
+        // Auto-open if in progress
+        if (phaseStatus === 'in-progress') section.classList.add('open');
+
+        // Phase header
+        section.innerHTML = `
+            <div class="phase-header" onclick="togglePhase('${phase.id}')">
+                <div class="phase-icon" style="background: ${phase.color}15; color: ${phase.color};">${phase.icon}</div>
+                <div class="phase-info">
+                    <div class="phase-name">${phase.name}</div>
+                    <div class="phase-meta">STEP ${phase.steps[0]}–${phase.steps[phase.steps.length-1]}</div>
+                </div>
+                <span class="phase-status ${phaseStatus}">${getPhaseLabel(phaseStatus)}</span>
+                <span class="phase-chevron">▾</span>
+            </div>
+            <div class="phase-steps" id="steps-${phase.id}"></div>
+        `;
+
+        map.appendChild(section);
+
+        // Step cards
+        const stepsContainer = section.querySelector('.phase-steps');
+        phase.steps.forEach(stepId => {
+            const step = STEPS[stepId];
+            const stepState = state.steps[stepId];
+            const card = document.createElement('div');
+            card.className = 'step-card';
+            card.id = 'step-' + stepId;
+            card.dataset.status = stepState.status;
+
+            // Persona tip
+            let tipHtml = '';
+            if (personaId && PERSONAS[personaId].tips[stepId]) {
+                tipHtml = `<div class="persona-tip visible">${PERSONAS[personaId].tips[stepId]}</div>`;
+            }
+
+            // Dependency hint
+            let depHtml = '';
+            if (DEP_HINTS[stepId]) {
+                const depSteps = DEPENDENCIES[stepId] || [];
+                const anyDepDone = depSteps.some(d => state.steps[d].status === 'clear');
+                const showDep = stepState.status !== 'clear' && !anyDepDone;
+                depHtml = `<div class="dep-hint ${showDep ? 'visible' : ''}">${DEP_HINTS[stepId]}</div>`;
+            }
+
+            card.innerHTML = `
+                <div class="step-top">
+                    <div class="step-num">${stepId}</div>
+                    <div class="step-content">
+                        <div class="step-title">${step.name}</div>
+                        <div class="step-desc">${step.desc}</div>
+                    </div>
+                </div>
+                <div class="status-switcher">
+                    <button class="status-btn ${stepState.status === 'not_started' ? 'active-not_started' : ''}"
+                            onclick="setStatus('${stepId}','not_started')">尚未面對</button>
+                    <button class="status-btn ${stepState.status === 'thinking' ? 'active-thinking' : ''}"
+                            onclick="setStatus('${stepId}','thinking')">正在想</button>
+                    <button class="status-btn ${stepState.status === 'clear' ? 'active-clear' : ''}"
+                            onclick="setStatus('${stepId}','clear')">想清楚了</button>
+                </div>
+                <div class="step-notes-area">
+                    <textarea class="step-notes"
+                              placeholder="${step.placeholder}"
+                              oninput="saveNotes('${stepId}', this.value)">${stepState.notes}</textarea>
+                    ${tipHtml}
+                    ${depHtml}
+                </div>
+                <a href="step/${stepId}.html" class="step-link">閱讀這一步的完整內容 →</a>
+            `;
+
+            stepsContainer.appendChild(card);
+        });
+
+        // Phase connector (except last)
+        if (pi < PHASES.length - 1) {
+            const connector = document.createElement('div');
+            connector.className = 'phase-connector';
+            connector.innerHTML = '<svg width="16" height="20" viewBox="0 0 16 20"><path d="M8 0 L8 8 M4 12 L8 18 L12 12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>';
+            map.appendChild(connector);
+        }
+    });
+}
+
+// ══════════════════════════════════════════════
+// Actions
+// ══════════════════════════════════════════════
+function setStatus(stepId, status) {
+    state.steps[stepId].status = status;
+    state.steps[stepId].updatedAt = new Date().toISOString();
+    saveState();
+
+    // Update card
+    const card = document.getElementById('step-' + stepId);
+    card.dataset.status = status;
+
+    // Update status buttons
+    card.querySelectorAll('.status-btn').forEach(btn => {
+        btn.className = 'status-btn';
+    });
+    const buttons = card.querySelectorAll('.status-btn');
+    const idx = ['not_started','thinking','clear'].indexOf(status);
+    if (idx >= 0) buttons[idx].classList.add('active-' + status);
+
+    // Update phase status
+    const phase = PHASES.find(p => p.steps.includes(stepId));
+    if (phase) {
+        const phaseStatus = getPhaseStatus(phase);
+        const section = document.getElementById('phase-' + phase.id);
+        const statusEl = section.querySelector('.phase-status');
+        statusEl.className = 'phase-status ' + phaseStatus;
+        statusEl.textContent = getPhaseLabel(phaseStatus);
+    }
+
+    renderSummary();
+}
+
+function saveNotes(stepId, value) {
+    state.steps[stepId].notes = value;
+    state.steps[stepId].updatedAt = new Date().toISOString();
+    saveState();
+}
+
+function togglePhase(phaseId) {
+    const section = document.getElementById('phase-' + phaseId);
+    section.classList.toggle('open');
+}
+
+function expandAll() {
+    const allOpen = document.querySelectorAll('.phase-section:not(.open)').length === 0;
+    document.querySelectorAll('.phase-section').forEach(s => {
+        if (allOpen) s.classList.remove('open');
+        else s.classList.add('open');
+    });
+    // Update button text
+    const btn = document.querySelector('.toolbar-btn.primary');
+    btn.textContent = allOpen ? '展開全部' : '收合全部';
+}
+
+// ══════════════════════════════════════════════
+// Export / Import
+// ══════════════════════════════════════════════
+function exportProgress() {
+    try {
+        const data = JSON.stringify(state);
+        const encoded = btoa(unescape(encodeURIComponent(data)));
+        navigator.clipboard.writeText(encoded).then(() => {
+            showToast('備份碼已複製到剪貼簿');
+        }).catch(() => {
+            prompt('複製這段備份碼：', encoded);
+        });
+    } catch(e) {
+        showToast('匯出失敗');
+    }
+}
+
+function showImportModal() {
+    document.getElementById('importModal').classList.add('show');
+    document.getElementById('importInput').value = '';
+    document.getElementById('importInput').focus();
+}
+
+function hideImportModal() {
+    document.getElementById('importModal').classList.remove('show');
+}
+
+function importProgress() {
+    const input = document.getElementById('importInput').value.trim();
+    if (!input) { showToast('請貼上備份碼'); return; }
+    try {
+        const decoded = decodeURIComponent(escape(atob(input)));
+        const imported = JSON.parse(decoded);
+        if (imported.version && imported.steps) {
+            state = imported;
+            saveState();
+            hideImportModal();
+            render();
+            showToast('進度已還原');
+        } else {
+            showToast('備份碼格式不正確');
+        }
+    } catch(e) {
+        showToast('備份碼無法解析');
+    }
+}
+
+// ══════════════════════════════════════════════
+// Toast
+// ══════════════════════════════════════════════
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ══════════════════════════════════════════════
+// Firebase Sync (Layer 2)
+// ══════════════════════════════════════════════
+const FirebaseSync = {
+    initialized: false,
+    userId: null,
+    _pushTimer: null,
+
+    init(uid) {
+        this.userId = uid;
+        this.initialized = true;
+    },
+
+    // Debounced push: waits 1.5s after last change before writing
+    schedulePush() {
+        if (!this.initialized) return;
+        clearTimeout(this._pushTimer);
+        this._pushTimer = setTimeout(() => this.push(), 1500);
+    },
+
+    async push() {
+        if (!this.initialized) return;
+        try {
+            await db.collection('users').doc(this.userId).set({
+                progress: state,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+        } catch(e) {
+            console.warn('雲端同步寫入失敗（離線模式仍正常運作）', e);
+        }
+    },
+
+    async pull() {
+        if (!this.initialized) return null;
+        try {
+            const doc = await db.collection('users').doc(this.userId).get();
+            if (doc.exists && doc.data().progress) {
+                return doc.data().progress;
+            }
+        } catch(e) {
+            console.warn('雲端同步讀取失敗（使用本地資料）', e);
+        }
+        return null;
+    },
+
+    async getPartner(partnerId) {
+        if (!this.initialized) return null;
+        try {
+            const doc = await db.collection('users').doc(partnerId).get();
+            if (doc.exists && doc.data().progress) {
+                return doc.data().progress;
+            }
+        } catch(e) {
+            console.warn('讀取夥伴進度失敗', e);
+        }
+        return null;
+    }
+};
+
+// LINE LIFF Integration Points (Layer 2-3 — wire after LINE setup)
+const LineLiff = {
+    ready: false,
+    liffId: null, // Set after LINE Developers Console setup
+
+    async init() {
+        if (!this.liffId) return;
+        // Will be wired after LINE LIFF app is created
+    },
+
+    shareProgress() {
+        // Will use liff.shareTargetPicker
+    }
+};
+
+// ══════════════════════════════════════════════
+// Enhanced save with cloud sync
+// ══════════════════════════════════════════════
+const _originalSaveState = saveState;
+saveState = function() {
+    _originalSaveState();
+    FirebaseSync.schedulePush();
+};
+
+// ══════════════════════════════════════════════
+// Init: Anonymous auth → pull cloud → merge → render
+// ══════════════════════════════════════════════
+(async function initApp() {
+    // First render with local data (instant)
+    render();
+
+    // Then try cloud sync in background
+    try {
+        const userCredential = await auth.signInAnonymously();
+        const uid = userCredential.user.uid;
+        FirebaseSync.init(uid);
+
+        // Pull cloud data
+        const cloudState = await FirebaseSync.pull();
+        if (cloudState && cloudState.steps) {
+            // Merge strategy: cloud wins if newer, local wins if cloud has no data for a step
+            const localUpdated = Math.max(...Object.values(state.steps).map(s => s.updatedAt ? new Date(s.updatedAt).getTime() : 0));
+            const cloudUpdated = Math.max(...Object.values(cloudState.steps).map(s => s.updatedAt ? new Date(s.updatedAt).getTime() : 0));
+
+            if (cloudUpdated > localUpdated) {
+                // Cloud is newer — use cloud state
+                state = cloudState;
+                _originalSaveState(); // save to localStorage
+                render();
+                showToast('已從雲端同步進度');
+            } else if (localUpdated > 0 && cloudUpdated === 0) {
+                // Local has data but cloud is empty — push local to cloud
+                FirebaseSync.push();
+            }
+            // If same timestamp or both have data, keep local (last-write-wins on next save)
+        } else if (Object.values(state.steps).some(s => s.status !== 'not_started')) {
+            // No cloud data but local has progress — push to cloud
+            FirebaseSync.push();
+        }
+
+        // Show sync indicator
+        updateSyncStatus('connected');
+    } catch(e) {
+        console.warn('Firebase 初始化失敗（離線模式運作中）', e);
+        updateSyncStatus('offline');
+    }
+
+    // LINE LIFF init (if available)
+    LineLiff.init();
+})();
+
+function updateSyncStatus(status) {
+    // Subtle indicator in toolbar
+    const toolbar = document.querySelector('.toolbar');
+    let indicator = document.getElementById('syncIndicator');
+    if (!indicator) {
+        indicator = document.createElement('div');
+        indicator.id = 'syncIndicator';
+        indicator.style.cssText = 'position:absolute;top:-8px;right:20px;font-size:10px;color:#888;';
+        toolbar.style.position = 'fixed'; // already fixed but just in case
+        toolbar.appendChild(indicator);
+    }
+    if (status === 'connected') {
+        indicator.textContent = '☁️ 已連線同步';
+        indicator.style.color = '#6B8E6B';
+    } else {
+        indicator.textContent = '📱 離線模式';
+        indicator.style.color = '#AAA';
+    }
+}
+</script>
+</body>
+</html>
