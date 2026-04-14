@@ -17,6 +17,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <!-- LINE LIFF SDK -->
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.24.0/sdk.js"></script>
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyBJ7p-UJQnFNuRGZUC9GrTXNkvhTf6eMjA",
@@ -335,7 +337,9 @@
 
 <!-- Toolbar -->
 <div class="toolbar">
-    <button class="toolbar-btn" onclick="exportProgress()">匯出備份</button>
+    <button class="toolbar-btn" onclick="LineLiff.shareProgress()" style="border-color:#06C755;color:#06C755;">📤 分享</button>
+    <button class="toolbar-btn" onclick="showPartnerModal()">👫 雙人</button>
+    <button class="toolbar-btn" onclick="exportProgress()">備份</button>
     <button class="toolbar-btn" onclick="showImportModal()">匯入還原</button>
     <button class="toolbar-btn primary" onclick="expandAll()">展開全部</button>
 </div>
@@ -352,6 +356,32 @@
         <div class="modal-actions">
             <button class="cancel" onclick="hideImportModal()">取消</button>
             <button class="confirm" onclick="importProgress()">匯入</button>
+        </div>
+    </div>
+</div>
+
+<!-- Partner Mode Modal -->
+<div class="modal-overlay" id="partnerModal">
+    <div class="modal-box">
+        <h3>👫 雙人模式</h3>
+        <p>買房是兩個人的事。把你的配對碼分享給另一半，就能看到彼此的進度。</p>
+        <div style="margin-bottom:16px;">
+            <label style="font-size:12px;color:#888;display:block;margin-bottom:4px;">你的配對碼</label>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="myPairCode" readonly style="flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-family:monospace;font-size:15px;background:#f9f7f4;text-align:center;letter-spacing:2px;">
+                <button onclick="copyPairCode()" style="padding:8px 12px;border:1px solid #B8956A;color:#B8956A;background:transparent;border-radius:8px;cursor:pointer;font-size:12px;white-space:nowrap;">複製</button>
+            </div>
+        </div>
+        <div style="margin-bottom:8px;">
+            <label style="font-size:12px;color:#888;display:block;margin-bottom:4px;">輸入對方的配對碼</label>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <input type="text" id="partnerCodeInput" placeholder="貼上對方的配對碼" style="flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
+                <button onclick="linkPartner()" style="padding:8px 12px;border:1px solid #06C755;color:#fff;background:#06C755;border-radius:8px;cursor:pointer;font-size:12px;white-space:nowrap;">配對</button>
+            </div>
+        </div>
+        <div id="partnerStatus" style="font-size:12px;color:#888;margin-top:8px;"></div>
+        <div class="modal-actions">
+            <button class="cancel" onclick="hidePartnerModal()">關閉</button>
         </div>
     </div>
 </div>
@@ -825,18 +855,174 @@ const FirebaseSync = {
     }
 };
 
-// LINE LIFF Integration Points (Layer 2-3 — wire after LINE setup)
+// ══════════════════════════════════════════════
+// LINE LIFF Integration (Layer 2)
+// ══════════════════════════════════════════════
 const LineLiff = {
     ready: false,
-    liffId: null, // Set after LINE Developers Console setup
+    liffId: '2009797886-geRkxqSN',
+    profile: null,
 
     async init() {
-        if (!this.liffId) return;
-        // Will be wired after LINE LIFF app is created
+        if (!this.liffId || typeof liff === 'undefined') return;
+        try {
+            await liff.init({ liffId: this.liffId });
+            this.ready = true;
+            console.log('LIFF initialized, isInClient:', liff.isInClient(), 'isLoggedIn:', liff.isLoggedIn());
+
+            if (liff.isLoggedIn()) {
+                await this.loadProfile();
+            }
+            this.renderLoginUI();
+        } catch(e) {
+            console.warn('LIFF 初始化失敗（不影響基本功能）', e);
+        }
     },
 
-    shareProgress() {
-        // Will use liff.shareTargetPicker
+    async loadProfile() {
+        try {
+            this.profile = await liff.getProfile();
+            console.log('LINE profile:', this.profile.displayName);
+
+            // Upgrade anonymous Firebase user with LINE identity
+            if (FirebaseSync.initialized && FirebaseSync.userId) {
+                await db.collection('users').doc(FirebaseSync.userId).set({
+                    lineProfile: {
+                        userId: this.profile.userId,
+                        displayName: this.profile.displayName,
+                        pictureUrl: this.profile.pictureUrl || null
+                    },
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: true });
+            }
+            this.renderLoginUI();
+        } catch(e) {
+            console.warn('取得 LINE 個人資料失敗', e);
+        }
+    },
+
+    login() {
+        if (!this.ready) return;
+        if (!liff.isLoggedIn()) {
+            liff.login({ redirectUri: window.location.href });
+        }
+    },
+
+    renderLoginUI() {
+        const toolbar = document.querySelector('.toolbar');
+        let lineBtn = document.getElementById('lineLoginBtn');
+
+        if (this.profile) {
+            // Logged in — show avatar + name
+            if (lineBtn) lineBtn.remove();
+            let lineInfo = document.getElementById('lineInfo');
+            if (!lineInfo) {
+                lineInfo = document.createElement('div');
+                lineInfo.id = 'lineInfo';
+                lineInfo.style.cssText = 'position:absolute;top:-8px;left:20px;font-size:10px;display:flex;align-items:center;gap:4px;';
+                toolbar.appendChild(lineInfo);
+            }
+            const pic = this.profile.pictureUrl
+                ? `<img src="${this.profile.pictureUrl}" style="width:16px;height:16px;border-radius:50%;">`
+                : '';
+            lineInfo.innerHTML = `${pic}<span style="color:#06C755;">${this.profile.displayName}</span>`;
+        } else if (this.ready && !liff.isLoggedIn()) {
+            // Not logged in — show login button
+            if (!lineBtn) {
+                lineBtn = document.createElement('button');
+                lineBtn.id = 'lineLoginBtn';
+                lineBtn.textContent = '🔗 連結 LINE';
+                lineBtn.style.cssText = 'position:absolute;top:-10px;left:16px;font-size:10px;padding:2px 8px;border:1px solid #06C755;color:#06C755;background:transparent;border-radius:10px;cursor:pointer;';
+                lineBtn.onclick = () => this.login();
+                toolbar.appendChild(lineBtn);
+            }
+        }
+    },
+
+    async shareProgress() {
+        if (!this.ready || !liff.isLoggedIn()) {
+            showToast('請先連結 LINE 帳號');
+            return;
+        }
+        if (!liff.isApiAvailable('shareTargetPicker')) {
+            showToast('請在 LINE 中開啟使用分享功能');
+            return;
+        }
+
+        // Build share message
+        const completed = Object.values(state.steps).filter(s => s.status === 'decided').length;
+        const inProgress = Object.values(state.steps).filter(s => s.status === 'thinking').length;
+        const total = 18;
+
+        try {
+            await liff.shareTargetPicker([{
+                type: 'flex',
+                altText: `我的買房進度：已想清楚 ${completed}/${total} 步`,
+                contents: {
+                    type: 'bubble',
+                    hero: {
+                        type: 'box',
+                        layout: 'vertical',
+                        contents: [{
+                            type: 'text',
+                            text: '🏠 擇居 — 買房進度',
+                            weight: 'bold',
+                            size: 'lg',
+                            align: 'center',
+                            color: '#2D5A3D'
+                        }],
+                        paddingAll: '20px',
+                        backgroundColor: '#F5F0E8'
+                    },
+                    body: {
+                        type: 'box',
+                        layout: 'vertical',
+                        contents: [
+                            {
+                                type: 'text',
+                                text: `✅ 想清楚了：${completed} 步`,
+                                size: 'md',
+                                color: '#2D5A3D'
+                            },
+                            {
+                                type: 'text',
+                                text: `🔄 正在想：${inProgress} 步`,
+                                size: 'md',
+                                color: '#B8860B',
+                                margin: 'sm'
+                            },
+                            {
+                                type: 'text',
+                                text: `📊 還沒走到：${total - completed - inProgress} 步`,
+                                size: 'md',
+                                color: '#888',
+                                margin: 'sm'
+                            }
+                        ],
+                        paddingAll: '16px'
+                    },
+                    footer: {
+                        type: 'box',
+                        layout: 'vertical',
+                        contents: [{
+                            type: 'button',
+                            action: {
+                                type: 'uri',
+                                label: '一起來看看',
+                                uri: `https://liff.line.me/${this.liffId}`
+                            },
+                            style: 'primary',
+                            color: '#2D5A3D'
+                        }],
+                        paddingAll: '12px'
+                    }
+                }
+            }]);
+            showToast('已分享進度！');
+        } catch(e) {
+            console.warn('分享失敗', e);
+            showToast('分享取消或失敗');
+        }
     }
 };
 
@@ -915,6 +1101,129 @@ function updateSyncStatus(status) {
         indicator.style.color = '#AAA';
     }
 }
+
+// ══════════════════════════════════════════════
+// Partner Mode (雙人模式)
+// ══════════════════════════════════════════════
+function generatePairCode(uid) {
+    // Short 6-char code derived from uid
+    const hash = uid.split('').reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0);
+    return Math.abs(hash).toString(36).toUpperCase().substring(0, 6).padEnd(6, 'A');
+}
+
+function showPartnerModal() {
+    const modal = document.getElementById('partnerModal');
+    modal.classList.add('show');
+
+    if (FirebaseSync.userId) {
+        const code = generatePairCode(FirebaseSync.userId);
+        document.getElementById('myPairCode').value = code;
+
+        // Store pair code → uid mapping in Firestore
+        db.collection('pairCodes').doc(code).set({
+            uid: FirebaseSync.userId,
+            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true }).catch(e => console.warn('配對碼儲存失敗', e));
+
+        // Check if already paired
+        const savedPartner = localStorage.getItem('zeju_partner_code');
+        if (savedPartner) {
+            document.getElementById('partnerCodeInput').value = savedPartner;
+            document.getElementById('partnerStatus').innerHTML = '✅ 已配對，重新整理頁面可看到對方進度';
+        }
+    } else {
+        document.getElementById('myPairCode').value = '未連線';
+    }
+}
+
+function hidePartnerModal() {
+    document.getElementById('partnerModal').classList.remove('show');
+}
+
+function copyPairCode() {
+    const code = document.getElementById('myPairCode').value;
+    if (code && code !== '未連線') {
+        navigator.clipboard.writeText(code).then(() => showToast('配對碼已複製'));
+    }
+}
+
+async function linkPartner() {
+    const partnerCode = document.getElementById('partnerCodeInput').value.trim().toUpperCase();
+    if (!partnerCode || partnerCode.length < 4) {
+        showToast('請輸入對方的配對碼');
+        return;
+    }
+
+    try {
+        const doc = await db.collection('pairCodes').doc(partnerCode).get();
+        if (doc.exists) {
+            const partnerUid = doc.data().uid;
+            localStorage.setItem('zeju_partner_code', partnerCode);
+            localStorage.setItem('zeju_partner_uid', partnerUid);
+
+            // Also store in own user doc
+            await db.collection('users').doc(FirebaseSync.userId).set({
+                partnerId: partnerUid,
+                partnerCode: partnerCode
+            }, { merge: true });
+
+            document.getElementById('partnerStatus').innerHTML = '✅ 配對成功！重新整理頁面即可看到對方進度';
+            showToast('配對成功！');
+
+            // Load partner progress
+            loadPartnerProgress(partnerUid);
+        } else {
+            document.getElementById('partnerStatus').innerHTML = '❌ 找不到這個配對碼，請確認對方已開啟過這個頁面';
+        }
+    } catch(e) {
+        console.warn('配對失敗', e);
+        document.getElementById('partnerStatus').innerHTML = '❌ 配對失敗，請稍後再試';
+    }
+}
+
+async function loadPartnerProgress(partnerUid) {
+    if (!partnerUid) return;
+    const partnerData = await FirebaseSync.getPartner(partnerUid);
+    if (partnerData && partnerData.steps) {
+        renderPartnerOverlay(partnerData);
+    }
+}
+
+function renderPartnerOverlay(partnerState) {
+    // Add subtle partner indicators on each step
+    document.querySelectorAll('.step').forEach(stepEl => {
+        const stepId = stepEl.dataset.step;
+        const partnerStep = partnerState.steps && partnerState.steps[stepId];
+        if (!partnerStep) return;
+
+        let badge = stepEl.querySelector('.partner-badge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.className = 'partner-badge';
+            badge.style.cssText = 'position:absolute;top:4px;right:4px;font-size:9px;opacity:0.7;';
+            stepEl.style.position = 'relative';
+            stepEl.appendChild(badge);
+        }
+
+        if (partnerStep.status === 'decided') {
+            badge.textContent = '👫✅';
+            badge.title = '對方已想清楚';
+        } else if (partnerStep.status === 'thinking') {
+            badge.textContent = '👫🔄';
+            badge.title = '對方正在想';
+        } else {
+            badge.textContent = '';
+        }
+    });
+}
+
+// On page load, check for saved partner
+(function checkPartner() {
+    const partnerUid = localStorage.getItem('zeju_partner_uid');
+    if (partnerUid && FirebaseSync.initialized) {
+        setTimeout(() => loadPartnerProgress(partnerUid), 2000);
+    }
+})();
 </script>
 </body>
 </html>
