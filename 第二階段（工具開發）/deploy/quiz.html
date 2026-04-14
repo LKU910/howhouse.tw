@@ -39,61 +39,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         *, *::before, *::after { box-sizing: border-box; }
 
         body {
             margin: 0;
-            background-color: #EDEBE8;
+            background: #EDEBE8;
             color: #121212;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
             word-break: break-word;
             min-height: 100vh;
+            font-family: 'Noto Sans TC', sans-serif;
         }
 
-        .quiz-backdrop {
-            position: fixed;
-            inset: 0;
-            background: #EDEBE8;
-            z-index: 0;
+        /* ── Layout (same as progress.html) ── */
+        .quiz-container { max-width: 680px; margin: 0 auto; padding: 0 20px 80px; }
+        .quiz-header {
+            text-align: center; padding: 48px 20px 32px;
         }
-        .quiz-backdrop::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, #F5F3F0 0%, #EDEBE8 40%, #E5E2DE 100%);
+        .quiz-header h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 28px; font-weight: 700; margin: 0 0 8px; color: #121212;
         }
-        .quiz-backdrop::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0.03;
-            background-image:
-                linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        .quiz-panel {
-            position: relative;
-            z-index: 10;
-            max-width: 680px;
-            margin: 0 auto;
-            min-height: 100vh;
-            background: #FFFFFF;
-            border-left: 1px solid #E0DCD6;
-            border-right: 1px solid #E0DCD6;
-        }
-        @media (max-width: 720px) {
-            .quiz-panel { border-left: none; border-right: none; }
-        }
-
-        .panel-accent-line {
-            height: 3px;
-            background: linear-gradient(90deg, #A67C52, #C4A882, #A67C52);
+        .quiz-header .subtitle {
+            font-size: 14px; color: #888; line-height: 1.6;
         }
 
         .quiz-page { display: none; }
@@ -107,21 +80,21 @@
         }
 
         .option-card {
-            border: 1.5px solid #E5E2DE;
-            border-radius: 10px;
+            border: 1px solid #E5E2DE;
+            border-radius: 14px;
             padding: 18px 20px;
             cursor: pointer;
             transition: all 0.2s ease;
             position: relative;
-            background: #FAFAFA;
+            background: #fff;
         }
         .option-card:hover {
-            border-color: #C4A882;
-            background: #FBF9F6;
+            border-color: #B8956A;
+            background: #FFFFFF;
         }
         .option-card.selected {
             border-color: #A67C52;
-            background: #F8F3ED;
+            background: #FAF7F3;
             border-width: 2px;
             padding: 17px 19px;
         }
@@ -151,7 +124,7 @@
         }
         .progress-fill {
             height: 100%;
-            background: #A67C52;
+            background: #B8956A;
             transition: width 0.4s ease;
             border-radius: 10px;
         }
@@ -164,13 +137,13 @@
             font-size: 14px;
             letter-spacing: 0.08em;
             padding: 13px 28px;
-            border-radius: 8px;
+            border-radius: 12px;
             transition: all 0.2s ease;
             cursor: pointer;
             border: none;
         }
-        .btn-next.primary { background: #A67C52; color: white; }
-        .btn-next.primary:hover { background: #8B6A45; }
+        .btn-next.primary { background: #B8956A; color: white; }
+        .btn-next.primary:hover { background: #A67C52; }
         .btn-next.primary.button-disabled {
             background: #D5D0CB;
             color: #9A9590;
@@ -185,14 +158,14 @@
             font-size: 14px;
             letter-spacing: 0.08em;
             padding: 13px 28px;
-            border-radius: 8px;
-            border: 1px solid #D5D0CB;
-            background: transparent;
+            border-radius: 12px;
+            border: 1px solid #E5E2DE;
+            background: #fff;
             color: #888;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        .btn-back:hover { border-color: #121212; color: #121212; }
+        .btn-back:hover { border-color: #B8956A; color: #121212; }
 
         .result-container { display: none; }
         .result-container.active {
@@ -202,9 +175,9 @@
 
         .step-link-card {
             border: 1px solid #E5E2DE;
-            border-radius: 10px;
+            border-radius: 14px;
             padding: 18px;
-            background: #FAFAFA;
+            background: #fff;
             transition: all 0.25s ease;
             text-decoration: none;
             display: flex;
@@ -212,7 +185,7 @@
             gap: 14px;
         }
         .step-link-card:hover {
-            border-color: #A67C52;
+            border-color: #B8956A;
             background: #FFFFFF;
         }
 
@@ -224,7 +197,7 @@
         }
         .dim-bar-fill {
             height: 100%;
-            background: #A67C52;
+            background: #B8956A;
             border-radius: 3px;
             transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -233,11 +206,10 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-family: 'Noto Sans TC', sans-serif;
             font-size: 11px;
-            color: #A67C52;
+            color: #B8956A;
             background: #FAF7F3;
-            border: 1px solid #EDE6DC;
+            border: 1px solid #E5E2DE;
             border-radius: 20px;
             padding: 3px 10px 3px 8px;
             cursor: pointer;
@@ -245,11 +217,11 @@
             user-select: none;
             margin-left: 8px;
         }
-        .theory-tag:hover { background: #F5EFEA; border-color: #C4A882; }
+        .theory-tag:hover { background: #F5EFEA; border-color: #B8956A; }
         .theory-tag .tag-icon {
             width: 13px; height: 13px;
             display: inline-flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 600; color: #A67C52;
+            font-size: 10px; font-weight: 600; color: #B8956A;
             transition: transform 0.2s ease;
         }
         .theory-tag.open .tag-icon { transform: rotate(45deg); }
@@ -269,7 +241,7 @@
             display: block;
             animation: panelSlideUp 0.25s ease forwards;
         }
-        .theory-detail strong { color: #A67C52; font-weight: 600; }
+        .theory-detail strong { color: #B8956A; font-weight: 600; }
         .theory-detail .theory-source {
             display: block; margin-top: 6px;
             font-size: 11px; color: #A0998F;
@@ -277,23 +249,23 @@
 
         .share-btn {
             display: inline-flex; align-items: center; gap: 6px;
-            font-family: 'Noto Sans TC', sans-serif; font-size: 13px;
-            padding: 10px 20px; border-radius: 8px; cursor: pointer;
-            transition: all 0.2s ease; border: 1px solid #D5D0CB;
-            background: white; color: #555;
+            font-size: 13px;
+            padding: 10px 20px; border-radius: 12px; cursor: pointer;
+            transition: all 0.2s ease; border: 1px solid #E5E2DE;
+            background: #EDEBE8; color: #555;
         }
-        .share-btn:hover { border-color: #A67C52; color: #A67C52; }
+        .share-btn:hover { border-color: #B8956A; color: #B8956A; }
         .share-btn.line-btn { background: #06C755; color: white; border-color: #06C755; }
         .share-btn.line-btn:hover { background: #05b34c; }
 
         .feedback-option {
             padding: 8px 16px; border: 1px solid #E5E2DE; border-radius: 20px;
-            font-family: 'Noto Sans TC', sans-serif; font-size: 13px;
-            color: #888; cursor: pointer; background: white;
+            font-size: 13px;
+            color: #888; cursor: pointer; background: #fff;
             transition: all 0.2s ease;
         }
-        .feedback-option:hover { border-color: #C4A882; color: #A67C52; }
-        .feedback-option.selected { border-color: #A67C52; background: #F8F3ED; color: #8B6A45; }
+        .feedback-option:hover { border-color: #B8956A; color: #B8956A; }
+        .feedback-option.selected { border-color: #B8956A; background: #FAF7F3; color: #8B6A45; }
 
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -302,41 +274,62 @@
     </style>
 </head>
 <body>
-    <div class="quiz-backdrop"></div>
 
-    <div class="quiz-panel">
-        <div class="panel-accent-line"></div>
+<!-- Site Nav (same as index.html / progress.html) -->
+<nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
+    <div class="flex flex-col">
+        <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+        <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
+    </div>
+    <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+        <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
+        <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
+        <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+        <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+        <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
+    </div>
+    <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+    </button>
+</nav>
 
-        <!-- 頂部：返回 + 品牌 -->
-        <div style="padding: 20px 28px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #EDEBE8;">
-            <a href="index.html" style="display: inline-flex; align-items: center; gap: 6px; font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#A67C52'" onmouseout="this.style.color='#999'">
-                <span style="font-size: 16px;">←</span> 回到擇居
-            </a>
-            <span style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; letter-spacing: 0.15em; color: #C4A882;">擇居</span>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+    <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+    </button>
+    <nav class="flex flex-col gap-8 items-center">
+        <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
+        <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+        <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+        <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+        <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+    </nav>
+</div>
+
+<!-- Header -->
+<div class="quiz-header" id="quizHeader">
+    <h1>我的決策性格</h1>
+    <p class="subtitle">選擇之前，先認識自己</p>
+</div>
+
+<div class="quiz-container">
+
+    <!-- 進度列 -->
+    <div style="margin-bottom: 24px; background: #fff; border: 1px solid #E5E2DE; border-radius: 14px; padding: 16px 20px;" id="progressArea">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+            <span style="font-size: 12px; color: #999;" id="pageIndicator">第 1 頁 / 3 頁</span>
+            <span style="font-size: 12px; color: #999;" id="questionCount">Q1 – Q4</span>
         </div>
-
-        <!-- 標頭 -->
-        <div style="padding: 32px 28px 24px;" id="quizHeader">
-            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: #A67C52; text-transform: uppercase;">我的決策性格</span>
-            <h1 style="font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 700; color: #121212; margin: 10px 0 0;">你是什麼樣的買房決策者？</h1>
-            <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; color: #888; margin: 8px 0 0;">10 道情境，4 個維度分析你的買房決策風格</p>
+        <div class="progress-track">
+            <div class="progress-fill" id="progressBar" style="width: 0%"></div>
         </div>
-
-        <!-- 進度列 -->
-        <div style="padding: 0 28px 20px; border-bottom: 1px solid #EDEBE8;" id="progressArea">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999;" id="pageIndicator">第 1 頁 / 3 頁</span>
-                <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999;" id="questionCount">Q1 – Q4</span>
-            </div>
-            <div class="progress-track">
-                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
-            </div>
-        </div>
+    </div>
 
         <!-- ═══════════════════════════════════════════ -->
         <!-- 第 1 頁：你在哪裡 -->
         <!-- ═══════════════════════════════════════════ -->
-        <div class="quiz-page active" data-page="1" style="padding: 28px;">
+        <div class="quiz-page active" data-page="1" style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
             <div style="margin-bottom: 28px;">
                 <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你現在站在哪裡</h2>
                 <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">不是考試，只是幫你定個位</p>
@@ -401,7 +394,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <!-- 第 2 頁：你怎麼做決定 -->
         <!-- ═══════════════════════════════════════════ -->
-        <div class="quiz-page" data-page="2" style="padding: 28px;">
+        <div class="quiz-page" data-page="2" style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
             <div style="margin-bottom: 28px;">
                 <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你怎麼做選擇</h2>
                 <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">沒有好壞，只有不同</p>
@@ -467,7 +460,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <!-- 第 3 頁：你怎麼面對壓力 -->
         <!-- ═══════════════════════════════════════════ -->
-        <div class="quiz-page" data-page="3" style="padding: 28px;">
+        <div class="quiz-page" data-page="3" style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
             <div style="margin-bottom: 28px;">
                 <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你怎麼面對不確定</h2>
                 <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">買房最大的壓力，不是錢</p>
@@ -533,60 +526,59 @@
         <!-- ═══════════════════════════════════════════ -->
         <!-- 結果頁面（JS 動態填充） -->
         <!-- ═══════════════════════════════════════════ -->
-        <div class="result-container" id="resultContainer" style="padding: 28px;">
+        <div class="result-container" id="resultContainer" style="padding: 0;">
 
-            <!-- 人格標籤 -->
-            <div style="margin-bottom: 28px;">
-                <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; letter-spacing: 0.15em; color: #A67C52;">你的決策傾向</span>
-                <h2 id="personaTitle" style="font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 700; color: #121212; margin: 10px 0 0; line-height: 1.3;"></h2>
+            <!-- 人格標籤 + 描述 卡片 -->
+            <div style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
+                <span style="font-size: 11px; letter-spacing: 0.15em; color: #B8956A;">你的決策傾向</span>
+                <h2 id="personaTitle" style="font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 700; color: #121212; margin: 10px 0 16px; line-height: 1.3;"></h2>
+                <p id="personaDesc" style="font-size: 15px; color: #555; line-height: 1.8; margin: 0;"></p>
             </div>
 
-            <!-- 描述 -->
-            <div style="background: #FAF8F5; border: 1px solid #EDE6DC; border-radius: 10px; padding: 22px; margin-bottom: 28px;">
-                <p id="personaDesc" style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; color: #555; line-height: 1.8; margin: 0;"></p>
-            </div>
-
-            <!-- 四維度圖 -->
-            <div style="margin-bottom: 28px;">
+            <!-- 四維度圖 卡片 -->
+            <div style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
                 <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 20px;">你的四個維度</h3>
                 <div id="dimensionBars" style="display: flex; flex-direction: column; gap: 18px;"></div>
             </div>
 
-            <!-- 盲點 -->
-            <div style="border-left: 3px solid #A67C52; padding: 16px 20px; background: #FAF8F5; border-radius: 0 8px 8px 0; margin-bottom: 28px;">
-                <h4 style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #A67C52; margin: 0 0 8px;">值得留意的是</h4>
-                <p id="personaBlindspot" style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; color: #555; line-height: 1.8; margin: 0;"></p>
+            <!-- 盲點 卡片 -->
+            <div style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
+                <div style="border-left: 3px solid #B8956A; padding-left: 16px;">
+                    <h4 style="font-size: 13px; font-weight: 600; color: #B8956A; margin: 0 0 8px;">值得留意的是</h4>
+                    <p id="personaBlindspot" style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;"></p>
+                </div>
             </div>
 
             <!-- 次要傾向（邊界時顯示） -->
-            <div id="secondaryPersona" style="display: none; background: #FAFAFA; border: 1px solid #E5E2DE; border-radius: 10px; padding: 16px 20px; margin-bottom: 28px;">
-                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;" id="secondaryText"></p>
+            <div id="secondaryPersona" style="display: none; background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 20px 24px; margin-bottom: 24px;">
+                <p style="font-size: 13px; color: #888; margin: 0 0 8px;" id="secondaryText"></p>
+                <p style="font-size: 13px; color: #666; line-height: 1.7; margin: 0;" id="secondaryDesc"></p>
             </div>
 
             <!-- 建議起點 -->
-            <div style="margin-bottom: 28px;">
+            <div style="margin-bottom: 24px;">
                 <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 16px;">從這裡開始看</h3>
                 <div id="stepLinks" style="display: flex; flex-direction: column; gap: 10px;"></div>
             </div>
 
             <!-- 其他工具 -->
-            <div style="margin-bottom: 28px;">
+            <div style="margin-bottom: 24px;">
                 <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 16px;">其他工具</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                     <div class="step-link-card" style="opacity: 0.5; cursor: not-allowed; display: block;">
-                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">真實代價</h4>
-                        <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999; margin: 0;">財務試算・即將推出</p>
+                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">我的財務診斷</h4>
+                        <p style="font-size: 12px; color: #999; margin: 0;">看清楚這個決定的代價・即將推出</p>
                     </div>
-                    <div class="step-link-card" style="opacity: 0.5; cursor: not-allowed; display: block;">
-                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">走到哪了</h4>
-                        <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #999; margin: 0;">進度追蹤・即將推出</p>
-                    </div>
+                    <a href="/progress.html" class="step-link-card" style="display: block; text-decoration: none;">
+                        <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">我的買房地圖</h4>
+                        <p style="font-size: 12px; color: #999; margin: 0;">看看你走到 18 步的哪了 →</p>
+                    </a>
                 </div>
             </div>
 
-            <!-- 分享 -->
-            <div style="margin-bottom: 28px; padding: 20px; background: #FAFAFA; border: 1px solid #E5E2DE; border-radius: 10px;">
-                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; color: #555; margin: 0 0 14px;">你的朋友可能也在想買房</p>
+            <!-- 分享 卡片 -->
+            <div style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+                <p style="font-size: 14px; color: #555; margin: 0 0 14px;">你的朋友可能也在想買房</p>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <button onclick="copyResultLink()" class="share-btn" id="copyBtn">📋 複製我的結果連結</button>
                     <button onclick="shareToLine()" class="share-btn line-btn">💬 分享到 LINE</button>
@@ -594,29 +586,30 @@
             </div>
 
             <!-- 回饋 -->
-            <div style="margin-bottom: 28px; text-align: center;" id="feedbackArea">
-                <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 0 0 12px;">你看完這段描述，覺得像在說你嗎？</p>
+            <div style="margin-bottom: 24px; text-align: center;" id="feedbackArea">
+                <p style="font-size: 13px; color: #999; margin: 0 0 12px;">你看完這段描述，覺得像在說你嗎？</p>
                 <div style="display: flex; gap: 8px; justify-content: center;">
                     <button class="feedback-option" onclick="submitFeedback('very')">很像</button>
                     <button class="feedback-option" onclick="submitFeedback('somewhat')">有些像</button>
                     <button class="feedback-option" onclick="submitFeedback('not_really')">不太像</button>
                 </div>
                 <div id="feedbackThanks" style="display: none; margin-top: 12px;">
-                    <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #A67C52; margin: 0;">收到，謝謝你的回饋。</p>
+                    <p style="font-size: 13px; color: #B8956A; margin: 0;">收到，謝謝你的回饋。</p>
                 </div>
             </div>
 
             <!-- 重來 -->
             <div style="text-align: center; padding-top: 16px;">
-                <button onclick="resetQuiz()" style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; background: none; border: none; cursor: pointer;">重新開始</button>
+                <button onclick="resetQuiz()" style="font-size: 13px; color: #999; background: none; border: none; cursor: pointer;">重新開始</button>
             </div>
         </div>
 
-        <!-- 頁尾 -->
-        <div style="padding: 24px 28px; border-top: 1px solid #EDEBE8; text-align: center;" id="panelFooter">
-            <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 11px; color: #BBB; margin: 0;">&copy; 2026 擇居 — 本診斷不構成投資或財務建議</p>
-        </div>
+    <!-- /quiz-container -->
+    </div>
 
+    <!-- 頁尾 -->
+    <div style="max-width: 680px; margin: 0 auto; padding: 24px 20px; text-align: center;">
+        <p style="font-size: 11px; color: #BBB; margin: 0;">&copy; 2026 擇居 — 本診斷不構成投資或財務建議</p>
     </div>
 
     <script>
@@ -955,7 +948,7 @@
                 <div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                         <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #333;">${label.name}</span>
-                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #A67C52;">${descText}</span>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #B8956A;">${descText}</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; text-align: right; flex-shrink: 0;">${label.low}</span>
@@ -972,7 +965,8 @@
         if (result.secondary && personas[result.secondary]) {
             const sec = personas[result.secondary];
             document.getElementById('secondaryText').textContent =
-                `你也有一些「${sec.title}」的傾向——在某些情境下，你可能會切換到那個模式。`;
+                `你也有一些「${sec.title}」的傾向`;
+            document.getElementById('secondaryDesc').textContent = sec.desc;
             document.getElementById('secondaryPersona').style.display = 'block';
         }
 
@@ -982,7 +976,7 @@
         persona.steps.forEach(s => {
             stepsEl.innerHTML += `
                 <a href="step/${s.num}.html" class="step-link-card">
-                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #A67C52; flex-shrink: 0;">${s.num}</span>
+                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #B8956A; flex-shrink: 0;">${s.num}</span>
                     <div>
                         <h4 style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #121212; margin: 0 0 4px;">第 ${parseInt(s.num)} 步：${s.name}</h4>
                         <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;">${s.tip}</p>
@@ -1173,7 +1167,7 @@
                 <div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                         <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #333;">${label.name}</span>
-                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #A67C52;">${descText}</span>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #B8956A;">${descText}</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; text-align: right; flex-shrink: 0;">${label.low}</span>
@@ -1187,8 +1181,10 @@
         });
 
         if (secondaryId && personas[secondaryId]) {
+            const sec = personas[secondaryId];
             document.getElementById('secondaryText').textContent =
-                `你也有一些「${personas[secondaryId].title}」的傾向——在某些情境下，你可能會切換到那個模式。`;
+                `你也有一些「${sec.title}」的傾向`;
+            document.getElementById('secondaryDesc').textContent = sec.desc;
             document.getElementById('secondaryPersona').style.display = 'block';
         }
 
@@ -1197,7 +1193,7 @@
         persona.steps.forEach(s => {
             stepsEl.innerHTML += `
                 <a href="step/${s.num}.html" class="step-link-card">
-                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #A67C52; flex-shrink: 0;">${s.num}</span>
+                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #B8956A; flex-shrink: 0;">${s.num}</span>
                     <div>
                         <h4 style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #121212; margin: 0 0 4px;">第 ${parseInt(s.num)} 步：${s.name}</h4>
                         <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;">${s.tip}</p>
@@ -1216,6 +1212,9 @@
 
     updateProgressBar();
     updatePageIndicator();
+
+    // Initialize Lucide icons (for nav hamburger menu)
+    if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>
 </body>
 </html>

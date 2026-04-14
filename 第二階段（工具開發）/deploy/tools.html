@@ -57,9 +57,28 @@
             margin-bottom: 2rem;
         }
 
-        /* Tool card */
-        a.tool-card { text-decoration: none; color: inherit; cursor: pointer; display: block; }
-        .tool-card {
+        /* Tool card — clickable */
+        a.tool-card {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            display: block;
+            border: 2px solid #B8956A;
+            border-radius: 12px;
+            padding: 2.5rem;
+            background: #FFFCF8;
+            transition: all 0.35s ease;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(184,149,106,0.06);
+        }
+        a.tool-card:hover {
+            border-color: #A07B4E;
+            background: #FFF9F2;
+            box-shadow: 0 6px 28px rgba(184,149,106,0.14);
+            transform: translateY(-2px);
+        }
+        /* Tool card — static (開發中) */
+        div.tool-card {
             border: 1px solid #E5E5E5;
             border-radius: 12px;
             padding: 2.5rem;
@@ -67,9 +86,8 @@
             transition: all 0.35s ease;
             position: relative;
         }
-        .tool-card:hover {
-            border-color: #B8956A;
-            box-shadow: 0 4px 24px rgba(184,149,106,0.08);
+        div.tool-card:hover {
+            border-color: #D5D5D5;
         }
         .tool-card .tool-num {
             font-family: 'Noto Serif TC', serif;
@@ -80,6 +98,9 @@
             position: absolute;
             top: 1.5rem;
             right: 2rem;
+        }
+        a.tool-card .tool-num {
+            color: rgba(184,149,106,0.18);
         }
         .tool-card .tool-icon {
             width: 48px;
@@ -205,7 +226,7 @@
         <!-- TOOL 1: 我的決策性格 -->
         <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
             <div class="max-w-7xl mx-auto">
-                <div class="blueprint-label">01 / 我的決策性格</div>
+                <div class="blueprint-label">工具 01 / 我的決策性格</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                     <div class="lg:col-span-5">
                         <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 leading-snug mb-4">
@@ -242,7 +263,7 @@
         <!-- TOOL 2: 我的買房地圖 -->
         <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
             <div class="max-w-7xl mx-auto">
-                <div class="blueprint-label">02 / 我的買房地圖</div>
+                <div class="blueprint-label">工具 02 / 我的買房地圖</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                     <div class="lg:col-span-5">
                         <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 leading-snug mb-4">
@@ -279,7 +300,7 @@
         <!-- TOOL 3: 我的財務診斷 -->
         <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
             <div class="max-w-7xl mx-auto">
-                <div class="blueprint-label">03 / 我的財務診斷</div>
+                <div class="blueprint-label">工具 03 / 我的財務診斷</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                     <div class="lg:col-span-5">
                         <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 leading-snug mb-4">

@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Firebase SDK (compat mode for static site) -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -282,17 +283,7 @@
         .modal-actions .cancel { background: #fff; color: #888; }
         .modal-actions .confirm { background: #B8956A; color: #fff; border-color: #B8956A; }
 
-        /* ── Nav ── */
-        .top-nav {
-            padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid #E5E2DE;
-        }
-        .top-nav a { color: #B8956A; text-decoration: none; font-size: 14px; }
-        .top-nav a:hover { text-decoration: underline; }
-        .top-nav .brand {
-            font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700;
-            color: #121212; text-decoration: none;
-        }
+        /* ── Nav (uses Tailwind classes, minimal overrides) ── */
 
         /* ── LINE Login Banner ── */
         .line-login-banner {
@@ -376,10 +367,36 @@
 </head>
 <body>
 
-<!-- Top Nav -->
-<div class="top-nav">
-    <a href="index.html" class="brand">擇居</a>
-    <a href="index.html">← 回到首頁</a>
+<!-- Site Nav (same as index.html) -->
+<nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
+    <div class="flex flex-col">
+        <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+        <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
+    </div>
+    <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+        <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
+        <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
+        <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+        <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+        <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
+    </div>
+    <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+    <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+    </button>
+    <nav class="flex flex-col gap-8 items-center">
+        <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
+        <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+        <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+        <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+        <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+    </nav>
 </div>
 
 <!-- Header -->
@@ -424,7 +441,7 @@
     <!-- LINE Login Banner -->
     <div class="line-login-banner" id="lineLoginBanner" style="display:none;" onclick="LineLiff.login()">
         <span class="line-icon">💬</span>
-        <span class="line-text">連結 LINE 帳號，<strong>跨裝置同步進度</strong>，換手機也不怕丟。</span>
+        <span class="line-text">連結 LINE，<strong>進度不會丟</strong>。</span>
         <button class="line-action">連結 LINE</button>
     </div>
 
@@ -1300,6 +1317,9 @@ function renderPartnerOverlay(partnerState) {
         }
     }
 })();
+
+// Initialize Lucide icons (for nav hamburger menu)
+if (typeof lucide !== 'undefined') lucide.createIcons();
 </script>
 </body>
 </html>
