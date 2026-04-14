@@ -177,6 +177,19 @@
         .step-notes:focus { outline: none; border-color: #B8956A; }
         .step-notes::placeholder { color: #CCC; }
 
+        /* Locked note (想清楚了) */
+        .step-note-locked {
+            width: 100%; border: 1px solid #D4E4D4; border-radius: 10px;
+            padding: 12px 14px; font-size: 13px; font-family: 'Noto Sans TC', sans-serif;
+            color: #555; background: #F5FAF5; line-height: 1.7;
+            white-space: pre-wrap; word-break: break-word;
+        }
+        .step-note-locked .note-content { color: #444; }
+        .step-note-locked .note-empty { color: #AAA; font-style: italic; font-size: 12px; }
+        .step-note-edit-hint {
+            font-size: 11px; color: #BBB; margin-top: 4px;
+        }
+
         /* ── Persona Tip ── */
         .persona-tip {
             font-size: 12px; color: #B8956A; background: #FDF6EE;
@@ -184,6 +197,7 @@
             line-height: 1.6; display: none;
         }
         .persona-tip.visible { display: block; }
+        .step-card[data-status="clear"] .persona-tip { display: none; }
 
         /* ── Step Link ── */
         .step-link {
@@ -349,6 +363,7 @@
 
             /* Notes */
             .step-notes { font-size: 15px; padding: 14px 16px; min-height: 80px; }
+            .step-note-locked { font-size: 14px; padding: 14px 16px; }
 
             /* Partner hint */
             .partner-hint { padding: 16px; }
@@ -450,12 +465,14 @@
         <span class="dot"></span><span class="sync-text"></span>
     </div>
 
-    <!-- Partner Hint (gentle prompt above the map) -->
+    <!-- Partner Hint (hidden — 雙人模式暫時收起，等共同筆記功能成熟後再上線) -->
+    <!--
     <div class="partner-hint" id="partnerHint" onclick="showPartnerModal()">
-        <span class="partner-hint-icon">👫</span>
+        <span class="partner-hint-icon">🤝</span>
         <span class="partner-hint-text">買房是兩個人的決定？<strong>開啟雙人模式</strong>，看到彼此的進度。</span>
         <span class="partner-hint-arrow">→</span>
     </div>
+    -->
 
     <!-- Path Map -->
     <div id="pathMap"></div>
@@ -464,18 +481,20 @@
 
 <!-- Toolbar -->
 <div class="toolbar">
-    <button class="toolbar-btn" onclick="LineLiff.shareProgress()" style="border-color:#06C755;color:#06C755;">📤 分享給另一半</button>
+    <!-- 分享按鈕暫時收起，等雙人模式重新設計後再上線 -->
+    <!-- <button class="toolbar-btn" onclick="LineLiff.shareProgress()" style="border-color:#06C755;color:#06C755;">📤 分享給對方</button> -->
     <button class="toolbar-btn primary" onclick="expandAll()">展開全部</button>
 </div>
 
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<!-- Partner Mode Modal -->
+<!-- Partner Mode Modal (hidden — 等共同筆記功能成熟後再上線) -->
+<!--
 <div class="modal-overlay" id="partnerModal">
     <div class="modal-box">
-        <h3>👫 雙人模式</h3>
-        <p>買房是兩個人的事。把你的配對碼分享給另一半，就能看到彼此的進度。</p>
+        <h3>🤝 雙人模式</h3>
+        <p>買房是兩個人的事。把你的配對碼分享給對方，就能看到彼此的進度。</p>
         <div style="margin-bottom:16px;">
             <label style="font-size:12px;color:#888;display:block;margin-bottom:4px;">你的配對碼</label>
             <div style="display:flex;gap:8px;align-items:center;">
@@ -483,7 +502,7 @@
                 <button onclick="copyPairCode()" style="padding:8px 12px;border:1px solid #B8956A;color:#B8956A;background:transparent;border-radius:8px;cursor:pointer;font-size:12px;white-space:nowrap;">複製</button>
             </div>
         </div>
-        <div style="margin-bottom:8px;">
+        <div style="margin-bottom:8px;" id="partnerInputArea">
             <label style="font-size:12px;color:#888;display:block;margin-bottom:4px;">輸入對方的配對碼</label>
             <div style="display:flex;gap:8px;align-items:center;">
                 <input type="text" id="partnerCodeInput" placeholder="貼上對方的配對碼" style="flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;">
@@ -496,6 +515,7 @@
         </div>
     </div>
 </div>
+-->
 
 <script>
 // ══════════════════════════════════════════════
@@ -773,9 +793,16 @@ function renderPath() {
                             onclick="setStatus('${stepId}','clear')">想清楚了</button>
                 </div>
                 <div class="step-notes-area">
-                    <textarea class="step-notes"
+                    ${stepState.status === 'clear'
+                        ? `<div class="step-note-locked">
+                              ${stepState.notes
+                                  ? `<div class="note-content">${stepState.notes.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>`
+                                  : `<div class="note-empty">沒有留下筆記</div>`}
+                           </div>
+                           <div class="step-note-edit-hint">切回「正在想」即可修改筆記</div>`
+                        : `<textarea class="step-notes"
                               placeholder="${step.placeholder}"
-                              oninput="saveNotes('${stepId}', this.value)">${stepState.notes}</textarea>
+                              oninput="saveNotes('${stepId}', this.value)">${stepState.notes}</textarea>`}
                     ${tipHtml}
                     ${depHtml}
                 </div>
@@ -814,6 +841,34 @@ function setStatus(stepId, status) {
     const buttons = card.querySelectorAll('.status-btn');
     const idx = ['not_started','thinking','clear'].indexOf(status);
     if (idx >= 0) buttons[idx].classList.add('active-' + status);
+
+    // Re-render notes area (lock/unlock based on status)
+    const notesArea = card.querySelector('.step-notes-area');
+    if (notesArea) {
+        const stepState = state.steps[stepId];
+        const step = STEPS[stepId];
+        // Preserve tip and dep HTML
+        const tipEl = notesArea.querySelector('.persona-tip');
+        const depEl = notesArea.querySelector('.dep-hint');
+        const tipHtml = tipEl ? tipEl.outerHTML : '';
+        const depHtml = depEl ? depEl.outerHTML : '';
+
+        if (status === 'clear') {
+            const escaped = stepState.notes ? stepState.notes.replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';
+            notesArea.innerHTML = `
+                <div class="step-note-locked">
+                    ${escaped ? `<div class="note-content">${escaped}</div>` : `<div class="note-empty">沒有留下筆記</div>`}
+                </div>
+                <div class="step-note-edit-hint">切回「正在想」即可修改筆記</div>
+                ${tipHtml}${depHtml}`;
+        } else if (status === 'thinking') {
+            notesArea.innerHTML = `
+                <textarea class="step-notes"
+                          placeholder="${step.placeholder}"
+                          oninput="saveNotes('${stepId}', this.value)">${stepState.notes}</textarea>
+                ${tipHtml}${depHtml}`;
+        }
+    }
 
     // Update phase status
     const phase = PHASES.find(p => p.steps.includes(stepId));
@@ -1030,12 +1085,15 @@ const LineLiff = {
     },
 
     async shareProgress() {
+        console.log('shareProgress called — ready:', this.ready, 'isLoggedIn:', this.ready && liff.isLoggedIn(), 'profile:', !!this.profile);
+
+        // If LIFF not ready or not logged in, fall back to clipboard share
         if (!this.ready || !liff.isLoggedIn()) {
-            showToast('請先連結 LINE 帳號');
+            this.fallbackShare();
             return;
         }
         if (!liff.isApiAvailable('shareTargetPicker')) {
-            showToast('請在 LINE 中開啟使用分享功能');
+            this.fallbackShare();
             return;
         }
 
@@ -1111,7 +1169,17 @@ const LineLiff = {
             showToast('已分享進度！');
         } catch(e) {
             console.warn('分享失敗', e);
-            showToast('分享取消或失敗');
+            this.fallbackShare();
+        }
+    },
+
+    fallbackShare() {
+        const completed = Object.values(state.steps).filter(s => s.status === 'decided').length;
+        const text = `我正在用擇居追蹤買房進度，已經想清楚 ${completed}/18 步了。一起來看看？\nhttps://howhouse.tw/progress.html`;
+        if (navigator.share) {
+            navigator.share({ title: '擇居 — 我的買房地圖', text }).catch(() => {});
+        } else {
+            navigator.clipboard.writeText(text).then(() => showToast('已複製分享文字'));
         }
     }
 };
@@ -1210,10 +1278,10 @@ function showPartnerModal() {
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         }, { merge: true }).catch(e => console.warn('配對碼儲存失敗', e));
 
-        // Check if already paired
+        // Check if already paired — show paired state
         const savedPartner = localStorage.getItem('zeju_partner_code');
         if (savedPartner) {
-            document.getElementById('partnerCodeInput').value = savedPartner;
+            showPartnerModalPairedState(savedPartner);
             document.getElementById('partnerStatus').innerHTML = '✅ 已配對，重新整理頁面可看到對方進度';
         }
     } else {
@@ -1239,10 +1307,24 @@ async function linkPartner() {
         return;
     }
 
+    // Block self-pairing
+    const myCode = document.getElementById('myPairCode').value;
+    if (partnerCode === myCode) {
+        document.getElementById('partnerStatus').innerHTML = '⚠️ 這是你自己的配對碼，請輸入對方的';
+        return;
+    }
+
     try {
         const doc = await db.collection('pairCodes').doc(partnerCode).get();
         if (doc.exists) {
             const partnerUid = doc.data().uid;
+
+            // Extra check: don't pair with self even if code differs somehow
+            if (partnerUid === FirebaseSync.userId) {
+                document.getElementById('partnerStatus').innerHTML = '⚠️ 這是你自己的帳號，請輸入對方的配對碼';
+                return;
+            }
+
             localStorage.setItem('zeju_partner_code', partnerCode);
             localStorage.setItem('zeju_partner_uid', partnerUid);
 
@@ -1253,6 +1335,7 @@ async function linkPartner() {
             }, { merge: true });
 
             document.getElementById('partnerStatus').innerHTML = '✅ 配對成功！重新整理頁面即可看到對方進度';
+            showPartnerModalPairedState(partnerCode);
             showToast('配對成功！');
 
             // Load partner progress
@@ -1264,6 +1347,45 @@ async function linkPartner() {
         console.warn('配對失敗', e);
         document.getElementById('partnerStatus').innerHTML = '❌ 配對失敗，請稍後再試';
     }
+}
+
+function showPartnerModalPairedState(code) {
+    const inputArea = document.getElementById('partnerInputArea');
+    if (inputArea) {
+        inputArea.innerHTML = `
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#F0F5F0;border:1px solid #C8DFC8;border-radius:8px;">
+                <span style="font-size:13px;color:#555;">已與 <strong style="font-family:monospace;letter-spacing:1px;">${code}</strong> 配對中</span>
+                <button onclick="unlinkPartner()" style="font-size:12px;color:#999;background:none;border:1px solid #ddd;border-radius:6px;padding:4px 10px;cursor:pointer;">解除配對</button>
+            </div>`;
+    }
+}
+
+async function unlinkPartner() {
+    localStorage.removeItem('zeju_partner_code');
+    localStorage.removeItem('zeju_partner_uid');
+
+    // Remove from Firestore
+    if (FirebaseSync.userId) {
+        try {
+            await db.collection('users').doc(FirebaseSync.userId).update({
+                partnerId: firebase.firestore.FieldValue.delete(),
+                partnerCode: firebase.firestore.FieldValue.delete()
+            });
+        } catch(e) { console.warn('解除配對 Firestore 更新失敗', e); }
+    }
+
+    // Clear partner badges from UI
+    document.querySelectorAll('.partner-badge').forEach(b => b.remove());
+
+    // Reset partner hint
+    const hint = document.getElementById('partnerHint');
+    if (hint) {
+        hint.classList.remove('linked');
+        hint.querySelector('.partner-hint-text').innerHTML = '買房是兩個人的決定？<strong>開啟雙人模式</strong>，看到彼此的進度。';
+    }
+
+    showToast('已解除配對');
+    hidePartnerModal();
 }
 
 async function loadPartnerProgress(partnerUid) {
@@ -1291,10 +1413,10 @@ function renderPartnerOverlay(partnerState) {
         }
 
         if (partnerStep.status === 'clear') {
-            badge.textContent = '👫✅';
+            badge.textContent = '🤝✅';
             badge.title = '對方已想清楚';
         } else if (partnerStep.status === 'thinking') {
-            badge.textContent = '👫🔄';
+            badge.textContent = '🤝🔄';
             badge.title = '對方正在想';
         } else {
             badge.textContent = '';
@@ -1310,7 +1432,7 @@ function renderPartnerOverlay(partnerState) {
         const hint = document.getElementById('partnerHint');
         if (hint) {
             hint.classList.add('linked');
-            hint.querySelector('.partner-hint-text').innerHTML = '已配對 👫 <strong>雙人模式運作中</strong>，你們可以看到彼此的進度。';
+            hint.querySelector('.partner-hint-text').innerHTML = '已配對 🤝 <strong>雙人模式運作中</strong>，你們可以看到彼此的進度。';
         }
         if (FirebaseSync.initialized) {
             setTimeout(() => loadPartnerProgress(partnerUid), 2000);
