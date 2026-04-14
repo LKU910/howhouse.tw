@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>決策工具｜擇居</title>
+    <meta name="description" content="三個工具，幫你在買房路上做出更清醒的選擇。認識你的決策性格、掌握 18 步進度、看清財務現實。">
+    <meta name="keywords" content="買房工具,買房測驗,買房進度,買房試算,決策工具,擇居,首購族">
+    <link rel="canonical" href="https://howhouse.tw/tools.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="決策工具｜擇居">
+    <meta property="og:description" content="三個工具，幫你在買房路上做出更清醒的選擇。認識你的決策性格、掌握 18 步進度、看清財務現實。">
+    <meta property="og:url" content="https://howhouse.tw/tools.html">
+    <meta property="og:site_name" content="擇居">
+    <meta property="og:locale" content="zh_TW">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="決策工具｜擇居">
+    <meta name="twitter:description" content="三個工具，幫你在買房路上做出更清醒的選擇。認識你的決策性格、掌握 18 步進度、看清財務現實。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="tailwind.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #FAFAFA;
+            color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            word-break: break-word;
+            -webkit-text-size-adjust: 100%;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E5E5E5; }
+        ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
+        input:focus { outline: none; }
+
+        .blueprint-label {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+
+        /* Tool card */
+        a.tool-card { text-decoration: none; color: inherit; cursor: pointer; display: block; }
+        .tool-card {
+            border: 1px solid #E5E5E5;
+            border-radius: 12px;
+            padding: 2.5rem;
+            background: #FAFAFA;
+            transition: all 0.35s ease;
+            position: relative;
+        }
+        .tool-card:hover {
+            border-color: #B8956A;
+            box-shadow: 0 4px 24px rgba(184,149,106,0.08);
+        }
+        .tool-card .tool-num {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(184,149,106,0.10);
+            line-height: 1;
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+        }
+        .tool-card .tool-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .tool-card:hover .tool-icon {
+            transform: scale(1.05);
+        }
+        .tool-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            color: #B8956A;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .tool-cta:hover {
+            gap: 12px;
+        }
+        .tool-cta svg {
+            transition: transform 0.3s ease;
+        }
+        .tool-cta:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Status badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .status-badge.ready {
+            color: #B8956A;
+            border: 1px solid #B8956A;
+            background: rgba(184,149,106,0.06);
+        }
+        .status-badge.coming {
+            color: #999;
+            border: 1px solid #E5E5E5;
+            background: rgba(0,0,0,0.02);
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://howhouse.tw/"},
+            {"@type": "ListItem", "position": 2, "name": "決策工具", "item": "https://howhouse.tw/tools.html"}
+        ]
+    }
+    </script>
+</head>
+<body class="font-sans bg-stone-50 min-h-screen flex flex-col">
+<!-- NAV:START -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
+            <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
+            <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+            <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+        </nav>
+    </div>
+<!-- NAV:END -->
+
+    <!-- Main Content -->
+    <main class="w-full">
+
+        <!-- HERO -->
+        <section class="px-6 md:px-12 py-16 md:py-24">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                <div class="lg:col-span-8">
+                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-stone-900">
+                        決策工具
+                    </h1>
+                </div>
+                <div class="lg:col-span-4 pb-2">
+                    <div class="font-sans text-base text-stone-600 leading-relaxed">
+                        <span id="toolsDesc"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOL 1: 我的決策性格 -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">01 / 我的決策性格</div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 leading-snug mb-4">
+                            選擇之前，<br>先認識自己
+                        </h2>
+                        <p class="font-sans text-base text-stone-500 leading-relaxed">
+                            你是那種研究三個月還在猶豫的人，還是看了兩間就想下訂的人？買房不只是選房子，也是在考驗你的決策模式。
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <a href="quiz.html" class="tool-card block text-decoration-none">
+                            <div class="tool-num">01</div>
+                            <div class="tool-icon" style="background: rgba(184,149,106,0.08);">
+                                <i data-lucide="compass" class="w-5 h-5 stroke-[1.5]" style="color: #B8956A;"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">我的決策性格</h3>
+                            <p class="font-sans text-sm text-stone-500 leading-relaxed mb-1">10 道情境題，4 個維度分析你的買房決策風格</p>
+                            <div class="mt-3 mb-5">
+                                <span class="status-badge ready">可以使用</span>
+                            </div>
+                            <p class="font-sans text-sm text-stone-600 leading-relaxed mb-6">
+                                不是告訴你「該買什麼」，而是讓你看見自己做選擇時的慣性和盲點。8 種買房人格，每一種都有值得留意的地方。
+                            </p>
+                            <span class="tool-cta">
+                                選擇之前，先認識自己
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOL 2: 我的買房地圖 -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">02 / 我的買房地圖</div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 leading-snug mb-4">
+                            看看你走到<br>18 步的哪了
+                        </h2>
+                        <p class="font-sans text-base text-stone-500 leading-relaxed">
+                            買房流程漫長，常常走到一半就忘了自己在哪。這不是待辦清單，是一張讓你隨時定位的地圖。
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <a href="progress.html" class="tool-card block text-decoration-none">
+                            <div class="tool-num">02</div>
+                            <div class="tool-icon" style="background: rgba(74,93,106,0.08);">
+                                <i data-lucide="map" class="w-5 h-5 stroke-[1.5]" style="color: #4A5D6A;"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">我的買房地圖</h3>
+                            <p class="font-sans text-sm text-stone-500 leading-relaxed mb-1">18 個步驟、7 個階段，標記你「想清楚了沒」</p>
+                            <div class="mt-3 mb-5">
+                                <span class="status-badge ready">可以使用</span>
+                            </div>
+                            <p class="font-sans text-sm text-stone-600 leading-relaxed mb-6">
+                                每一步有三種狀態：尚未面對、正在想、想清楚了。沒有人幫你打勾，只有你自己知道。附筆記功能，把猶豫的原因留下來。
+                            </p>
+                            <span class="tool-cta">
+                                看看你走到 18 步的哪了
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOL 3: 我的財務診斷 -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="blueprint-label">03 / 我的財務診斷</div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-5">
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 leading-snug mb-4">
+                            看清楚這個<br>決定的代價
+                        </h2>
+                        <p class="font-sans text-base text-stone-500 leading-relaxed">
+                            仲介給你的月付金只是開始。管理費、稅費、裝修、機會成本——把所有藏起來的數字攤開來看。
+                        </p>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <div class="tool-card">
+                            <div class="tool-num">03</div>
+                            <div class="tool-icon" style="background: rgba(156,74,56,0.08);">
+                                <i data-lucide="calculator" class="w-5 h-5 stroke-[1.5]" style="color: #9C4A38;"></i>
+                            </div>
+                            <h3 class="font-serif text-xl font-bold text-stone-900 mb-2">我的財務診斷</h3>
+                            <p class="font-sans text-sm text-stone-500 leading-relaxed mb-1">超越月付金，算出這個決定的真實總成本</p>
+                            <div class="mt-3 mb-5">
+                                <span class="status-badge coming">開發中</span>
+                            </div>
+                            <p class="font-sans text-sm text-stone-600 leading-relaxed mb-6">
+                                不只算房貸月付金。頭期款怎麼湊、每月真正的負擔有多重、買了之後生活品質會怎樣——這些才是你真正需要面對的數字。
+                            </p>
+                            <span class="font-sans text-sm text-stone-400">即將推出</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTTOM: 回到 18 步 -->
+        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+            <div class="max-w-7xl mx-auto text-center">
+                <p class="font-sans text-base text-stone-500 mb-6">
+                    工具是輔助，路還是要自己走。
+                </p>
+                <a href="index.html#buyingFlow" class="inline-flex items-center gap-2 font-sans text-sm text-stone-500 hover:text-architect-bronze border border-stone-200 hover:border-architect-bronze rounded-lg px-6 py-3 transition-all duration-300">
+                    回到買房 18 步
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+<!-- FOOTER:START -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                    <a href="privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+<!-- FOOTER:END -->
+
+    <script>
+        lucide.createIcons();
+
+        // Typewriter effect (same as trends/about/builders)
+        (function() {
+            const el = document.getElementById('toolsDesc');
+            const lines = ['買房最難的，不是找到房子。', '是在資訊轟炸裡，做出不會後悔的選擇。'];
+            let lineIdx = 0, charIdx = 0;
+            function type() {
+                if (lineIdx >= lines.length) return;
+                if (charIdx <= lines[lineIdx].length) {
+                    let html = '';
+                    for (let i = 0; i < lines.length; i++) {
+                        if (i < lineIdx) html += lines[i] + '<br>';
+                        else if (i === lineIdx) {
+                            html += lines[i].substring(0, charIdx);
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #B8956A;padding-right:2px;">&nbsp;</span>';
+                        }
+                    }
+                    el.innerHTML = html;
+                    charIdx++;
+                    setTimeout(type, 45);
+                } else { lineIdx++; charIdx = 0; setTimeout(type, 400); }
+            }
+            setTimeout(type, 400);
+        })();
+    </script>
+</body>
+</html>

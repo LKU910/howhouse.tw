@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# Build artifacts (tailwind.css 由 build-css.sh 產生，但仍需 commit 至 repo)
+# 注意：deploy/ 資料夾需要全部 commit，因為 Vercel 直接讀取靜態檔案
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Database (舊版，已封存)
+*.db
+*.db-journal
+
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

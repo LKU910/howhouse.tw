@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>好宅通｜終版整合戰略報告</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --bg:      #0d0c0a;
+  --bg2:     #131210;
+  --bg3:     #1a1916;
+  --bg4:     #222018;
+  --line:    #242018;
+  --line2:   #2e2a22;
+  --gold:    #c49a3c;
+  --gold-lt: #ddb96a;
+  --gold-d:  #5a3c0e;
+  --sage:    #6aab80;
+  --sage-d:  #1c3826;
+  --red:     #b86060;
+  --red-d:   #361616;
+  --sky:     #6898c8;
+  --sky-d:   #162030;
+  --clay:    #c08858;
+  --clay-d:  #301808;
+  --text:    #ddd5c5;
+  --t2:      #908070;
+  --t3:      #504840;
+  --t4:      #282018;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', 'Noto Serif TC', sans-serif;
+  font-weight: 300;
+  font-size: 13.5px;
+  line-height: 1.8;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 64px 40px 100px;
+}
+
+/* ── Cover ── */
+.cover {
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--line2);
+  margin-bottom: 64px;
+}
+.cover-eye {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 18px;
+}
+.cover-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.cover-sub {
+  font-size: 14px;
+  color: var(--t2);
+  margin-bottom: 24px;
+}
+.cover-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  border: 1px solid var(--line2);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+/* ── Section ── */
+.sec { margin-bottom: 72px; }
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.sec-n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  flex-shrink: 0;
+}
+.sec-t {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+}
+.sec-line { flex: 1; height: 1px; background: var(--line2); }
+
+/* ── Statement ── */
+.stmt {
+  background: var(--bg2);
+  border: 1px solid var(--gold-d);
+  border-radius: 6px;
+  padding: 30px 34px;
+  margin-bottom: 14px;
+}
+.stmt-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.stmt p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 2;
+  margin-bottom: 10px;
+}
+.stmt p:last-child { margin-bottom: 0; }
+.stmt strong { color: var(--gold-lt); font-weight: 500; }
+
+/* ── System Flow ── */
+.flow {
+  background: var(--bg2);
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-bottom: 12px;
+}
+.flow-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.flow-row:last-child { margin-bottom: 0; }
+.flow-node {
+  background: var(--bg3);
+  border: 1px solid var(--line2);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.flow-node.gold  { border-color: var(--gold-d);  color: var(--gold-lt); background: #1a1408; }
+.flow-node.sage  { border-color: #2a5038;         color: var(--sage);    background: #0e1e12; }
+.flow-node.sky   { border-color: #1e3850;         color: var(--sky);     background: #0a1420; }
+.flow-node.clay  { border-color: #3a2010;         color: var(--clay);    background: #180c04; }
+.flow-arrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--t3);
+  padding: 0 10px;
+}
+.flow-split {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.flow-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--t3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ── Tool Cards ── */
+.tool-block {
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.tool-head {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 22px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--line);
+}
+.tool-seq {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--line2);
+  line-height: 1;
+}
+.tool-title { font-size: 14px; font-weight: 500; color: var(--text); }
+.tool-sub   { font-size: 11.5px; color: var(--t2); margin-top: 2px; }
+.tool-diff {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.diff-easy { background: var(--sage-d); color: var(--sage); }
+.diff-mid  { background: var(--sky-d);  color: var(--sky); }
+
+.tool-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+.tool-col {
+  padding: 18px 20px;
+  border-right: 1px solid var(--line);
+}
+.tool-col:last-child { border-right: none; }
+.col-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 10px;
+}
+.col-list { list-style: none; }
+.col-list li {
+  font-size: 12px;
+  color: var(--t2);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.5;
+}
+.col-list li:last-child { border-bottom: none; }
+.col-list li strong { color: var(--text); font-weight: 500; }
+
+.tool-result {
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  padding: 16px 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.result-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 8px;
+}
+.result-copy {
+  font-size: 12px;
+  color: var(--t2);
+  line-height: 1.7;
+  font-style: italic;
+  border-left: 2px solid var(--line2);
+  padding-left: 12px;
+}
+.cta-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.cta-btn {
+  font-size: 11px;
+  color: var(--t2);
+  background: var(--bg3);
+  border: 1px solid var(--line2);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.cta-arrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+}
+
+/* ── Phase Table ── */
+.phase {
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.phase-head {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 13px 20px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--line);
+}
+.ph-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+.ph-title { font-size: 13.5px; font-weight: 500; color: var(--text); }
+.ph-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+.badge-1 { background: var(--sage-d); color: var(--sage); }
+.badge-2 { background: var(--sky-d);  color: var(--sky); }
+.badge-3 { background: var(--clay-d); color: var(--clay); }
+
+.phase-body { padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.col-t {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 10px;
+}
+.act-list { list-style: none; }
+.act-item {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+.act-item:last-child { border-bottom: none; }
+.dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.dg { background: var(--gold); }
+.ds { background: var(--sage); }
+.dk { background: var(--sky); }
+.dc { background: var(--clay); }
+.act-t { font-size: 12.5px; color: var(--t2); line-height: 1.6; }
+.act-t strong { color: var(--text); font-weight: 500; }
+
+/* ── Placement Grid ── */
+.place-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.place-card {
+  background: var(--bg2);
+  border: 1px solid var(--line2);
+  border-radius: 5px;
+  padding: 18px 18px;
+}
+.place-pg {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.place-main {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.place-sub { font-size: 12px; color: var(--t2); line-height: 1.6; }
+
+/* ── Principles ── */
+.principle-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.principle-row:first-child { border-top: 1px solid var(--line); }
+.pr-n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  margin-top: 1px;
+}
+.pr-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.pr-desc  { font-size: 12px; color: var(--t2); line-height: 1.65; }
+
+/* ── Risk ── */
+.risk-item {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.risk-item:first-child { border-top: 1px solid var(--line); }
+.risk-bar { border-radius: 2px; min-height: 48px; }
+.rh { background: var(--red); }
+.rm { background: var(--clay); }
+.rl { background: var(--sky); }
+.risk-t { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.risk-d { font-size: 12px; color: var(--t2); line-height: 1.65; }
+.risk-c { font-size: 12px; color: var(--t3); margin-top: 6px; font-style: italic; }
+
+/* ── Note ── */
+.note {
+  background: var(--bg3);
+  border-left: 2px solid var(--t4);
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--t2);
+  line-height: 1.7;
+  border-radius: 0 4px 4px 0;
+  margin-top: 10px;
+}
+
+/* ── Closing ── */
+.closing {
+  background: var(--bg2);
+  border: 1px solid var(--line2);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 28px 34px;
+  margin-top: 48px;
+}
+.closing-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.closing p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: #b0a080;
+  line-height: 2;
+  margin-bottom: 10px;
+}
+.closing p:last-child { margin-bottom: 0; }
+.closing strong { color: var(--gold-lt); font-weight: 500; }
+
+/* ── Footer ── */
+hr { border: none; border-top: 1px solid var(--line); margin: 48px 0; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+em.hl { color: var(--gold-lt); font-style: normal; }
+
+@media (max-width: 680px) {
+  body { padding: 36px 20px 72px; }
+  .tool-body { grid-template-columns: 1fr; }
+  .tool-col { border-right: none; border-bottom: 1px solid var(--line); }
+  .tool-col:last-child { border-bottom: none; }
+  .tool-result { grid-template-columns: 1fr; }
+  .phase-body { grid-template-columns: 1fr; }
+  .phase-head { grid-template-columns: 1fr auto; }
+  .ph-period { display: none; }
+  .place-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ Cover ══ -->
+<div class="cover">
+  <div class="cover-eye">好宅通 · HowHouse — Final Integrated Strategy</div>
+  <div class="cover-title">終版整合戰略報告</div>
+  <div class="cover-sub">整合四份分析、精煉至一人 AI 可執行的最小完整系統</div>
+  <div class="cover-chips">
+    <span class="chip">howhouse.tw</span>
+    <span class="chip">2026.04 · v2.0</span>
+    <span class="chip">來源：站點分析 · 工具規劃 · 品牌識別修正 · 工具 Wireframe</span>
+    <span class="chip">一人 AI 現況適用</span>
+  </div>
+</div>
+
+
+<!-- ══ 00 戰略定位 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">00</span>
+    <span class="sec-t">唯一要記住的定位</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="stmt">
+    <div class="stmt-tag">▸ 每次給 AI 的工作契約 · 直接複製貼入對話框</div>
+    <p>
+      你正在協助「<strong>好宅通（howhouse.tw）</strong>」優化工作。好宅通是台灣首購族的買房教練平台，
+      不是房仲、不接建商廣告。負責人背景是<strong>美學與體驗設計</strong>，
+      這是優勢：好宅通的角色是<strong>編輯與體驗設計師</strong>，
+      由外部貢獻者（代書、驗屋師、房貸顧問）提供專業知識，
+      好宅通把它轉化成<strong>首購族看得進去、信得過、願意留下來的體驗</strong>。
+    </p>
+    <p>
+      現階段核心目標：把好宅通從「內容站」升級為「互動式買房決策系統」——
+      三個工具串成一條用戶旅程，<strong>把流量變成名單，把名單變成服務成交</strong>。
+      所有決策回到這一個問題：這對第一次買房、什麼都不懂的人，有沒有更清楚？
+    </p>
+  </div>
+</div>
+
+
+<!-- ══ 01 工具系統架構 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">01</span>
+    <span class="sec-t">工具系統架構 — 三個工具是一條旅程，不是三個孤島</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-label">用戶旅程主線</div>
+
+    <div class="flow-row">
+      <div class="flow-node gold">⓵ 買房方向診斷<br><span style="font-size:10px;opacity:.6">入口工具 · 3 分鐘 · 吸引新訪客</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-split">
+        <div class="flow-node sage">財務偏弱者<br><span style="font-size:10px;opacity:.6">→ 財務試算器</span></div>
+        <div class="flow-node sky">流程偏弱者<br><span style="font-size:10px;opacity:.6">→ 進度儀表板</span></div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">個人化結果頁</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node clay">Email 解鎖 PDF<br><span style="font-size:10px;opacity:.6">→ 加 LINE</span></div>
+    </div>
+
+    <div style="margin-top:20px;">
+      <div class="flow-label">三個工具的角色分工</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px;">
+        <div style="background:var(--bg3);border:1px solid var(--line2);border-radius:4px;padding:14px 16px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:.1em;margin-bottom:8px;">⓵ 方向診斷</div>
+          <div style="font-size:12px;color:var(--text);margin-bottom:4px;font-weight:500;">吸引 · 分流</div>
+          <div style="font-size:11.5px;color:var(--t2);line-height:1.6;">最輕量、最快上線。放首頁 Hero 吸新訪客，依結果分流到其他兩個工具。</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--line2);border-radius:4px;padding:14px 16px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--sky);letter-spacing:.1em;margin-bottom:8px;">⓶ 進度儀表板</div>
+          <div style="font-size:12px;color:var(--text);margin-bottom:4px;font-weight:500;">黏性 · 回訪</div>
+          <div style="font-size:11.5px;color:var(--t2);line-height:1.6;">把 18 步流程產品化。讓用戶覺得好宅通是「陪我走完這段旅程的工具」。</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--line2);border-radius:4px;padding:14px 16px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--sage);letter-spacing:.1em;margin-bottom:8px;">⓷ 財務試算器</div>
+          <div style="font-size:12px;color:var(--text);margin-bottom:4px;font-weight:500;">轉換 · 收名單</div>
+          <div style="font-size:11.5px;color:var(--t2);line-height:1.6;">打最高痛點。月付算完結果最能讓人留 Email、加 LINE。需要最完整的設計。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong style="color:var(--text);">修正前版本的錯誤排序：</strong>前份報告將試算器排在第一優先，但開發難度最高（2.5/5）。
+    修正後順序為：<em class="hl">方向診斷（1/5）→ 進度儀表板（1.5/5）→ 財務試算器（2.5/5）</em>。
+    先把兩個輕量工具上線驗證用戶互動意願，再把資源放在需要最多設計心力的試算器上。
+  </div>
+</div>
+
+
+<!-- ══ 02 三個工具關鍵規格 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">02</span>
+    <span class="sec-t">三個工具關鍵規格 — 精煉版（完整 Wireframe 由 AI 按需生成）</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <!-- Tool 1 -->
+  <div class="tool-block">
+    <div class="tool-head">
+      <div class="tool-seq">01</div>
+      <div>
+        <div class="tool-title">買房方向診斷測驗</div>
+        <div class="tool-sub">入口工具 · 首頁 Hero · 分流至其他工具</div>
+      </div>
+      <span class="tool-diff diff-easy">MVP 難度 1 / 5</span>
+    </div>
+    <div class="tool-body">
+      <div class="tool-col">
+        <div class="col-label">核心設計決策</div>
+        <ul class="col-list">
+          <li><strong>10–12 題</strong>，每頁 3–4 題，不要每頁一題</li>
+          <li>結果分 5 類：先財務後決策 / 可進比較期 / 適合預售屋 / 適合中古屋 / 先補知識</li>
+          <li>結果頁不像心理測驗，像<strong>決策建議</strong></li>
+          <li>不需登入，Local Storage 儲存進度</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <div class="col-label">關鍵題目方向</div>
+        <ul class="col-list">
+          <li>你最在意什麼（總價/通勤/空間/保值）</li>
+          <li>希望多久入住</li>
+          <li>目前最卡的是哪一點</li>
+          <li>是否做過完整財務試算</li>
+          <li>對預售屋/中古屋接受度</li>
+          <li>是否容易被銷售現場影響</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <div class="col-label">MVP 最小版本定義</div>
+        <ul class="col-list">
+          <li>問答流程跑通</li>
+          <li>5 類結果頁各有文案</li>
+          <li>結果頁導向對應工具</li>
+          <li>Email 蒐集（不需 PDF，先測轉換率）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tool-result">
+      <div>
+        <div class="result-label">結果頁文案風格（範例）</div>
+        <div class="result-copy">
+          你現在最需要的不是看更多房，而是先看懂自己的邊界。<br>
+          在總預算與持有成本還沒清楚前往下走，很容易因現場情緒做出不穩定決策。
+        </div>
+      </div>
+      <div>
+        <div class="result-label">CTA 鏈</div>
+        <div class="cta-chain">
+          <span class="cta-btn">完整診斷報告 →</span>
+          <span class="cta-arrow">→</span>
+          <span class="cta-btn">財務試算</span>
+          <span class="cta-arrow">或</span>
+          <span class="cta-btn">進度儀表板</span>
+          <span class="cta-arrow">→</span>
+          <span class="cta-btn">加 LINE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tool 2 -->
+  <div class="tool-block">
+    <div class="tool-head">
+      <div class="tool-seq">02</div>
+      <div>
+        <div class="tool-title">買房進度儀表板</div>
+        <div class="tool-sub">核心品牌體驗 · 18 步產品化 · 建立回訪黏性</div>
+      </div>
+      <span class="tool-diff diff-easy">MVP 難度 1.5 / 5</span>
+    </div>
+    <div class="tool-body">
+      <div class="tool-col">
+        <div class="col-label">核心設計決策</div>
+        <ul class="col-list">
+          <li>兩頁問答：<strong>購屋狀態</strong> + <strong>已完成勾選清單</strong></li>
+          <li>結果分 3 類：前期探索 / 比較決策期 / 簽約交屋前</li>
+          <li>結果頁給<strong>接下來三步</strong>，不只給階段判斷</li>
+          <li>依房屋類型分流：預售屋/中古屋重點不同</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <div class="col-label">勾選清單項目</div>
+        <ul class="col-list">
+          <li>已做財務評估 / 已設定總預算</li>
+          <li>已開始看區域 / 已看房</li>
+          <li>已查建商 / 已比較不同物件</li>
+          <li>已談價 / 已簽約</li>
+          <li>已申貸 / 已安排驗屋</li>
+          <li>已準備交屋 / 已入住</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <div class="col-label">MVP 最小版本定義</div>
+        <ul class="col-list">
+          <li>問答 + 勾選流程跑通</li>
+          <li>3 類結果頁各有文案</li>
+          <li>每類給出「接下來三步」清單</li>
+          <li>結果頁導回 18 步對應內頁</li>
+          <li>Email 解鎖完整 PDF 進度地圖</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tool-result">
+      <div>
+        <div class="result-label">結果頁文案風格（範例）</div>
+        <div class="result-copy">
+          你目前已進入比較決策期。<br>
+          你需要的不是更多資訊，而是更一致的比較標準——把總價、建商、通勤、持有成本放到同一個框架裡。
+        </div>
+      </div>
+      <div>
+        <div class="result-label">CTA 鏈</div>
+        <div class="cta-chain">
+          <span class="cta-btn">寄給我完整進度地圖</span>
+          <span class="cta-arrow">→</span>
+          <span class="cta-btn">做財務試算</span>
+          <span class="cta-arrow">→</span>
+          <span class="cta-btn">加 LINE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tool 3 -->
+  <div class="tool-block">
+    <div class="tool-head">
+      <div class="tool-seq">03</div>
+      <div>
+        <div class="tool-title">買房財務與總成本試算器</div>
+        <div class="tool-sub">最高痛點 · 最強名單轉換 · 需要最完整設計才上線</div>
+      </div>
+      <span class="tool-diff diff-mid">MVP 難度 2.5 / 5</span>
+    </div>
+    <div class="tool-body">
+      <div class="tool-col">
+        <div class="col-label">五頁表單結構</div>
+        <ul class="col-list">
+          <li><strong>P1</strong> 基本購屋設定（類型/總價/坪數/地區）</li>
+          <li><strong>P2</strong> 貸款與自備款（成數/年限/利率/寬限期）</li>
+          <li><strong>P3</strong> 家庭財務（月收入/支出/預備金）</li>
+          <li><strong>P4</strong> 一次性支出（裝潢/稅費/代書/搬家）</li>
+          <li><strong>P5</strong> 持有成本（管理費/維修預備金/車位）</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <div class="col-label">結果頁四大輸出</div>
+        <ul class="col-list">
+          <li><strong>核心結論</strong>：一句話判斷（可進場/偏吃力/需諮詢）</li>
+          <li><strong>四張卡片</strong>：自備款/一次性支出/月付/月持有成本</li>
+          <li><strong>壓力指標</strong>：月付壓力/現金水位/整體風險</li>
+          <li><strong>三個風險提醒</strong>：利率敏感度/現金缺口/裝潢失控</li>
+        </ul>
+      </div>
+      <div class="tool-col">
+        <div class="col-label">MVP 最小版本定義</div>
+        <ul class="col-list">
+          <li>五頁表單跑通（前端計算，不需後端）</li>
+          <li>結果頁顯示部分數字</li>
+          <li><strong>Email 解鎖完整報告</strong>（核心轉換機制）</li>
+          <li>PDF 有品牌封面（4 頁結構）</li>
+          <li>結果頁導向進度表 / LINE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tool-result">
+      <div>
+        <div class="result-label">結果頁文案風格（範例）</div>
+        <div class="result-copy">
+          你的月付能力尚可，但真正的壓力點在交屋前的一次性現金準備。<br>
+          若預算不調整，建議優先補足裝潢、稅費與預備金空間，而不是只盯著房貸月付。
+        </div>
+      </div>
+      <div>
+        <div class="result-label">CTA 鏈</div>
+        <div class="cta-chain">
+          <span class="cta-btn">免費下載完整報告</span>
+          <span class="cta-arrow">→</span>
+          <span class="cta-btn">看我的買房進度</span>
+          <span class="cta-arrow">→</span>
+          <span class="cta-btn">加 LINE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 03 站內配置策略 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">03</span>
+    <span class="sec-t">站內配置策略 — 工具要是主商品，不是選單裡的選項</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="place-grid">
+    <div class="place-card">
+      <div class="place-pg">首頁 /</div>
+      <div class="place-main">Hero 主 CTA：方向診斷</div>
+      <div class="place-sub">次 CTA：直接試算買房成本。中段：三工具入口卡（不藏選單）。下方現有 18 步流程保留。</div>
+    </div>
+    <div class="place-card">
+      <div class="place-pg">文章頁 /step/*</div>
+      <div class="place-main">依文章主題放對應 CTA</div>
+      <div class="place-sub">財務/貸款類文章 → 試算器。流程/簽約/看房類 → 進度儀表板。所有文章底部 → 方向診斷。</div>
+    </div>
+    <div class="place-card">
+      <div class="place-pg">建商頁 /builders</div>
+      <div class="place-main">看完建商後的下一步</div>
+      <div class="place-sub">每個建商頁底部加：「看完建商了，接下來？」→ 試算器 / 進度表 / 方向診斷 三選一。</div>
+    </div>
+  </div>
+
+  <div class="note">
+    工具如果藏在選單二層，用戶找不到，等於沒做。三個工具必須在首頁、文章頁、建商頁都有明確入口。
+    <em class="hl">主商品放主舞台</em>，這是設計師最懂的事。
+  </div>
+</div>
+
+
+<!-- ══ 04 執行路線圖 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">04</span>
+    <span class="sec-t">執行路線圖 — 修正版三階段（工具優先順序已修正）</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="ph-period">Week 1–3</span>
+      <span class="ph-title">根基期 — 品牌錨定 ＋ 驗屋落地 ＋ 兩個輕量工具 MVP</span>
+      <span class="ph-badge badge-1">立即啟動</span>
+    </div>
+    <div class="phase-body">
+      <div>
+        <div class="col-t">品牌識別（AI 執行）</div>
+        <ul class="act-list">
+          <li class="act-item"><span class="dot dg"></span><span class="act-t"><strong>Schema JSON-LD</strong> 加入首頁 head</span></li>
+          <li class="act-item"><span class="dot dg"></span><span class="act-t"><strong>Google Business Profile</strong> 建立</span></li>
+          <li class="act-item"><span class="dot dg"></span><span class="act-t"><strong>Wikidata 條目</strong>建立</span></li>
+          <li class="act-item"><span class="dot dg"></span><span class="act-t"><strong>llms.txt</strong> 放置於網站根目錄</span></li>
+          <li class="act-item"><span class="dot dg"></span><span class="act-t"><strong>商標遞件</strong> Class 36</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-t">產品與商業（負責人主導）</div>
+        <ul class="act-list">
+          <li class="act-item"><span class="dot ds"></span><span class="act-t"><strong>驗屋合作北部第一家</strong>：讓驗屋師提供清單換掛名，驗屋頁從空殼變有料</span></li>
+          <li class="act-item"><span class="dot ds"></span><span class="act-t"><strong>方向診斷 MVP</strong> 上線：10 題問答 + 5 類結果 + Email 蒐集</span></li>
+          <li class="act-item"><span class="dot ds"></span><span class="act-t"><strong>進度儀表板 MVP</strong> 上線：勾選 + 3 類結果 + 導回 18 步內頁</span></li>
+          <li class="act-item"><span class="dot ds"></span><span class="act-t">PTT 房屋板第一篇整理文（AI 草擬，負責人審發）</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="ph-period">Week 4–8</span>
+      <span class="ph-title">深化期 — 試算器完整版 ＋ 外部貢獻者 ＋ 設計頁上線</span>
+      <span class="ph-badge badge-2">第一月後啟動</span>
+    </div>
+    <div class="phase-body">
+      <div>
+        <div class="col-t">產品深化</div>
+        <ul class="act-list">
+          <li class="act-item"><span class="dot dk"></span><span class="act-t"><strong>財務試算器完整版</strong>：五頁表單 + 結果頁 + PDF 匯出 + Email 解鎖機制</span></li>
+          <li class="act-item"><span class="dot dk"></span><span class="act-t">首頁重新配置：三工具入口卡進 Hero 區，方向診斷為主 CTA</span></li>
+          <li class="act-item"><span class="dot dk"></span><span class="act-t"><strong>/design 頁</strong>上線：3 個設計案例（授權）+ 風格標籤 + 導設計師</span></li>
+          <li class="act-item"><span class="dot dk"></span><span class="act-t">方向診斷加入 PDF 匯出（驗證工具完整版轉換率提升）</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-t">外部貢獻者 + 品牌足跡</div>
+        <ul class="act-list">
+          <li class="act-item"><span class="dot dk"></span><span class="act-t"><strong>代書合作第一位</strong>：Step 10 簽約頁撰寫「5 個必問條款」，掛名換曝光</span></li>
+          <li class="act-item"><span class="dot dk"></span><span class="act-t">建商資料庫：現有 21 家<strong>全部加深</strong>（負面紀錄摘要欄位）</span></li>
+          <li class="act-item"><span class="dot dk"></span><span class="act-t">Mobile01 居家版深度文章（AI 草擬，負責人審發）</span></li>
+          <li class="act-item"><span class="dot dk"></span><span class="act-t">聯繫財經媒體地產版記者，提供六都數據整理請求標注來源</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="ph-period">Week 9–16</span>
+      <span class="ph-title">閉環期 — 三工具串接 ＋ 收入閉環 ＋ 品牌口碑啟動</span>
+      <span class="ph-badge badge-3">第二月後啟動</span>
+    </div>
+    <div class="phase-body">
+      <div>
+        <div class="col-t">漏斗完整</div>
+        <ul class="act-list">
+          <li class="act-item"><span class="dot dc"></span><span class="act-t"><strong>三工具互相導流</strong>完整串接（不孤島化）</span></li>
+          <li class="act-item"><span class="dot dc"></span><span class="act-t"><strong>LINE 分流腳本</strong>：依用戶所在階段自動給對應下一步，不是廣播</span></li>
+          <li class="act-item"><span class="dot dc"></span><span class="act-t">驗屋合作擴展至中部或南部第二家，穩定推薦收入開始</span></li>
+          <li class="act-item"><span class="dot dc"></span><span class="act-t">室內設計頁加入第一筆確定合作（含佣金機制）</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-t">數據驅動迭代</div>
+        <ul class="act-list">
+          <li class="act-item"><span class="dot dc"></span><span class="act-t">依工具完成率數據，修正轉換最低的中斷點</span></li>
+          <li class="act-item"><span class="dot dc"></span><span class="act-t">建商資料庫：每週 1 家新增（有紀錄摘要才算數）</span></li>
+          <li class="act-item"><span class="dot dc"></span><span class="act-t">每月測試一次：ChatGPT/Gemini 搜尋「好宅通」是否識別修正</span></li>
+          <li class="act-item"><span class="dot dc"></span><span class="act-t">評估是否加入房貸顧問為 Step 13 提供試算邏輯</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 05 設計執行原則 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">05</span>
+    <span class="sec-t">設計執行原則 — 四條不能妥協的底線</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="principle-row">
+    <div class="pr-n">01</div>
+    <div>
+      <div class="pr-title">結果要像顧問，不像計算機</div>
+      <div class="pr-desc">每個工具給出的不是數字，是<em class="hl">行動語言</em>。「你的月付壓力稍緊」不夠，要說「你真正的壓力不在月付，而在交屋前的現金準備」。把數字翻譯成判斷，是設計師能做到、工程師不會做到的事。</div>
+    </div>
+  </div>
+
+  <div class="principle-row">
+    <div class="pr-n">02</div>
+    <div>
+      <div class="pr-title">每個工具都必須有可下載的個人化 PDF</div>
+      <div class="pr-desc">PDF 是用戶留存的理由，也是 Email 轉換的機制。不能是畫面截圖，要是一份有好宅通封面、有個人數據、有下一步建議的報告。PDF 做得好，用戶會轉傳給伴侶，那是免費口碑傳播。</div>
+    </div>
+  </div>
+
+  <div class="principle-row">
+    <div class="pr-n">03</div>
+    <div>
+      <div class="pr-title">先少後多，一步一步降低進入門檻</div>
+      <div class="pr-desc">方向診斷第一頁不能塞滿欄位。試算器 P1 只問類型和總價。用戶願意繼續才往下。每一頁的進入成本必須比上一頁低，讓人在不知不覺中走完整個流程。</div>
+    </div>
+  </div>
+
+  <div class="principle-row">
+    <div class="pr-n">04</div>
+    <div>
+      <div class="pr-title">一個工具做完整，再開下一個</div>
+      <div class="pr-desc">半生不熟的工具傷品牌比沒有工具還嚴重。方向診斷沒有 Email 蒐集流程就不算完整。進度表沒有結果頁導回 18 步就不算完整。試算器沒有 PDF 匯出就不算完整。<em class="hl">完整的定義要在開始前說清楚</em>。</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 06 三大北極星指標 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">06</span>
+    <span class="sec-t">北極星指標 — 只追三個數字</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+    <div style="background:var(--bg2);border:1px solid var(--line2);border-radius:5px;padding:20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:.1em;margin-bottom:10px;">指標 ① · 第一階段起</div>
+      <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px;">工具完成率</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.65;">開啟工具後走到最後結果頁的比率。低於 40%：體驗有斷點，要修。高於 60%：用戶真的在用。</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--line2);border-radius:5px;padding:20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--sky);letter-spacing:.1em;margin-bottom:10px;">指標 ② · 第二階段起</div>
+      <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px;">每月有效名單增加數</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.65;">留 Email 或加 LINE 的人數。好宅通未來所有服務成交的前置資產，必須持續成長。</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--line2);border-radius:5px;padding:20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--sage);letter-spacing:.1em;margin-bottom:10px;">指標 ③ · 第三階段起</div>
+      <div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:6px;">服務詢問與成交數</div>
+      <div style="font-size:12px;color:var(--t2);line-height:1.65;">驗屋 / 室內設計的實際詢問數。有詢問沒成交是合作夥伴問題；有成交代表整條路都通了。</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ 07 風險條例 ══ -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-n">07</span>
+    <span class="sec-t">風險條例 — 四個必須提前知道的陷阱</span>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-bar rh"></div>
+    <div>
+      <div class="risk-t">驗屋頁持續掛「洽談中」</div>
+      <div class="risk-d">這是目前整個網站最大的信任破口。用戶看到三區全是空殼，好宅通「可信任」的印象在這頁被抵消。驗屋是最近的收入來源，也是漏斗的關鍵承接點。</div>
+      <div class="risk-c">→ 對策：北部第一家驗屋合作，是根基期最高優先任務。找不到正式合作夥伴前，先讓驗屋師「貢獻清單內容」換掛名，把頁面從空殼變有料。</div>
+    </div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-bar rh"></div>
+    <div>
+      <div class="risk-t">工具做太多、每個都半生不熟</div>
+      <div class="risk-d">四份報告加總建議了十幾個功能。同時推進，最終每個都做到 50%。半生不熟的工具不只沒用，還傷品牌的「值得信任」感——這比沒有工具更糟。</div>
+      <div class="risk-c">→ 對策：嚴格執行「完整上線才開下一個」原則。方向診斷沒有 Email 蒐集就不算完整，不能進入進度表開發。</div>
+    </div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-bar rm"></div>
+    <div>
+      <div class="risk-t">一人可持續性：精力分散風險</div>
+      <div class="risk-d">品牌識別、工具開發、外部貢獻者開發、社群足跡——同時推進會讓精力在週期內耗盡。好宅通最壞的結果不是失敗，而是「做了一半然後停下來」。</div>
+      <div class="risk-c">→ 對策：每週只推進 3 件事，每件事 AI 產草稿、負責人審閱決策。每季砍掉當季不推進的項目，允許自己縮小範圍。</div>
+    </div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-bar rl"></div>
+    <div>
+      <div class="risk-t">建商資料追求廣度而非深度</div>
+      <div class="risk-d">建商履歷是護城河，但只有「數量多」沒有「每一筆都有司法紀錄摘要」，用戶查了還是沒有收穫，護城河就不存在。廣而淺的建商資料庫，SEO 也沒有意義。</div>
+      <div class="risk-c">→ 對策：現有 21 家先全部加深，再以每週 1 家速度擴充新建商——但每家都要有完整紀錄才算數。</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ Closing ══ -->
+<div class="closing">
+  <div class="closing-tag">給負責人的最後一段話</div>
+  <p>
+    四份報告整合下來，可執行的方向很清楚了。
+    但清楚的方向不等於立刻開始執行——<strong>清楚的「第一步」才是開始的真正條件</strong>。
+  </p>
+  <p>
+    第一步是：打開 Claude，貼上第 00 節的定位段落，說「我要做方向診斷的 10 道題目，
+    幫我草擬題目與 5 類結果頁文案」。
+    這件事今天可以做完，而且它是整個系統的起點。
+  </p>
+  <p>
+    好宅通的護城河不是功能，是<strong>一個有美學判斷力的人，持續把關每一個接觸點的品質</strong>。
+    這件事不需要團隊，只需要方向清楚、每週穩定執行三件事、每件事做到真正完整。
+  </p>
+</div>
+
+<div class="footer">
+  <span>好宅通 howhouse.tw · 終版整合戰略報告 v2.0</span>
+  <span>2026.04 · 整合四份分析 · 由 Claude 彙整精煉</span>
+</div>
+
+</body>
+</html>
