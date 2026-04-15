@@ -324,12 +324,17 @@
             font-size: 13px; color: #999; margin-bottom: 20px; line-height: 1.7;
         }
         .email-input-row {
-            display: flex; gap: 8px; max-width: 400px; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 10px;
+            max-width: 400px; margin: 0 auto;
+        }
+        @media (min-width: 480px) {
+            .email-input-row { flex-direction: row; gap: 8px; }
         }
         .email-input-row input {
             flex: 1; padding: 12px 16px; border: 1px solid #E5E2DE;
             border-radius: 12px; font-size: 14px;
             font-family: 'Noto Sans TC', sans-serif;
+            width: 100%;
         }
         .email-input-row input:focus { outline: none; border-color: #B8956A; }
         .email-input-row button {
@@ -337,6 +342,10 @@
             background: #B8956A; color: #fff; border: none;
             font-size: 14px; cursor: pointer; white-space: nowrap;
             font-family: 'Noto Sans TC', sans-serif;
+            width: 100%;
+        }
+        @media (min-width: 480px) {
+            .email-input-row button { width: auto; }
         }
         .email-input-row button:hover { background: #A67C52; }
 
@@ -518,6 +527,17 @@
             <p class="section-desc">你沒算到的。頭期款之外，第一天還需要多少錢？</p>
 
             <div class="section-body">
+                <!-- 房屋評定現值（契稅計算用） -->
+                <div class="field-group">
+                    <label class="field-label">房屋評定現值（契稅計算用）</label>
+                    <div class="input-with-unit">
+                        <input type="number" class="input-number" id="assessedValueInput"
+                               min="0" step="10" placeholder="例：150" value="">
+                        <span class="unit">萬</span>
+                    </div>
+                    <p class="field-hint">可從房屋稅單或買賣合約查到。若不確定，留空會以總價的 20% 概估（實際依屋齡、構造而異）。</p>
+                </div>
+
                 <!-- 房屋類型 -->
                 <div class="field-group">
                     <label class="field-label">房屋類型（影響管理費）</label>
@@ -784,13 +804,13 @@
         youthMaxTerm: 40,
         youthMaxGrace: 5,
         youthDeadline: '2026 年 7 月 31 日',
-        youthAgeRange: '18-45 歲',
+        youthCondition: '借款人、配偶及未成年子女名下均無自有住宅',
         deedTaxRate: 0.06,
         stampTaxRate: 0.001,
-        agentFeeMin: 15000,
-        agentFeeMax: 25000,
+        agentFeeMin: 8000,
+        agentFeeMax: 15000,
         brokerRate: 0.02,
-        mgmtFee: { house: 0, apartment: 1200, building: 3500 },
+        mgmtFee: { house: 0, apartment: 1500, building: 4000 },
         maintenanceReserve: 1000 // 每月預估維修準備金
     };
 
@@ -828,6 +848,7 @@
         rate: 1.775,
         term: 30,             // 年
         grace: 0,             // 年
+        assessedValue: 0,     // 萬，0 表示用概估
         houseType: 'building',
         hasBroker: false,
         hasRenovation: false,
@@ -960,6 +981,11 @@
         }
     });
 
+    // Assessed value
+    document.getElementById('assessedValueInput').addEventListener('input', e => {
+        state.assessedValue = parseInt(e.target.value) || 0;
+    });
+
     // Income / expense
     document.getElementById('incomeInput').addEventListener('input', e => {
         state.income = parseInt(e.target.value.replace(/,/g, '')) || 0;
@@ -1048,16 +1074,29 @@
         document.getElementById('insight1').style.display = 'block';
 
         // === HIDDEN COSTS ===
-        const deedTax = price * 0.35 * CONFIG.deedTaxRate; // 房屋評定現值約為市價35%
-        const stampTax = price * 0.2 * CONFIG.stampTaxRate; // 公告現值約為市價20%
+        // 契稅：以房屋評定現值 × 6%。使用者可填實際值，否則概估為總價 20%
+        const assessedValue = state.assessedValue > 0
+            ? state.assessedValue * 10000
+            : price * 0.20; // 概估：房屋評定現值約市價 20%（依屋齡構造差異大）
+        const isAssessedEstimate = state.assessedValue === 0;
+        const deedTax = assessedValue * CONFIG.deedTaxRate;
+        // 印花稅：以公契價格（房屋評定現值 + 土地公告現值）× 0.1%
+        // 土地公告現值通常約為市價 20–40%，加上房屋評定現值，概估為總價 30%
+        const stampTaxBase = state.assessedValue > 0
+            ? assessedValue + (price * 0.15) // 有填評定現值時，土地部分概估為市價15%
+            : price * 0.30; // 全概估：房屋評定現值 + 土地公告現值 ≈ 市價30%
+        const stampTax = stampTaxBase * CONFIG.stampTaxRate;
         const agentFee = (CONFIG.agentFeeMin + CONFIG.agentFeeMax) / 2;
         const brokerFee = state.hasBroker ? price * CONFIG.brokerRate : 0;
         const renovation = state.hasRenovation ? state.renovationBudget * 10000 : 0;
 
+        const deedTaxLabel = isAssessedEstimate
+            ? '契稅（概估，建議填入房屋評定現值）'
+            : '契稅（房屋評定現值 ' + formatNumber(Math.round(assessedValue)) + ' × 6%）';
         const hiddenItems = [
             { label: '自備款（頭期款）', value: downPayment },
-            { label: '契稅（房屋評定現值 × 6%）', value: deedTax },
-            { label: '印花稅（公告現值 × 0.1%）', value: stampTax },
+            { label: deedTaxLabel, value: deedTax },
+            { label: '印花稅（公契價格 × 0.1%，概估）', value: stampTax },
             { label: '代書費', value: agentFee },
         ];
         if (state.hasBroker) hiddenItems.push({ label: '仲介費（約 2%）', value: brokerFee });
@@ -1287,7 +1326,7 @@
         } else {
             compareText = '同樣的貸款條件下，新青安每月少付約 ' + formatNumber(Math.round(savingsMonthly)) +
                 ' 元，總利息省下約 ' + Math.round(savingsTotal / 10000) + ' 萬。' +
-                '新青安的申請截止日是 ' + CONFIG.youthDeadline + '，適用年齡 ' + CONFIG.youthAgeRange + '。';
+                '新青安的申請截止日是 ' + CONFIG.youthDeadline + '。條件：' + CONFIG.youthCondition + '。';
         }
         document.getElementById('compareInsight_text').textContent = compareText;
     }
