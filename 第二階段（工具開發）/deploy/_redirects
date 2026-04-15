@@ -1,6 +1,0 @@
-# ⚠️ 此檔案為 Netlify 時期遺留，redirects 已改由 vercel.json 處理（2026-04-14）。
-# Vercel 會忽略此檔案。保留作為參考。
-#
-# [舊規則]
-# https://homerun-taiwan.com/* https://howhouse.tw/:splat 301
-# http://homerun-taiwan.com/* https://howhouse.tw/:splat 301

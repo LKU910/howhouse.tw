@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的財務診斷｜看清楚這個決定的代價｜擇居</title>
+    <meta name="description" content="不只算月付金。頭期款怎麼湊、隱藏成本有多少、生活品質會怎樣、升息了撐不撐得住——把所有藏起來的數字攤開來看。">
+    <meta name="keywords" content="房貸試算,買房成本,財務診斷,首購族,新青安,擇居">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="canonical" href="https://howhouse.tw/calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="我的財務診斷｜擇居">
+    <meta property="og:description" content="不只算月付金。把所有藏起來的數字攤開來看。">
+    <meta property="og:url" content="https://howhouse.tw/calculator.html">
+    <meta property="og:site_name" content="擇居">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="我的財務診斷｜擇居">
+    <meta name="twitter:description" content="不只算月付金。把所有藏起來的數字攤開來看。">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://howhouse.tw/"},
+            {"@type": "ListItem", "position": 2, "name": "決策工具", "item": "https://howhouse.tw/tools.html"},
+            {"@type": "ListItem", "position": 3, "name": "我的財務診斷", "item": "https://howhouse.tw/calculator.html"}
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tailwind.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0; background: #EDEBE8; color: #121212;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Noto Sans TC', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* ── Layout ── */
+        .calc-container { max-width: 720px; margin: 0 auto; padding: 0 20px 80px; }
+        .calc-header {
+            text-align: center; padding: 48px 20px 32px;
+        }
+        .calc-header h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 28px; font-weight: 700; margin: 0 0 8px; color: #121212;
+        }
+        .calc-header .subtitle {
+            font-size: 14px; color: #888; line-height: 1.8;
+        }
+
+        /* ── Section card ── */
+        .section-card {
+            background: #fff; border-radius: 16px; padding: 28px 24px;
+            margin-bottom: 16px; border: 1px solid #E5E2DE;
+        }
+        .section-card.collapsed .section-body { display: none; }
+        .section-card.collapsed .section-toggle-icon { transform: rotate(0deg); }
+        .section-toggle-icon { transition: transform 0.25s ease; transform: rotate(180deg); }
+
+        .section-label {
+            font-size: 12px; color: #B8956A; letter-spacing: 0.12em;
+            margin-bottom: 10px; font-weight: 500;
+        }
+        .section-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 20px; font-weight: 700; margin: 0 0 4px; color: #121212;
+        }
+        .section-desc {
+            font-size: 13px; color: #999; line-height: 1.7; margin-bottom: 20px;
+        }
+
+        /* ── Form fields ── */
+        .field-group { margin-bottom: 20px; }
+        .field-label {
+            font-size: 13px; color: #666; margin-bottom: 8px; display: block;
+            letter-spacing: 0.03em;
+        }
+        .field-hint {
+            font-size: 12px; color: #aaa; margin-top: 4px;
+        }
+
+        .input-number {
+            width: 100%; padding: 14px 16px;
+            border: 1px solid #E5E2DE; border-radius: 12px;
+            font-size: 16px; font-family: 'Noto Sans TC', sans-serif;
+            background: #FAFAF8; color: #121212;
+            transition: border-color 0.2s ease;
+            -moz-appearance: textfield;
+        }
+        .input-number::-webkit-outer-spin-button,
+        .input-number::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .input-number:focus { outline: none; border-color: #B8956A; background: #fff; }
+
+        .input-with-unit {
+            position: relative;
+        }
+        .input-with-unit .unit {
+            position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+            font-size: 13px; color: #999; pointer-events: none;
+        }
+        .input-with-unit .input-number { padding-right: 48px; }
+
+        /* ── Slider ── */
+        .range-slider {
+            width: 100%; -webkit-appearance: none; appearance: none;
+            height: 4px; border-radius: 4px; background: #E5E2DE;
+            outline: none; margin: 12px 0 4px;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 22px; height: 22px;
+            border-radius: 50%; background: #B8956A; cursor: pointer;
+            border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+        .range-slider::-moz-range-thumb {
+            width: 22px; height: 22px; border-radius: 50%;
+            background: #B8956A; cursor: pointer;
+            border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+        .range-display {
+            display: flex; justify-content: space-between; align-items: baseline;
+        }
+        .range-value {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 26px; font-weight: 700; color: #121212;
+        }
+        .range-bounds {
+            font-size: 12px; color: #aaa;
+            display: flex; justify-content: space-between;
+        }
+
+        /* ── Pill selector ── */
+        .pill-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pill {
+            padding: 10px 18px; border-radius: 12px;
+            border: 1px solid #E5E2DE; background: #fff;
+            font-size: 14px; color: #666; cursor: pointer;
+            transition: all 0.2s ease; white-space: nowrap;
+        }
+        .pill:hover { border-color: #B8956A; }
+        .pill.active {
+            border-color: #A67C52; background: #FAF7F3;
+            color: #8B6A45; font-weight: 500; border-width: 2px;
+            padding: 9px 17px;
+        }
+
+        /* ── Toggle switch ── */
+        .toggle-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0;
+        }
+        .toggle-label { font-size: 14px; color: #444; }
+        .toggle-switch {
+            width: 44px; height: 24px; border-radius: 12px;
+            background: #D5D0CB; position: relative; cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .toggle-switch.on { background: #B8956A; }
+        .toggle-switch::after {
+            content: ''; position: absolute; width: 20px; height: 20px;
+            border-radius: 50%; background: #fff; top: 2px; left: 2px;
+            transition: transform 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+        .toggle-switch.on::after { transform: translateX(20px); }
+
+        /* ── Result cards ── */
+        .result-section { margin-top: 8px; }
+        .result-card {
+            background: #fff; border-radius: 16px; padding: 28px 24px;
+            margin-bottom: 16px; border: 1px solid #E5E2DE;
+        }
+        .result-card.highlight {
+            border-color: #B8956A;
+            box-shadow: 0 2px 16px rgba(184,149,106,0.08);
+        }
+        .result-label {
+            font-size: 12px; color: #B8956A; letter-spacing: 0.12em;
+            margin-bottom: 6px; font-weight: 500;
+        }
+        .result-number {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 36px; font-weight: 900; color: #121212;
+            line-height: 1.2;
+        }
+        .result-number .unit-text {
+            font-size: 16px; font-weight: 400; color: #888; margin-left: 4px;
+        }
+        .result-sub {
+            font-size: 13px; color: #888; margin-top: 6px; line-height: 1.6;
+        }
+
+        .result-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+        @media (max-width: 480px) {
+            .result-grid { grid-template-columns: 1fr; }
+        }
+        .result-grid-item {
+            background: #FAFAF8; border-radius: 12px; padding: 16px;
+        }
+        .result-grid-label { font-size: 12px; color: #999; margin-bottom: 4px; }
+        .result-grid-value {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 20px; font-weight: 700; color: #121212;
+        }
+
+        /* ── Insight box (擇居提醒) ── */
+        .insight-box {
+            background: #FAF7F3; border-radius: 12px; padding: 18px 20px;
+            margin-top: 16px; border-left: 3px solid #B8956A;
+        }
+        .insight-box.warning {
+            background: #FBF5F3; border-left-color: #9C4A38;
+        }
+        .insight-box p {
+            font-size: 14px; line-height: 1.8; color: #555; margin: 0;
+        }
+
+        /* ── Stress test table ── */
+        .stress-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            font-size: 14px;
+        }
+        .stress-table th {
+            text-align: left; font-weight: 500; color: #999;
+            font-size: 12px; letter-spacing: 0.05em;
+            padding: 10px 12px; border-bottom: 1px solid #E5E2DE;
+        }
+        .stress-table td {
+            padding: 12px; border-bottom: 1px solid #F0EEEB;
+            color: #333;
+        }
+        .stress-table tr.current td { font-weight: 600; color: #121212; }
+        .stress-table tr.danger td { color: #9C4A38; }
+
+        .stress-bar-container {
+            height: 6px; background: #E5E2DE; border-radius: 3px; overflow: hidden;
+            margin-top: 4px;
+        }
+        .stress-bar {
+            height: 100%; border-radius: 3px; transition: width 0.5s ease;
+        }
+        .stress-bar.safe { background: #4A5D6A; }
+        .stress-bar.caution { background: #B8956A; }
+        .stress-bar.danger { background: #9C4A38; }
+
+        /* ── Compare cards ── */
+        .compare-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+        @media (max-width: 520px) {
+            .compare-grid { grid-template-columns: 1fr; }
+        }
+        .compare-card {
+            border: 1px solid #E5E2DE; border-radius: 14px;
+            padding: 20px; background: #FAFAF8;
+        }
+        .compare-card .compare-label {
+            font-size: 12px; letter-spacing: 0.1em; color: #B8956A;
+            margin-bottom: 12px; font-weight: 500;
+        }
+        .compare-card .compare-item {
+            display: flex; justify-content: space-between;
+            font-size: 13px; padding: 6px 0; color: #555;
+        }
+        .compare-card .compare-item .val {
+            font-weight: 600; color: #121212;
+        }
+
+        /* ── Scenario tabs ── */
+        .scenario-tabs {
+            display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .scenario-tab {
+            padding: 8px 16px; border-radius: 10px;
+            border: 1px solid #E5E2DE; background: #fff;
+            font-size: 13px; color: #888; cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .scenario-tab.active {
+            border-color: #B8956A; background: #FAF7F3;
+            color: #8B6A45; font-weight: 500;
+        }
+        .scenario-tab .remove-btn {
+            margin-left: 6px; color: #ccc; cursor: pointer;
+            font-size: 14px;
+        }
+        .scenario-tab .remove-btn:hover { color: #9C4A38; }
+        .add-scenario-btn {
+            padding: 8px 16px; border-radius: 10px;
+            border: 1px dashed #D5D0CB; background: transparent;
+            font-size: 13px; color: #aaa; cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .add-scenario-btn:hover { border-color: #B8956A; color: #B8956A; }
+
+        /* ── Email save ── */
+        .email-section {
+            text-align: center; padding: 32px 24px;
+            background: #fff; border-radius: 16px;
+            border: 1px solid #E5E2DE; margin-top: 8px;
+        }
+        .email-section .email-title {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 18px; font-weight: 600; margin-bottom: 6px;
+        }
+        .email-section .email-desc {
+            font-size: 13px; color: #999; margin-bottom: 20px; line-height: 1.7;
+        }
+        .email-input-row {
+            display: flex; gap: 8px; max-width: 400px; margin: 0 auto;
+        }
+        .email-input-row input {
+            flex: 1; padding: 12px 16px; border: 1px solid #E5E2DE;
+            border-radius: 12px; font-size: 14px;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .email-input-row input:focus { outline: none; border-color: #B8956A; }
+        .email-input-row button {
+            padding: 12px 20px; border-radius: 12px;
+            background: #B8956A; color: #fff; border: none;
+            font-size: 14px; cursor: pointer; white-space: nowrap;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .email-input-row button:hover { background: #A67C52; }
+
+        /* ── Footer nav ── */
+        .footer-nav {
+            display: flex; gap: 12px; justify-content: center;
+            flex-wrap: wrap; padding: 24px 0;
+        }
+        .footer-nav a {
+            padding: 10px 20px; border-radius: 12px;
+            border: 1px solid #E5E2DE; background: #fff;
+            font-size: 13px; color: #888; text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .footer-nav a:hover { border-color: #B8956A; color: #B8956A; }
+
+        /* ── Animations ── */
+        .fade-in {
+            animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Number formatting animation ── */
+        .num-animate {
+            transition: all 0.3s ease;
+        }
+
+        /* ── Hide results initially ── */
+        #resultsArea { display: none; }
+        #resultsArea.visible { display: block; }
+    </style>
+</head>
+<body>
+
+<!-- NAV:START -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40" style="background:rgba(237,235,232,0.95);">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
+            <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
+            <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+            <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+        </nav>
+    </div>
+<!-- NAV:END -->
+
+    <!-- Header -->
+    <div class="calc-header">
+        <h1>看清楚這個決定的代價</h1>
+        <p class="subtitle">仲介給你的月付金只是開始。<br>把所有藏起來的數字攤開來看。</p>
+    </div>
+
+    <div class="calc-container">
+
+        <!-- ====== SCENARIO TABS ====== -->
+        <div id="scenarioBar" style="display:none;">
+            <div class="scenario-tabs" id="scenarioTabs"></div>
+        </div>
+
+        <!-- ====== LAYER 1: 基礎現實 ====== -->
+        <div class="section-card" id="layer1">
+            <div class="section-label">第一層</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <h2 class="section-title">基礎現實</h2>
+            </div>
+            <p class="section-desc">你付得起嗎？先從最基本的數字開始。</p>
+
+            <div class="section-body">
+                <!-- 房屋總價 -->
+                <div class="field-group">
+                    <label class="field-label">房屋總價</label>
+                    <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+                        <div class="input-with-unit" style="flex:0 0 160px;">
+                            <input type="number" class="input-number" id="priceInput"
+                                   min="1" step="50" value="1000" style="font-size:20px; font-weight:700; font-family:'Noto Serif TC',serif; padding:10px 48px 10px 14px;">
+                            <span class="unit">萬</span>
+                        </div>
+                    </div>
+                    <input type="range" class="range-slider" id="priceSlider"
+                           min="300" max="5000" step="50" value="1000">
+                    <div class="range-bounds">
+                        <span>300 萬</span><span>5,000 萬</span>
+                    </div>
+                    <p class="field-hint">拖曳快速調整，或直接輸入金額（不限上限）。</p>
+                </div>
+
+                <!-- 自備款比例 -->
+                <div class="field-group">
+                    <label class="field-label">自備款比例</label>
+                    <div class="pill-group" id="downPaymentPills">
+                        <div class="pill" data-value="15">15%</div>
+                        <div class="pill active" data-value="20">20%</div>
+                        <div class="pill" data-value="30">30%</div>
+                        <div class="pill" data-value="custom">自訂</div>
+                    </div>
+                    <div id="customDownPayment" style="display:none; margin-top:10px;">
+                        <div class="input-with-unit">
+                            <input type="number" class="input-number" id="customDPInput"
+                                   min="10" max="80" value="20" placeholder="輸入比例">
+                            <span class="unit">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 貸款方案 -->
+                <div class="field-group">
+                    <label class="field-label">貸款利率</label>
+                    <div class="pill-group" id="ratePills">
+                        <div class="pill active" data-value="youth">新青安 <span style="font-size:12px;color:#B8956A;">1.775%</span></div>
+                        <div class="pill" data-value="standard">一般房貸 <span style="font-size:12px;color:#999;">2.32%</span></div>
+                        <div class="pill" data-value="custom">自訂</div>
+                    </div>
+                    <div id="customRate" style="display:none; margin-top:10px;">
+                        <div class="input-with-unit">
+                            <input type="number" class="input-number" id="customRateInput"
+                                   min="0.5" max="10" step="0.01" value="1.775" placeholder="年利率">
+                            <span class="unit">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 貸款年限 -->
+                <div class="field-group">
+                    <label class="field-label">貸款年限</label>
+                    <div class="pill-group" id="termPills">
+                        <div class="pill" data-value="20">20 年</div>
+                        <div class="pill active" data-value="30">30 年</div>
+                        <div class="pill" data-value="40">40 年</div>
+                    </div>
+                </div>
+
+                <!-- 寬限期 -->
+                <div class="field-group">
+                    <label class="field-label">寬限期</label>
+                    <div class="pill-group" id="gracePills">
+                        <div class="pill active" data-value="0">無</div>
+                        <div class="pill" data-value="2">2 年</div>
+                        <div class="pill" data-value="3">3 年</div>
+                        <div class="pill" data-value="5">5 年</div>
+                    </div>
+                    <p class="field-hint" id="graceHint" style="display:none;">新青安最長寬限期 5 年。寬限期內只付利息，結束後月付金會跳升。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== LAYER 2: 隱藏成本 ====== -->
+        <div class="section-card collapsed" id="layer2">
+            <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" onclick="toggleSection('layer2')">
+                <div>
+                    <div class="section-label">第二層</div>
+                    <h2 class="section-title">隱藏成本</h2>
+                </div>
+                <i data-lucide="chevron-up" class="w-5 h-5 stroke-[1.5] section-toggle-icon" style="color:#999;"></i>
+            </div>
+            <p class="section-desc">你沒算到的。頭期款之外，第一天還需要多少錢？</p>
+
+            <div class="section-body">
+                <!-- 房屋類型 -->
+                <div class="field-group">
+                    <label class="field-label">房屋類型（影響管理費）</label>
+                    <div class="pill-group" id="houseTypePills">
+                        <div class="pill" data-value="house">透天</div>
+                        <div class="pill" data-value="apartment">華廈</div>
+                        <div class="pill active" data-value="building">大樓</div>
+                    </div>
+                </div>
+
+                <!-- 仲介費 -->
+                <div class="field-group">
+                    <div class="toggle-row">
+                        <span class="toggle-label">需要付仲介費</span>
+                        <div class="toggle-switch" id="brokerToggle" onclick="toggleSwitch(this)"></div>
+                    </div>
+                    <p class="field-hint">預售屋通常不需要。中古屋買方仲介費約 1–2%。</p>
+                </div>
+
+                <!-- 裝修 -->
+                <div class="field-group">
+                    <div class="toggle-row">
+                        <span class="toggle-label">需要裝修</span>
+                        <div class="toggle-switch" id="renovationToggle" onclick="toggleSwitch(this)"></div>
+                    </div>
+                    <div id="renovationSlider" style="display:none; margin-top:10px;">
+                        <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+                            <div class="input-with-unit" style="flex:0 0 140px;">
+                                <input type="number" class="input-number" id="renovationInput"
+                                       min="1" step="10" value="50" style="font-size:18px; font-weight:700; font-family:'Noto Serif TC',serif; padding:10px 48px 10px 14px;">
+                                <span class="unit">萬</span>
+                            </div>
+                        </div>
+                        <input type="range" class="range-slider" id="renovationRange"
+                               min="10" max="300" step="10" value="50">
+                        <div class="range-bounds">
+                            <span>10 萬</span><span>300 萬</span>
+                        </div>
+                        <p class="field-hint">拖曳快速調整，或直接輸入金額。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== LAYER 3: 生活衝擊 ====== -->
+        <div class="section-card collapsed" id="layer3">
+            <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" onclick="toggleSection('layer3')">
+                <div>
+                    <div class="section-label">第三層</div>
+                    <h2 class="section-title">生活衝擊</h2>
+                </div>
+                <i data-lucide="chevron-up" class="w-5 h-5 stroke-[1.5] section-toggle-icon" style="color:#999;"></i>
+            </div>
+            <p class="section-desc">這個決定會怎麼改變你的日常生活？</p>
+
+            <div class="section-body">
+                <div class="field-group">
+                    <label class="field-label">家庭月收入（稅後）</label>
+                    <div class="input-with-unit">
+                        <input type="number" class="input-number" id="incomeInput"
+                               placeholder="例：80,000" min="0" step="1000">
+                        <span class="unit">元</span>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label class="field-label">目前每月支出（不含房租）</label>
+                    <div class="input-with-unit">
+                        <input type="number" class="input-number" id="expenseInput"
+                               placeholder="例：35,000" min="0" step="1000">
+                        <span class="unit">元</span>
+                    </div>
+                    <p class="field-hint">含生活費、保險、交通、餐飲等，不含目前的房租。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== CALCULATE BUTTON ====== -->
+        <div style="text-align:center; padding: 8px 0 16px;">
+            <button onclick="calculate()" style="
+                display: inline-flex; align-items: center; gap: 8px;
+                font-family: 'Noto Sans TC', sans-serif;
+                font-size: 15px; letter-spacing: 0.08em;
+                padding: 15px 36px; border-radius: 14px;
+                background: #B8956A; color: white; border: none;
+                cursor: pointer; transition: all 0.2s ease;
+            " onmouseover="this.style.background='#A67C52'" onmouseout="this.style.background='#B8956A'">
+                <i data-lucide="calculator" class="w-4 h-4 stroke-[1.5]"></i>
+                算給我看
+            </button>
+        </div>
+
+        <!-- ====== RESULTS AREA ====== -->
+        <div id="resultsArea">
+
+            <!-- Core result -->
+            <div class="result-card highlight fade-in" id="coreResult">
+                <div class="result-label">每月房貸</div>
+                <div class="result-number"><span id="r_monthly">—</span><span class="unit-text">元/月</span></div>
+                <div class="result-sub" id="r_monthly_sub"></div>
+                <div id="graceJumpBox" style="display:none; margin-top:14px; padding:14px 16px; background:#FBF5F3; border-radius:10px;">
+                    <div style="font-size:12px; color:#9C4A38; letter-spacing:0.08em; margin-bottom:4px;">寬限期結束後</div>
+                    <div style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#9C4A38;">
+                        <span id="r_monthly_after">—</span><span style="font-size:14px; font-weight:400; color:#999; margin-left:4px;">元/月</span>
+                    </div>
+                    <div style="font-size:13px; color:#999; margin-top:4px;" id="r_grace_jump_desc"></div>
+                </div>
+            </div>
+
+            <!-- Grid: key numbers -->
+            <div class="result-grid fade-in" style="margin-bottom:16px;">
+                <div class="result-grid-item">
+                    <div class="result-grid-label">貸款總額</div>
+                    <div class="result-grid-value" id="r_loan_total">—</div>
+                </div>
+                <div class="result-grid-item">
+                    <div class="result-grid-label">總利息</div>
+                    <div class="result-grid-value" id="r_interest_total">—</div>
+                </div>
+                <div class="result-grid-item">
+                    <div class="result-grid-label">自備款</div>
+                    <div class="result-grid-value" id="r_downpayment">—</div>
+                </div>
+                <div class="result-grid-item">
+                    <div class="result-grid-label">還款總額</div>
+                    <div class="result-grid-value" id="r_repay_total">—</div>
+                </div>
+            </div>
+
+            <!-- Layer 1 insight -->
+            <div class="insight-box fade-in" id="insight1">
+                <p id="insight1_text"></p>
+            </div>
+
+            <!-- Hidden costs breakdown -->
+            <div class="result-card fade-in" id="hiddenCostResult" style="margin-top:16px;">
+                <div class="result-label">買入成本總覽</div>
+                <div style="font-size:13px; color:#999; margin-bottom:16px;">第一天你需要準備的錢</div>
+                <div id="hiddenCostItems"></div>
+                <div style="border-top:1px solid #E5E2DE; margin-top:12px; padding-top:12px; display:flex; justify-content:space-between; align-items:baseline;">
+                    <span style="font-size:14px; color:#666; font-weight:500;">合計</span>
+                    <span class="result-grid-value" id="r_day1_total" style="font-size:24px;">—</span>
+                </div>
+            </div>
+
+            <!-- Monthly holding cost -->
+            <div class="result-card fade-in" id="holdingCostResult" style="display:none;">
+                <div class="result-label">每月持有成本</div>
+                <div style="font-size:13px; color:#999; margin-bottom:16px;">房貸之外，每月還要付的</div>
+                <div id="holdingCostItems"></div>
+                <div style="border-top:1px solid #E5E2DE; margin-top:12px; padding-top:12px; display:flex; justify-content:space-between; align-items:baseline;">
+                    <span style="font-size:14px; color:#666; font-weight:500;">每月真正支出</span>
+                    <span class="result-grid-value" id="r_monthly_true" style="font-size:24px;">—</span>
+                </div>
+            </div>
+
+            <!-- Layer 2 insight -->
+            <div class="insight-box fade-in" id="insight2" style="display:none;">
+                <p id="insight2_text"></p>
+            </div>
+
+            <!-- Life impact -->
+            <div class="result-card fade-in" id="lifeImpactResult" style="display:none;">
+                <div class="result-label">生活衝擊</div>
+                <div class="result-grid" style="margin-top:12px;">
+                    <div class="result-grid-item">
+                        <div class="result-grid-label">負擔比</div>
+                        <div class="result-grid-value" id="r_burden_ratio">—</div>
+                        <div class="stress-bar-container" style="margin-top:6px;">
+                            <div class="stress-bar" id="r_burden_bar" style="width:0%;"></div>
+                        </div>
+                    </div>
+                    <div class="result-grid-item">
+                        <div class="result-grid-label">壓縮比</div>
+                        <div class="result-grid-value" id="r_compress_ratio">—</div>
+                        <div class="stress-bar-container" style="margin-top:6px;">
+                            <div class="stress-bar" id="r_compress_bar" style="width:0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:16px; padding:14px 16px; background:#FAFAF8; border-radius:10px;">
+                    <div style="font-size:12px; color:#999; margin-bottom:4px;">買房後每月可自由運用</div>
+                    <div style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700;" id="r_disposable">—</div>
+                    <div style="font-size:13px; color:#999; margin-top:2px;" id="r_disposable_desc"></div>
+                </div>
+            </div>
+
+            <!-- Life impact insight -->
+            <div class="insight-box fade-in" id="insight3" style="display:none;">
+                <p id="insight3_text"></p>
+            </div>
+
+            <!-- ====== STRESS TEST ====== -->
+            <div class="result-card fade-in" id="stressTestResult" style="display:none;">
+                <div class="result-label">壓力測試：如果利率變了</div>
+                <div style="font-size:13px; color:#999; margin-bottom:16px;">現在的利率不會永遠不變。看看不同升息情境下的影響。</div>
+                <div style="overflow-x:auto;">
+                    <table class="stress-table">
+                        <thead>
+                            <tr>
+                                <th>情境</th>
+                                <th>利率</th>
+                                <th>月付金</th>
+                                <th>負擔比</th>
+                                <th>月增</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stressTableBody"></tbody>
+                    </table>
+                </div>
+                <div id="stressInsight" class="insight-box" style="margin-top:16px;">
+                    <p id="stressInsight_text"></p>
+                </div>
+            </div>
+
+            <!-- ====== YOUTH LOAN COMPARISON ====== -->
+            <div class="result-card fade-in" id="youthCompare" style="display:none;">
+                <div class="result-label">新青安 vs. 一般房貸</div>
+                <div style="font-size:13px; color:#999; margin-bottom:16px;">同樣的貸款金額，兩種方案的差異。</div>
+                <div class="compare-grid" id="compareGrid"></div>
+                <div class="insight-box" style="margin-top:16px;">
+                    <p id="compareInsight_text"></p>
+                </div>
+            </div>
+
+            <!-- ====== EMAIL SAVE ====== -->
+            <div class="email-section fade-in">
+                <div class="email-title">留一份給自己</div>
+                <p class="email-desc">數字會變，利率會調。存一份結果，之後可以回來對照。</p>
+                <div class="email-input-row">
+                    <input type="email" id="emailInput" placeholder="你的 Email">
+                    <button onclick="saveToEmail()">寄給我</button>
+                </div>
+                <p style="font-size:11px; color:#ccc; margin-top:10px;">僅用於寄送結果，不會收到其他信件。</p>
+            </div>
+
+            <!-- Footer nav -->
+            <div class="footer-nav fade-in">
+                <a href="progress.html">
+                    <i data-lucide="map" class="w-4 h-4 stroke-[1.5]" style="vertical-align:middle; margin-right:4px;"></i>
+                    看看你走到 18 步的哪了
+                </a>
+                <a href="quiz.html">
+                    <i data-lucide="compass" class="w-4 h-4 stroke-[1.5]" style="vertical-align:middle; margin-right:4px;"></i>
+                    認識你的決策性格
+                </a>
+                <a href="step/02.html">
+                    <i data-lucide="book-open" class="w-4 h-4 stroke-[1.5]" style="vertical-align:middle; margin-right:4px;"></i>
+                    第 2 步：財務健檢
+                </a>
+            </div>
+
+        </div><!-- /resultsArea -->
+
+    </div><!-- /calc-container -->
+
+    <script>
+    // ============================================
+    // DATA CONFIG (loaded from JSON, with fallback)
+    // ============================================
+    let CONFIG = {
+        youthRate: 1.775,
+        standardRate: 2.32,
+        youthMaxLoan: 1000, // 萬
+        youthMaxTerm: 40,
+        youthMaxGrace: 5,
+        youthDeadline: '2026 年 7 月 31 日',
+        youthAgeRange: '18-45 歲',
+        deedTaxRate: 0.06,
+        stampTaxRate: 0.001,
+        agentFeeMin: 15000,
+        agentFeeMax: 25000,
+        brokerRate: 0.02,
+        mgmtFee: { house: 0, apartment: 1200, building: 3500 },
+        maintenanceReserve: 1000 // 每月預估維修準備金
+    };
+
+    // Try to load from data-config.json
+    fetch('data-config.json')
+        .then(r => r.json())
+        .then(data => {
+            if (data['新青安']) {
+                CONFIG.youthRate = parseFloat(data['新青安']['最低利率']);
+                CONFIG.youthMaxLoan = parseInt(data['新青安']['額度上限'].replace(/[^\d]/g, ''));
+                CONFIG.youthDeadline = data['新青安']['申請截止日'];
+            }
+            if (data['一般房貸利率']) {
+                CONFIG.standardRate = parseFloat(data['一般房貸利率']['數值'].replace(/[^\d.]/g, ''));
+            }
+            // Update displayed rates
+            updateRateDisplay();
+        })
+        .catch(() => {});
+
+    function updateRateDisplay() {
+        const youthPill = document.querySelector('#ratePills .pill[data-value="youth"] span');
+        const stdPill = document.querySelector('#ratePills .pill[data-value="standard"] span');
+        if (youthPill) youthPill.textContent = CONFIG.youthRate + '%';
+        if (stdPill) stdPill.textContent = CONFIG.standardRate + '%';
+    }
+
+    // ============================================
+    // STATE
+    // ============================================
+    let state = {
+        price: 1000,          // 萬
+        downPaymentPct: 20,
+        rateType: 'youth',    // youth | standard | custom
+        rate: 1.775,
+        term: 30,             // 年
+        grace: 0,             // 年
+        houseType: 'building',
+        hasBroker: false,
+        hasRenovation: false,
+        renovationBudget: 50, // 萬
+        income: 0,
+        expense: 0
+    };
+
+    // Scenarios
+    let scenarios = [];
+    let currentScenarioIdx = -1;
+
+    // ============================================
+    // UI INTERACTIONS
+    // ============================================
+
+    // Price slider + input sync
+    const priceSlider = document.getElementById('priceSlider');
+    const priceInput = document.getElementById('priceInput');
+
+    priceSlider.addEventListener('input', () => {
+        state.price = parseInt(priceSlider.value);
+        priceInput.value = state.price;
+    });
+    priceInput.addEventListener('input', () => {
+        const val = parseInt(priceInput.value) || 0;
+        state.price = val;
+        // Clamp slider display (slider has max but input doesn't)
+        priceSlider.value = Math.min(Math.max(val, 300), 5000);
+    });
+    // Also sync on blur for clean formatting
+    priceInput.addEventListener('blur', () => {
+        if (!priceInput.value || parseInt(priceInput.value) < 1) {
+            priceInput.value = 300;
+            state.price = 300;
+            priceSlider.value = 300;
+        }
+    });
+
+    // Pill groups
+    function setupPills(containerId, stateKey, onChange) {
+        const container = document.getElementById(containerId);
+        container.querySelectorAll('.pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                container.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                const val = pill.dataset.value;
+                if (onChange) onChange(val);
+            });
+        });
+    }
+
+    setupPills('downPaymentPills', 'downPaymentPct', val => {
+        const customEl = document.getElementById('customDownPayment');
+        if (val === 'custom') {
+            customEl.style.display = 'block';
+            state.downPaymentPct = parseInt(document.getElementById('customDPInput').value) || 20;
+        } else {
+            customEl.style.display = 'none';
+            state.downPaymentPct = parseInt(val);
+        }
+    });
+
+    document.getElementById('customDPInput').addEventListener('input', e => {
+        state.downPaymentPct = parseInt(e.target.value) || 20;
+    });
+
+    setupPills('ratePills', 'rateType', val => {
+        const customEl = document.getElementById('customRate');
+        state.rateType = val;
+        if (val === 'youth') {
+            state.rate = CONFIG.youthRate;
+            customEl.style.display = 'none';
+        } else if (val === 'standard') {
+            state.rate = CONFIG.standardRate;
+            customEl.style.display = 'none';
+        } else {
+            customEl.style.display = 'block';
+            state.rate = parseFloat(document.getElementById('customRateInput').value) || CONFIG.youthRate;
+        }
+    });
+
+    document.getElementById('customRateInput').addEventListener('input', e => {
+        state.rate = parseFloat(e.target.value) || CONFIG.youthRate;
+    });
+
+    setupPills('termPills', 'term', val => {
+        state.term = parseInt(val);
+    });
+
+    setupPills('gracePills', 'grace', val => {
+        state.grace = parseInt(val);
+        document.getElementById('graceHint').style.display = state.grace > 0 ? 'block' : 'none';
+    });
+
+    setupPills('houseTypePills', 'houseType', val => {
+        state.houseType = val;
+    });
+
+    // Toggle switches
+    function toggleSwitch(el) {
+        el.classList.toggle('on');
+        const isOn = el.classList.contains('on');
+        if (el.id === 'brokerToggle') {
+            state.hasBroker = isOn;
+        } else if (el.id === 'renovationToggle') {
+            state.hasRenovation = isOn;
+            document.getElementById('renovationSlider').style.display = isOn ? 'block' : 'none';
+        }
+    }
+
+    // Renovation slider + input sync
+    const renovationRange = document.getElementById('renovationRange');
+    const renovationInput = document.getElementById('renovationInput');
+
+    renovationRange.addEventListener('input', () => {
+        state.renovationBudget = parseInt(renovationRange.value);
+        renovationInput.value = state.renovationBudget;
+    });
+    renovationInput.addEventListener('input', () => {
+        const val = parseInt(renovationInput.value) || 0;
+        state.renovationBudget = val;
+        renovationRange.value = Math.min(Math.max(val, 10), 300);
+    });
+    renovationInput.addEventListener('blur', () => {
+        if (!renovationInput.value || parseInt(renovationInput.value) < 1) {
+            renovationInput.value = 10;
+            state.renovationBudget = 10;
+            renovationRange.value = 10;
+        }
+    });
+
+    // Income / expense
+    document.getElementById('incomeInput').addEventListener('input', e => {
+        state.income = parseInt(e.target.value.replace(/,/g, '')) || 0;
+    });
+    document.getElementById('expenseInput').addEventListener('input', e => {
+        state.expense = parseInt(e.target.value.replace(/,/g, '')) || 0;
+    });
+
+    // Section toggle
+    function toggleSection(id) {
+        document.getElementById(id).classList.toggle('collapsed');
+        lucide.createIcons();
+    }
+
+    // ============================================
+    // CALCULATION ENGINE
+    // ============================================
+
+    function calcMonthlyPayment(principal, annualRate, years) {
+        const r = annualRate / 100 / 12;
+        const n = years * 12;
+        if (r === 0) return principal / n;
+        return principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    }
+
+    function calcGracePayment(principal, annualRate) {
+        return principal * (annualRate / 100 / 12);
+    }
+
+    function calcTotalInterest(monthly, years, principal) {
+        return monthly * years * 12 - principal;
+    }
+
+    function calculate() {
+        const price = state.price * 10000; // 轉為元
+        const downPayment = price * (state.downPaymentPct / 100);
+        const loanAmount = price - downPayment;
+        const rate = state.rate;
+        const term = state.term;
+        const grace = state.grace;
+
+        // Monthly payments
+        const monthlyAfterGrace = calcMonthlyPayment(loanAmount, rate, term - grace);
+        const monthlyDuringGrace = grace > 0 ? calcGracePayment(loanAmount, rate) : monthlyAfterGrace;
+        const displayMonthly = grace > 0 ? monthlyDuringGrace : monthlyAfterGrace;
+
+        // Total interest (approximate for grace period)
+        const graceInterest = grace > 0 ? monthlyDuringGrace * grace * 12 : 0;
+        const repayInterest = monthlyAfterGrace * (term - grace) * 12 - loanAmount;
+        const totalInterest = graceInterest + repayInterest;
+        const totalRepay = loanAmount + totalInterest;
+
+        // === RENDER CORE RESULT ===
+        document.getElementById('resultsArea').classList.add('visible');
+        document.getElementById('r_monthly').textContent = formatNumber(Math.round(displayMonthly));
+        document.getElementById('r_monthly_sub').textContent =
+            grace > 0
+                ? '寬限期內（僅付利息），持續 ' + grace + ' 年'
+                : '本息均攤，持續 ' + term + ' 年';
+
+        // Grace jump
+        const graceBox = document.getElementById('graceJumpBox');
+        if (grace > 0) {
+            graceBox.style.display = 'block';
+            document.getElementById('r_monthly_after').textContent = formatNumber(Math.round(monthlyAfterGrace));
+            const jump = monthlyAfterGrace - monthlyDuringGrace;
+            document.getElementById('r_grace_jump_desc').textContent =
+                '月付金將增加 ' + formatNumber(Math.round(jump)) + ' 元（+' + Math.round(jump / monthlyDuringGrace * 100) + '%）';
+        } else {
+            graceBox.style.display = 'none';
+        }
+
+        // Grid numbers
+        document.getElementById('r_loan_total').textContent = formatWanFromYuan(loanAmount);
+        document.getElementById('r_interest_total').textContent = formatWanFromYuan(totalInterest);
+        document.getElementById('r_downpayment').textContent = formatWanFromYuan(downPayment);
+        document.getElementById('r_repay_total').textContent = formatWanFromYuan(totalRepay);
+
+        // Insight 1
+        const monthlyWan = (displayMonthly / 10000).toFixed(1);
+        document.getElementById('insight1_text').textContent =
+            '每月 ' + formatNumber(Math.round(displayMonthly)) + ' 元，持續 ' + term + ' 年。' +
+            (totalInterest > loanAmount * 0.5
+                ? '利息總額超過借款金額的一半。這筆錢的時間成本，值得想清楚。'
+                : '這個數字你能想像放進日常生活嗎？');
+        document.getElementById('insight1').style.display = 'block';
+
+        // === HIDDEN COSTS ===
+        const deedTax = price * 0.35 * CONFIG.deedTaxRate; // 房屋評定現值約為市價35%
+        const stampTax = price * 0.2 * CONFIG.stampTaxRate; // 公告現值約為市價20%
+        const agentFee = (CONFIG.agentFeeMin + CONFIG.agentFeeMax) / 2;
+        const brokerFee = state.hasBroker ? price * CONFIG.brokerRate : 0;
+        const renovation = state.hasRenovation ? state.renovationBudget * 10000 : 0;
+
+        const hiddenItems = [
+            { label: '自備款（頭期款）', value: downPayment },
+            { label: '契稅（房屋評定現值 × 6%）', value: deedTax },
+            { label: '印花稅（公告現值 × 0.1%）', value: stampTax },
+            { label: '代書費', value: agentFee },
+        ];
+        if (state.hasBroker) hiddenItems.push({ label: '仲介費（約 2%）', value: brokerFee });
+        if (state.hasRenovation) hiddenItems.push({ label: '裝修預算', value: renovation });
+
+        const day1Total = hiddenItems.reduce((sum, item) => sum + item.value, 0);
+
+        const hiddenContainer = document.getElementById('hiddenCostItems');
+        hiddenContainer.innerHTML = hiddenItems.map(item =>
+            '<div style="display:flex; justify-content:space-between; padding:8px 0; font-size:14px; border-bottom:1px solid #F5F3F0;">' +
+            '<span style="color:#666;">' + item.label + '</span>' +
+            '<span style="font-weight:600; color:#333;">' + formatNumber(Math.round(item.value)) + '</span>' +
+            '</div>'
+        ).join('');
+        document.getElementById('r_day1_total').textContent = formatWanFromYuan(day1Total);
+
+        // Monthly holding cost
+        const mgmt = CONFIG.mgmtFee[state.houseType] || 0;
+        const maintenance = CONFIG.maintenanceReserve;
+        const monthlyTrue = Math.round(displayMonthly) + mgmt + maintenance;
+
+        const holdingResult = document.getElementById('holdingCostResult');
+        holdingResult.style.display = 'block';
+        const holdingItems = [
+            { label: '房貸月付金', value: Math.round(displayMonthly) },
+            { label: '管理費', value: mgmt },
+            { label: '維修準備金', value: maintenance },
+        ];
+        document.getElementById('holdingCostItems').innerHTML = holdingItems.map(item =>
+            '<div style="display:flex; justify-content:space-between; padding:8px 0; font-size:14px; border-bottom:1px solid #F5F3F0;">' +
+            '<span style="color:#666;">' + item.label + '</span>' +
+            '<span style="font-weight:600; color:#333;">' + formatNumber(item.value) + ' 元</span>' +
+            '</div>'
+        ).join('');
+        document.getElementById('r_monthly_true').textContent = formatNumber(monthlyTrue) + ' 元';
+
+        // Insight 2
+        const extraCost = day1Total - downPayment;
+        const insight2 = document.getElementById('insight2');
+        insight2.style.display = 'block';
+        document.getElementById('insight2_text').textContent =
+            '頭期款之外，你還需要準備約 ' + Math.round(extraCost / 10000) + ' 萬的額外費用。' +
+            '這些數字很多人到簽約前才發現。提早知道，比較不會手忙腳亂。';
+
+        // === LIFE IMPACT ===
+        const hasIncome = state.income > 0;
+        const lifeResult = document.getElementById('lifeImpactResult');
+        const insight3 = document.getElementById('insight3');
+        const stressResult = document.getElementById('stressTestResult');
+
+        if (hasIncome) {
+            lifeResult.style.display = 'block';
+            insight3.style.display = 'block';
+
+            const burdenRatio = (monthlyAfterGrace / state.income * 100);
+            const compressRatio = (monthlyTrue / state.income * 100);
+            // Use post-grace monthly for burden calculation (worst case)
+            const displayBurden = grace > 0 ? (monthlyAfterGrace / state.income * 100) : burdenRatio;
+
+            document.getElementById('r_burden_ratio').textContent = Math.round(displayBurden) + '%';
+            document.getElementById('r_compress_ratio').textContent = Math.round(compressRatio) + '%';
+
+            // Bars
+            setStressBar('r_burden_bar', displayBurden);
+            setStressBar('r_compress_bar', compressRatio);
+
+            // Disposable
+            const disposable = state.income - state.expense - monthlyTrue;
+            document.getElementById('r_disposable').textContent = formatNumber(Math.round(disposable)) + ' 元';
+            document.getElementById('r_disposable_desc').textContent =
+                disposable > 0
+                    ? '扣除所有支出和房貸後，每月剩下的錢。'
+                    : '目前的收支配置下，每月會入不敷出。';
+            document.getElementById('r_disposable').style.color = disposable > 0 ? '#121212' : '#9C4A38';
+
+            // Insight 3
+            let insightText = '';
+            if (displayBurden < 30) {
+                insightText = '目前看起來，你的生活節奏不需要做太大調整。';
+            } else if (displayBurden < 40) {
+                insightText = '你可能需要重新安排一些支出的優先順序。值得想一下哪些是願意讓步的。';
+            } else if (displayBurden < 50) {
+                insightText = '這個比例意味著你的日常會被明顯壓縮。不是不行，但值得問自己：這是你想要的生活嗎？';
+                insight3.classList.add('warning');
+            } else {
+                insightText = '超過收入一半用來還房貸，留給生活的空間很小。這個決定需要非常慎重。';
+                insight3.classList.add('warning');
+            }
+            if (grace > 0) {
+                insightText += '（這是以寬限期結束後的月付金計算。寬限期內壓力較小，但不會一直持續。）';
+            }
+            document.getElementById('insight3_text').textContent = insightText;
+
+            // === STRESS TEST ===
+            stressResult.style.display = 'block';
+            renderStressTest(loanAmount, rate, term, grace, state.income);
+
+        } else {
+            lifeResult.style.display = 'none';
+            insight3.style.display = 'none';
+            stressResult.style.display = 'none';
+        }
+
+        // === YOUTH LOAN COMPARISON ===
+        renderYouthComparison(loanAmount, term, grace);
+
+        // Scroll to results
+        document.getElementById('coreResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ============================================
+    // STRESS TEST
+    // ============================================
+    function renderStressTest(loanAmount, baseRate, term, grace, income) {
+        const scenarios = [
+            { label: '現況', delta: 0 },
+            { label: '+1 碼', delta: 0.25 },
+            { label: '+2 碼', delta: 0.50 },
+            { label: '+4 碼', delta: 1.00 },
+        ];
+
+        const baseMonthly = calcMonthlyPayment(loanAmount, baseRate, term - grace);
+        const tbody = document.getElementById('stressTableBody');
+        let rows = '';
+        let worstBurden = 0;
+        let worstLabel = '';
+
+        scenarios.forEach((s, i) => {
+            const newRate = baseRate + s.delta;
+            const monthly = calcMonthlyPayment(loanAmount, newRate, term - grace);
+            const diff = monthly - baseMonthly;
+            const burden = income > 0 ? (monthly / income * 100) : 0;
+            const isCurrent = i === 0;
+            const isDanger = burden > 40;
+
+            if (burden > worstBurden) { worstBurden = burden; worstLabel = s.label; }
+
+            rows += '<tr class="' + (isCurrent ? 'current' : '') + (isDanger && !isCurrent ? ' danger' : '') + '">' +
+                '<td>' + s.label + '</td>' +
+                '<td>' + newRate.toFixed(3) + '%</td>' +
+                '<td>' + formatNumber(Math.round(monthly)) + '</td>' +
+                '<td>' +
+                    '<div>' + Math.round(burden) + '%</div>' +
+                    '<div class="stress-bar-container"><div class="stress-bar ' + getBarClass(burden) + '" style="width:' + Math.min(burden, 100) + '%;"></div></div>' +
+                '</td>' +
+                '<td>' + (isCurrent ? '—' : '+' + formatNumber(Math.round(diff))) + '</td>' +
+                '</tr>';
+        });
+        tbody.innerHTML = rows;
+
+        // Stress insight
+        const stressRate2 = baseRate + 0.5;
+        const monthly2 = calcMonthlyPayment(loanAmount, stressRate2, term - grace);
+        const burden2 = income > 0 ? (monthly2 / income * 100) : 0;
+
+        let stressText = '';
+        if (burden2 < 35) {
+            stressText = '即使利率上調兩碼，你的財務緩衝還算充裕。';
+        } else if (burden2 < 45) {
+            stressText = '現在的利率不會永遠不變。如果升息兩碼，你的月付金會從 ' +
+                formatNumber(Math.round(baseMonthly)) + ' 變成 ' + formatNumber(Math.round(monthly2)) +
+                '。這個緩衝空間夠嗎？值得先想過。';
+        } else {
+            stressText = '在升息兩碼的情境下，你的負擔比會超過 ' + Math.round(burden2) +
+                '%，財務壓力會很明顯。考慮降低總價或拉長年限，給自己多留一點空間。';
+        }
+
+        const stressInsight = document.getElementById('stressInsight');
+        stressInsight.className = 'insight-box' + (burden2 > 40 ? ' warning' : '');
+        document.getElementById('stressInsight_text').textContent = stressText;
+    }
+
+    // ============================================
+    // YOUTH LOAN COMPARISON
+    // ============================================
+    function renderYouthComparison(loanAmount, term, grace) {
+        // Only show if not already using youth loan exclusively
+        const compareEl = document.getElementById('youthCompare');
+        compareEl.style.display = 'block';
+
+        const youthLoan = Math.min(loanAmount, CONFIG.youthMaxLoan * 10000);
+        const youthTerm = Math.min(term, CONFIG.youthMaxTerm);
+        const youthGrace = Math.min(grace, CONFIG.youthMaxGrace);
+
+        const youthMonthly = calcMonthlyPayment(youthLoan, CONFIG.youthRate, youthTerm - youthGrace);
+        const youthGraceMonthly = youthGrace > 0 ? calcGracePayment(youthLoan, CONFIG.youthRate) : youthMonthly;
+        const youthTotalInterest = (youthGrace > 0 ? youthGraceMonthly * youthGrace * 12 : 0) +
+            youthMonthly * (youthTerm - youthGrace) * 12 - youthLoan;
+
+        const stdMonthly = calcMonthlyPayment(loanAmount, CONFIG.standardRate, term - grace);
+        const stdGraceMonthly = grace > 0 ? calcGracePayment(loanAmount, CONFIG.standardRate) : stdMonthly;
+        const stdTotalInterest = (grace > 0 ? stdGraceMonthly * grace * 12 : 0) +
+            stdMonthly * (term - grace) * 12 - loanAmount;
+
+        const grid = document.getElementById('compareGrid');
+        grid.innerHTML =
+            '<div class="compare-card" style="border-color:#B8956A;">' +
+                '<div class="compare-label">新青安</div>' +
+                buildCompareItems([
+                    ['利率', CONFIG.youthRate + '%'],
+                    ['月付金', formatNumber(Math.round(grace > 0 ? youthGraceMonthly : youthMonthly)) + ' 元'],
+                    ['寬限期後', grace > 0 ? formatNumber(Math.round(youthMonthly)) + ' 元' : '—'],
+                    ['總利息', formatWanFromYuan(youthTotalInterest)],
+                    ['額度上限', formatWan(CONFIG.youthMaxLoan) + ' 萬'],
+                    ['截止日', CONFIG.youthDeadline],
+                ]) +
+            '</div>' +
+            '<div class="compare-card">' +
+                '<div class="compare-label" style="color:#999;">一般房貸</div>' +
+                buildCompareItems([
+                    ['利率', CONFIG.standardRate + '%'],
+                    ['月付金', formatNumber(Math.round(grace > 0 ? stdGraceMonthly : stdMonthly)) + ' 元'],
+                    ['寬限期後', grace > 0 ? formatNumber(Math.round(stdMonthly)) + ' 元' : '—'],
+                    ['總利息', formatWanFromYuan(stdTotalInterest)],
+                    ['額度上限', '依銀行核貸'],
+                    ['截止日', '無'],
+                ]) +
+            '</div>';
+
+        // Compare insight
+        const savingsMonthly = stdMonthly - youthMonthly;
+        const savingsTotal = stdTotalInterest - youthTotalInterest;
+        let compareText = '';
+        if (loanAmount > CONFIG.youthMaxLoan * 10000) {
+            compareText = '你的貸款金額超過新青安上限（' + formatWan(CONFIG.youthMaxLoan) + ' 萬），超出的部分需要用一般利率。' +
+                '新青安的申請截止日是 ' + CONFIG.youthDeadline + '。';
+        } else {
+            compareText = '同樣的貸款條件下，新青安每月少付約 ' + formatNumber(Math.round(savingsMonthly)) +
+                ' 元，總利息省下約 ' + Math.round(savingsTotal / 10000) + ' 萬。' +
+                '新青安的申請截止日是 ' + CONFIG.youthDeadline + '，適用年齡 ' + CONFIG.youthAgeRange + '。';
+        }
+        document.getElementById('compareInsight_text').textContent = compareText;
+    }
+
+    function buildCompareItems(items) {
+        return items.map(([label, value]) =>
+            '<div class="compare-item"><span>' + label + '</span><span class="val">' + value + '</span></div>'
+        ).join('');
+    }
+
+    // ============================================
+    // EMAIL SAVE
+    // ============================================
+    function saveToEmail() {
+        const email = document.getElementById('emailInput').value.trim();
+        if (!email || !email.includes('@')) {
+            document.getElementById('emailInput').style.borderColor = '#9C4A38';
+            return;
+        }
+
+        // Build summary text
+        const price = state.price;
+        const loanAmount = price * (1 - state.downPaymentPct / 100);
+        const monthly = calcMonthlyPayment(loanAmount * 10000, state.rate, state.term - state.grace);
+
+        const subject = encodeURIComponent('我的財務診斷結果｜擇居');
+        const body = encodeURIComponent(
+            '【我的財務診斷結果】\n\n' +
+            '房屋總價：' + formatWan(price) + ' 萬\n' +
+            '自備款：' + state.downPaymentPct + '%（' + formatWan(Math.round(price * state.downPaymentPct / 100)) + ' 萬）\n' +
+            '貸款利率：' + state.rate + '%\n' +
+            '貸款年限：' + state.term + ' 年\n' +
+            (state.grace > 0 ? '寬限期：' + state.grace + ' 年\n' : '') +
+            '每月房貸：約 ' + formatNumber(Math.round(monthly)) + ' 元\n\n' +
+            '——\n' +
+            '擇居｜先擇，後居\n' +
+            'https://howhouse.tw/calculator.html'
+        );
+
+        window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+
+        // Visual feedback
+        const btn = document.querySelector('.email-input-row button');
+        btn.textContent = '已開啟郵件';
+        btn.style.background = '#4A5D6A';
+        setTimeout(() => { btn.textContent = '寄給我'; btn.style.background = '#B8956A'; }, 3000);
+    }
+
+    // ============================================
+    // HELPERS
+    // ============================================
+    function formatNumber(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function formatWan(n) {
+        if (n >= 10000) return formatNumber(n / 10000) + ' 億';
+        return formatNumber(n);
+    }
+
+    function formatWanFromYuan(yuan) {
+        const wan = yuan / 10000;
+        if (wan >= 10000) return (wan / 10000).toFixed(1) + ' 億';
+        return Math.round(wan) + ' 萬';
+    }
+
+    function setStressBar(barId, ratio) {
+        const bar = document.getElementById(barId);
+        bar.style.width = Math.min(ratio, 100) + '%';
+        bar.className = 'stress-bar ' + getBarClass(ratio);
+    }
+
+    function getBarClass(ratio) {
+        if (ratio < 30) return 'safe';
+        if (ratio < 40) return 'caution';
+        return 'danger';
+    }
+
+    // Init icons
+    lucide.createIcons();
+    </script>
+
+<!-- FOOTER:START -->
+    <footer class="border-t px-6 md:px-12 py-10 w-full mt-auto" style="border-color:#E5E2DE;">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
+                    <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                    <a href="privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
+                </div>
+            </div>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+            </div>
+        </div>
+    </footer>
+<!-- FOOTER:END -->
+
+</body>
+</html>
