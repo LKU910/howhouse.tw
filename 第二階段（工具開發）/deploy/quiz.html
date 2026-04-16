@@ -202,51 +202,6 @@
             transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .theory-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 11px;
-            color: #B8956A;
-            background: #FAF7F3;
-            border: 1px solid #E5E2DE;
-            border-radius: 20px;
-            padding: 3px 10px 3px 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
-            margin-left: 8px;
-        }
-        .theory-tag:hover { background: #F5EFEA; border-color: #B8956A; }
-        .theory-tag .tag-icon {
-            width: 13px; height: 13px;
-            display: inline-flex; align-items: center; justify-content: center;
-            font-size: 10px; font-weight: 600; color: #B8956A;
-            transition: transform 0.2s ease;
-        }
-        .theory-tag.open .tag-icon { transform: rotate(45deg); }
-        .theory-detail {
-            display: none;
-            margin-top: 10px;
-            padding: 14px 16px;
-            background: #FAF8F5;
-            border-radius: 8px;
-            border: 1px solid #EDE6DC;
-            font-family: 'Noto Sans TC', sans-serif;
-            font-size: 13px;
-            color: #6B6560;
-            line-height: 1.7;
-        }
-        .theory-detail.open {
-            display: block;
-            animation: panelSlideUp 0.25s ease forwards;
-        }
-        .theory-detail strong { color: #B8956A; font-weight: 600; }
-        .theory-detail .theory-source {
-            display: block; margin-top: 6px;
-            font-size: 11px; color: #A0998F;
-        }
-
         .share-btn {
             display: inline-flex; align-items: center; gap: 6px;
             font-size: 13px;
@@ -275,37 +230,38 @@
 </head>
 <body>
 
-<!-- Site Nav (same as index.html / progress.html) -->
-<nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
-    <div class="flex flex-col">
-        <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
-        <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
-    </div>
-    <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
-        <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
-        <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
-        <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
-        <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
-        <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
-    </div>
-    <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
-        <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
-    </button>
-</nav>
-
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-    <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
-        <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
-    </button>
-    <nav class="flex flex-col gap-8 items-center">
-        <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
-        <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
-        <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
-        <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
-        <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+<!-- NAV:START -->
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
+        <div class="flex flex-col">
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
+        </div>
+        <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
+            <a href="index.html#buyingFlow" class="hover:text-architect-bronze transition-colors duration-500">買房 18 步</a>
+            <a href="tools.html" class="hover:text-architect-bronze transition-colors duration-500">決策工具</a>
+            <a href="builders.html" class="hover:text-architect-bronze transition-colors duration-500">建商履歷</a>
+            <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
+            <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
+        </div>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
     </nav>
-</div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
+            <a href="tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+            <a href="builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+        </nav>
+    </div>
+<!-- NAV:END -->
 
 <!-- Header -->
 <div class="quiz-header" id="quizHeader">
@@ -333,13 +289,6 @@
             <div style="margin-bottom: 28px;">
                 <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你現在站在哪裡</h2>
                 <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">不是考試，只是幫你定個位</p>
-                <span class="theory-tag" onclick="toggleTheory('t-page1')">
-                    <span class="tag-icon">+</span> 設計邏輯
-                </span>
-                <div class="theory-detail" id="t-page1">
-                    這四題在幫你定位兩件事：你走到哪了，以及你覺得自己能掌控多少。後者往往比客觀條件更影響你的下一步。
-                    <span class="theory-source">Ajzen, 1991 — Theory of Planned Behavior: Perceived Behavioral Control</span>
-                </div>
             </div>
 
             <!-- Q1 -->
@@ -398,13 +347,6 @@
             <div style="margin-bottom: 28px;">
                 <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你怎麼做選擇</h2>
                 <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">沒有好壞，只有不同</p>
-                <span class="theory-tag" onclick="toggleTheory('t-page2')">
-                    <span class="tag-icon">+</span> 設計邏輯
-                </span>
-                <div class="theory-detail" id="t-page2">
-                    這四題偵測你的<strong>決策風格</strong>和<strong>思考模式</strong>。你是蒐集到「夠好」就行動，還是一直覺得「可能還有更好的」？你靠數據判斷，還是靠感覺？兩者都不是缺點，但會影響你適合的看房策略。
-                    <span class="theory-source">Schwartz, 2002 — Maximizing vs Satisficing; Kahneman, 2011 — System 1 & System 2</span>
-                </div>
             </div>
 
             <!-- Q5 -->
@@ -464,13 +406,6 @@
             <div style="margin-bottom: 28px;">
                 <h2 style="font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: #121212; margin: 0;">你怎麼面對不確定</h2>
                 <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #999; margin: 6px 0 0;">買房最大的壓力，不是錢</p>
-                <span class="theory-tag" onclick="toggleTheory('t-page3')">
-                    <span class="tag-icon">+</span> 設計邏輯
-                </span>
-                <div class="theory-detail" id="t-page3">
-                    這四題偵測你的<strong>風險態度</strong>：你更怕「買貴」還是更怕「錯過」？兩種恐懼會把你推向完全不同的決策節奏。同時驗證你在壓力下的反應模式。
-                    <span class="theory-source">Kahneman & Tversky, 1979 — Prospect Theory; Loss Aversion</span>
-                </div>
             </div>
 
             <!-- Q9 -->
@@ -1115,19 +1050,10 @@
             const btn = document.getElementById(id);
             if (btn) btn.classList.add('button-disabled');
         });
-        document.querySelectorAll('.theory-detail.open').forEach(el => el.classList.remove('open'));
-        document.querySelectorAll('.theory-tag.open').forEach(el => el.classList.remove('open'));
         history.replaceState(null, '', window.location.pathname);
         updateProgressBar();
         updatePageIndicator();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleTheory(id) {
-        const detail = document.getElementById(id);
-        const tag = detail.previousElementSibling;
-        detail.classList.toggle('open');
-        tag.classList.toggle('open');
     }
 
     // ══════════════════════════════════════════════
