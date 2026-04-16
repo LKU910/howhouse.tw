@@ -16,6 +16,9 @@
     <meta property="og:url" content="https://howhouse.tw/calculator.html">
     <meta property="og:site_name" content="擇居">
     <meta property="og:locale" content="zh_TW">
+    <meta property="og:image" content="https://howhouse.tw/og/default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
@@ -548,6 +551,28 @@
                     </div>
                 </div>
 
+                <!-- 坪數與管理費 -->
+                <div class="field-group" id="mgmtFeeGroup">
+                    <label class="field-label">室內坪數（含公設）</label>
+                    <div class="input-with-unit" style="max-width:160px;">
+                        <input type="number" class="input-number" id="pingInput"
+                               min="1" step="1" placeholder="例：30" value="">
+                        <span class="unit">坪</span>
+                    </div>
+                    <p class="field-hint" id="mgmtFeeHint">
+                        管理費按坪數計算。一般大樓約 80–130 元/坪，華廈約 50–80 元/坪，透天通常無管理費。
+                    </p>
+                    <div id="mgmtPerPingRow" style="display:none; margin-top:10px;">
+                        <label class="field-label">每坪管理費</label>
+                        <div class="input-with-unit" style="max-width:180px;">
+                            <input type="number" class="input-number" id="mgmtPerPingInput"
+                                   min="0" step="10" value="" placeholder="100">
+                            <span class="unit">元/坪</span>
+                        </div>
+                        <p class="field-hint">如果知道社區實際單價可以填入，否則會用預設值概估。</p>
+                    </div>
+                </div>
+
                 <!-- 仲介費 -->
                 <div class="field-group">
                     <div class="toggle-row">
@@ -810,7 +835,7 @@
         agentFeeMin: 8000,
         agentFeeMax: 15000,
         brokerRate: 0.02,
-        mgmtFee: { house: 0, apartment: 1500, building: 4000 },
+        mgmtPerPing: { house: 0, apartment: 65, building: 100 }, // 元/坪 預設值
         maintenanceReserve: 1000 // 每月預估維修準備金
     };
 
@@ -850,6 +875,8 @@
         grace: 0,             // 年
         assessedValue: 0,     // 萬，0 表示用概估
         houseType: 'building',
+        ping: 0,              // 坪數，0 表示未填
+        mgmtPerPing: 100,     // 元/坪，依房屋類型預設
         hasBroker: false,
         hasRenovation: false,
         renovationBudget: 50, // 萬
@@ -946,6 +973,29 @@
 
     setupPills('houseTypePills', 'houseType', val => {
         state.houseType = val;
+        // 更新每坪管理費預設值
+        const defaultPerPing = CONFIG.mgmtPerPing[val] || 0;
+        state.mgmtPerPing = defaultPerPing;
+        const mgmtPerPingInput = document.getElementById('mgmtPerPingInput');
+        if (mgmtPerPingInput) mgmtPerPingInput.value = defaultPerPing > 0 ? defaultPerPing : '';
+        mgmtPerPingInput.placeholder = defaultPerPing > 0 ? defaultPerPing : '0';
+        // 透天無管理費 → 隱藏坪數輸入
+        const mgmtFeeGroup = document.getElementById('mgmtFeeGroup');
+        if (val === 'house') {
+            mgmtFeeGroup.style.display = 'none';
+            state.ping = 0;
+            state.mgmtPerPing = 0;
+            document.getElementById('pingInput').value = '';
+        } else {
+            mgmtFeeGroup.style.display = 'block';
+        }
+        // 更新 hint
+        const hints = {
+            building: '一般大樓約 80–130 元/坪，視社區管理品質而定。',
+            apartment: '華廈約 50–80 元/坪，部分老華廈可能更低。',
+            house: ''
+        };
+        document.getElementById('mgmtFeeHint').textContent = hints[val] || '';
     });
 
     // Toggle switches
@@ -984,6 +1034,27 @@
     // Assessed value
     document.getElementById('assessedValueInput').addEventListener('input', e => {
         state.assessedValue = parseInt(e.target.value) || 0;
+    });
+
+    // 坪數 → 管理費
+    document.getElementById('pingInput').addEventListener('input', e => {
+        state.ping = parseInt(e.target.value) || 0;
+        const perPingRow = document.getElementById('mgmtPerPingRow');
+        if (state.ping > 0) {
+            perPingRow.style.display = 'block';
+            // 如果用戶尚未手動修改每坪單價，帶入預設
+            const mgmtPerPingInput = document.getElementById('mgmtPerPingInput');
+            if (!mgmtPerPingInput.value) {
+                mgmtPerPingInput.value = CONFIG.mgmtPerPing[state.houseType] || 0;
+                state.mgmtPerPing = CONFIG.mgmtPerPing[state.houseType] || 0;
+            }
+        } else {
+            perPingRow.style.display = 'none';
+        }
+    });
+
+    document.getElementById('mgmtPerPingInput').addEventListener('input', e => {
+        state.mgmtPerPing = parseInt(e.target.value) || 0;
     });
 
     // Income / expense
@@ -1080,12 +1151,10 @@
             : price * 0.20; // 概估：房屋評定現值約市價 20%（依屋齡構造差異大）
         const isAssessedEstimate = state.assessedValue === 0;
         const deedTax = assessedValue * CONFIG.deedTaxRate;
-        // 印花稅：以公契價格（房屋評定現值 + 土地公告現值）× 0.1%
-        // 土地公告現值通常約為市價 20–40%，加上房屋評定現值，概估為總價 30%
-        const stampTaxBase = state.assessedValue > 0
-            ? assessedValue + (price * 0.15) // 有填評定現值時，土地部分概估為市價15%
-            : price * 0.30; // 全概估：房屋評定現值 + 土地公告現值 ≈ 市價30%
-        const stampTax = stampTaxBase * CONFIG.stampTaxRate;
+        // 印花稅：核定契價（= 房屋評定現值）× 0.1%
+        // 法源：印花稅法第5條，不動產買賣契據按金額千分之一
+        // 計算基礎與契稅相同，都是房屋評定現值，不含土地
+        const stampTax = assessedValue * CONFIG.stampTaxRate;
         const agentFee = (CONFIG.agentFeeMin + CONFIG.agentFeeMax) / 2;
         const brokerFee = state.hasBroker ? price * CONFIG.brokerRate : 0;
         const renovation = state.hasRenovation ? state.renovationBudget * 10000 : 0;
@@ -1096,7 +1165,7 @@
         const hiddenItems = [
             { label: '自備款（頭期款）', value: downPayment },
             { label: deedTaxLabel, value: deedTax },
-            { label: '印花稅（公契價格 × 0.1%，概估）', value: stampTax },
+            { label: '印花稅（核定契價 × 0.1%）', value: stampTax },
             { label: '代書費', value: agentFee },
         ];
         if (state.hasBroker) hiddenItems.push({ label: '仲介費（約 2%）', value: brokerFee });
@@ -1114,7 +1183,10 @@
         document.getElementById('r_day1_total').textContent = formatWanFromYuan(day1Total);
 
         // Monthly holding cost
-        const mgmt = CONFIG.mgmtFee[state.houseType] || 0;
+        const mgmt = state.ping > 0 ? state.ping * state.mgmtPerPing : 0;
+        const mgmtLabel = state.ping > 0
+            ? '管理費（' + state.ping + ' 坪 × ' + state.mgmtPerPing + ' 元）'
+            : '管理費（請填入坪數以計算）';
         const maintenance = CONFIG.maintenanceReserve;
         const monthlyTrue = Math.round(displayMonthly) + mgmt + maintenance;
 
@@ -1122,7 +1194,7 @@
         holdingResult.style.display = 'block';
         const holdingItems = [
             { label: '房貸月付金', value: Math.round(displayMonthly) },
-            { label: '管理費', value: mgmt },
+            { label: mgmtLabel, value: mgmt },
             { label: '維修準備金', value: maintenance },
         ];
         document.getElementById('holdingCostItems').innerHTML = holdingItems.map(item =>

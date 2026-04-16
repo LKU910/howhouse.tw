@@ -1098,7 +1098,7 @@ const LineLiff = {
         }
 
         // Build share message
-        const completed = Object.values(state.steps).filter(s => s.status === 'decided').length;
+        const completed = Object.values(state.steps).filter(s => s.status === 'clear').length;
         const inProgress = Object.values(state.steps).filter(s => s.status === 'thinking').length;
         const total = 18;
 
@@ -1174,7 +1174,7 @@ const LineLiff = {
     },
 
     fallbackShare() {
-        const completed = Object.values(state.steps).filter(s => s.status === 'decided').length;
+        const completed = Object.values(state.steps).filter(s => s.status === 'clear').length;
         const text = `我正在用擇居追蹤買房進度，已經想清楚 ${completed}/18 步了。一起來看看？\nhttps://howhouse.tw/progress.html`;
         if (navigator.share) {
             navigator.share({ title: '擇居 — 我的買房地圖', text }).catch(() => {});
