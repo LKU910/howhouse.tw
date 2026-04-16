@@ -332,6 +332,23 @@
         .sync-indicator .dot.online { background: #6B8E6B; }
         .sync-indicator .dot.offline { background: #DDD; }
 
+        /* ── Encouragement Block ── */
+        .encouragement {
+            background: #fff; border: 1px solid #E5E2DE; border-radius: 16px;
+            padding: 24px 28px; margin-top: 32px; text-align: center;
+            transition: opacity 0.4s;
+        }
+        .encouragement .enc-icon {
+            font-size: 28px; margin-bottom: 8px; display: block;
+        }
+        .encouragement .enc-msg {
+            font-family: 'Noto Serif TC', serif; font-size: 15px;
+            font-weight: 500; color: #444; line-height: 1.8;
+        }
+        .encouragement .enc-sub {
+            font-size: 13px; color: #999; margin-top: 8px; line-height: 1.6;
+        }
+
         /* ── Mobile ── */
         @media (max-width: 640px) {
             .progress-header { padding: 32px 16px 24px; }
@@ -476,6 +493,9 @@
 
     <!-- Path Map -->
     <div id="pathMap"></div>
+
+    <!-- Encouragement (dynamic based on progress) -->
+    <div class="encouragement" id="encouragement"></div>
 
 </div>
 
@@ -678,6 +698,7 @@ function render() {
     renderPersonaBanner();
     renderSummary();
     renderPath();
+    renderEncouragement();
 }
 
 function renderPersonaBanner() {
@@ -705,6 +726,59 @@ function renderSummary() {
     document.getElementById('countClear').textContent = clear;
     document.getElementById('countThinking').textContent = thinking;
     document.getElementById('countRemaining').textContent = notStarted;
+}
+
+function renderEncouragement() {
+    const el = document.getElementById('encouragement');
+    if (!el) return;
+
+    let clear = 0, thinking = 0;
+    Object.values(state.steps).forEach(s => {
+        if (s.status === 'clear') clear++;
+        else if (s.status === 'thinking') thinking++;
+    });
+
+    let icon, msg, sub;
+
+    if (clear === 18) {
+        icon = '🎉';
+        msg = '18 步都走完了。你已經準備好了。';
+        sub = '這段路不容易，但你一步一步走過來了。';
+    } else if (clear >= 14) {
+        icon = '🏁';
+        msg = '收尾階段了，剩下的路你很清楚。';
+        sub = `還有 ${18 - clear} 步。最後幾步不急，但別忘了它們。`;
+    } else if (clear >= 9) {
+        icon = '💪';
+        msg = '超過一半了。回頭看看，你已經走了很遠。';
+        sub = `${clear}/18 步想清楚了。剩下的，你知道怎麼走。`;
+    } else if (clear >= 4) {
+        icon = '🚶';
+        msg = '穩穩地走著。每一步想清楚，後面的路就更明確。';
+        sub = `${clear}/18 步已經定案，${thinking > 0 ? `還有 ${thinking} 步正在想。` : '繼續往前走。'}`;
+    } else if (clear >= 1) {
+        icon = '🌱';
+        msg = `走了 ${clear} 步了。不急，按自己的節奏來。`;
+        sub = thinking > 0 ? `有 ${thinking} 步正在想，想到哪算哪。` : '每一步都是在幫未來的自己做準備。';
+    } else if (thinking >= 3) {
+        icon = '🤔';
+        msg = '你有好幾步在想了。不用急著全部想清楚。';
+        sub = '先把最有把握的那一步定下來，會更踏實。';
+    } else if (thinking >= 1) {
+        icon = '👣';
+        msg = '你已經開始想了，這就是最重要的一步。';
+        sub = '想清楚一步，就標記「想清楚了」，給自己一個紀錄。';
+    } else {
+        icon = '🧭';
+        msg = '18 步看起來很多，但你不需要一次走完。';
+        sub = '找一步最有感覺的，點開來看看就好。';
+    }
+
+    el.innerHTML = `
+        <span class="enc-icon">${icon}</span>
+        <div class="enc-msg">${msg}</div>
+        <div class="enc-sub">${sub}</div>
+    `;
 }
 
 function getPhaseStatus(phase) {
@@ -881,6 +955,7 @@ function setStatus(stepId, status) {
     }
 
     renderSummary();
+    renderEncouragement();
 }
 
 function saveNotes(stepId, value) {

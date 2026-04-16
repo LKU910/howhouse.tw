@@ -43,6 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         *, *::before, *::after { box-sizing: border-box; }
@@ -441,6 +442,15 @@
             <p class="section-desc">你付得起嗎？先從最基本的數字開始。</p>
 
             <div class="section-body">
+                <!-- 房屋類型選擇 -->
+                <div class="field-group">
+                    <label class="field-label">房屋類型</label>
+                    <div class="pill-group" id="propertyTypePills">
+                        <div class="pill active" data-value="existing">成屋（中古屋）</div>
+                        <div class="pill" data-value="presale">預售屋</div>
+                    </div>
+                </div>
+
                 <!-- 房屋總價 -->
                 <div class="field-group">
                     <label class="field-label">房屋總價</label>
@@ -479,16 +489,21 @@
 
                 <!-- 貸款方案 -->
                 <div class="field-group">
-                    <label class="field-label">貸款利率</label>
-                    <div class="pill-group" id="ratePills">
-                        <div class="pill active" data-value="youth">新青安 <span style="font-size:12px;color:#B8956A;">1.775%</span></div>
-                        <div class="pill" data-value="standard">一般房貸 <span style="font-size:12px;color:#999;">2.32%</span></div>
-                        <div class="pill" data-value="custom">自訂</div>
+                    <div class="toggle-row">
+                        <span class="toggle-label">使用新青安優惠房貸</span>
+                        <div class="toggle-switch on" id="youthLoanToggle" onclick="toggleYouthLoan()"></div>
+                    </div>
+                    <p class="field-hint" id="youthLoanHint">條件：借款人、配偶及未成年子女名下均無自有住宅。申請截止：2026 年 7 月 31 日</p>
+                    <div style="margin-top:10px; font-size:13px; color:#666;">
+                        <span style="display:inline-block; padding:6px 12px; background:#FAF7F3; border-radius:8px; border-left:3px solid #B8956A;">
+                            <span id="rateDisplay">新青安 1.775%</span> &nbsp;&nbsp;
+                            <a href="#" onclick="event.preventDefault(); toggleCustomRateForm();" style="color:#B8956A; text-decoration:underline; font-size:12px;">或 自訂利率</a>
+                        </span>
                     </div>
                     <div id="customRate" style="display:none; margin-top:10px;">
                         <div class="input-with-unit">
                             <input type="number" class="input-number" id="customRateInput"
-                                   min="0.5" max="10" step="0.01" value="1.775" placeholder="年利率">
+                                   min="0.5" max="10" step="0.01" value="2.32" placeholder="年利率">
                             <span class="unit">%</span>
                         </div>
                     </div>
@@ -553,14 +568,14 @@
 
                 <!-- 坪數與管理費 -->
                 <div class="field-group" id="mgmtFeeGroup">
-                    <label class="field-label">室內坪數（含公設）</label>
+                    <label class="field-label">權狀坪數（室內＋公設）</label>
                     <div class="input-with-unit" style="max-width:160px;">
                         <input type="number" class="input-number" id="pingInput"
                                min="1" step="1" placeholder="例：30" value="">
                         <span class="unit">坪</span>
                     </div>
                     <p class="field-hint" id="mgmtFeeHint">
-                        管理費按坪數計算。一般大樓約 80–130 元/坪，華廈約 50–80 元/坪，透天通常無管理費。
+                        管理費按權狀坪數計算。一般大樓約 80–130 元/坪，華廈約 50–80 元/坪，透天通常無管理費。
                     </p>
                     <div id="mgmtPerPingRow" style="display:none; margin-top:10px;">
                         <label class="field-label">每坪管理費</label>
@@ -576,7 +591,7 @@
                 <!-- 仲介費 -->
                 <div class="field-group">
                     <div class="toggle-row">
-                        <span class="toggle-label">需要付仲介費</span>
+                        <span class="toggle-label" id="brokerLabel">需要付仲介費</span>
                         <div class="toggle-switch" id="brokerToggle" onclick="toggleSwitch(this)"></div>
                     </div>
                     <p class="field-hint">預售屋通常不需要。中古屋買方仲介費約 1–2%。</p>
@@ -602,6 +617,50 @@
                             <span>10 萬</span><span>300 萬</span>
                         </div>
                         <p class="field-hint">拖曳快速調整，或直接輸入金額。</p>
+                    </div>
+                </div>
+
+                <!-- 預售屋特定欄位 -->
+                <div id="presaleFields" style="display:none;">
+                    <!-- 工程期自備款分期 -->
+                    <div class="field-group">
+                        <label class="field-label">工程期自備款分期</label>
+                        <p class="field-hint">預售屋自備款通常分期支付（簽約金、開工款、工程期款等），最後在交屋時支付尾款。</p>
+                        <div class="input-with-unit" style="max-width:160px; margin-top:10px;">
+                            <input type="number" class="input-number" id="presaleMonthsInput"
+                                   min="6" step="1" value="36" placeholder="交屋月份">
+                            <span class="unit">個月</span>
+                        </div>
+                        <p class="field-hint">距離交屋還有多少個月？這影響現金流，但不影響總金額。</p>
+                    </div>
+
+                    <!-- 客變追加費用 -->
+                    <div class="field-group">
+                        <div class="toggle-row">
+                            <span class="toggle-label">有客變追加費用</span>
+                            <div class="toggle-switch" id="customizationToggle"></div>
+                        </div>
+                        <div id="customizationSlider" style="display:none; margin-top:10px;">
+                            <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+                                <div class="input-with-unit" style="flex:0 0 140px;">
+                                    <input type="number" class="input-number" id="customizationInput"
+                                           min="0" step="10" value="0" style="font-size:18px; font-weight:700; font-family:'Noto Serif TC',serif; padding:10px 48px 10px 14px;">
+                                    <span class="unit">萬</span>
+                                </div>
+                            </div>
+                            <input type="range" class="range-slider" id="customizationRange"
+                                   min="0" max="100" step="5" value="0">
+                            <div class="range-bounds">
+                                <span>0 萬</span><span>100 萬</span>
+                            </div>
+                            <p class="field-hint">客變（室內格局調整）可能產生的額外費用。</p>
+                        </div>
+                    </div>
+
+                    <!-- 交屋保留款 -->
+                    <div class="field-group">
+                        <label class="field-label">交屋保留款</label>
+                        <p class="field-hint">預售屋通常在交屋時保留總價的 5% 作為保留款，到驗收完成後才支付。上方自備款已包含此部分。</p>
                     </div>
                 </div>
             </div>
@@ -669,6 +728,45 @@
                     </div>
                     <div style="font-size:13px; color:#999; margin-top:4px;" id="r_grace_jump_desc"></div>
                 </div>
+                <!-- 新青安優惠利率結束後 -->
+                <div id="youthRateEndBox" style="display:none; margin-top:14px; padding:18px 16px; background:#FAF7F3; border-radius:10px; border-left:3px solid #B8956A;">
+                    <div style="font-size:12px; color:#B8956A; letter-spacing:0.08em; margin-bottom:12px; font-weight:500;">如果新青安優惠利率結束</div>
+                    <!-- 月付金階梯 -->
+                    <div id="youthEndTimeline">
+                        <!-- 階段一：寬限期內（有寬限期才顯示） -->
+                        <div id="youthEndStage1" style="display:none; margin-bottom:12px; padding:10px 14px; background:#fff; border-radius:8px;">
+                            <div style="font-size:11px; color:#999; margin-bottom:4px;">現在（寬限期內，優惠利率）</div>
+                            <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; color:#4A5D6A;">
+                                <span id="r_ye_stage1">—</span><span style="font-size:12px; font-weight:400; color:#999; margin-left:3px;">元/月</span>
+                            </div>
+                        </div>
+                        <!-- 階段二：寬限期結束，仍有優惠利率（有寬限期才顯示） -->
+                        <div id="youthEndStage2" style="display:none; margin-bottom:12px; padding:10px 14px; background:#fff; border-radius:8px;">
+                            <div style="font-size:11px; color:#999; margin-bottom:4px;">寬限期結束後（仍有優惠利率）</div>
+                            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+                                <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; color:#121212;">
+                                    <span id="r_ye_stage2">—</span><span style="font-size:12px; font-weight:400; color:#999; margin-left:3px;">元/月</span>
+                                </div>
+                                <div id="r_ye_jump1" style="font-size:12px; color:#9C4A38;"></div>
+                            </div>
+                        </div>
+                        <!-- 階段三：優惠利率也結束（最嚴峻） -->
+                        <div style="padding:12px 14px; background:#FBF5F3; border-radius:8px; border:1px solid #E8D5CC;">
+                            <div style="font-size:11px; color:#9C4A38; margin-bottom:4px; font-weight:500;" id="r_ye_stage3_label">優惠利率結束後</div>
+                            <div style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+                                <div style="font-family:'Noto Serif TC',serif; font-size:22px; font-weight:700; color:#9C4A38;">
+                                    <span id="r_ye_stage3">—</span><span style="font-size:13px; font-weight:400; color:#999; margin-left:3px;">元/月</span>
+                                </div>
+                                <div id="r_ye_jump2" style="font-size:12px; color:#9C4A38; font-weight:500;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="r_youth_end_split" style="font-size:12px; color:#888; margin-top:10px; line-height:1.7;"></div>
+                    <div style="font-size:12px; color:#aaa; margin-top:10px; line-height:1.7;">
+                        新青安目前的 1.775% 包含政府補貼 1.5 碼及行庫減收半碼。補貼預計於 2026 年 7 月 31 日結束，届時利率將回升。<br>
+                        以上以補貼結束後利率 <span id="r_youth_end_rate">2.275</span>% 估算（基準利率 + 0.555%）。實際利率仍需視届時中華郵政二年期定儲機動利率而定。
+                    </div>
+                </div>
             </div>
 
             <!-- Grid: key numbers -->
@@ -728,15 +826,17 @@
                 <div class="result-label">生活衝擊</div>
                 <div class="result-grid" style="margin-top:12px;">
                     <div class="result-grid-item">
-                        <div class="result-grid-label">負擔比</div>
+                        <div class="result-grid-label">房貸佔收入</div>
                         <div class="result-grid-value" id="r_burden_ratio">—</div>
+                        <div style="font-size:11px; color:#bbb; margin-top:2px;">房貸月付金 ÷ 月收入</div>
                         <div class="stress-bar-container" style="margin-top:6px;">
                             <div class="stress-bar" id="r_burden_bar" style="width:0%;"></div>
                         </div>
                     </div>
                     <div class="result-grid-item">
-                        <div class="result-grid-label">壓縮比</div>
+                        <div class="result-grid-label">房屋總支出佔收入</div>
                         <div class="result-grid-value" id="r_compress_ratio">—</div>
+                        <div style="font-size:11px; color:#bbb; margin-top:2px;">（房貸＋管理費＋維修準備金）÷ 月收入</div>
                         <div class="stress-bar-container" style="margin-top:6px;">
                             <div class="stress-bar" id="r_compress_bar" style="width:0%;"></div>
                         </div>
@@ -765,7 +865,7 @@
                                 <th>情境</th>
                                 <th>利率</th>
                                 <th>月付金</th>
-                                <th>負擔比</th>
+                                <th>佔收入比</th>
                                 <th>月增</th>
                             </tr>
                         </thead>
@@ -787,36 +887,153 @@
                 </div>
             </div>
 
-            <!-- ====== EMAIL SAVE ====== -->
-            <div class="email-section fade-in">
-                <div class="email-title">留一份給自己</div>
-                <p class="email-desc">數字會變，利率會調。存一份結果，之後可以回來對照。</p>
-                <div class="email-input-row">
-                    <input type="email" id="emailInput" placeholder="你的 Email">
-                    <button onclick="saveToEmail()">寄給我</button>
+            <!-- ====== PDF SAVE & EMAIL ====== -->
+            <div class="result-card fade-in" style="margin-top:16px;">
+                <div style="text-align:center; padding:0;">
+                    <div class="result-label">留一份給自己</div>
+                    <p style="font-size:13px; color:#999; margin:12px 0 20px;">數字會變，利率會調。下載一份完整的財務診斷報告，留著慢慢想。</p>
+                    <button id="pdfBtn" onclick="generatePDF(this)" style="
+                        display: inline-flex; align-items: center; gap: 8px;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        font-size: 14px; letter-spacing: 0.08em;
+                        padding: 14px 32px; border-radius: 12px;
+                        background: #B8956A; color: white; border: none;
+                        cursor: pointer; transition: all 0.2s ease;
+                    " onmouseover="this.style.background='#A67C52'" onmouseout="this.style.background='#B8956A'">
+                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
+                        下載 PDF 報告
+                    </button>
+
+                    <div style="margin-top:24px; padding-top:20px; border-top:1px solid #E5E2DE;">
+                        <p style="font-size:13px; color:#666; margin-bottom:12px;">想收到 Email 提醒？（選填）</p>
+                        <div class="email-input-row" style="margin-bottom:12px;">
+                            <input type="email" id="emailInput" placeholder="你的 Email">
+                            <button onclick="saveToEmail()" style="
+                                padding: 12px 20px; border-radius: 12px;
+                                background: #fff; color: #B8956A; border: 1px solid #E5E2DE;
+                                font-size: 14px; cursor: pointer; white-space: nowrap;
+                                font-family: 'Noto Sans TC', sans-serif;
+                                transition: all 0.2s ease;
+                                width: 100%;
+                            " onmouseover="this.style.borderColor='#B8956A'" onmouseout="this.style.borderColor='#E5E2DE'">寄給我</button>
+                        </div>
+                        <p style="font-size:11px; color:#bbb; line-height:1.6;">我們會在利率或政策有重大變動時通知你。<br>僅此用途，不會收到其他信件。</p>
+                    </div>
                 </div>
-                <p style="font-size:11px; color:#ccc; margin-top:10px;">僅用於寄送結果，不會收到其他信件。</p>
             </div>
 
-            <!-- Footer nav -->
-            <div class="footer-nav fade-in">
-                <a href="progress.html">
-                    <i data-lucide="map" class="w-4 h-4 stroke-[1.5]" style="vertical-align:middle; margin-right:4px;"></i>
-                    看看你走到 18 步的哪了
-                </a>
-                <a href="quiz.html">
-                    <i data-lucide="compass" class="w-4 h-4 stroke-[1.5]" style="vertical-align:middle; margin-right:4px;"></i>
-                    認識你的決策性格
-                </a>
-                <a href="step/02.html">
-                    <i data-lucide="book-open" class="w-4 h-4 stroke-[1.5]" style="vertical-align:middle; margin-right:4px;"></i>
-                    第 2 步：財務健檢
-                </a>
+            <!-- Closing message -->
+            <div style="text-align:center; padding:40px 24px 16px; max-width:480px; margin:0 auto;">
+                <p style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:600; color:#121212; margin-bottom:12px;">
+                    數字只是起點
+                </p>
+                <p style="font-size:14px; color:#888; line-height:1.9;">
+                    財務可以算，但日子好不好過，算不出來。<br>
+                    這些數字不會替你做決定，<br>
+                    但至少讓你在做決定之前，看清楚代價。
+                </p>
+                <p style="font-size:12px; color:#bbb; margin-top:20px;">
+                    有任何問題，歡迎<a href="about.html#contact" style="color:#B8956A; text-decoration:none;">聯繫我們</a>。
+                </p>
             </div>
 
         </div><!-- /resultsArea -->
 
     </div><!-- /calc-container -->
+
+    <!-- Hidden PDF content template -->
+    <div id="pdfContent" style="display:none; padding:40px; max-width:800px; margin:0 auto; background:#fff; font-family:'Noto Sans TC',sans-serif;">
+        <div style="text-align:center; margin-bottom:40px;">
+            <h1 style="font-family:'Noto Serif TC',serif; font-size:28px; font-weight:700; margin:0 0 8px; color:#121212;">
+                我的財務診斷報告
+            </h1>
+            <p style="font-size:14px; color:#999;">擇居 · 先擇，後居</p>
+        </div>
+
+        <div id="pdfDate" style="text-align:center; font-size:12px; color:#aaa; margin-bottom:32px;"></div>
+
+        <!-- Core Numbers -->
+        <div style="margin-bottom:32px; padding:20px; background:#f9f8f6; border-radius:12px; border-left:4px solid #B8956A;">
+            <h2 style="font-size:14px; font-weight:600; color:#666; margin:0 0 16px; letter-spacing:0.05em;">每月房貸</h2>
+            <div id="pdfMonthly" style="font-size:32px; font-weight:700; color:#121212; margin-bottom:12px;">—</div>
+            <div id="pdfMonthlyDesc" style="font-size:12px; color:#999; margin-bottom:12px;"></div>
+            <div id="pdfGraceInfo" style="display:none; margin-top:12px; padding:12px; background:#fff; border-left:3px solid #9C4A38;">
+                <div style="font-size:12px; color:#9C4A38; margin-bottom:6px;">寬限期結束後：<span id="pdfMonthlyAfter">—</span> 元/月</div>
+            </div>
+            <div id="pdfYouthEndInfo" style="display:none; margin-top:12px; padding:12px; background:#fff; border-left:3px solid #B8956A;">
+                <div style="font-size:12px; color:#B8956A; margin-bottom:8px; font-weight:500;">新青安優惠利率結束後的月付金變化</div>
+                <div id="pdfYouthEndStages" style="font-size:11px; color:#555; line-height:1.8;"></div>
+                <div id="pdfYouthEndNote" style="font-size:10px; color:#999; margin-top:6px;"></div>
+            </div>
+        </div>
+
+        <!-- Key Numbers Grid -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:32px;">
+            <div style="padding:16px; background:#f9f8f6; border-radius:8px;">
+                <div style="font-size:11px; color:#999; margin-bottom:4px;">房屋總價</div>
+                <div id="pdfPrice" style="font-size:18px; font-weight:700; color:#121212;">—</div>
+            </div>
+            <div style="padding:16px; background:#f9f8f6; border-radius:8px;">
+                <div style="font-size:11px; color:#999; margin-bottom:4px;">自備款</div>
+                <div id="pdfDownPayment" style="font-size:18px; font-weight:700; color:#121212;">—</div>
+            </div>
+            <div style="padding:16px; background:#f9f8f6; border-radius:8px;">
+                <div style="font-size:11px; color:#999; margin-bottom:4px;">貸款金額</div>
+                <div id="pdfLoan" style="font-size:18px; font-weight:700; color:#121212;">—</div>
+            </div>
+            <div style="padding:16px; background:#f9f8f6; border-radius:8px;">
+                <div style="font-size:11px; color:#999; margin-bottom:4px;">總利息</div>
+                <div id="pdfInterest" style="font-size:18px; font-weight:700; color:#121212;">—</div>
+            </div>
+        </div>
+
+        <!-- Hidden Costs -->
+        <div style="margin-bottom:32px;">
+            <h2 style="font-size:14px; font-weight:600; color:#666; margin:0 0 12px; letter-spacing:0.05em;">買入成本</h2>
+            <div id="pdfHiddenCosts" style="font-size:12px; color:#555;"></div>
+            <div style="border-top:1px solid #e5e2de; margin-top:12px; padding-top:12px; display:flex; justify-content:space-between;">
+                <span style="font-weight:600;">合計</span>
+                <span id="pdfDay1Total" style="font-weight:700;">—</span>
+            </div>
+        </div>
+
+        <!-- Life Impact (if available) -->
+        <div id="pdfLifeImpact" style="display:none; margin-bottom:32px; padding:20px; background:#f9f8f6; border-radius:12px;">
+            <h2 style="font-size:14px; font-weight:600; color:#666; margin:0 0 16px; letter-spacing:0.05em;">生活衝擊</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div>
+                    <div style="font-size:11px; color:#999; margin-bottom:4px;">房貸佔收入</div>
+                    <div id="pdfBurden" style="font-size:20px; font-weight:700; color:#121212;">—</div>
+                </div>
+                <div>
+                    <div style="font-size:11px; color:#999; margin-bottom:4px;">房屋總支出佔收入</div>
+                    <div id="pdfCompress" style="font-size:20px; font-weight:700; color:#121212;">—</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stress Test (if available) -->
+        <div id="pdfStressTest" style="display:none; margin-bottom:32px;">
+            <h2 style="font-size:14px; font-weight:600; color:#666; margin:0 0 12px; letter-spacing:0.05em;">壓力測試</h2>
+            <table style="width:100%; font-size:11px; border-collapse:collapse;">
+                <thead>
+                    <tr style="border-bottom:1px solid #e5e2de;">
+                        <th style="text-align:left; padding:8px; color:#999;">情境</th>
+                        <th style="text-align:right; padding:8px; color:#999;">利率</th>
+                        <th style="text-align:right; padding:8px; color:#999;">月付金</th>
+                        <th style="text-align:right; padding:8px; color:#999;">佔收入比</th>
+                    </tr>
+                </thead>
+                <tbody id="pdfStressTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align:center; padding-top:32px; border-top:1px solid #e5e2de; margin-top:32px;">
+            <p style="font-size:12px; color:#bbb; margin:0;">擇居 · 先擇，後居</p>
+            <p style="font-size:12px; color:#bbb; margin:4px 0 0;">https://howhouse.tw/calculator.html</p>
+        </div>
+    </div>
 
     <script>
     // ============================================
@@ -824,6 +1041,7 @@
     // ============================================
     let CONFIG = {
         youthRate: 1.775,
+        youthPostSubsidyRate: 2.275,  // 補貼結束後：基準利率 + 0.555%，不等於一般房貸
         standardRate: 2.32,
         youthMaxLoan: 1000, // 萬
         youthMaxTerm: 40,
@@ -845,6 +1063,9 @@
         .then(data => {
             if (data['新青安']) {
                 CONFIG.youthRate = parseFloat(data['新青安']['最低利率']);
+                if (data['新青安']['補貼結束後利率']) {
+                    CONFIG.youthPostSubsidyRate = parseFloat(data['新青安']['補貼結束後利率'].replace(/[^\d.]/g, ''));
+                }
                 CONFIG.youthMaxLoan = parseInt(data['新青安']['額度上限'].replace(/[^\d]/g, ''));
                 CONFIG.youthDeadline = data['新青安']['申請截止日'];
             }
@@ -857,29 +1078,37 @@
         .catch(() => {});
 
     function updateRateDisplay() {
-        const youthPill = document.querySelector('#ratePills .pill[data-value="youth"] span');
-        const stdPill = document.querySelector('#ratePills .pill[data-value="standard"] span');
-        if (youthPill) youthPill.textContent = CONFIG.youthRate + '%';
-        if (stdPill) stdPill.textContent = CONFIG.standardRate + '%';
+        const rateDisplay = document.getElementById('rateDisplay');
+        if (rateDisplay) {
+            if (state.useYouthLoan) {
+                rateDisplay.textContent = '新青安 ' + CONFIG.youthRate + '%';
+            } else {
+                rateDisplay.textContent = '一般房貸 ' + CONFIG.standardRate + '%';
+            }
+        }
     }
 
     // ============================================
     // STATE
     // ============================================
     let state = {
-        price: 1000,          // 萬
+        propertyType: 'existing',  // existing | presale
+        price: 1000,               // 萬
         downPaymentPct: 20,
-        rateType: 'youth',    // youth | standard | custom
+        useYouthLoan: true,        // true = use youth rate (NEW)
         rate: 1.775,
-        term: 30,             // 年
-        grace: 0,             // 年
-        assessedValue: 0,     // 萬，0 表示用概估
+        term: 30,                  // 年
+        grace: 0,                  // 年
+        assessedValue: 0,          // 萬，0 表示用概估
         houseType: 'building',
-        ping: 0,              // 坪數，0 表示未填
-        mgmtPerPing: 100,     // 元/坪，依房屋類型預設
+        ping: 0,                   // 坪數，0 表示未填
+        mgmtPerPing: 100,          // 元/坪，依房屋類型預設
         hasBroker: false,
         hasRenovation: false,
-        renovationBudget: 50, // 萬
+        renovationBudget: 50,      // 萬
+        presaleMonths: 36,         // 交屋月份
+        hasCustomization: false,   // 客變追加費用
+        customizationBudget: 0,    // 萬
         income: 0,
         expense: 0
     };
@@ -928,6 +1157,28 @@
         });
     }
 
+    // Property type toggle
+    setupPills('propertyTypePills', 'propertyType', val => {
+        state.propertyType = val;
+        const presaleFields = document.getElementById('presaleFields');
+        const brokerToggle = document.getElementById('brokerToggle');
+        const brokerLabel = document.getElementById('brokerLabel');
+        if (val === 'presale') {
+            presaleFields.style.display = 'block';
+            // Turn off broker and disable
+            brokerToggle.classList.remove('on');
+            state.hasBroker = false;
+            brokerToggle.style.pointerEvents = 'none';
+            brokerToggle.style.opacity = '0.5';
+            brokerLabel.style.opacity = '0.5';
+        } else {
+            presaleFields.style.display = 'none';
+            brokerToggle.style.pointerEvents = 'auto';
+            brokerToggle.style.opacity = '1';
+            brokerLabel.style.opacity = '1';
+        }
+    });
+
     setupPills('downPaymentPills', 'downPaymentPct', val => {
         const customEl = document.getElementById('customDownPayment');
         if (val === 'custom') {
@@ -943,23 +1194,41 @@
         state.downPaymentPct = parseInt(e.target.value) || 20;
     });
 
-    setupPills('ratePills', 'rateType', val => {
+    // Youth loan toggle (NEW)
+    function toggleYouthLoan() {
+        const toggle = document.getElementById('youthLoanToggle');
+        toggle.classList.toggle('on');
+        state.useYouthLoan = toggle.classList.contains('on');
+        updateRateDisplay();
+    }
+
+    function toggleCustomRateForm() {
         const customEl = document.getElementById('customRate');
-        state.rateType = val;
-        if (val === 'youth') {
+        customEl.style.display = customEl.style.display === 'none' ? 'block' : 'none';
+        if (customEl.style.display === 'block') {
+            state.useYouthLoan = false;
+            document.getElementById('youthLoanToggle').classList.remove('on');
+            state.rate = parseFloat(document.getElementById('customRateInput').value) || CONFIG.standardRate;
+        }
+    }
+
+    // Rate display update
+    function updateRateDisplay() {
+        const display = document.getElementById('rateDisplay');
+        const customEl = document.getElementById('customRate');
+        if (state.useYouthLoan) {
             state.rate = CONFIG.youthRate;
-            customEl.style.display = 'none';
-        } else if (val === 'standard') {
-            state.rate = CONFIG.standardRate;
+            display.textContent = '新青安 ' + CONFIG.youthRate + '%';
             customEl.style.display = 'none';
         } else {
-            customEl.style.display = 'block';
-            state.rate = parseFloat(document.getElementById('customRateInput').value) || CONFIG.youthRate;
+            state.rate = CONFIG.standardRate;
+            display.textContent = '一般房貸 ' + CONFIG.standardRate + '%';
+            customEl.style.display = 'none';
         }
-    });
+    }
 
     document.getElementById('customRateInput').addEventListener('input', e => {
-        state.rate = parseFloat(e.target.value) || CONFIG.youthRate;
+        state.rate = parseFloat(e.target.value) || CONFIG.standardRate;
     });
 
     setupPills('termPills', 'term', val => {
@@ -1031,6 +1300,31 @@
         }
     });
 
+    // Presale fields
+    document.getElementById('presaleMonthsInput').addEventListener('input', e => {
+        state.presaleMonths = parseInt(e.target.value) || 36;
+    });
+
+    // Customization toggle
+    document.getElementById('customizationToggle').addEventListener('click', function() {
+        toggleSwitch(this);
+        state.hasCustomization = this.classList.contains('on');
+        document.getElementById('customizationSlider').style.display = state.hasCustomization ? 'block' : 'none';
+    });
+
+    const customizationRange = document.getElementById('customizationRange');
+    const customizationInput = document.getElementById('customizationInput');
+
+    customizationRange.addEventListener('input', () => {
+        state.customizationBudget = parseInt(customizationRange.value);
+        customizationInput.value = state.customizationBudget;
+    });
+    customizationInput.addEventListener('input', () => {
+        const val = parseInt(customizationInput.value) || 0;
+        state.customizationBudget = val;
+        customizationRange.value = Math.min(Math.max(val, 0), 100);
+    });
+
     // Assessed value
     document.getElementById('assessedValueInput').addEventListener('input', e => {
         state.assessedValue = parseInt(e.target.value) || 0;
@@ -1093,29 +1387,79 @@
     function calculate() {
         const price = state.price * 10000; // 轉為元
         const downPayment = price * (state.downPaymentPct / 100);
-        const loanAmount = price - downPayment;
-        const rate = state.rate;
+        let loanAmount = price - downPayment;
         const term = state.term;
         const grace = state.grace;
 
-        // Monthly payments
-        const monthlyAfterGrace = calcMonthlyPayment(loanAmount, rate, term - grace);
-        const monthlyDuringGrace = grace > 0 ? calcGracePayment(loanAmount, rate) : monthlyAfterGrace;
-        const displayMonthly = grace > 0 ? monthlyDuringGrace : monthlyAfterGrace;
+        // Determine effective rate (needed for stress test)
+        const rate = state.useYouthLoan ? CONFIG.youthRate : (state.rate || CONFIG.standardRate);
 
-        // Total interest (approximate for grace period)
-        const graceInterest = grace > 0 ? monthlyDuringGrace * grace * 12 : 0;
-        const repayInterest = monthlyAfterGrace * (term - grace) * 12 - loanAmount;
-        const totalInterest = graceInterest + repayInterest;
+        // Auto-split logic for 新青安 when loan > 1000 萬
+        let monthlyAfterGrace, monthlyDuringGrace, displayMonthly, totalInterest, repayInterest;
+        let splitInfo = null;  // For tracking split details
+
+        if (state.useYouthLoan && loanAmount > CONFIG.youthMaxLoan * 10000) {
+            // Auto-split: youth portion (1000 萬) + standard portion (excess)
+            const youthPortion = CONFIG.youthMaxLoan * 10000;
+            const standardPortion = loanAmount - youthPortion;
+
+            const youthMonthlyAfter = calcMonthlyPayment(youthPortion, CONFIG.youthRate, term - grace);
+            const youthMonthlyDuring = grace > 0 ? calcGracePayment(youthPortion, CONFIG.youthRate) : youthMonthlyAfter;
+
+            const stdMonthlyAfter = calcMonthlyPayment(standardPortion, CONFIG.standardRate, term - grace);
+            const stdMonthlyDuring = grace > 0 ? calcGracePayment(standardPortion, CONFIG.standardRate) : stdMonthlyAfter;
+
+            monthlyAfterGrace = youthMonthlyAfter + stdMonthlyAfter;
+            monthlyDuringGrace = youthMonthlyDuring + stdMonthlyDuring;
+            displayMonthly = grace > 0 ? monthlyDuringGrace : monthlyAfterGrace;
+
+            // Calculate interest for both portions
+            const youthGraceInterest = grace > 0 ? youthMonthlyDuring * grace * 12 : 0;
+            const youthRepayInterest = youthMonthlyAfter * (term - grace) * 12 - youthPortion;
+            const youthTotalInterest = youthGraceInterest + youthRepayInterest;
+
+            const stdGraceInterest = grace > 0 ? stdMonthlyDuring * grace * 12 : 0;
+            const stdRepayInterest = stdMonthlyAfter * (term - grace) * 12 - standardPortion;
+            const stdTotalInterest = stdGraceInterest + stdRepayInterest;
+
+            totalInterest = youthTotalInterest + stdTotalInterest;
+            repayInterest = youthRepayInterest + stdRepayInterest;
+
+            splitInfo = {
+                youth: youthPortion,
+                standard: standardPortion,
+                youthMonthly: grace > 0 ? youthMonthlyDuring : youthMonthlyAfter,
+                stdMonthly: grace > 0 ? stdMonthlyDuring : stdMonthlyAfter
+            };
+        } else {
+            // Normal calculation (no split)
+            monthlyAfterGrace = calcMonthlyPayment(loanAmount, rate, term - grace);
+            monthlyDuringGrace = grace > 0 ? calcGracePayment(loanAmount, rate) : monthlyAfterGrace;
+            displayMonthly = grace > 0 ? monthlyDuringGrace : monthlyAfterGrace;
+
+            const graceInterest = grace > 0 ? monthlyDuringGrace * grace * 12 : 0;
+            repayInterest = monthlyAfterGrace * (term - grace) * 12 - loanAmount;
+            totalInterest = graceInterest + repayInterest;
+        }
+
         const totalRepay = loanAmount + totalInterest;
 
         // === RENDER CORE RESULT ===
         document.getElementById('resultsArea').classList.add('visible');
         document.getElementById('r_monthly').textContent = formatNumber(Math.round(displayMonthly));
-        document.getElementById('r_monthly_sub').textContent =
-            grace > 0
-                ? '寬限期內（僅付利息），持續 ' + grace + ' 年'
-                : '本息均攤，持續 ' + term + ' 年';
+
+        // Monthly sub text with split info if applicable
+        let monthlySubText = grace > 0
+            ? '寬限期內（僅付利息），持續 ' + grace + ' 年'
+            : '本息均攤，持續 ' + term + ' 年';
+        if (splitInfo) {
+            const y = formatWanFromYuan(splitInfo.youth);
+            const s = formatWanFromYuan(splitInfo.standard);
+            const ym = Math.round(splitInfo.youthMonthly);
+            const sm = Math.round(splitInfo.stdMonthly);
+            monthlySubText = '新青安 ' + y + '（月付 ' + formatNumber(ym) + '）+ 一般房貸 ' + s + '（月付 ' + formatNumber(sm) + '）';
+        }
+        document.getElementById('r_monthly_sub').textContent = monthlySubText;
 
         // Grace jump
         const graceBox = document.getElementById('graceJumpBox');
@@ -1127,6 +1471,104 @@
                 '月付金將增加 ' + formatNumber(Math.round(jump)) + ' 元（+' + Math.round(jump / monthlyDuringGrace * 100) + '%）';
         } else {
             graceBox.style.display = 'none';
+        }
+
+        // 新青安優惠利率結束後的完整情境
+        // 關鍵：補貼結束後利率 ≠ 一般房貸利率
+        // 新青安補貼結束後 → 約 2.275%（基準利率 + 0.555%）
+        // 一般房貸 → 約 2.32%（五大銀行新承做平均）
+        const youthEndBox = document.getElementById('youthRateEndBox');
+        if (state.useYouthLoan) {
+            const postSubsidyRate = CONFIG.youthPostSubsidyRate; // 2.275%
+            document.getElementById('r_youth_end_rate').textContent = postSubsidyRate;
+
+            // ── 計算三個階段的月付金 ──
+            // 階段一：寬限期內 + 優惠利率（最輕鬆）
+            const stage1 = displayMonthly; // 已在上方算好
+
+            // 階段二：寬限期結束 + 仍有優惠利率
+            const stage2 = monthlyAfterGrace; // 已在上方算好
+
+            // 階段三：寬限期結束 + 補貼也結束（最嚴峻）
+            let stage3;
+            if (splitInfo) {
+                // 拆分模式：新青安部分改用補貼結束後利率，一般部分利率不變
+                const postYouthPart = calcMonthlyPayment(splitInfo.youth, postSubsidyRate, term - grace);
+                const stdPartUnchanged = calcMonthlyPayment(splitInfo.standard, CONFIG.standardRate, term - grace);
+                stage3 = postYouthPart + stdPartUnchanged;
+            } else {
+                // 全額新青安 → 補貼結束後利率
+                stage3 = calcMonthlyPayment(loanAmount, postSubsidyRate, term - grace);
+            }
+
+            // ── 渲染三階段 ──
+            const stage1El = document.getElementById('youthEndStage1');
+            const stage2El = document.getElementById('youthEndStage2');
+
+            if (grace > 0) {
+                // 有寬限期：顯示完整三階段
+                stage1El.style.display = 'block';
+                stage2El.style.display = 'block';
+
+                document.getElementById('r_ye_stage1').textContent = formatNumber(Math.round(stage1));
+
+                document.getElementById('r_ye_stage2').textContent = formatNumber(Math.round(stage2));
+                const jump1 = stage2 - stage1;
+                document.getElementById('r_ye_jump1').textContent =
+                    '較寬限期 +' + formatNumber(Math.round(jump1)) + ' 元（+' + Math.round(jump1 / stage1 * 100) + '%）';
+
+                document.getElementById('r_ye_stage3_label').textContent =
+                    '寬限期結束 + 補貼結束（' + postSubsidyRate + '%）';
+                document.getElementById('r_ye_stage3').textContent = formatNumber(Math.round(stage3));
+                const jumpFromStart = stage3 - stage1;
+                document.getElementById('r_ye_jump2').textContent =
+                    '較現在 +' + formatNumber(Math.round(jumpFromStart)) + ' 元（+' + Math.round(jumpFromStart / stage1 * 100) + '%）';
+            } else {
+                // 無寬限期：只顯示補貼結束後的差異
+                stage1El.style.display = 'none';
+                stage2El.style.display = 'none';
+
+                document.getElementById('r_ye_stage3_label').textContent = '補貼結束後（' + postSubsidyRate + '%）';
+                document.getElementById('r_ye_stage3').textContent = formatNumber(Math.round(stage3));
+                const diff = stage3 - stage2;
+                document.getElementById('r_ye_jump2').textContent =
+                    diff > 0 ? '每月多付 ' + formatNumber(Math.round(diff)) + ' 元' : '';
+            }
+
+            // 拆分細節
+            let splitNote = '';
+            if (splitInfo) {
+                const youthPartBefore = calcMonthlyPayment(splitInfo.youth, CONFIG.youthRate, term - grace);
+                const youthPartAfter = calcMonthlyPayment(splitInfo.youth, postSubsidyRate, term - grace);
+                splitNote = '新青安部分（' + formatWanFromYuan(splitInfo.youth) +
+                    '）利率從 ' + CONFIG.youthRate + '% 回到 ' + postSubsidyRate +
+                    '%，月付從 ' + formatNumber(Math.round(youthPartBefore)) +
+                    ' 變成 ' + formatNumber(Math.round(youthPartAfter)) + '。' +
+                    '一般房貸部分不受影響。';
+            }
+
+            // 總利息差異
+            let postSubsidyTotalInterest;
+            if (splitInfo) {
+                const postYP = calcMonthlyPayment(splitInfo.youth, postSubsidyRate, term - grace);
+                const stdP = calcMonthlyPayment(splitInfo.standard, CONFIG.standardRate, term - grace);
+                const postYPGrace = grace > 0 ? calcGracePayment(splitInfo.youth, postSubsidyRate) * grace * 12 : 0;
+                const stdPGrace = grace > 0 ? calcGracePayment(splitInfo.standard, CONFIG.standardRate) * grace * 12 : 0;
+                postSubsidyTotalInterest = postYPGrace + postYP * (term - grace) * 12 - splitInfo.youth +
+                    stdPGrace + stdP * (term - grace) * 12 - splitInfo.standard;
+            } else {
+                const postGraceInt = grace > 0 ? calcGracePayment(loanAmount, postSubsidyRate) * grace * 12 : 0;
+                postSubsidyTotalInterest = postGraceInt + stage3 * (term - grace) * 12 - loanAmount;
+            }
+            const interestDiff = postSubsidyTotalInterest - totalInterest;
+            if (interestDiff > 10000) {
+                splitNote += (splitNote ? ' ' : '') + '總利息將增加約 ' + Math.round(interestDiff / 10000) + ' 萬。';
+            }
+            document.getElementById('r_youth_end_split').textContent = splitNote;
+
+            youthEndBox.style.display = 'block';
+        } else {
+            youthEndBox.style.display = 'none';
         }
 
         // Grid numbers
@@ -1158,6 +1600,7 @@
         const agentFee = (CONFIG.agentFeeMin + CONFIG.agentFeeMax) / 2;
         const brokerFee = state.hasBroker ? price * CONFIG.brokerRate : 0;
         const renovation = state.hasRenovation ? state.renovationBudget * 10000 : 0;
+        const customization = state.hasCustomization ? state.customizationBudget * 10000 : 0;
 
         const deedTaxLabel = isAssessedEstimate
             ? '契稅（概估，建議填入房屋評定現值）'
@@ -1170,6 +1613,7 @@
         ];
         if (state.hasBroker) hiddenItems.push({ label: '仲介費（約 2%）', value: brokerFee });
         if (state.hasRenovation) hiddenItems.push({ label: '裝修預算', value: renovation });
+        if (state.hasCustomization) hiddenItems.push({ label: '客變追加費用', value: customization });
 
         const day1Total = hiddenItems.reduce((sum, item) => sum + item.value, 0);
 
@@ -1181,6 +1625,18 @@
             '</div>'
         ).join('');
         document.getElementById('r_day1_total').textContent = formatWanFromYuan(day1Total);
+
+        // Presale tax reminder
+        const hiddenCostResult = document.getElementById('hiddenCostResult');
+        let presaleTaxNote = hiddenCostResult.querySelector('.presale-tax-note');
+        if (presaleTaxNote) presaleTaxNote.remove();
+        if (state.propertyType === 'presale') {
+            const note = document.createElement('div');
+            note.className = 'presale-tax-note';
+            note.style.cssText = 'margin-top:12px; padding:12px 14px; font-size:12px; color:#aaa; background:#fafaf8; border-radius:8px; line-height:1.6;';
+            note.textContent = '預售屋同樣需要繳交契稅與印花稅，通常在交屋過戶時支付。上方金額已包含，但實際繳納時間點會在交屋階段。';
+            hiddenCostResult.appendChild(note);
+        }
 
         // Monthly holding cost
         const mgmt = state.ping > 0 ? state.ping * state.mgmtPerPing : 0;
@@ -1272,8 +1728,9 @@
             stressResult.style.display = 'none';
         }
 
-        // === YOUTH LOAN COMPARISON ===
-        renderYouthComparison(loanAmount, term, grace);
+        // === YOUTH LOAN COMPARISON (hidden now - user either chose it or didn't) ===
+        const compareEl = document.getElementById('youthCompare');
+        compareEl.style.display = 'none';  // Always hide - user made their choice
 
         // Scroll to results
         document.getElementById('coreResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1341,72 +1798,126 @@
         document.getElementById('stressInsight_text').textContent = stressText;
     }
 
+
     // ============================================
-    // YOUTH LOAN COMPARISON
+    // PDF GENERATION
     // ============================================
-    function renderYouthComparison(loanAmount, term, grace) {
-        // Only show if not already using youth loan exclusively
-        const compareEl = document.getElementById('youthCompare');
-        compareEl.style.display = 'block';
+    function generatePDF(btn) {
+        // Populate PDF content with current results
+        const price = state.price * 10000;
+        const downPayment = price * (state.downPaymentPct / 100);
+        const loanAmount = price - downPayment;
 
-        const youthLoan = Math.min(loanAmount, CONFIG.youthMaxLoan * 10000);
-        const youthTerm = Math.min(term, CONFIG.youthMaxTerm);
-        const youthGrace = Math.min(grace, CONFIG.youthMaxGrace);
+        // Date
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementById('pdfDate').textContent = '產生時間：' + dateStr;
 
-        const youthMonthly = calcMonthlyPayment(youthLoan, CONFIG.youthRate, youthTerm - youthGrace);
-        const youthGraceMonthly = youthGrace > 0 ? calcGracePayment(youthLoan, CONFIG.youthRate) : youthMonthly;
-        const youthTotalInterest = (youthGrace > 0 ? youthGraceMonthly * youthGrace * 12 : 0) +
-            youthMonthly * (youthTerm - youthGrace) * 12 - youthLoan;
+        // Get current displayed values
+        const monthlyText = document.getElementById('r_monthly').textContent;
+        const loanText = document.getElementById('r_loan_total').textContent;
+        const interestText = document.getElementById('r_interest_total').textContent;
+        const day1Text = document.getElementById('r_day1_total').textContent;
 
-        const stdMonthly = calcMonthlyPayment(loanAmount, CONFIG.standardRate, term - grace);
-        const stdGraceMonthly = grace > 0 ? calcGracePayment(loanAmount, CONFIG.standardRate) : stdMonthly;
-        const stdTotalInterest = (grace > 0 ? stdGraceMonthly * grace * 12 : 0) +
-            stdMonthly * (term - grace) * 12 - loanAmount;
+        document.getElementById('pdfMonthly').textContent = monthlyText + ' 元/月';
+        document.getElementById('pdfMonthlyDesc').textContent = state.grace > 0
+            ? '寬限期內（僅付利息），持續 ' + state.grace + ' 年'
+            : '本息均攤，持續 ' + state.term + ' 年';
+        document.getElementById('pdfPrice').textContent = formatWan(state.price) + ' 萬';
+        document.getElementById('pdfDownPayment').textContent = formatWanFromYuan(downPayment);
+        document.getElementById('pdfLoan').textContent = loanText;
+        document.getElementById('pdfInterest').textContent = interestText;
 
-        const grid = document.getElementById('compareGrid');
-        grid.innerHTML =
-            '<div class="compare-card" style="border-color:#B8956A;">' +
-                '<div class="compare-label">新青安</div>' +
-                buildCompareItems([
-                    ['利率', CONFIG.youthRate + '%'],
-                    ['月付金', formatNumber(Math.round(grace > 0 ? youthGraceMonthly : youthMonthly)) + ' 元'],
-                    ['寬限期後', grace > 0 ? formatNumber(Math.round(youthMonthly)) + ' 元' : '—'],
-                    ['總利息', formatWanFromYuan(youthTotalInterest)],
-                    ['額度上限', formatWan(CONFIG.youthMaxLoan) + ' 萬'],
-                    ['截止日', CONFIG.youthDeadline],
-                ]) +
-            '</div>' +
-            '<div class="compare-card">' +
-                '<div class="compare-label" style="color:#999;">一般房貸</div>' +
-                buildCompareItems([
-                    ['利率', CONFIG.standardRate + '%'],
-                    ['月付金', formatNumber(Math.round(grace > 0 ? stdGraceMonthly : stdMonthly)) + ' 元'],
-                    ['寬限期後', grace > 0 ? formatNumber(Math.round(stdMonthly)) + ' 元' : '—'],
-                    ['總利息', formatWanFromYuan(stdTotalInterest)],
-                    ['額度上限', '依銀行核貸'],
-                    ['截止日', '無'],
-                ]) +
-            '</div>';
+        // Hidden costs (copy from displayed)
+        const hiddenItemsHTML = document.getElementById('hiddenCostItems').innerHTML;
+        document.getElementById('pdfHiddenCosts').innerHTML = hiddenItemsHTML;
+        document.getElementById('pdfDay1Total').textContent = day1Text;
 
-        // Compare insight
-        const savingsMonthly = stdMonthly - youthMonthly;
-        const savingsTotal = stdTotalInterest - youthTotalInterest;
-        let compareText = '';
-        if (loanAmount > CONFIG.youthMaxLoan * 10000) {
-            compareText = '你的貸款金額超過新青安上限（' + formatWan(CONFIG.youthMaxLoan) + ' 萬），超出的部分需要用一般利率。' +
-                '新青安的申請截止日是 ' + CONFIG.youthDeadline + '。';
+        // Grace jump info
+        const graceBox = document.getElementById('graceJumpBox');
+        const pdfGraceInfo = document.getElementById('pdfGraceInfo');
+        if (graceBox.style.display !== 'none') {
+            pdfGraceInfo.style.display = 'block';
+            const afterText = document.getElementById('r_monthly_after').textContent;
+            document.getElementById('pdfMonthlyAfter').textContent = afterText;
         } else {
-            compareText = '同樣的貸款條件下，新青安每月少付約 ' + formatNumber(Math.round(savingsMonthly)) +
-                ' 元，總利息省下約 ' + Math.round(savingsTotal / 10000) + ' 萬。' +
-                '新青安的申請截止日是 ' + CONFIG.youthDeadline + '。條件：' + CONFIG.youthCondition + '。';
+            pdfGraceInfo.style.display = 'none';
         }
-        document.getElementById('compareInsight_text').textContent = compareText;
-    }
 
-    function buildCompareItems(items) {
-        return items.map(([label, value]) =>
-            '<div class="compare-item"><span>' + label + '</span><span class="val">' + value + '</span></div>'
-        ).join('');
+        // Youth rate end scenario (if shown)
+        const youthEndBoxPdf = document.getElementById('youthRateEndBox');
+        const pdfYouthEnd = document.getElementById('pdfYouthEndInfo');
+        if (youthEndBoxPdf.style.display !== 'none') {
+            pdfYouthEnd.style.display = 'block';
+            let stagesHtml = '';
+            const s1El = document.getElementById('youthEndStage1');
+            const s2El = document.getElementById('youthEndStage2');
+            if (s1El.style.display !== 'none') {
+                stagesHtml += '現在（寬限期內）：' + document.getElementById('r_ye_stage1').textContent + ' 元/月<br>';
+                stagesHtml += '寬限期結束後（仍有優惠）：' + document.getElementById('r_ye_stage2').textContent + ' 元/月<br>';
+            }
+            stagesHtml += '<strong style="color:#9C4A38;">' +
+                document.getElementById('r_ye_stage3_label').textContent + '：' +
+                document.getElementById('r_ye_stage3').textContent + ' 元/月</strong>';
+            const jumpText = document.getElementById('r_ye_jump2').textContent;
+            if (jumpText) stagesHtml += ' （' + jumpText + '）';
+            document.getElementById('pdfYouthEndStages').innerHTML = stagesHtml;
+            document.getElementById('pdfYouthEndNote').textContent =
+                document.getElementById('r_youth_end_split').textContent || '';
+        } else {
+            pdfYouthEnd.style.display = 'none';
+        }
+
+        // Life impact (if shown)
+        const lifeResult = document.getElementById('lifeImpactResult');
+        if (lifeResult.style.display !== 'none') {
+            document.getElementById('pdfLifeImpact').style.display = 'block';
+            document.getElementById('pdfBurden').textContent = document.getElementById('r_burden_ratio').textContent;
+            document.getElementById('pdfCompress').textContent = document.getElementById('r_compress_ratio').textContent;
+        } else {
+            document.getElementById('pdfLifeImpact').style.display = 'none';
+        }
+
+        // Stress test (if shown)
+        const stressResult = document.getElementById('stressTestResult');
+        if (stressResult.style.display !== 'none') {
+            document.getElementById('pdfStressTest').style.display = 'block';
+            const tableBody = document.getElementById('stressTableBody');
+            const rows = tableBody.querySelectorAll('tr');
+            let stressTableHTML = '';
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length > 0) {
+                    stressTableHTML += '<tr style="border-bottom:1px solid #e5e2de;">';
+                    stressTableHTML += '<td style="text-align:left; padding:8px;">' + cells[0].textContent + '</td>';
+                    stressTableHTML += '<td style="text-align:right; padding:8px;">' + cells[1].textContent + '</td>';
+                    stressTableHTML += '<td style="text-align:right; padding:8px;">' + cells[2].textContent + '</td>';
+                    stressTableHTML += '<td style="text-align:right; padding:8px;">' + (cells[3].textContent || '') + '</td>';
+                    stressTableHTML += '</tr>';
+                }
+            });
+            document.getElementById('pdfStressTable').innerHTML = stressTableHTML;
+        } else {
+            document.getElementById('pdfStressTest').style.display = 'none';
+        }
+
+        // Generate PDF using html2pdf
+        const element = document.getElementById('pdfContent');
+        const opt = {
+            margin: 10,
+            filename: '我的財務診斷報告_' + dateStr + '.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+        };
+        html2pdf().set(opt).from(element).save();
+
+        // Visual feedback
+        if (!btn) btn = document.getElementById('pdfBtn');
+        const origText = btn.textContent;
+        btn.textContent = '已下載';
+        btn.style.background = '#4A5D6A';
+        setTimeout(() => { btn.textContent = origText; btn.style.background = '#B8956A'; }, 2000);
     }
 
     // ============================================
