@@ -25,16 +25,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
   <script>
-  // Toggle completed projects visibility
-  function toggleCompletedProjects(btn) {
-    const tables = document.querySelectorAll('.proj-table');
-    const isHidden = tables[0] && tables[0].closest('tbody')?.parentElement?.classList.contains('proj-completed-hidden');
-    tables.forEach(t => {
-      if (isHidden) {
-        t.classList.remove('proj-completed-hidden');
-      } else {
-        t.classList.add('proj-completed-hidden');
-      }
     });
     btn.textContent = isHidden ? '收合已完工建案' : '顯示已完工建案';
   }
@@ -84,13 +74,8 @@
     .toggle-btn { display: inline-block; border: 1px solid #121212; background-color: #FAFAFA; color: #121212; padding: 12px 16px; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: all 500ms; margin-bottom: 24px; font-weight: 500; }
     .toggle-btn:hover { background-color: #121212; color: white; }
     .toggle-btn:focus { outline: none; }
-    .proj-table { width: 100%; border-collapse: collapse; }
-    .proj-table th { text-align: left; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 600; padding: 16px 16px 16px 0; border-bottom: 1px solid #121212; font-family: 'Noto Sans TC', sans-serif; }
-    .proj-table td { padding: 20px 16px 20px 0; border-bottom: 1px solid #E5E5E5; vertical-align: top; }
-    .proj-table tr:last-child td { border-bottom: none; }
     .region-group { border-bottom: none !important; }
     .region-group td { padding-top: 32px !important; padding-bottom: 8px !important; }
-    .region-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 600; }
     .proj-name { font-weight: 500; color: #121212; margin-bottom: 4px; font-size: 14px; }
     .proj-sub { font-size: 12px; color: #666666; line-height: 1.5; }
     .status-badge { font-size: 12px; font-weight: 500; color: inherit; white-space: nowrap; display: inline-block; }
@@ -186,8 +171,6 @@
       .legal-section { padding: 56px 20px; }
       .contact-block { padding: 40px 20px; }
       footer { padding: 32px 20px; }
-      .proj-table th, .proj-table td { padding: 12px 12px 12px 0; font-size: 13px; }
-      .proj-table th:nth-child(3), .proj-table td:nth-child(3) { display: none; }
       .page-wrapper { padding: 32px 20px 0; }
     }
     input:focus { outline: none; }
@@ -233,12 +216,6 @@
     .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; line-height: 1.6; }
     a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; padding: 4px 0; text-decoration: none; white-space: nowrap; transition: color 500ms; letter-spacing: 0.04em; border: none; background: none; }
     a.src:hover { color: #B8956A; }
-    .proj-table { width: 100%; border-collapse: collapse; font-size: 14px; font-family: 'Noto Sans TC', sans-serif; }
-    .proj-table th { text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; padding: 16px 16px 16px 0; border-bottom: 1px solid #121212; }
-    .proj-table td { padding: 20px 16px 20px 0; border-bottom: 1px solid #E5E5E5; vertical-align: top; }
-    .proj-table tr:last-child td { border-bottom: none; }
-    .rgroup td { border-bottom: none !important; padding-top: 32px !important; padding-bottom: 8px !important; }
-    .region-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; }
     .proj-toggle-btn { font-family: 'Noto Sans TC', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; background: none; border: 1px solid #121212; padding: 10px 16px; cursor: pointer; transition: all 500ms; color: #121212; }
     .proj-toggle-btn:hover { background: #121212; color: #FAFAFA; }
     .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
@@ -345,56 +322,13 @@
       .hero-name { font-size: 30px; }
       .card { padding: 20px; }
       .fact-row { grid-template-columns: 1fr; gap: 4px; }
-      .proj-table th:nth-child(3), .proj-table td:nth-child(3) { display: none; }
-      .proj-table th:nth-child(2), .proj-table td:nth-child(2) { display: none; }
       .hero-bento { grid-template-columns: 1fr; }
       .lb-num { font-size: 32px; }
       .contact-block { flex-direction: column; align-items: flex-start; }
     }
-    /* Expandable region section */
-    .proj-outside-wrap { overflow: hidden; max-height: 0; transition: max-height 0.5s ease; }
-    .proj-outside-wrap.open { max-height: 8000px; }
-    .proj-region-toggle { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 14px 0; border-top: 1px solid #E5E5E5; cursor: pointer; user-select: none; }
-    .proj-region-toggle:hover .proj-region-label { color: var(--architect-bronze); }
-    .proj-region-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #121212; }
-    .proj-region-count { font-size: 11px; color: #999; }
-    .proj-region-chevron { width: 16px; height: 16px; transition: transform 0.3s ease; color: #999; margin-left: auto; }
-    .proj-region-toggle.open .proj-region-chevron { transform: rotate(180deg); }
-    .proj-summary-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; padding: 12px 16px; background: #F5F3F0; }
-    .proj-summary-item { font-size: 11px; color: #666; }
-    .proj-summary-item strong { color: var(--architect-bronze); font-weight: 700; font-family: 'Noto Serif TC', serif; }
-
-  
-    /* ── 進行中建案行內標注 ── */
-    .proj-table tr.active-row td {
-      background: #FDF8F3;
-    }
-    .proj-table tr.active-row td:first-child {
-      border-left: 3px solid var(--architect-bronze, #B8956A);
-      padding-left: 13px;
-    }
-    .s-planning { color: #7B6BA5; font-weight: 600; }
+    /* Expandable region section */    .s-planning { color: #7B6BA5; font-weight: 600; }
     .s-onsale   { color: #B8860B; font-weight: 600; }
-    .s-presale-active { color: #B8956A; font-weight: 600; }
-
-  
-    /* Collapsible completed projects */
-    .proj-table tr:not(.active-row):not(.rgroup):not(:first-child) {
-      /* These are completed rows - will be hidden by JS */
-    }
-    .proj-completed-hidden tr:not(.active-row):not(.rgroup) {
-      display: none;
-    }
-    .proj-completed-hidden .rgroup {
-      display: none;
-    }
-    .proj-completed-hidden .active-row {
-      display: table-row;
-    }
-    .proj-completed-hidden .rgroup:has(+ .active-row) {
-      display: table-row;
-    }
-    .proj-toggle-completed {
+    .s-presale-active { color: #B8956A; font-weight: 600; }    .proj-toggle-completed {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -477,10 +411,6 @@
       <span class="hero-tag">台北</span>
     </div>
     <div class="hero-bento">
-      <div class="hs-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-        <div style="font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:#B8956A;line-height:1;">17</div>
-        <div class="hs-label" style="margin-top:8px;">總建案數</div>
-      </div>
       <div class="hs-card">
         <div class="hs-label">統一編號</div>
         <div class="hs-value">14037318</div>
@@ -511,7 +441,6 @@
       <span class="snav-item is-sentiment" onclick="jumpTo('sec-sentiment')">網路輿情</span>
       <div class="snav-sep"></div>
       <span class="snav-item is-official" onclick="jumpTo('sec-quality')">品質相關</span>
-      <span class="snav-item is-official" onclick="jumpTo('sec-proj')">過往建案</span>
     </div>
   </div>
 
@@ -701,70 +630,6 @@
     <div class="data-footnote">資料來源：經濟部商業司</div>
   </div>
 
-  <div id="sec-proj" class="card">
-    <div class="sec-label">過往建案</div>
-    <div class="proj-summary-bar">
-      <span class="proj-summary-item">共 <strong>17</strong> 個建案</span>
-      <span class="proj-summary-item">台北市 <strong>7</strong></span>
-      <span class="proj-summary-item">新北市 <strong>6</strong></span>
-      <span class="proj-summary-item">宜蘭縣 · 高雄市 <strong>5</strong></span>
-    </div>
-<table class="proj-table proj-completed-hidden" id="proj-table-metro">
-      <thead>
-        <tr>
-          <th style="width:45%">建案名稱</th>
-            <th style="width:20%">地區</th>
-            <th style="width:12%">年份</th>
-            <th style="width:23%">狀態</th>
-</tr>
-      </thead>
-      <tbody>
-</table>
-        <tr class="rgroup"><td colspan="4"><span class="region-label">台北市（8）</span></td></tr>
-            <tr><td><div class="proj-name">宏國大道城B區</div><div class="proj-sub">大同區</div></td><td>大同區</td><td>2024</td><td><span class="status-pill s-presale">銷售中</span></td></tr>
-        <tr><td><div class="proj-name">至善天下</div><div class="proj-sub">士林區 · 社區住宅</div></td><td>士林區</td><td>1996</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">甲桂林</div><div class="proj-sub">士林區 · 社區住宅</div></td><td>士林區</td><td>1990s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國芝園</div><div class="proj-sub">士林區 · 社區住宅</div></td><td>士林區</td><td>1990s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">九鼎大樓</div><div class="proj-sub">松山區 · 社區住宅</div></td><td>松山區</td><td>1980s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國忠孝社區</div><div class="proj-sub">信義區 · 社區住宅</div></td><td>信義區</td><td>1972</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國石牌社區</div><div class="proj-sub">北投區 · 社區住宅</div></td><td>北投區</td><td>1970s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國新生社區</div><div class="proj-sub">中山區 · 社區住宅</div></td><td>中山區</td><td>1970s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr class="rgroup"><td colspan="4"><span class="region-label">新北市（6）</span></td></tr>
-        <tr class="active-row"><td><div class="proj-name">宏國春悅大地ECO UTOPIA</div><div class="proj-sub">新店區 · 住宅開發</div></td><td>新店區</td><td>2020s</td><td><span class="status-pill s-ongoing">興建中</span></td></tr>
-        <tr><td><div class="proj-name">宏國青田</div><div class="proj-sub">鶯歌區 · 社區住宅</div></td><td>鶯歌區</td><td>2010s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國海天</div><div class="proj-sub">淡水區 · 社區住宅</div></td><td>淡水區</td><td>2000s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國大鎮</div><div class="proj-sub">汐止區 · 社區住宅</div></td><td>汐止區</td><td>2000s</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏安新莊社區</div><div class="proj-sub">新莊區 · 社區住宅</div></td><td>新莊區</td><td>1973</td><td><span class="status-pill s-done">完工</span></td></tr>
-        <tr><td><div class="proj-name">宏國文化社區</div><div class="proj-sub">板橋區 · 社區住宅</div></td><td>板橋區</td><td>1972</td><td><span class="status-pill s-done">完工</span></td></tr>
-      </tbody>
-
-    <div class="proj-region-toggle" onclick="toggleOutsideMetro(this)">
-      <span class="proj-region-label">查看雙北以外建案</span>
-      <span class="proj-region-count">（宜蘭縣 1、高雄市 1）</span>
-      <svg class="proj-region-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-    </div>
-    <div class="proj-outside-wrap" id="proj-outside">
-      <table class="proj-table proj-completed-hidden">
-        <thead>
-          <tr>
-            <th style="width:45%">建案名稱</th>
-            <th style="width:20%">地區</th>
-            <th style="width:12%">年份</th>
-            <th style="width:23%">狀態</th>
-</tr>
-        </thead>
-        <tbody>
-          <tr class="rgroup"><td colspan="4"><span class="region-label">宜蘭縣（1）</span></td></tr>
-          <tr class="active-row"><td><div class="proj-name">宜蘭五結造鎮案</div><div class="proj-sub">五結鄉 · 開發案</div></td><td>五結鄉</td><td>規劃中</td><td><span class="status-pill s-planning">規劃中</span></td></tr>
-          <tr class="rgroup"><td colspan="4"><span class="region-label">高雄市（1）</span></td></tr>
-          <tr class="active-row"><td><div class="proj-name">宏森·綻</div><div class="proj-sub">前鎮區 · 住宅開發</div></td><td>前鎮區</td><td>2023</td><td><span class="status-pill s-presale-active">預售中</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p style="font-size:11.5px;color:#666;margin-top:14px">建案資料整理自公開來源，如有遺漏或錯誤歡迎透過下方連結回報。</p>
-  </div>
-
   <div class="contact-block">
     <div>
       <div class="c-title">發現資料錯誤或有補充？</div>
@@ -820,15 +685,6 @@
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
-  function toggleOutsideMetro(toggleEl) {
-    const wrap = document.getElementById('proj-outside');
-    const isOpen = wrap.classList.contains('open');
-    wrap.classList.toggle('open');
-    toggleEl.classList.toggle('open');
-    const label = toggleEl.querySelector('.proj-region-label');
-    if (label) {
-      label.textContent = isOpen ? '查看雙北以外建案' : '收合雙北以外建案';
-    }
   }
   function jumpTo(id) {
     const el = document.getElementById(id);

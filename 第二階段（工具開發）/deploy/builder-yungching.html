@@ -72,12 +72,6 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
 .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
 a.src:hover { color: #B8956A; }
-.proj-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.proj-table th { text-align: left; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; padding: 16px 16px 16px 0; border-bottom: 1px solid #121212; }
-.proj-table td { padding: 20px 16px 20px 0; border-bottom: 1px solid #E5E5E5; vertical-align: top; }
-.proj-table tr:last-child td { border-bottom: none; }
-.rgroup td { border-bottom: none !important; padding-top: 32px !important; padding-bottom: 8px !important; }
-.region-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; }
 .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
 .proj-sub { font-size: 14px; color: #666666; }
 .status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
@@ -166,29 +160,7 @@ input:focus, button:focus { outline: none; }
   .legal-bento { grid-template-columns: 1fr; }
   .contact-block { padding: 28px; }
 }
-    /* Expandable region section */
-    .proj-outside-wrap { overflow: hidden; max-height: 0; transition: max-height 0.5s ease; }
-    .proj-outside-wrap.open { max-height: 8000px; }
-    .proj-region-toggle { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding: 14px 0; border-top: 1px solid #E5E5E5; cursor: pointer; user-select: none; }
-    .proj-region-toggle:hover .proj-region-label { color: var(--architect-bronze); }
-    .proj-region-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #121212; }
-    .proj-region-count { font-size: 11px; color: #999; }
-    .proj-region-chevron { width: 16px; height: 16px; transition: transform 0.3s ease; color: #999; margin-left: auto; }
-    .proj-region-toggle.open .proj-region-chevron { transform: rotate(180deg); }
-    .proj-summary-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; padding: 12px 16px; background: #F5F3F0; }
-    .proj-summary-item { font-size: 11px; color: #666; }
-    .proj-summary-item strong { color: var(--architect-bronze); font-weight: 700; font-family: 'Noto Serif TC', serif; }
-
-  
-    /* ── 進行中建案行內標注 ── */
-    .proj-table tr.active-row td {
-      background: #FDF8F3;
-    }
-    .proj-table tr.active-row td:first-child {
-      border-left: 3px solid var(--architect-bronze, #B8956A);
-      padding-left: 13px;
-    }
-    .s-planning { color: #7B6BA5; font-weight: 600; }
+    /* Expandable region section */    .s-planning { color: #7B6BA5; font-weight: 600; }
     .s-onsale   { color: #B8860B; font-weight: 600; }
     .s-presale-active { color: #B8956A; font-weight: 600; }
 
@@ -259,10 +231,6 @@ input:focus, button:focus { outline: none; }
       <span class="hero-tag">永慶集團</span>
     </div>
     <div class="hero-bento">
-      <div class="hs-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-        <div style="font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:#B8956A;line-height:1;">5</div>
-        <div class="hs-label" style="margin-top:8px;">總建案數</div>
-      </div>
       <div class="hs-card">
         <div class="hs-label">統一編號</div>
         <div class="hs-value">54338923</div>
@@ -283,7 +251,6 @@ input:focus, button:focus { outline: none; }
       <span class="snav-item is-sentiment" onclick="jumpTo('sec-sentiment')">網路輿情</span>
       <div class="snav-sep"></div>
       <span class="snav-item is-official" onclick="jumpTo('sec-quality')">品質相關</span>
-      <span class="snav-item is-official" onclick="jumpTo('sec-proj')">過往建案</span>
     </div>
   </div>
 
@@ -416,40 +383,6 @@ input:focus, button:focus { outline: none; }
     <div class="data-footnote">資料來源：永慶房屋 · 經濟部商業司</div>
   </div>
 
-  <div id="sec-proj" class="card">
-    <div class="sec-label">過往建案</div>
-    <div class="proj-summary-bar">
-      <span class="proj-summary-item">共 <strong>5</strong> 個建案</span>
-      <span class="proj-summary-item">台北市 <strong>2</strong></span>
-      <span class="proj-summary-item">新北市 <strong>2</strong></span>
-      <span class="proj-summary-item">其他 <strong>1</strong></span>
-    </div>
-<table class="proj-table" id="proj-table-metro">
-      <thead>
-        <tr>
-          <th style="width:45%">建案名稱</th>
-            <th style="width:20%">地區</th>
-            <th style="width:12%">年份</th>
-            <th style="width:23%">狀態</th>
-</tr>
-      </thead>
-      <tbody>
-        <tr class="rgroup"><td colspan="4"><span class="region-label">台北市（3）</span></td></tr>
-        <tr class="active-row"><td><div class="proj-name">都市更新合作興建案</div><div class="proj-sub">大安區 · 住宅開發</div></td><td>大安區</td><td>進行中</td><td><span class="status-pill s-ongoing">興建中</span></td></tr>
-        <tr class="active-row"><td><div class="proj-name">永慶建設集團開發案1</div><div class="proj-sub">大安區 · 開發案</div></td><td>大安區</td><td>規劃中</td><td><span class="status-pill s-planning">規劃中</span></td></tr>
-        <tr class="active-row"><td><div class="proj-name">永慶建設集團開發案3</div><div class="proj-sub">信義區 · 開發案</div></td><td>信義區</td><td>規劃中</td><td><span class="status-pill s-planning">規劃中</span></td></tr>
-        <tr class="rgroup"><td colspan="4"><span class="region-label">新北市（2）</span></td></tr>
-        <tr class="active-row"><td><div class="proj-name">建地承購開發案</div><div class="proj-sub">新店區 · 開發案</div></td><td>新店區</td><td>規劃中</td><td><span class="status-pill s-planning">規劃中</span></td></tr>
-        <tr class="active-row"><td><div class="proj-name">永慶建設集團開發案2</div><div class="proj-sub">板橋區 · 開發案</div></td><td>板橋區</td><td>規劃中</td><td><span class="status-pill s-planning">規劃中</span></td></tr>
-        <tr class="rgroup"><td colspan="4"><span class="region-label">其他（0）</span></td></tr>
-
-
-      </tbody>
-    </table>
-
-    <p style="font-size:11.5px;color:#666;margin-top:14px">建案資料整理自公開來源，如有遺漏或錯誤歡迎透過下方連結回報。</p>
-  </div>
-
   <div class="contact-block">
     <div>
       <div class="c-title">發現資料錯誤或有補充？</div>
@@ -503,15 +436,6 @@ input:focus, button:focus { outline: none; }
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
-  function toggleOutsideMetro(toggleEl) {
-    const wrap = document.getElementById('proj-outside');
-    const isOpen = wrap.classList.contains('open');
-    wrap.classList.toggle('open');
-    toggleEl.classList.toggle('open');
-    const label = toggleEl.querySelector('.proj-region-label');
-    if (label) {
-      label.textContent = isOpen ? '查看雙北以外建案' : '收合雙北以外建案';
-    }
   }
   function jumpTo(id) {
     const el = document.getElementById(id);
