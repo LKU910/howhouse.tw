@@ -974,24 +974,32 @@
                 <div id="pdfYouthEndStages" style="font-size:12px; color:#555;"></div>
                 <div id="pdfYouthEndNote" style="font-size:10px; color:#aaa; margin-top:6px; line-height:1.5;"></div>
             </div>
-            <!-- 四格數字 -->
-            <table style="width:100%; border-collapse:separate; border-spacing:6px;">
+            <!-- 四格數字（用 collapse + 內層 div 背景色模擬間距，避免 border-spacing） -->
+            <table style="width:100%; border-collapse:collapse;">
                 <tr>
-                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:2px;">貸款金額</div>
-                        <div id="pdfLoan" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:3px;">
+                        <div style="padding:10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:2px;">貸款金額</div>
+                            <div id="pdfLoan" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
-                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:2px;">總利息</div>
-                        <div id="pdfInterest" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:3px;">
+                        <div style="padding:10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:2px;">總利息</div>
+                            <div id="pdfInterest" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
-                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:2px;">還款總額</div>
-                        <div id="pdfRepayTotal" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:3px;">
+                        <div style="padding:10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:2px;">還款總額</div>
+                            <div id="pdfRepayTotal" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
-                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:2px;">利息佔貸款比</div>
-                        <div id="pdfInterestRatio" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:3px;">
+                        <div style="padding:10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:2px;">利息佔貸款比</div>
+                            <div id="pdfInterestRatio" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -1020,6 +1028,26 @@
             </div>
         </div>
 
+        <!-- Footer（僅第一頁，當沒有第二頁內容時顯示） -->
+        <div id="pdfFooterPage1" style="display:none; margin-top:16px;">
+            <div style="height:3px; background:#B8956A;"></div>
+            <div style="background:#3D3D3D; padding:16px 44px;">
+                <table style="width:100%; border-collapse:collapse;">
+                    <tr>
+                        <td style="vertical-align:middle;">
+                            <span style="font-family:'Noto Serif TC',serif; font-size:13px; font-weight:600; letter-spacing:0.12em; color:#ffffff;">
+                                <span style="color:#D4A96A;">擇</span>居
+                            </span>
+                            <span style="font-size:9px; color:#888888; letter-spacing:0.18em; margin-left:8px;">先擇，後居</span>
+                        </td>
+                        <td style="vertical-align:middle; text-align:right; font-size:9px; color:#888888; line-height:1.6;">
+                            僅供參考，不構成財務建議 &nbsp;|&nbsp; howhouse.tw
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
         <!-- ════════ PAGE 2：生活衝擊 + 壓力測試 ════════ -->
         <!-- 明確分頁：生活衝擊和壓力測試放在第二頁 -->
         <div id="pdfPageBreak" style="page-break-before:always;"></div>
@@ -1027,19 +1055,25 @@
         <!-- 生活衝擊 -->
         <div id="pdfLifeImpact" style="display:none; padding:28px 44px 18px;">
             <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:12px;">生活衝擊</div>
-            <table style="width:100%; border-collapse:separate; border-spacing:6px;">
+            <table style="width:100%; border-collapse:collapse;">
                 <tr>
-                    <td style="width:33%; padding:14px 10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:3px;">房貸佔收入</div>
-                        <div id="pdfBurden" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:33%; padding:3px;">
+                        <div style="padding:14px 10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:3px;">房貸佔收入</div>
+                            <div id="pdfBurden" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
-                    <td style="width:33%; padding:14px 10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:3px;">房屋總支出佔收入</div>
-                        <div id="pdfCompress" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:33%; padding:3px;">
+                        <div style="padding:14px 10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:3px;">房屋總支出佔收入</div>
+                            <div id="pdfCompress" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
-                    <td style="width:33%; padding:14px 10px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; margin-bottom:3px;">每月可自由運用</div>
-                        <div id="pdfDisposable" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:33%; padding:3px;">
+                        <div style="padding:14px 10px; background:#F7F5F2; text-align:center;">
+                            <div style="font-size:9px; color:#999; margin-bottom:3px;">每月可自由運用</div>
+                            <div id="pdfDisposable" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -1065,8 +1099,8 @@
             <div id="pdfStressInsight" style="font-size:11px; color:#555; line-height:1.8; padding:10px 14px; margin-top:10px; background:#F7F5F2;"></div>
         </div>
 
-        <!-- Footer -->
-        <div style="margin-top:16px;">
+        <!-- Footer（第二頁） -->
+        <div id="pdfFooter" style="margin-top:16px;">
             <div style="height:3px; background:#B8956A;"></div>
             <div style="background:#3D3D3D; padding:16px 44px;">
                 <table style="width:100%; border-collapse:collapse;">
@@ -1159,10 +1193,6 @@
         income: 0,
         expense: 0
     };
-
-    // Scenarios
-    let scenarios = [];
-    let currentScenarioIdx = -1;
 
     // ============================================
     // UI INTERACTIONS
@@ -1378,10 +1408,6 @@
 
     function calcGracePayment(principal, annualRate) {
         return principal * (annualRate / 100 / 12);
-    }
-
-    function calcTotalInterest(monthly, years, principal) {
-        return monthly * years * 12 - principal;
     }
 
     function calculate() {
@@ -1805,11 +1831,12 @@
         // ── Section 1: 核心數字 ──
         document.getElementById('pdfDate').textContent = '報告產生時間：' + dateStr;
 
-        const monthlyText = document.getElementById('r_monthly').textContent;
-        const loanText = document.getElementById('r_loan_total').textContent;
-        const interestText = document.getElementById('r_interest_total').textContent;
-        const repayText = document.getElementById('r_repay_total').textContent;
-        const day1Text = document.getElementById('r_day1_total').textContent;
+        const _t = (id) => { const el = document.getElementById(id); return el ? el.textContent : '—'; };
+        const monthlyText = _t('r_monthly');
+        const loanText = _t('r_loan_total');
+        const interestText = _t('r_interest_total');
+        const repayText = _t('r_repay_total');
+        const day1Text = _t('r_day1_total');
 
         document.getElementById('pdfMonthly').textContent = monthlyText;
 
@@ -1837,7 +1864,7 @@
         document.getElementById('pdfInterest').textContent = interestText;
         document.getElementById('pdfRepayTotal').textContent = repayText;
         // 利息佔貸款比
-        const interestYuan = parseFloat(interestText) * 10000;
+        const interestYuan = (parseFloat(interestText) || 0) * 10000;
         const loanYuan = loanAmount;
         const interestRatio = loanYuan > 0 ? Math.round(interestYuan / loanYuan * 100) : 0;
         document.getElementById('pdfInterestRatio').textContent = interestRatio + '%';
@@ -1880,16 +1907,31 @@
         }
 
         // ── Section 2: 買入成本 ──
-        document.getElementById('pdfHiddenCosts').innerHTML = document.getElementById('hiddenCostItems').innerHTML;
+        // 原始 hiddenCostItems 用 display:flex（html2canvas 不支援），改用 table 重建
+        function flexToTable(sourceEl) {
+            const items = sourceEl.querySelectorAll('div[style*="display:flex"], div[style*="display: flex"]');
+            if (items.length === 0) return sourceEl.innerHTML; // fallback
+            let html = '<table style="width:100%; border-collapse:collapse; font-size:12px;">';
+            items.forEach(item => {
+                const spans = item.querySelectorAll('span');
+                const label = spans[0] ? spans[0].textContent : '';
+                const value = spans[1] ? spans[1].textContent : '';
+                html += '<tr style="border-bottom:1px solid #F5F3F0;"><td style="padding:6px 0; color:#666;">' + label + '</td><td style="padding:6px 0; text-align:right; font-weight:600; color:#333;">' + value + '</td></tr>';
+            });
+            html += '</table>';
+            return html;
+        }
+        document.getElementById('pdfHiddenCosts').innerHTML = flexToTable(document.getElementById('hiddenCostItems'));
         document.getElementById('pdfDay1Total').textContent = day1Text;
 
         // ── 每月持有成本（合併在成本總覽區塊內） ──
-        document.getElementById('pdfHoldingItems').innerHTML = document.getElementById('holdingCostItems').innerHTML;
+        document.getElementById('pdfHoldingItems').innerHTML = flexToTable(document.getElementById('holdingCostItems'));
         document.getElementById('pdfMonthlyTrue').textContent = document.getElementById('r_monthly_true').textContent;
 
         // ── Section 4: 生活衝擊 ──
         const lifeResult = document.getElementById('lifeImpactResult');
-        if (lifeResult.style.display !== 'none') {
+        const hasLifeImpact = lifeResult.style.display !== 'none';
+        if (hasLifeImpact) {
             document.getElementById('pdfLifeImpact').style.display = 'block';
             document.getElementById('pdfBurden').textContent = document.getElementById('r_burden_ratio').textContent;
             document.getElementById('pdfCompress').textContent = document.getElementById('r_compress_ratio').textContent;
@@ -1903,7 +1945,8 @@
 
         // ── Section 5: 壓力測試 ──
         const stressResult = document.getElementById('stressTestResult');
-        if (stressResult.style.display !== 'none') {
+        const hasStressTest = stressResult.style.display !== 'none';
+        if (hasStressTest) {
             document.getElementById('pdfStressTest').style.display = 'block';
             const tableBody = document.getElementById('stressTableBody');
             const rows = tableBody.querySelectorAll('tr');
@@ -1929,6 +1972,13 @@
         } else {
             document.getElementById('pdfStressTest').style.display = 'none';
         }
+
+        // 只有第二頁有內容才顯示分頁和 footer
+        const hasPage2 = hasLifeImpact || hasStressTest;
+        document.getElementById('pdfPageBreak').style.display = hasPage2 ? 'block' : 'none';
+        document.getElementById('pdfFooter').style.display = hasPage2 ? 'block' : 'none';
+        // 沒有第二頁時，footer 附在第一頁底部
+        document.getElementById('pdfFooterPage1').style.display = hasPage2 ? 'none' : 'block';
 
         // ── Generate PDF ──
         // html2canvas 需要元素在 DOM 中可見且有尺寸才能正確渲染
@@ -1972,22 +2022,22 @@
         btn.disabled = true;
 
         html2pdf().set(opt).from(clone).save().then(() => {
-            wrapper.remove();
             btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 stroke-[1.5]"></i> 已下載';
             btn.style.background = '#4A5D6A';
-            btn.disabled = false;
             lucide.createIcons();
             setTimeout(() => {
                 btn.innerHTML = origHTML;
                 btn.style.background = '#B8956A';
                 lucide.createIcons();
             }, 2500);
-        }).catch(() => {
-            wrapper.remove();
+        }).catch((err) => {
+            console.error('PDF generation failed:', err);
             btn.innerHTML = origHTML;
             btn.style.background = '#B8956A';
+            alert('PDF 產生失敗，請重試。');
+        }).finally(() => {
+            wrapper.remove();
             btn.disabled = false;
-            lucide.createIcons();
         });
     }
 
