@@ -105,7 +105,7 @@
         a:active { opacity: 0.7; }
         /* Sticky progress bar on mobile */
         @media (max-width: 640px) {
-            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+            .sticky-progress { position: sticky; top: var(--nav-h, 0px); z-index: 40; background: #FAFAFA; border-top: none; }
         }
 
 

@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
 .hero-en { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
 .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
 .hero-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; }
-.snav { position: sticky; top: 0; z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
+.snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
 .snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; }
 .snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; }
 .snav-item:hover { color: #121212; }
@@ -429,10 +429,10 @@ input:focus, button:focus { outline: none; }
 </div>
 
 <div class="bg-amber-50 border-t border-amber-200 py-4 px-6 text-center text-xs text-amber-800 mt-12">
-    本頁面內容基於公開資訊整理，所引用之用戶評論及社群討論未經身分驗證，不代表事實陳述。進行中之法律案件內容可能變動，建議查詢<a href="https://judgment.judicial.gov.tw/" target="_blank" class="underline font-bold">司法院裁判書查詢系統</a>確認最新進展。建商或相關當事人可對本頁內容<a href="/about.html" class="underline font-bold">提出異議</a>。
+    本頁面內容基於公開資訊整理，所引用之用戶評論及社群討論未經身分驗證，不代表事實陳述。進行中之法律案件內容可能變動，建議查詢<a href="https://judgment.judicial.gov.tw/" target="_blank" class="underline font-bold whitespace-nowrap">司法院裁判書查詢系統</a>確認最新進展。建商或相關當事人可對本頁內容<a href="/about.html" class="underline font-bold whitespace-nowrap">提出異議</a>。
 </div>
 <div class="bg-stone-100 border-t border-stone-200 py-4 px-6 text-center text-xs text-stone-500">
-    本站內容僅供參考，不構成投資、法律或財務建議。<a href="/terms.html" class="underline hover:text-stone-700 ml-1">服務條款</a> · <a href="/privacy.html" class="underline hover:text-stone-700">隱私政策</a>
+    本站內容僅供參考，不構成投資、法律或財務建議。<a href="/terms.html" class="underline hover:text-stone-700 ml-1 whitespace-nowrap">服務條款</a> · <a href="/privacy.html" class="underline hover:text-stone-700 whitespace-nowrap">隱私政策</a>
 </div>
 
 <!-- FOOTER:START -->

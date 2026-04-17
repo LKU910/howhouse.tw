@@ -105,7 +105,7 @@
         a:active { opacity: 0.7; }
         /* Sticky progress bar on mobile */
         @media (max-width: 640px) {
-            .sticky-progress { position: sticky; top: 0; z-index: 40; background: #FAFAFA; }
+            .sticky-progress { position: sticky; top: var(--nav-h, 0px); z-index: 40; background: #FAFAFA; border-top: none; }
         }
 
 
@@ -398,7 +398,7 @@
                         <p class="font-sans text-sm font-semibold text-architect-bronze">→ 只能用 32.5 坪，但要付 50 坪的房價！</p>
                     </div>
                     <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
-                        台灣公設比依建築類型有明顯差異：無電梯公寓 8-15%；華廈（有電梯）15-20%；大樓（新建）30-40%，部分高達 40% 以上。25% 以下已屬低公設建案。在同樣的房價下，公設比越低越划算。
+                        台灣公設比依建築類型有明顯差異：老公寓（無電梯）雖然權狀上登記 8-15% 公設，但實際上權狀坪數與可使用空間幾乎相同，加上早期常見的陽台外推等格局，實際使用面積往往比帳面更大；華廈（有電梯）15-20%；大樓（新建）30-40%，部分高達 40% 以上。25% 以下已屬低公設建案。在同樣的房價下，公設比越低越划算。
                     </p>
                     <p class="font-sans text-base text-stone-600 leading-relaxed mt-4">
                         <strong>公設包括什麼？</strong>

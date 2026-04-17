@@ -432,6 +432,74 @@
     </div>
 <!-- NAV:END -->
 
+<!-- Header -->
+<div class="progress-header">
+    <h1>我的買房地圖</h1>
+    <p class="subtitle">看看你走到 18 步的哪了。不急，按自己的節奏走。</p>
+</div>
+
+<div class="progress-container">
+
+    <!-- Persona Banner (shown if quiz taken) -->
+    <div class="persona-banner" id="personaBanner">
+        <div class="label">你的決策傾向</div>
+        <div class="persona-title" id="bannerPersonaTitle"></div>
+        <div class="persona-hint" id="bannerPersonaHint"></div>
+        <a href="quiz.html" class="retake-link">重新測驗 →</a>
+    </div>
+
+    <!-- Empty State CTA (shown if no quiz taken) -->
+    <div class="empty-cta" id="quizCta" style="display:none;">
+        <h3>還不確定從哪裡開始？</h3>
+        <p>花三分鐘做個簡單的方向診斷，幫你找到適合的起點。</p>
+        <a href="quiz.html">我的決策性格</a>
+    </div>
+
+    <!-- Overall Summary -->
+    <div class="overall-summary" id="overallSummary">
+        <div class="summary-chip">
+            <div class="num" id="countClear">0</div>
+            <div class="label">想清楚了</div>
+        </div>
+        <div class="summary-chip">
+            <div class="num" id="countThinking">0</div>
+            <div class="label">正在想</div>
+        </div>
+        <div class="summary-chip">
+            <div class="num" id="countRemaining">18</div>
+            <div class="label">還沒走到</div>
+        </div>
+    </div>
+
+    <!-- LINE Login Banner -->
+    <div class="line-login-banner" id="lineLoginBanner" style="display:none;" onclick="LineLiff.login()">
+        <span class="line-icon">💬</span>
+        <span class="line-text">連結 LINE，<strong>進度不會丟</strong>。</span>
+        <button class="line-action">連結 LINE</button>
+    </div>
+
+    <!-- Sync Indicator -->
+    <div class="sync-indicator" id="syncIndicatorInline" style="display:none;">
+        <span class="dot"></span><span class="sync-text"></span>
+    </div>
+
+    <!-- Partner Hint (hidden — 雙人模式暫時收起，等共同筆記功能成熟後再上線) -->
+    <!--
+    <div class="partner-hint" id="partnerHint" onclick="showPartnerModal()">
+        <span class="partner-hint-icon">🤝</span>
+        <span class="partner-hint-text">買房是兩個人的決定？<strong>開啟雙人模式</strong>，看到彼此的進度。</span>
+        <span class="partner-hint-arrow">→</span>
+    </div>
+    -->
+
+    <!-- Path Map -->
+    <div id="pathMap"></div>
+
+    <!-- Encouragement (dynamic based on progress) -->
+    <div class="encouragement" id="encouragement"></div>
+
+</div>
+
 <!-- Toolbar -->
 <div class="toolbar">
     <!-- 分享按鈕暫時收起，等雙人模式重新設計後再上線 -->

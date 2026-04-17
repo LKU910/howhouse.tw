@@ -627,13 +627,37 @@
 
             <div class="section-body">
                 <div class="field-group">
-                    <label class="field-label">家庭月收入（稅後）</label>
+                    <label class="field-label">家庭月收入（稅前）</label>
                     <div class="input-with-unit">
                         <input type="number" class="input-number" id="incomeInput"
                                placeholder="例：80,000" min="0" step="1000">
                         <span class="unit">元</span>
                     </div>
+                    <p class="field-hint">填稅前月薪即可，系統會自動估算所得稅。</p>
                 </div>
+
+                <!-- 所得稅估算 -->
+                <div id="taxEstimateRow" style="display:none; margin:-4px 0 12px; padding:12px 14px; background:#FAF8F5; border-radius:10px; border-left:3px solid #B8956A;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                        <span style="font-size:13px; color:#666; font-weight:500;">預估年度所得稅</span>
+                        <span id="taxModeBadge" style="font-size:11px; color:#B8956A; background:#F5EDE4; padding:2px 8px; border-radius:4px;">估算</span>
+                    </div>
+                    <div id="taxEstimateValue" style="font-size:14px; font-weight:600; color:#3D3D3D;"></div>
+                    <div id="taxAfterTaxIncome" style="font-size:13px; color:#4A5D6A; font-weight:500; margin-top:4px;"></div>
+                    <div style="margin-top:8px; display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:12px; color:#999;">自行填入年稅額：</span>
+                        <div style="display:flex; align-items:center; gap:4px;">
+                            <input type="number" class="input-number" id="taxManualInput"
+                                   placeholder="留空=自動估算" min="0" step="1000"
+                                   style="width:130px; font-size:13px; padding:6px 10px;">
+                            <span style="font-size:12px; color:#999;">元/年</span>
+                        </div>
+                    </div>
+                    <p style="font-size:11px; color:#bbb; margin-top:6px;">
+                        以單身、標準扣除額、薪資所得概估。實際稅額依個人申報方式而異。修改後請重新按「算給我看」。
+                    </p>
+                </div>
+
                 <div class="field-group">
                     <label class="field-label">目前每月支出（不含房租）</label>
                     <div class="input-with-unit">
@@ -641,7 +665,7 @@
                                placeholder="例：35,000" min="0" step="1000">
                         <span class="unit">元</span>
                     </div>
-                    <p class="field-hint">含生活費、保險、交通、餐飲等，不含目前的房租。</p>
+                    <p class="field-hint">含生活費、保險、交通、餐飲等，不含目前的房租和所得稅。</p>
                 </div>
             </div>
         </div>
@@ -756,7 +780,7 @@
             <!-- Monthly holding cost -->
             <div class="result-card fade-in" id="holdingCostResult" style="display:none;">
                 <div class="result-label">每月持有成本</div>
-                <div style="font-size:13px; color:#999; margin-bottom:16px;">房貸之外，每月還要付的</div>
+                <div style="font-size:13px; color:#999; margin-bottom:16px;" id="holdingCostDesc">房貸之外，每月還要付的</div>
                 <div id="holdingCostItems"></div>
                 <div style="border-top:1px solid #E5E2DE; margin-top:12px; padding-top:12px; display:flex; justify-content:space-between; align-items:baseline;">
                     <span style="font-size:14px; color:#666; font-weight:500;">每月真正支出</span>
@@ -776,7 +800,7 @@
                     <div class="result-grid-item">
                         <div class="result-grid-label">房貸佔收入</div>
                         <div class="result-grid-value" id="r_burden_ratio">—</div>
-                        <div style="font-size:11px; color:#bbb; margin-top:2px;">房貸月付金 ÷ 月收入</div>
+                        <div style="font-size:11px; color:#bbb; margin-top:2px;">房貸月付金 ÷ 稅後月收入</div>
                         <div class="stress-bar-container" style="margin-top:6px;">
                             <div class="stress-bar" id="r_burden_bar" style="width:0%;"></div>
                         </div>
@@ -784,7 +808,7 @@
                     <div class="result-grid-item">
                         <div class="result-grid-label">房屋總支出佔收入</div>
                         <div class="result-grid-value" id="r_compress_ratio">—</div>
-                        <div style="font-size:11px; color:#bbb; margin-top:2px;">（房貸＋管理費＋維修準備金）÷ 月收入</div>
+                        <div style="font-size:11px; color:#bbb; margin-top:2px;" id="r_compress_desc">（房貸＋管理費＋維修準備金）÷ 稅後月收入</div>
                         <div class="stress-bar-container" style="margin-top:6px;">
                             <div class="stress-bar" id="r_compress_bar" style="width:0%;"></div>
                         </div>
@@ -965,7 +989,8 @@
         hasRenovation: false,
         renovationBudget: 50,      // 萬
         income: 0,
-        expense: 0
+        expense: 0,
+        taxManual: 0,        // 手動填入年稅額（0 = 用自動估算）
     };
 
     // ============================================
@@ -1155,18 +1180,94 @@
         state.mgmtPerPing = parseInt(e.target.value) || 0;
     });
 
-    // Income / expense
+    // Income / expense / tax
     document.getElementById('incomeInput').addEventListener('input', e => {
         state.income = parseInt(e.target.value.replace(/,/g, '')) || 0;
+        updateTaxDisplay();
     });
     document.getElementById('expenseInput').addEventListener('input', e => {
         state.expense = parseInt(e.target.value.replace(/,/g, '')) || 0;
+    });
+    document.getElementById('taxManualInput').addEventListener('input', e => {
+        state.taxManual = parseInt(e.target.value.replace(/,/g, '')) || 0;
+        updateTaxDisplay();
     });
 
     // Section toggle
     function toggleSection(id) {
         document.getElementById(id).classList.toggle('collapsed');
         lucide.createIcons();
+    }
+
+    // ============================================
+    // 台灣綜合所得稅簡易估算（2024 年度）
+    // ============================================
+    const TAX = {
+        exempt: 97000,          // 免稅額（每人）
+        stdDeduct: 131000,      // 標準扣除額（單身）
+        salaryDeduct: 218000,   // 薪資所得特別扣除額
+        brackets: [
+            { limit:  590000, rate: 0.05, cumDeduct: 0 },
+            { limit: 1330000, rate: 0.12, cumDeduct: 41300 },
+            { limit: 2660000, rate: 0.20, cumDeduct: 147700 },
+            { limit: 4980000, rate: 0.30, cumDeduct: 413700 },
+            { limit: Infinity, rate: 0.40, cumDeduct: 911700 },
+        ]
+    };
+
+    /**
+     * 從年收入（稅前）估算年度綜所稅
+     * @param {number} annualIncome 年收入（元）
+     * @returns {number} 估計年稅額（元）
+     */
+    function estimateIncomeTax(annualIncome) {
+        if (annualIncome <= 0) return 0;
+        const taxableIncome = annualIncome - TAX.exempt - TAX.stdDeduct - TAX.salaryDeduct;
+        if (taxableIncome <= 0) return 0;
+        for (const b of TAX.brackets) {
+            if (taxableIncome <= b.limit) {
+                return Math.round(taxableIncome * b.rate - b.cumDeduct);
+            }
+        }
+        return 0;
+    }
+
+    /** 取得年稅額（手動優先，否則自動估算） */
+    function getAnnualTax() {
+        if (state.income <= 0) return 0;
+        if (state.taxManual > 0) return state.taxManual;
+        return estimateIncomeTax(state.income * 12);
+    }
+
+    /** 取得月均稅額 */
+    function getMonthlyTax() {
+        return Math.round(getAnnualTax() / 12);
+    }
+
+    /** 取得稅後月收入 */
+    function getAfterTaxIncome() {
+        return state.income - getMonthlyTax();
+    }
+
+    /** 更新稅額顯示 */
+    function updateTaxDisplay() {
+        const taxRow = document.getElementById('taxEstimateRow');
+        if (!taxRow) return;
+        if (state.income <= 0) {
+            taxRow.style.display = 'none';
+            return;
+        }
+        taxRow.style.display = 'block';
+        const annualTax = getAnnualTax();
+        const monthlyTax = getMonthlyTax();
+        const afterTax = getAfterTaxIncome();
+        document.getElementById('taxEstimateValue').textContent =
+            formatNumber(annualTax) + ' 元/年（≈ ' + formatNumber(monthlyTax) + ' 元/月）';
+        document.getElementById('taxAfterTaxIncome').textContent =
+            '稅後月收入約 ' + formatNumber(afterTax) + ' 元';
+        // 顯示手動/自動標記
+        const badge = document.getElementById('taxModeBadge');
+        if (badge) badge.textContent = state.taxManual > 0 ? '手動' : '估算';
     }
 
     // ============================================
@@ -1429,6 +1530,12 @@
             ? '管理費（' + state.ping + ' 坪 × ' + state.mgmtPerPing + ' 元）'
             : '管理費（請填入坪數以計算）';
         const maintenance = CONFIG.maintenanceReserve;
+
+        // 所得稅 → 稅後月收入
+        const monthlyTax = getMonthlyTax();
+        const afterTaxIncome = getAfterTaxIncome();
+        updateTaxDisplay();
+
         const monthlyTrue = Math.round(displayMonthly) + mgmt + maintenance;
 
         const holdingResult = document.getElementById('holdingCostResult');
@@ -1464,24 +1571,28 @@
             lifeResult.style.display = 'block';
             insight3.style.display = 'block';
 
-            const burdenRatio = (monthlyAfterGrace / state.income * 100);
-            const compressRatio = (monthlyTrue / state.income * 100);
+            // 所有比率都用稅後月收入當分母，更真實反映購買力
+            const incomeBase = afterTaxIncome > 0 ? afterTaxIncome : state.income;
+            const burdenRatio = (monthlyAfterGrace / incomeBase * 100);
             // Use post-grace monthly for burden calculation (worst case)
-            const displayBurden = grace > 0 ? (monthlyAfterGrace / state.income * 100) : burdenRatio;
+            const displayBurden = grace > 0 ? (monthlyAfterGrace / incomeBase * 100) : burdenRatio;
+            const compressRatio = (monthlyTrue / incomeBase * 100);
 
             document.getElementById('r_burden_ratio').textContent = Math.round(displayBurden) + '%';
             document.getElementById('r_compress_ratio').textContent = Math.round(compressRatio) + '%';
+            document.getElementById('r_compress_desc').textContent =
+                '（房貸＋管理費＋維修準備金）÷ 稅後月收入';
 
             // Bars
             setStressBar('r_burden_bar', displayBurden);
             setStressBar('r_compress_bar', compressRatio);
 
-            // Disposable
-            const disposable = state.income - state.expense - monthlyTrue;
+            // Disposable = 稅後月收入 - 生活支出 - 房屋持有成本
+            const disposable = afterTaxIncome - state.expense - monthlyTrue;
             document.getElementById('r_disposable').textContent = formatNumber(Math.round(disposable)) + ' 元';
             document.getElementById('r_disposable_desc').textContent =
                 disposable > 0
-                    ? '扣除所有支出和房貸後，每月剩下的錢。'
+                    ? '稅後月收入，扣除生活支出和房屋成本後剩餘。'
                     : '目前的收支配置下，每月會入不敷出。';
             document.getElementById('r_disposable').style.color = disposable > 0 ? '#121212' : '#9C4A38';
 
@@ -1505,7 +1616,7 @@
 
             // === STRESS TEST ===
             stressResult.style.display = 'block';
-            renderStressTest(loanAmount, rate, term, grace, state.income);
+            renderStressTest(loanAmount, rate, term, grace, incomeBase);
 
         } else {
             lifeResult.style.display = 'none';
@@ -1615,7 +1726,7 @@
             label:'#999999', light:'#888888', divider:'#EDEBE8', costLine:'#D5D0CB'
         };
 
-        // ── 繪圖工具 ──
+        // ── 繪圖工具（手機優先尺寸）──
         function makeCtx() {
             const c = document.createElement('canvas');
             c.width = PW * S; c.height = PH * S;
@@ -1640,54 +1751,52 @@
             return lines;
         }
         function drawSection(ctx, label, y) {
-            font(ctx, 10, '600');
+            font(ctx, 13, '600');
             ctx.fillStyle = C.bronze;
-            // 加字距模擬 letter-spacing
             const chars = label.split('');
             let sx = ML;
-            chars.forEach(ch => { ctx.fillText(ch, sx, y); sx += ctx.measureText(ch).width + 2.5; });
-            return y + 18;
+            chars.forEach(ch => { ctx.fillText(ch, sx, y); sx += ctx.measureText(ch).width + 3; });
+            return y + 24;
         }
         function drawCostRow(ctx, label, value, y) {
-            font(ctx, 12, '400');
+            font(ctx, 14, '400');
             ctx.fillStyle = '#666666';
             ctx.fillText(label, ML, y);
             ctx.fillStyle = C.text;
-            font(ctx, 12, '600');
+            font(ctx, 14, '600');
             ctx.textAlign = 'right';
             ctx.fillText(value, PW - MR, y);
             ctx.textAlign = 'left';
-            // 底線
-            ctx.strokeStyle = '#F5F3F0';
+            ctx.strokeStyle = '#F0EEEB';
             ctx.lineWidth = 0.5;
-            ctx.beginPath(); ctx.moveTo(ML, y + 17); ctx.lineTo(PW - MR, y + 17); ctx.stroke();
-            return y + 22;
+            ctx.beginPath(); ctx.moveTo(ML, y + 22); ctx.lineTo(PW - MR, y + 22); ctx.stroke();
+            return y + 28;
         }
         function drawTotalRow(ctx, label, value, y) {
             ctx.strokeStyle = C.costLine;
             ctx.lineWidth = 1;
             ctx.beginPath(); ctx.moveTo(ML, y); ctx.lineTo(PW - MR, y); ctx.stroke();
-            y += 10;
-            font(ctx, 12, '600');
+            y += 12;
+            font(ctx, 14, '600');
             ctx.fillStyle = '#444444';
             ctx.fillText(label, ML, y);
-            font(ctx, 17, '700', 'Noto Serif TC, serif');
+            font(ctx, 22, '700', 'Noto Serif TC, serif');
             ctx.fillStyle = C.text;
             ctx.textAlign = 'right';
-            ctx.fillText(value, PW - MR, y - 2);
+            ctx.fillText(value, PW - MR, y - 3);
             ctx.textAlign = 'left';
-            return y + 24;
+            return y + 28;
         }
         function drawCard(ctx, x, y, w, h, labelText, valueText, opts) {
             ctx.fillStyle = opts?.bg || C.stone;
             ctx.fillRect(x, y, w, h);
-            font(ctx, 9, '400');
+            font(ctx, 11, '400');
             ctx.fillStyle = C.label;
             ctx.textAlign = 'center';
-            ctx.fillText(labelText, x + w/2, y + 8);
-            font(ctx, opts?.fontSize || 16, '700', 'Noto Serif TC, serif');
+            ctx.fillText(labelText, x + w/2, y + 10);
+            font(ctx, opts?.fontSize || 20, '700', 'Noto Serif TC, serif');
             ctx.fillStyle = opts?.color || C.text;
-            ctx.fillText(valueText, x + w/2, y + 24);
+            ctx.fillText(valueText, x + w/2, y + 30);
             ctx.textAlign = 'left';
         }
         function drawFooter(ctx, y) {
@@ -1695,22 +1804,20 @@
             ctx.fillRect(0, y, PW, 3);
             y += 3;
             ctx.fillStyle = C.dark;
-            ctx.fillRect(0, y, PW, 44);
-            // 擇居
-            font(ctx, 13, '600', 'Noto Serif TC, serif');
+            ctx.fillRect(0, y, PW, 50);
+            font(ctx, 15, '600', 'Noto Serif TC, serif');
             ctx.fillStyle = C.gold;
-            ctx.fillText('擇', ML, y + 14);
+            ctx.fillText('擇', ML, y + 16);
             const zw = ctx.measureText('擇').width;
             ctx.fillStyle = C.white;
-            ctx.fillText('居', ML + zw, y + 14);
-            font(ctx, 9, '400');
+            ctx.fillText('居', ML + zw, y + 16);
+            font(ctx, 11, '400');
             ctx.fillStyle = C.light;
-            ctx.fillText('先擇，後居', ML + zw + ctx.measureText('居').width + 8, y + 16);
-            // 右邊
+            ctx.fillText('先擇，後居', ML + zw + ctx.measureText('居').width + 10, y + 19);
             ctx.textAlign = 'right';
-            ctx.fillText('僅供參考，不構成財務建議  |  howhouse.tw', PW - MR, y + 16);
+            ctx.fillText('僅供參考，不構成財務建議  |  howhouse.tw', PW - MR, y + 19);
             ctx.textAlign = 'left';
-            return y + 47;
+            return y + 53;
         }
 
         // ── 收集資料 ──
@@ -1770,25 +1877,26 @@
         let y = 0;
 
         // ── Header ──
+        const HDR_H = 76;
         ctx1.fillStyle = C.dark;
-        ctx1.fillRect(0, 0, PW, 65);
-        font(ctx1, 22, '700', 'Noto Serif TC, serif');
+        ctx1.fillRect(0, 0, PW, HDR_H);
+        font(ctx1, 26, '700', 'Noto Serif TC, serif');
         ctx1.fillStyle = C.white;
-        ctx1.fillText('我的財務診斷報告書', ML, 22);
-        // 品牌（右對齊）
-        font(ctx1, 18, '600', 'Noto Serif TC, serif');
+        ctx1.fillText('我的財務診斷報告書', ML, 26);
+        // 品牌
+        font(ctx1, 22, '600', 'Noto Serif TC, serif');
         const juW = ctx1.measureText('居').width;
         const zeW = ctx1.measureText('擇').width;
         ctx1.fillStyle = C.gold;
-        ctx1.fillText('擇', PW - MR - zeW - juW, 18);
+        ctx1.fillText('擇', PW - MR - zeW - juW, 20);
         ctx1.fillStyle = C.white;
-        ctx1.fillText('居', PW - MR - juW, 18);
-        font(ctx1, 9, '400');
+        ctx1.fillText('居', PW - MR - juW, 20);
+        font(ctx1, 11, '400');
         ctx1.fillStyle = C.light;
         ctx1.textAlign = 'right';
-        ctx1.fillText('先擇，後居', PW - MR, 40);
+        ctx1.fillText('先擇，後居', PW - MR, 48);
         ctx1.textAlign = 'left';
-        y = 65;
+        y = HDR_H;
 
         // bronze belt
         ctx1.fillStyle = C.bronze;
@@ -1796,86 +1904,88 @@
         y += 3;
 
         // meta line
-        font(ctx1, 10, '400');
+        font(ctx1, 11, '400');
         ctx1.fillStyle = '#aaaaaa';
-        y += 4;
+        y += 6;
         ctx1.fillText('報告產生時間：' + dateStr + '    |    howhouse.tw/calculator', ML, y + 4);
-        y += 20;
+        y += 24;
         ctx1.strokeStyle = C.divider; ctx1.lineWidth = 0.5;
         ctx1.beginPath(); ctx1.moveTo(0, y); ctx1.lineTo(PW, y); ctx1.stroke();
-        y += 14;
+        y += 16;
 
         // ── 試算條件 ──
         y = drawSection(ctx1, '試算條件', y);
-        const condCol2 = ML + 80, condCol3 = ML + CW * 0.52, condCol4 = condCol3 + 80;
-        font(ctx1, 12, '400'); ctx1.fillStyle = C.body;
+        const condCol2 = ML + 90, condCol3 = ML + CW * 0.52, condCol4 = condCol3 + 90;
+        font(ctx1, 14, '400'); ctx1.fillStyle = C.body;
         ctx1.fillText('房屋總價', ML, y);
-        font(ctx1, 12, '600'); ctx1.fillStyle = C.text;
+        font(ctx1, 14, '600'); ctx1.fillStyle = C.text;
         ctx1.fillText(formatWan(state.price) + ' 萬', condCol2, y);
-        font(ctx1, 12, '400'); ctx1.fillStyle = C.body;
+        font(ctx1, 14, '400'); ctx1.fillStyle = C.body;
         ctx1.fillText(state.useYouthLoan ? '新青安' : '一般房貸', condCol3, y);
-        font(ctx1, 12, '600'); ctx1.fillStyle = C.text;
+        font(ctx1, 14, '600'); ctx1.fillStyle = C.text;
         ctx1.fillText('利率 ' + effectiveRate + '%', condCol4, y);
-        y += 20;
-        font(ctx1, 12, '400'); ctx1.fillStyle = C.body;
+        y += 24;
+        font(ctx1, 14, '400'); ctx1.fillStyle = C.body;
         ctx1.fillText('自備款', ML, y);
-        font(ctx1, 12, '600'); ctx1.fillStyle = C.text;
+        font(ctx1, 14, '600'); ctx1.fillStyle = C.text;
         ctx1.fillText(formatWanFromYuan(downPayment) + '（' + state.downPaymentPct + '%）', condCol2, y);
-        font(ctx1, 12, '400'); ctx1.fillStyle = C.body;
+        font(ctx1, 14, '400'); ctx1.fillStyle = C.body;
         ctx1.fillText('貸款年限', condCol3, y);
-        font(ctx1, 12, '600'); ctx1.fillStyle = C.text;
+        font(ctx1, 14, '600'); ctx1.fillStyle = C.text;
         let termStr = state.term + ' 年';
         if (state.grace > 0) termStr += '（寬限 ' + state.grace + ' 年）';
         ctx1.fillText(termStr, condCol4, y);
-        y += 16;
+        y += 22;
 
         // divider
         ctx1.strokeStyle = C.divider; ctx1.lineWidth = 0.5;
         ctx1.beginPath(); ctx1.moveTo(ML, y); ctx1.lineTo(PW - MR, y); ctx1.stroke();
-        y += 14;
+        y += 16;
 
         // ── 核心數字 ──
         y = drawSection(ctx1, '核心數字', y);
 
-        // Hero: 每月房貸
+        // Hero: 每月房貸（加大區塊，數字和單位分行避免重疊）
+        const heroH = 80;
         ctx1.fillStyle = C.stone;
-        ctx1.fillRect(ML, y, CW, 56);
+        ctx1.fillRect(ML, y, CW, heroH);
         ctx1.fillStyle = C.bronze;
-        ctx1.fillRect(ML, y, 4, 56);
-        font(ctx1, 11, '400'); ctx1.fillStyle = C.light;
-        ctx1.fillText('每月房貸', ML + 18, y + 8);
-        font(ctx1, 30, '900', 'Noto Serif TC, serif'); ctx1.fillStyle = C.text;
-        ctx1.fillText(_t('r_monthly'), ML + 18, y + 24);
+        ctx1.fillRect(ML, y, 5, heroH);
+        font(ctx1, 13, '400'); ctx1.fillStyle = C.light;
+        ctx1.fillText('每月房貸', ML + 22, y + 10);
+        font(ctx1, 40, '900', 'Noto Serif TC, serif'); ctx1.fillStyle = C.text;
+        ctx1.fillText(_t('r_monthly'), ML + 22, y + 28);
         const mw = ctx1.measureText(_t('r_monthly')).width;
-        font(ctx1, 13, '400'); ctx1.fillStyle = C.label;
-        ctx1.fillText('元/月', ML + 22 + mw, y + 34);
+        font(ctx1, 16, '400'); ctx1.fillStyle = C.label;
+        ctx1.fillText('元/月', ML + 26 + mw, y + 42);
         // sub description
         const monthlySub = _t('r_monthly_sub');
         if (monthlySub && monthlySub !== '—') {
-            font(ctx1, 10, '400'); ctx1.fillStyle = C.label;
-            ctx1.fillText(monthlySub, ML + 18, y + 46);
+            font(ctx1, 12, '400'); ctx1.fillStyle = C.label;
+            ctx1.fillText(monthlySub, ML + 22, y + 64);
         }
-        y += 64;
+        y += heroH + 6;
 
         // Grace jump (conditional)
         if (hasGrace) {
+            const graceH = 56;
             ctx1.fillStyle = '#FBF4F1';
-            ctx1.fillRect(ML, y, CW, 46);
+            ctx1.fillRect(ML, y, CW, graceH);
             ctx1.fillStyle = C.terra;
-            ctx1.fillRect(ML, y, 4, 46);
-            font(ctx1, 10, '500'); ctx1.fillStyle = C.terra;
-            ctx1.fillText('寬限期結束後', ML + 18, y + 6);
-            font(ctx1, 20, '700', 'Noto Serif TC, serif');
-            ctx1.fillText(_t('r_monthly_after'), ML + 18, y + 22);
+            ctx1.fillRect(ML, y, 5, graceH);
+            font(ctx1, 12, '500'); ctx1.fillStyle = C.terra;
+            ctx1.fillText('寬限期結束後', ML + 22, y + 8);
+            font(ctx1, 24, '700', 'Noto Serif TC, serif');
+            ctx1.fillText(_t('r_monthly_after'), ML + 22, y + 26);
             const aw = ctx1.measureText(_t('r_monthly_after')).width;
-            font(ctx1, 12, '400'); ctx1.fillStyle = C.label;
-            ctx1.fillText('元/月', ML + 22 + aw, y + 28);
+            font(ctx1, 14, '400'); ctx1.fillStyle = C.label;
+            ctx1.fillText('元/月', ML + 26 + aw, y + 34);
             // jump desc
-            font(ctx1, 11, '400'); ctx1.fillStyle = C.terra;
+            font(ctx1, 13, '400'); ctx1.fillStyle = C.terra;
             ctx1.textAlign = 'right';
-            ctx1.fillText(_t('r_grace_jump_desc'), PW - MR - 10, y + 20);
+            ctx1.fillText(_t('r_grace_jump_desc'), PW - MR - 14, y + 28);
             ctx1.textAlign = 'left';
-            y += 52;
+            y += graceH + 8;
         }
 
         // Youth rate end (conditional)
@@ -1883,73 +1993,72 @@
             const s1El = document.getElementById('youthEndStage1');
             const hasGraceStages = s1El && s1El.style.display !== 'none';
             const jumpText = _t('r_ye_jump2');
-            // 先計算區塊高度（不繪製）
-            let blockH = 24; // title row
-            if (hasGraceStages) blockH += 38; // 2 stage rows
-            blockH += 24; // stage 3 + divider
-            if (jumpText && jumpText !== '—') blockH += 14;
-            blockH += 4; // padding
+            // 計算高度
+            let blockH = 28;
+            if (hasGraceStages) blockH += 48;
+            blockH += 30;
+            if (jumpText && jumpText !== '—') blockH += 18;
+            blockH += 6;
 
-            // 1. 畫背景
+            // 背景
             ctx1.fillStyle = C.stone;
             ctx1.fillRect(ML, y, CW, blockH);
             ctx1.fillStyle = C.bronze;
-            ctx1.fillRect(ML, y, 4, blockH);
+            ctx1.fillRect(ML, y, 5, blockH);
 
-            // 2. 畫文字
-            let ty = y + 6;
-            font(ctx1, 10, '600'); ctx1.fillStyle = C.bronze;
-            ctx1.fillText('新青安優惠利率結束後', ML + 18, ty);
-            ty += 20;
+            // 文字
+            let ty = y + 8;
+            font(ctx1, 12, '600'); ctx1.fillStyle = C.bronze;
+            ctx1.fillText('新青安優惠利率結束後', ML + 22, ty);
+            ty += 24;
             if (hasGraceStages) {
-                font(ctx1, 12, '400'); ctx1.fillStyle = C.light;
-                ctx1.fillText('現在（寬限期內，優惠利率）', ML + 18, ty);
-                font(ctx1, 12, '600'); ctx1.fillStyle = C.text;
+                font(ctx1, 14, '400'); ctx1.fillStyle = C.light;
+                ctx1.fillText('現在（寬限期內，優惠利率）', ML + 22, ty);
+                font(ctx1, 14, '600'); ctx1.fillStyle = C.text;
                 ctx1.textAlign = 'right';
-                ctx1.fillText(_t('r_ye_stage1') + ' 元/月', PW - MR - 10, ty);
+                ctx1.fillText(_t('r_ye_stage1') + ' 元/月', PW - MR - 14, ty);
                 ctx1.textAlign = 'left';
-                ty += 18;
-                font(ctx1, 12, '400'); ctx1.fillStyle = C.light;
-                ctx1.fillText('寬限期結束後（仍有優惠利率）', ML + 18, ty);
-                font(ctx1, 12, '600'); ctx1.fillStyle = C.text;
+                ty += 22;
+                font(ctx1, 14, '400'); ctx1.fillStyle = C.light;
+                ctx1.fillText('寬限期結束後（仍有優惠利率）', ML + 22, ty);
+                font(ctx1, 14, '600'); ctx1.fillStyle = C.text;
                 ctx1.textAlign = 'right';
-                ctx1.fillText(_t('r_ye_stage2') + ' 元/月', PW - MR - 10, ty);
+                ctx1.fillText(_t('r_ye_stage2') + ' 元/月', PW - MR - 14, ty);
                 ctx1.textAlign = 'left';
-                ty += 20;
+                ty += 26;
             }
-            // 分隔線 + stage 3
             ctx1.strokeStyle = '#E8D5CC'; ctx1.lineWidth = 0.5;
-            ctx1.beginPath(); ctx1.moveTo(ML + 18, ty); ctx1.lineTo(PW - MR - 10, ty); ctx1.stroke();
-            ty += 6;
-            font(ctx1, 12, '500'); ctx1.fillStyle = C.terra;
-            ctx1.fillText(_t('r_ye_stage3_label'), ML + 18, ty);
-            font(ctx1, 12, '700'); ctx1.fillStyle = C.terra;
+            ctx1.beginPath(); ctx1.moveTo(ML + 22, ty); ctx1.lineTo(PW - MR - 14, ty); ctx1.stroke();
+            ty += 8;
+            font(ctx1, 14, '500'); ctx1.fillStyle = C.terra;
+            ctx1.fillText(_t('r_ye_stage3_label'), ML + 22, ty);
+            font(ctx1, 14, '700'); ctx1.fillStyle = C.terra;
             ctx1.textAlign = 'right';
-            ctx1.fillText(_t('r_ye_stage3') + ' 元/月', PW - MR - 10, ty);
+            ctx1.fillText(_t('r_ye_stage3') + ' 元/月', PW - MR - 14, ty);
             ctx1.textAlign = 'left';
-            ty += 16;
+            ty += 20;
             if (jumpText && jumpText !== '—') {
-                font(ctx1, 11, '400'); ctx1.fillStyle = C.terra;
+                font(ctx1, 13, '400'); ctx1.fillStyle = C.terra;
                 ctx1.textAlign = 'right';
-                ctx1.fillText(jumpText, PW - MR - 10, ty);
+                ctx1.fillText(jumpText, PW - MR - 14, ty);
                 ctx1.textAlign = 'left';
             }
-            y += blockH + 4;
+            y += blockH + 6;
             // 拆貸補充說明
             const splitNote = _t('r_youth_end_split');
             if (splitNote && splitNote !== '—') {
-                font(ctx1, 10, '400'); ctx1.fillStyle = '#aaaaaa';
-                const noteLines = wrapLines(ctx1, splitNote, CW - 20);
-                noteLines.forEach((line, i) => { ctx1.fillText(line, ML + 10, y + i * 14); });
-                y += noteLines.length * 14 + 4;
+                font(ctx1, 12, '400'); ctx1.fillStyle = '#aaaaaa';
+                const noteLines = wrapLines(ctx1, splitNote, CW - 24);
+                noteLines.forEach((line, i) => { ctx1.fillText(line, ML + 12, y + i * 16); });
+                y += noteLines.length * 16 + 6;
             }
             y += 4;
         }
 
         // 四格數字卡
-        y += 4;
-        const cardW = (CW - 18) / 4; // 4 cards with 6px gaps
-        const cardH = 50;
+        y += 6;
+        const cardW = (CW - 18) / 4;
+        const cardH = 60;
         const cards = [
             { label: '貸款金額', value: _t('r_loan_total') },
             { label: '總利息', value: _t('r_interest_total') },
@@ -1968,24 +2077,24 @@
         y = drawSection(ctx1, '成本總覽', y);
 
         // 買入成本
-        font(ctx1, 11, '500'); ctx1.fillStyle = '#666666';
+        font(ctx1, 13, '500'); ctx1.fillStyle = '#666666';
         ctx1.fillText('買入當天需準備', ML, y);
-        y += 18;
+        y += 22;
         hiddenCosts.forEach(item => { y = drawCostRow(ctx1, item.label, item.value, y); });
         y = drawTotalRow(ctx1, '合計', _t('r_day1_total'), y);
-        y += 6;
+        y += 8;
 
         // 每月持有
-        font(ctx1, 11, '500'); ctx1.fillStyle = '#666666';
+        font(ctx1, 13, '500'); ctx1.fillStyle = '#666666';
         ctx1.fillText('每月持有成本', ML, y);
-        y += 18;
+        y += 22;
         holdingCosts.forEach(item => { y = drawCostRow(ctx1, item.label, item.value, y); });
         y = drawTotalRow(ctx1, '每月真正支出', _t('r_monthly_true'), y);
 
         // Footer（如果沒有第二頁）
         const hasPage2 = hasLife || hasStress;
         if (!hasPage2) {
-            drawFooter(ctx1, PH - 47);
+            drawFooter(ctx1, Math.min(Math.max(y + 14, PH - 53), PH - 40));
         }
 
         // ════════════════════════════════════════
@@ -1999,6 +2108,14 @@
 
             if (hasLife) {
                 y2 = drawSection(ctx2, '生活衝擊', y2);
+                // 收入基準說明
+                const mTax = getMonthlyTax();
+                if (mTax > 0) {
+                    font(ctx2, 12, '400'); ctx2.fillStyle = C.label;
+                    ctx2.fillText('稅前月收入 ' + formatNumber(state.income) + ' 元 → 預估所得稅 ' +
+                        formatNumber(mTax) + ' 元/月 → 稅後 ' + formatNumber(getAfterTaxIncome()) + ' 元（以下比率皆以稅後計算）', ML, y2);
+                    y2 += 20;
+                }
                 // 3-column cards
                 const lCardW = (CW - 12) / 3;
                 const lCards = [
@@ -2007,21 +2124,21 @@
                     { label: '每月可自由運用', value: _t('r_disposable') },
                 ];
                 lCards.forEach((c, i) => {
-                    drawCard(ctx2, ML + i * (lCardW + 6), y2, lCardW, 54, c.label, c.value, { fontSize: 22 });
+                    drawCard(ctx2, ML + i * (lCardW + 6), y2, lCardW, 60, c.label, c.value, { fontSize: 22 });
                 });
-                y2 += 62;
+                y2 += 70;
 
                 // insight
                 const lifeInsight = _t('insight3_text');
                 if (lifeInsight && lifeInsight !== '—') {
                     ctx2.fillStyle = C.stone;
-                    font(ctx2, 11, '400');
+                    font(ctx2, 13, '400');
                     const lines = wrapLines(ctx2, lifeInsight, CW - 28);
-                    const blockH = lines.length * 17 + 16;
+                    const blockH = lines.length * 20 + 18;
                     ctx2.fillRect(ML, y2, CW, blockH);
                     ctx2.fillStyle = C.body;
-                    lines.forEach((line, i) => { ctx2.fillText(line, ML + 14, y2 + 8 + i * 17); });
-                    y2 += blockH + 12;
+                    lines.forEach((line, i) => { ctx2.fillText(line, ML + 14, y2 + 9 + i * 20); });
+                    y2 += blockH + 14;
                 }
             }
 
@@ -2032,32 +2149,32 @@
                     y2 += 12;
                 }
                 y2 = drawSection(ctx2, '壓力測試', y2);
-                font(ctx2, 11, '400'); ctx2.fillStyle = C.label;
+                font(ctx2, 13, '400'); ctx2.fillStyle = C.label;
                 ctx2.fillText('如果利率變了，你的月付金和負擔比會怎麼走。', ML, y2);
-                y2 += 20;
+                y2 += 24;
 
                 // table header
-                const cols = [ML, ML+140, ML+260, ML+380, ML+490];
+                const cols = [ML, ML+150, ML+280, ML+400, ML+510];
                 const colAlign = ['left','right','right','right','right'];
                 const headers = ['情境','利率','月付金','佔收入比','月增'];
-                font(ctx2, 10, '500'); ctx2.fillStyle = C.label;
+                font(ctx2, 12, '500'); ctx2.fillStyle = C.label;
                 headers.forEach((h, i) => {
                     ctx2.textAlign = colAlign[i];
                     ctx2.fillText(h, cols[i], y2);
                 });
                 ctx2.textAlign = 'left';
-                y2 += 14;
+                y2 += 18;
                 ctx2.strokeStyle = C.costLine; ctx2.lineWidth = 1;
                 ctx2.beginPath(); ctx2.moveTo(ML, y2); ctx2.lineTo(PW - MR, y2); ctx2.stroke();
-                y2 += 6;
+                y2 += 8;
 
                 // table rows
                 stressRows.forEach(row => {
                     if (row.isCurrent) {
                         ctx2.fillStyle = '#FAFAF8';
-                        ctx2.fillRect(ML, y2 - 2, CW, 22);
+                        ctx2.fillRect(ML, y2 - 3, CW, 26);
                     }
-                    font(ctx2, 12, row.isCurrent ? '600' : '400');
+                    font(ctx2, 14, row.isCurrent ? '600' : '400');
                     ctx2.fillStyle = C.text;
                     const vals = [row.label, row.rate, row.monthly, row.ratio, row.diff];
                     vals.forEach((v, i) => {
@@ -2065,24 +2182,24 @@
                         ctx2.fillText(v, cols[i], y2);
                     });
                     ctx2.textAlign = 'left';
-                    y2 += 6;
+                    y2 += 8;
                     ctx2.strokeStyle = '#F0EEEB'; ctx2.lineWidth = 0.5;
-                    ctx2.beginPath(); ctx2.moveTo(ML, y2+16); ctx2.lineTo(PW-MR, y2+16); ctx2.stroke();
-                    y2 += 20;
+                    ctx2.beginPath(); ctx2.moveTo(ML, y2+18); ctx2.lineTo(PW-MR, y2+18); ctx2.stroke();
+                    y2 += 22;
                 });
-                y2 += 4;
+                y2 += 6;
 
                 // stress insight
                 const stressInsight = _t('stressInsight_text');
                 if (stressInsight && stressInsight !== '—') {
                     ctx2.fillStyle = C.stone;
-                    font(ctx2, 11, '400');
+                    font(ctx2, 13, '400');
                     const lines = wrapLines(ctx2, stressInsight, CW - 28);
-                    const blockH = lines.length * 17 + 16;
+                    const blockH = lines.length * 20 + 18;
                     ctx2.fillRect(ML, y2, CW, blockH);
                     ctx2.fillStyle = C.body;
-                    lines.forEach((line, i) => { ctx2.fillText(line, ML + 14, y2 + 8 + i * 17); });
-                    y2 += blockH + 12;
+                    lines.forEach((line, i) => { ctx2.fillText(line, ML + 14, y2 + 9 + i * 20); });
+                    y2 += blockH + 14;
                 }
             }
 
