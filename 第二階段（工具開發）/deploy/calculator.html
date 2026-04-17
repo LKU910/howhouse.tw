@@ -633,29 +633,21 @@
                                placeholder="例：80,000" min="0" step="1000">
                         <span class="unit">元</span>
                     </div>
-                    <p class="field-hint">填稅前月薪即可，系統會自動估算所得稅。</p>
                 </div>
 
-                <!-- 所得稅估算 -->
-                <div id="taxEstimateRow" style="display:none; margin:-4px 0 12px; padding:12px 14px; background:#FAF8F5; border-radius:10px; border-left:3px solid #B8956A;">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                        <span style="font-size:13px; color:#666; font-weight:500;">預估年度所得稅</span>
-                        <span id="taxModeBadge" style="font-size:11px; color:#B8956A; background:#F5EDE4; padding:2px 8px; border-radius:4px;">估算</span>
+                <div class="field-group">
+                    <label class="field-label">每年繳多少所得稅？</label>
+                    <div class="input-with-unit">
+                        <input type="number" class="input-number" id="taxManualInput"
+                               placeholder="不確定的話留空，系統會估算" min="0" step="1000">
+                        <span class="unit">元/年</span>
                     </div>
-                    <div id="taxEstimateValue" style="font-size:14px; font-weight:600; color:#3D3D3D;"></div>
-                    <div id="taxAfterTaxIncome" style="font-size:13px; color:#4A5D6A; font-weight:500; margin-top:4px;"></div>
-                    <div style="margin-top:8px; display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:12px; color:#999;">自行填入年稅額：</span>
-                        <div style="display:flex; align-items:center; gap:4px;">
-                            <input type="number" class="input-number" id="taxManualInput"
-                                   placeholder="留空=自動估算" min="0" step="1000"
-                                   style="width:130px; font-size:13px; padding:6px 10px;">
-                            <span style="font-size:12px; color:#999;">元/年</span>
-                        </div>
+                    <div id="taxEstimateRow" style="display:none; margin-top:6px; padding:8px 12px; background:#FAF8F5; border-radius:8px; font-size:13px; color:#666;">
+                        <span id="taxEstimateValue"></span>
+                        <span id="taxModeBadge" style="display:inline-block; font-size:11px; color:#B8956A; background:#F5EDE4; padding:1px 6px; border-radius:4px; margin-left:6px;">估算</span>
+                        <div id="taxAfterTaxIncome" style="font-size:12px; color:#4A5D6A; margin-top:3px;"></div>
                     </div>
-                    <p style="font-size:11px; color:#bbb; margin-top:6px;">
-                        以單身、標準扣除額、薪資所得概估。實際稅額依個人申報方式而異。修改後請重新按「算給我看」。
-                    </p>
+                    <p class="field-hint">查去年報稅單最準。留空的話，系統以單身標準扣除額概估。</p>
                 </div>
 
                 <div class="field-group">
@@ -665,7 +657,7 @@
                                placeholder="例：35,000" min="0" step="1000">
                         <span class="unit">元</span>
                     </div>
-                    <p class="field-hint">含生活費、保險、交通、餐飲等，不含目前的房租和所得稅。</p>
+                    <p class="field-hint">含生活費、保險、交通、餐飲等，不含房租和所得稅。</p>
                 </div>
             </div>
         </div>
@@ -1261,13 +1253,21 @@
         const annualTax = getAnnualTax();
         const monthlyTax = getMonthlyTax();
         const afterTax = getAfterTaxIncome();
-        document.getElementById('taxEstimateValue').textContent =
-            formatNumber(annualTax) + ' 元/年（≈ ' + formatNumber(monthlyTax) + ' 元/月）';
+        const badge = document.getElementById('taxModeBadge');
+        if (state.taxManual > 0) {
+            // 使用者自填了稅額
+            document.getElementById('taxEstimateValue').textContent =
+                '年稅 ' + formatNumber(annualTax) + ' 元 ≈ 月均 ' + formatNumber(monthlyTax) + ' 元';
+            if (badge) { badge.textContent = '你填的'; badge.style.display = 'inline-block'; }
+        } else {
+            // 系統估算
+            const autoTax = estimateIncomeTax(state.income * 12);
+            document.getElementById('taxEstimateValue').textContent =
+                '系統估算約 ' + formatNumber(autoTax) + ' 元/年（≈ ' + formatNumber(Math.round(autoTax / 12)) + ' 元/月）';
+            if (badge) { badge.textContent = '估算'; badge.style.display = 'inline-block'; }
+        }
         document.getElementById('taxAfterTaxIncome').textContent =
             '稅後月收入約 ' + formatNumber(afterTax) + ' 元';
-        // 顯示手動/自動標記
-        const badge = document.getElementById('taxModeBadge');
-        if (badge) badge.textContent = state.taxManual > 0 ? '手動' : '估算';
     }
 
     // ============================================
