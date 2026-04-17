@@ -187,7 +187,7 @@
         .result-section { margin-top: 8px; }
         .result-card {
             background: #fff; border-radius: 16px; padding: 28px 24px;
-            margin-bottom: 16px; border: 1px solid #E5E2DE;
+            margin-bottom: 20px; border: 1px solid #E5E2DE;
         }
         .result-card.highlight {
             border-color: #B8956A;
@@ -227,7 +227,7 @@
         /* ── Insight box (擇居提醒) ── */
         .insight-box {
             background: #FAF7F3; border-radius: 12px; padding: 18px 20px;
-            margin-top: 16px; border-left: 3px solid #B8956A;
+            margin-top: 20px; margin-bottom: 8px; border-left: 3px solid #B8956A;
         }
         .insight-box.warning {
             background: #FBF5F3; border-left-color: #9C4A38;
@@ -896,197 +896,189 @@
         PDF 報告書模板
         ─ html2canvas 限制：禁用 display:grid / flex
         ─ 全部用 table 佈局，inline style
-        ─ page-break-inside:avoid 防切頁
+        ─ 不用 page-break-inside:avoid（會造成大片空白）
+        ─ 改用明確的 page-break-before:always 控制分頁點
         ═══════════════════════════════════════════════
     -->
     <div id="pdfContent" style="display:none; width:700px; margin:0 auto; background:#fff; font-family:'Noto Sans TC',sans-serif; color:#333; line-height:1.6;">
 
-        <!-- ▸ Header — 品牌橫條 -->
-        <div style="page-break-inside:avoid; background:#3D3D3D; padding:32px 44px 28px;">
+        <!-- ════════ PAGE 1：條件 + 核心數字 + 成本 ════════ -->
+
+        <!-- Header 深色橫帶 -->
+        <div style="background:#3D3D3D; padding:28px 44px 22px;">
             <table style="width:100%; border-collapse:collapse;">
                 <tr>
-                    <td style="vertical-align:bottom;">
-                        <div style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#fff; letter-spacing:0.04em;">
+                    <td style="vertical-align:bottom; width:80%;">
+                        <div style="font-family:'Noto Serif TC',serif; font-size:22px; font-weight:700; color:#ffffff; letter-spacing:0.04em;">
                             我的財務診斷報告書
                         </div>
                     </td>
-                    <td style="vertical-align:bottom; text-align:right; width:90px;">
-                        <div style="font-family:'Noto Serif TC',serif; font-size:20px; font-weight:600; letter-spacing:0.15em; color:#fff;">
+                    <td style="vertical-align:bottom; text-align:right;">
+                        <div style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:600; letter-spacing:0.15em; color:#ffffff;">
                             <span style="color:#D4A96A;">擇</span>居
                         </div>
-                        <div style="font-size:9px; color:rgba(255,255,255,0.45); letter-spacing:0.22em; margin-top:1px;">先擇，後居</div>
+                        <div style="font-size:9px; color:#888888; letter-spacing:0.22em; margin-top:1px;">先擇，後居</div>
                     </td>
                 </tr>
             </table>
         </div>
-        <!-- 銅色腰帶 -->
         <div style="height:3px; background:#B8956A;"></div>
-        <!-- Meta line -->
-        <div style="padding:10px 44px; font-size:10px; color:#aaa; border-bottom:1px solid #EDEBE8;">
+        <div style="padding:8px 44px; font-size:10px; color:#aaa; border-bottom:1px solid #EDEBE8;">
             <span id="pdfDate"></span> &nbsp;&nbsp;|&nbsp;&nbsp; howhouse.tw/calculator
         </div>
 
-        <!-- ▸ 你的試算條件 -->
-        <div style="page-break-inside:avoid; padding:22px 44px 18px;">
-            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">試算條件</div>
+        <!-- 試算條件 -->
+        <div style="padding:18px 44px 14px;">
+            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:8px;">試算條件</div>
             <table style="width:100%; border-collapse:collapse; font-size:12px; color:#555;">
                 <tr>
-                    <td style="padding:5px 0; width:25%;">房屋總價</td>
-                    <td style="padding:5px 0; font-weight:600; color:#121212;" id="pdfPrice">—</td>
-                    <td style="padding:5px 0; width:25%;"><span id="pdfLoanType">新青安優惠房貸</span></td>
-                    <td style="padding:5px 0; font-weight:600; color:#121212;">利率 <span id="pdfRate">1.775</span>%</td>
+                    <td style="padding:4px 0; width:25%;">房屋總價</td>
+                    <td style="padding:4px 0; font-weight:600; color:#121212;" id="pdfPrice">—</td>
+                    <td style="padding:4px 0; width:25%;"><span id="pdfLoanType">新青安</span></td>
+                    <td style="padding:4px 0; font-weight:600; color:#121212;">利率 <span id="pdfRate">1.775</span>%</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px 0;">自備款</td>
-                    <td style="padding:5px 0; font-weight:600; color:#121212;"><span id="pdfDownPayment">—</span>（<span id="pdfDPPct">20</span>%）</td>
-                    <td style="padding:5px 0;">貸款年限</td>
-                    <td style="padding:5px 0; font-weight:600; color:#121212;"><span id="pdfTerm">30</span> 年<span id="pdfGraceSummary" style="display:none;">（寬限期 <span id="pdfGraceYears">0</span> 年）</span></td>
+                    <td style="padding:4px 0;">自備款</td>
+                    <td style="padding:4px 0; font-weight:600; color:#121212;"><span id="pdfDownPayment">—</span>（<span id="pdfDPPct">20</span>%）</td>
+                    <td style="padding:4px 0;">貸款年限</td>
+                    <td style="padding:4px 0; font-weight:600; color:#121212;"><span id="pdfTerm">30</span> 年<span id="pdfGraceSummary" style="display:none;">（寬限 <span id="pdfGraceYears">0</span> 年）</span></td>
                 </tr>
             </table>
         </div>
 
-        <!-- ▸ 核心數字 — 月付金為中心 -->
-        <div style="page-break-inside:avoid; padding:0 44px 22px;">
-            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:14px;">核心數字</div>
-
-            <!-- Hero -->
-            <div style="background:#F7F5F2; padding:22px 24px; border-left:4px solid #B8956A; margin-bottom:14px;">
+        <!-- 核心數字 -->
+        <div style="padding:0 44px 16px;">
+            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">核心數字</div>
+            <div style="background:#F7F5F2; padding:18px 22px; border-left:4px solid #B8956A; margin-bottom:12px;">
                 <div style="font-size:11px; color:#888; margin-bottom:2px;">每月房貸</div>
-                <div style="font-family:'Noto Serif TC',serif; font-size:34px; font-weight:900; color:#121212; letter-spacing:-0.02em;">
+                <div style="font-family:'Noto Serif TC',serif; font-size:32px; font-weight:900; color:#121212;">
                     <span id="pdfMonthly">—</span><span style="font-size:14px; font-weight:400; color:#999; margin-left:4px;">元/月</span>
                 </div>
                 <div id="pdfMonthlyDesc" style="font-size:11px; color:#999; margin-top:4px;"></div>
             </div>
-
-            <!-- Grace jump（有寬限期才顯示） -->
-            <div id="pdfGraceInfo" style="display:none; padding:14px 24px; background:#FBF4F1; border-left:4px solid #9C4A38; margin-bottom:14px; page-break-inside:avoid;">
-                <table style="width:100%; border-collapse:collapse;">
-                    <tr>
-                        <td style="vertical-align:top;">
-                            <div style="font-size:10px; color:#9C4A38; letter-spacing:0.08em; margin-bottom:2px;">寬限期結束後月付金</div>
-                            <div style="font-family:'Noto Serif TC',serif; font-size:22px; font-weight:700; color:#9C4A38;">
-                                <span id="pdfMonthlyAfter">—</span><span style="font-size:12px; font-weight:400; color:#999; margin-left:3px;">元/月</span>
-                            </div>
-                        </td>
-                        <td style="vertical-align:middle; text-align:right; font-size:11px; color:#9C4A38;" id="pdfGraceJumpDesc"></td>
-                    </tr>
-                </table>
+            <!-- Grace jump -->
+            <div id="pdfGraceInfo" style="display:none; padding:12px 22px; background:#FBF4F1; border-left:4px solid #9C4A38; margin-bottom:12px;">
+                <table style="width:100%; border-collapse:collapse;"><tr>
+                    <td style="vertical-align:top;">
+                        <div style="font-size:10px; color:#9C4A38; margin-bottom:2px;">寬限期結束後</div>
+                        <div style="font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; color:#9C4A38;">
+                            <span id="pdfMonthlyAfter">—</span><span style="font-size:12px; font-weight:400; color:#999; margin-left:3px;">元/月</span>
+                        </div>
+                    </td>
+                    <td style="vertical-align:middle; text-align:right; font-size:11px; color:#9C4A38;" id="pdfGraceJumpDesc"></td>
+                </tr></table>
             </div>
-
-            <!-- 新青安利率結束情境（有選新青安才顯示） -->
-            <div id="pdfYouthEndInfo" style="display:none; padding:14px 24px; background:#F7F5F2; border-left:4px solid #B8956A; margin-bottom:14px; page-break-inside:avoid;">
-                <div style="font-size:10px; color:#B8956A; letter-spacing:0.08em; margin-bottom:8px; font-weight:600;">新青安優惠利率結束後</div>
+            <!-- 新青安利率結束 -->
+            <div id="pdfYouthEndInfo" style="display:none; padding:12px 22px; background:#F7F5F2; border-left:4px solid #B8956A; margin-bottom:12px;">
+                <div style="font-size:10px; color:#B8956A; letter-spacing:0.08em; margin-bottom:6px; font-weight:600;">新青安優惠利率結束後</div>
                 <div id="pdfYouthEndStages" style="font-size:12px; color:#555;"></div>
-                <div id="pdfYouthEndNote" style="font-size:10px; color:#aaa; margin-top:8px; line-height:1.5;"></div>
+                <div id="pdfYouthEndNote" style="font-size:10px; color:#aaa; margin-top:6px; line-height:1.5;"></div>
             </div>
-
-            <!-- 4-grid -->
-            <table style="width:100%; border-collapse:separate; border-spacing:8px;">
+            <!-- 四格數字 -->
+            <table style="width:100%; border-collapse:separate; border-spacing:6px;">
                 <tr>
-                    <td style="width:25%; padding:12px; background:#F7F5F2; vertical-align:top; text-align:center;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:2px;">貸款金額</div>
-                        <div id="pdfLoan" style="font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:2px;">貸款金額</div>
+                        <div id="pdfLoan" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
                     </td>
-                    <td style="width:25%; padding:12px; background:#F7F5F2; vertical-align:top; text-align:center;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:2px;">總利息</div>
-                        <div id="pdfInterest" style="font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:2px;">總利息</div>
+                        <div id="pdfInterest" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
                     </td>
-                    <td style="width:25%; padding:12px; background:#F7F5F2; vertical-align:top; text-align:center;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:2px;">還款總額</div>
-                        <div id="pdfRepayTotal" style="font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:2px;">還款總額</div>
+                        <div id="pdfRepayTotal" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
                     </td>
-                    <td style="width:25%; padding:12px; background:#F7F5F2; vertical-align:top; text-align:center;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:2px;">總利息佔比</div>
-                        <div id="pdfInterestRatio" style="font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:25%; padding:10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:2px;">利息佔貸款比</div>
+                        <div id="pdfInterestRatio" style="font-family:'Noto Serif TC',serif; font-size:16px; font-weight:700; color:#121212;">—</div>
                     </td>
                 </tr>
             </table>
         </div>
 
-        <!-- ▸ 成本總覽 — 合併買入成本 + 每月持有 -->
-        <div style="page-break-inside:avoid; padding:22px 44px; border-top:1px solid #EDEBE8;">
-            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:14px;">成本總覽</div>
-
+        <!-- 成本總覽 -->
+        <div style="padding:16px 44px 18px; border-top:1px solid #EDEBE8;">
+            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">成本總覽</div>
             <!-- 買入成本 -->
-            <div style="margin-bottom:18px;">
-                <div style="font-size:12px; color:#666; font-weight:500; margin-bottom:8px;">第一天你需要準備的錢</div>
+            <div style="margin-bottom:14px;">
+                <div style="font-size:11px; color:#666; font-weight:500; margin-bottom:6px;">買入當天需準備</div>
                 <div id="pdfHiddenCosts" style="font-size:12px; color:#444;"></div>
-                <table style="width:100%; border-collapse:collapse; border-top:1px solid #D5D0CB; margin-top:8px;">
-                    <tr>
-                        <td style="padding:10px 0; font-size:13px; font-weight:600; color:#444;">合計</td>
-                        <td style="padding:10px 0; text-align:right;"><span id="pdfDay1Total" style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; color:#121212;">—</span></td>
-                    </tr>
+                <table style="width:100%; border-collapse:collapse; border-top:1px solid #D5D0CB; margin-top:6px;">
+                    <tr><td style="padding:8px 0; font-size:12px; font-weight:600; color:#444;">合計</td>
+                    <td style="padding:8px 0; text-align:right;"><span id="pdfDay1Total" style="font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:#121212;">—</span></td></tr>
                 </table>
             </div>
-
-            <!-- 每月持有成本 -->
+            <!-- 每月持有 -->
             <div id="pdfHoldingCost">
-                <div style="font-size:12px; color:#666; font-weight:500; margin-bottom:8px;">每月持有成本（房貸之外）</div>
+                <div style="font-size:11px; color:#666; font-weight:500; margin-bottom:6px;">每月持有成本</div>
                 <div id="pdfHoldingItems" style="font-size:12px; color:#444;"></div>
-                <table style="width:100%; border-collapse:collapse; border-top:1px solid #D5D0CB; margin-top:8px;">
-                    <tr>
-                        <td style="padding:10px 0; font-size:13px; font-weight:600; color:#444;">每月真正支出</td>
-                        <td style="padding:10px 0; text-align:right;"><span id="pdfMonthlyTrue" style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:700; color:#121212;">—</span></td>
-                    </tr>
+                <table style="width:100%; border-collapse:collapse; border-top:1px solid #D5D0CB; margin-top:6px;">
+                    <tr><td style="padding:8px 0; font-size:12px; font-weight:600; color:#444;">每月真正支出</td>
+                    <td style="padding:8px 0; text-align:right;"><span id="pdfMonthlyTrue" style="font-family:'Noto Serif TC',serif; font-size:17px; font-weight:700; color:#121212;">—</span></td></tr>
                 </table>
             </div>
         </div>
 
-        <!-- ▸ 生活衝擊 -->
-        <div id="pdfLifeImpact" style="display:none; page-break-inside:avoid; padding:22px 44px; border-top:1px solid #EDEBE8;">
-            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:14px;">生活衝擊</div>
-            <table style="width:100%; border-collapse:separate; border-spacing:8px;">
+        <!-- ════════ PAGE 2：生活衝擊 + 壓力測試 ════════ -->
+        <!-- 明確分頁：生活衝擊和壓力測試放在第二頁 -->
+        <div id="pdfPageBreak" style="page-break-before:always;"></div>
+
+        <!-- 生活衝擊 -->
+        <div id="pdfLifeImpact" style="display:none; padding:28px 44px 18px;">
+            <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:12px;">生活衝擊</div>
+            <table style="width:100%; border-collapse:separate; border-spacing:6px;">
                 <tr>
-                    <td style="width:33%; padding:16px 12px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:4px;">房貸佔收入</div>
-                        <div id="pdfBurden" style="font-family:'Noto Serif TC',serif; font-size:26px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:33%; padding:14px 10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:3px;">房貸佔收入</div>
+                        <div id="pdfBurden" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
                     </td>
-                    <td style="width:33%; padding:16px 12px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:4px;">房屋總支出佔收入</div>
-                        <div id="pdfCompress" style="font-family:'Noto Serif TC',serif; font-size:26px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:33%; padding:14px 10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:3px;">房屋總支出佔收入</div>
+                        <div id="pdfCompress" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
                     </td>
-                    <td style="width:33%; padding:16px 12px; background:#F7F5F2; text-align:center; vertical-align:top;">
-                        <div style="font-size:9px; color:#999; letter-spacing:0.06em; margin-bottom:4px;">每月可自由運用</div>
-                        <div id="pdfDisposable" style="font-family:'Noto Serif TC',serif; font-size:26px; font-weight:700; color:#121212;">—</div>
+                    <td style="width:33%; padding:14px 10px; background:#F7F5F2; text-align:center; vertical-align:top;">
+                        <div style="font-size:9px; color:#999; margin-bottom:3px;">每月可自由運用</div>
+                        <div id="pdfDisposable" style="font-family:'Noto Serif TC',serif; font-size:24px; font-weight:700; color:#121212;">—</div>
                     </td>
                 </tr>
             </table>
-            <div id="pdfLifeInsight" style="font-size:11px; color:#666; line-height:1.8; padding:12px 16px; margin-top:10px; background:#F7F5F2;"></div>
+            <div id="pdfLifeInsight" style="font-size:11px; color:#555; line-height:1.8; padding:10px 14px; margin-top:10px; background:#F7F5F2;"></div>
         </div>
 
-        <!-- ▸ 壓力測試 -->
-        <div id="pdfStressTest" style="display:none; page-break-inside:avoid; padding:22px 44px; border-top:1px solid #EDEBE8;">
+        <!-- 壓力測試 -->
+        <div id="pdfStressTest" style="display:none; padding:18px 44px; border-top:1px solid #EDEBE8;">
             <div style="font-size:10px; color:#B8956A; letter-spacing:0.18em; font-weight:600; margin-bottom:6px;">壓力測試</div>
-            <div style="font-size:11px; color:#999; margin-bottom:12px;">如果利率變了，你的月付金和負擔比會怎麼走。</div>
+            <div style="font-size:11px; color:#999; margin-bottom:10px;">如果利率變了，你的月付金和負擔比會怎麼走。</div>
             <table style="width:100%; font-size:12px; border-collapse:collapse;">
                 <thead>
                     <tr>
-                        <th style="text-align:left; padding:8px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">情境</th>
-                        <th style="text-align:right; padding:8px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">利率</th>
-                        <th style="text-align:right; padding:8px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">月付金</th>
-                        <th style="text-align:right; padding:8px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">佔收入比</th>
-                        <th style="text-align:right; padding:8px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">月增</th>
+                        <th style="text-align:left; padding:7px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">情境</th>
+                        <th style="text-align:right; padding:7px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">利率</th>
+                        <th style="text-align:right; padding:7px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">月付金</th>
+                        <th style="text-align:right; padding:7px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">佔收入比</th>
+                        <th style="text-align:right; padding:7px 6px; color:#999; font-size:10px; font-weight:500; border-bottom:1px solid #D5D0CB;">月增</th>
                     </tr>
                 </thead>
                 <tbody id="pdfStressTable"></tbody>
             </table>
-            <div id="pdfStressInsight" style="font-size:11px; color:#666; line-height:1.8; padding:12px 16px; margin-top:12px; background:#F7F5F2;"></div>
+            <div id="pdfStressInsight" style="font-size:11px; color:#555; line-height:1.8; padding:10px 14px; margin-top:10px; background:#F7F5F2;"></div>
         </div>
 
-        <!-- ▸ Footer -->
-        <div style="page-break-inside:avoid; margin-top:12px;">
+        <!-- Footer -->
+        <div style="margin-top:16px;">
             <div style="height:3px; background:#B8956A;"></div>
-            <div style="background:#3D3D3D; padding:20px 44px;">
+            <div style="background:#3D3D3D; padding:16px 44px;">
                 <table style="width:100%; border-collapse:collapse;">
                     <tr>
                         <td style="vertical-align:middle;">
-                            <span style="font-family:'Noto Serif TC',serif; font-size:14px; font-weight:600; letter-spacing:0.12em; color:#fff;">
+                            <span style="font-family:'Noto Serif TC',serif; font-size:13px; font-weight:600; letter-spacing:0.12em; color:#ffffff;">
                                 <span style="color:#D4A96A;">擇</span>居
                             </span>
-                            <span style="font-size:9px; color:rgba(255,255,255,0.4); letter-spacing:0.18em; margin-left:8px;">先擇，後居</span>
+                            <span style="font-size:9px; color:#888888; letter-spacing:0.18em; margin-left:8px;">先擇，後居</span>
                         </td>
-                        <td style="vertical-align:middle; text-align:right; font-size:9px; color:rgba(255,255,255,0.35); line-height:1.7;">
-                            本報告由系統自動產生，僅供參考，不構成財務建議 &nbsp;|&nbsp; howhouse.tw
+                        <td style="vertical-align:middle; text-align:right; font-size:9px; color:#888888; line-height:1.6;">
+                            僅供參考，不構成財務建議 &nbsp;|&nbsp; howhouse.tw
                         </td>
                     </tr>
                 </table>
@@ -1969,7 +1961,7 @@
                 scrollY: 0
             },
             jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' },
-            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            pagebreak: { mode: ['css'] }
         };
 
         // Button feedback
