@@ -1945,24 +1945,29 @@
         // ── 核心數字 ──
         y = drawSection(ctx1, '核心數字', y);
 
-        // Hero: 每月房貸（加大區塊，數字和單位分行避免重疊）
-        const heroH = 80;
+        // Hero: 每月房貸
+        const heroH = 82;
         ctx1.fillStyle = C.stone;
         ctx1.fillRect(ML, y, CW, heroH);
         ctx1.fillStyle = C.bronze;
         ctx1.fillRect(ML, y, 5, heroH);
+        // 「每月房貸」標題
         font(ctx1, 13, '400'); ctx1.fillStyle = C.light;
         ctx1.fillText('每月房貸', ML + 22, y + 10);
+        // 大數字 — 往下推，避免壓到標題
         font(ctx1, 40, '900', 'Noto Serif TC, serif'); ctx1.fillStyle = C.text;
-        ctx1.fillText(_t('r_monthly'), ML + 22, y + 28);
+        ctx1.fillText(_t('r_monthly'), ML + 22, y + 32);
         const mw = ctx1.measureText(_t('r_monthly')).width;
+        // 「元/月」緊跟數字右側，垂直對齊數字底部
         font(ctx1, 16, '400'); ctx1.fillStyle = C.label;
-        ctx1.fillText('元/月', ML + 26 + mw, y + 42);
-        // sub description
+        ctx1.fillText('元/月', ML + 28 + mw, y + 50);
+        // sub description（本息均攤 xxx）— 移到右側空曠處
         const monthlySub = _t('r_monthly_sub');
         if (monthlySub && monthlySub !== '—') {
-            font(ctx1, 12, '400'); ctx1.fillStyle = C.label;
-            ctx1.fillText(monthlySub, ML + 22, y + 64);
+            font(ctx1, 11, '400'); ctx1.fillStyle = '#aaaaaa';
+            ctx1.textAlign = 'right';
+            ctx1.fillText(monthlySub, PW - MR - 14, y + 64);
+            ctx1.textAlign = 'left';
         }
         y += heroH + 6;
 
