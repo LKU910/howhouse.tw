@@ -1898,17 +1898,35 @@
         }
 
         // ── Generate PDF ──
+        // html2canvas 需要元素在 DOM 中可見且有尺寸才能正確渲染
+        // 用一個 off-screen 但有 layout 的容器包裹
         const element = document.getElementById('pdfContent');
-        element.style.display = 'block';
-        element.style.position = 'fixed';
-        element.style.left = '-9999px';
-        element.style.top = '0';
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'position:absolute; left:0; top:0; z-index:-9999; overflow:hidden; width:700px;';
+        document.body.appendChild(wrapper);
+
+        // Clone into wrapper（避免移動原始 DOM 節點）
+        const clone = element.cloneNode(true);
+        clone.style.display = 'block';
+        clone.style.width = '700px';
+        clone.style.position = 'relative';
+        clone.style.left = '0';
+        clone.style.top = '0';
+        wrapper.appendChild(clone);
 
         const opt = {
-            margin: [8, 0, 8, 0],
+            margin: [8, 6, 8, 6],
             filename: '我的財務診斷報告書_擇居_' + now.getFullYear() + (now.getMonth()+1).toString().padStart(2,'0') + now.getDate().toString().padStart(2,'0') + '.pdf',
             image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true, logging: false },
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                logging: false,
+                width: 700,
+                windowWidth: 700,
+                scrollX: 0,
+                scrollY: 0
+            },
             jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' },
             pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
         };
@@ -1920,11 +1938,8 @@
         btn.style.background = '#999';
         btn.disabled = true;
 
-        html2pdf().set(opt).from(element).save().then(() => {
-            element.style.display = 'none';
-            element.style.position = '';
-            element.style.left = '';
-            element.style.top = '';
+        html2pdf().set(opt).from(clone).save().then(() => {
+            wrapper.remove();
             btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 stroke-[1.5]"></i> 已下載';
             btn.style.background = '#4A5D6A';
             btn.disabled = false;
@@ -1935,8 +1950,7 @@
                 lucide.createIcons();
             }, 2500);
         }).catch(() => {
-            element.style.display = 'none';
-            element.style.position = '';
+            wrapper.remove();
             btn.innerHTML = origHTML;
             btn.style.background = '#B8956A';
             btn.disabled = false;
