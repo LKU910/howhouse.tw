@@ -1486,8 +1486,7 @@
     </footer>
 <!-- FOOTER:END -->
 <script>
-  // Tailwind Config;
-
+  // Tailwind Config
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -1520,7 +1519,6 @@
     const offset = (topNav ? topNav.offsetHeight : 0) + (subNav ? subNav.offsetHeight : 0) + 16;
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
-  }
   }
 
   // Initialize on DOM ready

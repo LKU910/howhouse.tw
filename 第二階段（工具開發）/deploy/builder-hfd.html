@@ -24,12 +24,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="tailwind.css">
-  <script>
-    });
-    btn.textContent = isHidden ? '收合已完工建案' : '顯示已完工建案';
-  }
-
-</script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     * {
@@ -1535,8 +1529,7 @@
     </footer>
 <!-- FOOTER:END -->
 <script>
-  // Tailwind Config;
-
+  // Tailwind Config
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -1570,10 +1563,6 @@
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
-
-  // Toggle Projects (show/hide outside-twn)
-  }
-
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     // Any additional initialization
