@@ -36,6 +36,7 @@
 
     <style>
         html { scroll-behavior: smooth; }
+        .tool-section-anchor { scroll-margin-top: var(--sticky-total, 120px); }
         body {
             background-color: #FAFAFA;
             color: #121212;
@@ -276,7 +277,7 @@
         </section>
 
         <!-- TOOL 1: 我的決策性格 -->
-        <section id="tool-quiz" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[var(--sticky-total,100px)]">
+        <section id="tool-quiz" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 tool-section-anchor">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 01 / 我的決策性格</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -313,7 +314,7 @@
         </section>
 
         <!-- TOOL 2: 我的買房地圖 -->
-        <section id="tool-progress" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[var(--sticky-total,100px)]">
+        <section id="tool-progress" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 tool-section-anchor">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 02 / 我的買房地圖</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -350,7 +351,7 @@
         </section>
 
         <!-- TOOL 3: 我的財務診斷 -->
-        <section id="tool-calculator" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[var(--sticky-total,100px)]">
+        <section id="tool-calculator" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 tool-section-anchor">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 03 / 我的財務診斷</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -458,7 +459,7 @@
             var navH = nav.offsetHeight;
             var qnavH = qnav ? qnav.offsetHeight : 0;
             document.documentElement.style.setProperty('--nav-h', navH + 'px');
-            document.documentElement.style.setProperty('--sticky-total', (navH + qnavH) + 'px');
+            document.documentElement.style.setProperty('--sticky-total', (navH + qnavH + 16) + 'px');
         }
         setStickyVars();
         window.addEventListener('resize', setStickyVars);
