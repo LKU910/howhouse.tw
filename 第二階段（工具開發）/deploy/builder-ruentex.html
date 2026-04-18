@@ -258,6 +258,12 @@
     .legal-body.open { display: block; }
     .legal-body strong { color: #121212; font-weight: 500; }
     .legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    /* ── Legal record mobile layout ── */
+    @media (max-width: 640px) {
+      .legal-header { flex-wrap: wrap; gap: 6px 10px; }
+      .legal-title { flex-basis: 100%; order: 10; font-size: 13px; line-height: 1.7; margin-top: 4px; }
+      .legal-chevron { margin-left: auto; }
+    }
     .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
     .t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8956A; margin-bottom: 12px; }
     .t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
@@ -668,8 +674,9 @@
   function jumpTo(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    const navH = document.querySelector('.snav');
-    const offset = navH ? navH.offsetHeight + 16 : 60;
+    const topNav = document.querySelector('nav');
+    const subNav = document.querySelector('.snav');
+    const offset = (topNav ? topNav.offsetHeight : 0) + (subNav ? subNav.offsetHeight : 0) + 16;
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
@@ -677,5 +684,17 @@
   });
 </script>
 
+<script>
+// Set --nav-h for sticky snav positioning
+(function() {
+  var nav = document.querySelector('nav');
+  if (!nav) return;
+  function setNavH() {
+    document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+  }
+  setNavH();
+  window.addEventListener('resize', setNavH);
+})();
+</script>
 </body>
 </html>
