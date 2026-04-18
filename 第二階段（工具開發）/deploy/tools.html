@@ -276,7 +276,7 @@
         </section>
 
         <!-- TOOL 1: 我的決策性格 -->
-        <section id="tool-quiz" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[calc(var(--nav-h,0px)+50px)]">
+        <section id="tool-quiz" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[var(--sticky-total,100px)]">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 01 / 我的決策性格</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -313,7 +313,7 @@
         </section>
 
         <!-- TOOL 2: 我的買房地圖 -->
-        <section id="tool-progress" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[calc(var(--nav-h,0px)+50px)]">
+        <section id="tool-progress" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[var(--sticky-total,100px)]">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 02 / 我的買房地圖</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -350,7 +350,7 @@
         </section>
 
         <!-- TOOL 3: 我的財務診斷 -->
-        <section id="tool-calculator" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[calc(var(--nav-h,0px)+50px)]">
+        <section id="tool-calculator" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[var(--sticky-total,100px)]">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 03 / 我的財務診斷</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -452,12 +452,16 @@
     // Sync quick-nav top with nav height
     (function() {
         var nav = document.querySelector('nav');
+        var qnav = document.querySelector('.tool-qnav');
         if (!nav) return;
-        function setNavH() {
-            document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        function setStickyVars() {
+            var navH = nav.offsetHeight;
+            var qnavH = qnav ? qnav.offsetHeight : 0;
+            document.documentElement.style.setProperty('--nav-h', navH + 'px');
+            document.documentElement.style.setProperty('--sticky-total', (navH + qnavH) + 'px');
         }
-        setNavH();
-        window.addEventListener('resize', setNavH);
+        setStickyVars();
+        window.addEventListener('resize', setStickyVars);
 
         // Highlight active quick-nav item on scroll
         var items = document.querySelectorAll('.tool-qnav-item');
@@ -465,7 +469,7 @@
             return document.getElementById(id);
         });
         function onScroll() {
-            var scrollY = window.scrollY + nav.offsetHeight + 80;
+            var scrollY = window.scrollY + nav.offsetHeight + (qnav ? qnav.offsetHeight : 0) + 30;
             var active = 0;
             sections.forEach(function(sec, i) {
                 if (sec && sec.offsetTop <= scrollY) active = i;
