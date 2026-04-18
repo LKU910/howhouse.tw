@@ -51,6 +51,46 @@
         ::-webkit-scrollbar-thumb:hover { background: #2A2A2A; }
         input:focus { outline: none; }
 
+        /* Tool quick-nav */
+        .tool-qnav {
+            position: sticky;
+            top: var(--nav-h, 0px);
+            z-index: 40;
+            background: rgba(250,250,250,0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid #E5E5E5;
+        }
+        .tool-qnav-inner {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .tool-qnav-item {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            padding: 14px 16px;
+            color: #888;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+        }
+        .tool-qnav-item:hover {
+            color: #B8956A;
+            border-bottom-color: #B8956A;
+        }
+        @media (min-width: 768px) {
+            .tool-qnav-inner { padding: 0 3rem; }
+            .tool-qnav-item { font-size: 13px; padding: 16px 20px; }
+        }
+
         .blueprint-label {
             font-family: 'Noto Sans TC', sans-serif;
             font-size: 12px;
@@ -207,6 +247,15 @@
     </div>
 <!-- NAV:END -->
 
+    <!-- Tool Quick Nav -->
+    <div class="tool-qnav">
+        <div class="tool-qnav-inner">
+            <a href="#tool-quiz" class="tool-qnav-item">我的決策性格</a>
+            <a href="#tool-progress" class="tool-qnav-item">我的買房地圖</a>
+            <a href="#tool-calculator" class="tool-qnav-item">我的財務診斷</a>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main class="w-full">
 
@@ -227,7 +276,7 @@
         </section>
 
         <!-- TOOL 1: 我的決策性格 -->
-        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+        <section id="tool-quiz" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[calc(var(--nav-h,0px)+50px)]">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 01 / 我的決策性格</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -264,7 +313,7 @@
         </section>
 
         <!-- TOOL 2: 我的買房地圖 -->
-        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+        <section id="tool-progress" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[calc(var(--nav-h,0px)+50px)]">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 02 / 我的買房地圖</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -301,7 +350,7 @@
         </section>
 
         <!-- TOOL 3: 我的財務診斷 -->
-        <section class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20">
+        <section id="tool-calculator" class="border-t border-stone-200 px-6 md:px-12 py-14 md:py-20 scroll-mt-[calc(var(--nav-h,0px)+50px)]">
             <div class="max-w-7xl mx-auto">
                 <div class="blueprint-label">工具 03 / 我的財務診斷</div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -398,6 +447,42 @@
             }
             setTimeout(type, 400);
         })();
+    </script>
+    <script>
+    // Sync quick-nav top with nav height
+    (function() {
+        var nav = document.querySelector('nav');
+        if (!nav) return;
+        function setNavH() {
+            document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+        }
+        setNavH();
+        window.addEventListener('resize', setNavH);
+
+        // Highlight active quick-nav item on scroll
+        var items = document.querySelectorAll('.tool-qnav-item');
+        var sections = ['tool-quiz', 'tool-progress', 'tool-calculator'].map(function(id) {
+            return document.getElementById(id);
+        });
+        function onScroll() {
+            var scrollY = window.scrollY + nav.offsetHeight + 80;
+            var active = 0;
+            sections.forEach(function(sec, i) {
+                if (sec && sec.offsetTop <= scrollY) active = i;
+            });
+            items.forEach(function(item, i) {
+                if (i === active) {
+                    item.style.color = '#B8956A';
+                    item.style.borderBottomColor = '#B8956A';
+                } else {
+                    item.style.color = '';
+                    item.style.borderBottomColor = 'transparent';
+                }
+            });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    })();
     </script>
 </body>
 </html>
