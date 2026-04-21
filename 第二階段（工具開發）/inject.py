@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 """
-inject.py — 從 _partials/ 注入統一的 nav 和 footer 到 deploy/ 所有 HTML 頁面。
+inject.py — 從 _partials/ 注入統一的 nav、footer、analytics 到 deploy/ 所有 HTML 頁面。
 
 使用方式：
-    python inject.py          # 注入 nav + footer
-    python inject.py --nav    # 只注入 nav
-    python inject.py --footer # 只注入 footer
-    python inject.py --dry    # 預覽模式，不寫入檔案
+    python inject.py              # 注入 nav + footer + analytics
+    python inject.py --nav        # 只注入 nav
+    python inject.py --footer     # 只注入 footer
+    python inject.py --analytics  # 只注入 analytics
+    python inject.py --dry        # 預覽模式，不寫入檔案
 
 工作原理：
     1. 首次執行：用 regex 找到現有的 nav/footer，替換為 partial 內容（含標記）
-    2. 後續執行：用標記（NAV:START/END, FOOTER:START/END）定位，直接替換
+       analytics 則插入在 </head> 之前
+    2. 後續執行：用標記（NAV:START/END, FOOTER:START/END, ANALYTICS:START/END）定位
 
 路徑規則：
-    - deploy/ 根目錄頁面 → href 不加前綴（index.html, builders.html...）
-    - deploy/step/ 頁面 → href 加 ../ 前綴（../index.html, ../builders.html...）
+    - deploy/ 根目錄頁面 → href 不加前綴
+    - deploy/step/、deploy/guide/、deploy/quiz-result/ → href 加 ../ 前綴
 """
 
 import os
@@ -143,6 +145,35 @@ def inject_nav(html, nav_template, prefix):
     return new_html, True
 
 
+# ─── Analytics 注入 ────────────────────────────────────
+
+def inject_analytics(html, analytics_template, prefix):
+    """注入 analytics partial 到 </head> 前面，回傳 (new_html, changed)"""
+    rendered = render_partial(analytics_template, prefix)
+
+    # 方式 1：已有標記 → 直接替換標記之間的內容
+    marker_pat = re.compile(r'<!-- ANALYTICS:START -->.*?<!-- ANALYTICS:END -->', re.DOTALL)
+    if marker_pat.search(html):
+        new_html = marker_pat.sub(rendered.strip(), html)
+        return new_html, new_html != html
+
+    # 方式 2：首次執行 → 插入到 </head> 之前
+    head_close = html.find('</head>')
+    if head_close == -1:
+        return html, False
+
+    # 找到 </head> 那一行的起始，保留原本的縮排
+    line_start = html.rfind('\n', 0, head_close)
+    indent = html[line_start+1:head_close] if line_start != -1 else ''
+    # 若該行前面只有空白，使用其縮排；否則用預設縮排
+    if indent.strip():
+        indent = ''  # 表示 </head> 不在獨立一行，用無縮排插入
+
+    insertion = rendered.strip() + '\n' + indent
+    new_html = html[:head_close] + insertion + html[head_close:]
+    return new_html, True
+
+
 # ─── Footer 注入 ───────────────────────────────────────
 
 def inject_footer(html, footer_template, prefix):
@@ -192,29 +223,43 @@ def inject_footer(html, footer_template, prefix):
 
 # ─── 主程式 ────────────────────────────────────────────
 
+def collect_html_files():
+    """收集所有需要注入的 HTML 檔案（deploy/ + 子資料夾）"""
+    return sorted(
+        glob.glob(os.path.join(DEPLOY_DIR, '*.html')) +
+        glob.glob(os.path.join(DEPLOY_DIR, 'step', '*.html')) +
+        glob.glob(os.path.join(DEPLOY_DIR, 'guide', '*.html')) +
+        glob.glob(os.path.join(DEPLOY_DIR, 'quiz-result', '*.html'))
+    )
+
+
 def main():
     args = set(sys.argv[1:])
     dry_run = '--dry' in args
-    do_nav = '--nav' in args or ('--footer' not in args)
-    do_footer = '--footer' in args or ('--nav' not in args)
+
+    # 若沒指定任何 flag，預設全部都做
+    specific = {'--nav', '--footer', '--analytics'} & args
+    if not specific:
+        do_nav = do_footer = do_analytics = True
+    else:
+        do_nav = '--nav' in args
+        do_footer = '--footer' in args
+        do_analytics = '--analytics' in args
 
     # 讀取 partial 檔案
-    nav_template = ''
-    footer_template = ''
+    nav_template = footer_template = analytics_template = ''
     if do_nav:
-        nav_path = os.path.join(PARTIALS_DIR, 'nav.html')
-        with open(nav_path, 'r', encoding='utf-8') as f:
+        with open(os.path.join(PARTIALS_DIR, 'nav.html'), 'r', encoding='utf-8') as f:
             nav_template = f.read()
     if do_footer:
-        footer_path = os.path.join(PARTIALS_DIR, 'footer.html')
-        with open(footer_path, 'r', encoding='utf-8') as f:
+        with open(os.path.join(PARTIALS_DIR, 'footer.html'), 'r', encoding='utf-8') as f:
             footer_template = f.read()
+    if do_analytics:
+        with open(os.path.join(PARTIALS_DIR, 'analytics.html'), 'r', encoding='utf-8') as f:
+            analytics_template = f.read()
 
     # 收集所有 HTML 檔案
-    html_files = sorted(
-        glob.glob(os.path.join(DEPLOY_DIR, '*.html')) +
-        glob.glob(os.path.join(DEPLOY_DIR, 'step', '*.html'))
-    )
+    html_files = collect_html_files()
 
     print(f'📂 找到 {len(html_files)} 個 HTML 檔案')
     if dry_run:
@@ -224,6 +269,7 @@ def main():
 
     nav_count = 0
     footer_count = 0
+    analytics_count = 0
     errors = []
 
     for filepath in html_files:
@@ -254,12 +300,21 @@ def main():
             if footer_changed:
                 footer_count += 1
 
+        # 注入 analytics
+        analytics_changed = False
+        if do_analytics:
+            html, analytics_changed = inject_analytics(html, analytics_template, prefix)
+            if analytics_changed:
+                analytics_count += 1
+
         # 報告
         status = []
         if nav_changed:
             status.append('nav')
         if footer_changed:
             status.append('footer')
+        if analytics_changed:
+            status.append('analytics')
 
         if status:
             marker = '✓' if not dry_run else '👁'
@@ -277,13 +332,15 @@ def main():
         print(f'   Nav 更新：{nav_count} 個檔案')
     if do_footer:
         print(f'   Footer 更新：{footer_count} 個檔案')
+    if do_analytics:
+        print(f'   Analytics 更新：{analytics_count} 個檔案')
     if dry_run:
         print(f'   ⚠️  預覽模式，未寫入任何檔案')
 
     # 驗證
     if not dry_run:
         print(f'\n🔍 驗證中...')
-        verify_errors = verify(html_files, do_nav, do_footer)
+        verify_errors = verify(html_files, do_nav, do_footer, do_analytics)
         if verify_errors:
             print(f'\n⚠️  發現 {len(verify_errors)} 個問題：')
             for err in verify_errors:
@@ -292,8 +349,8 @@ def main():
             print(f'   ✅ 全部通過！')
 
 
-def verify(html_files, check_nav, check_footer):
-    """驗證所有頁面的 nav/footer 是否正確"""
+def verify(html_files, check_nav, check_footer, check_analytics=False):
+    """驗證所有頁面的 nav/footer/analytics 是否正確"""
     errors = []
     for filepath in html_files:
         filename = os.path.relpath(filepath, DEPLOY_DIR)
@@ -304,7 +361,12 @@ def verify(html_files, check_nav, check_footer):
         with open(filepath, 'r', encoding='utf-8') as f:
             html = f.read()
 
-        if check_nav:
+        # step、guide、quiz-result 子頁面可能沒有 nav/footer（走自己的佈局），不驗證
+        rel = os.path.relpath(filepath, DEPLOY_DIR)
+        is_sub_layout = any(rel.startswith(d + os.sep) or rel.startswith(d + '/')
+                            for d in ('quiz-result',))
+
+        if check_nav and not is_sub_layout:
             if '<!-- NAV:START -->' not in html:
                 errors.append(f'{filename}: 缺少 NAV:START 標記')
             elif '<!-- NAV:END -->' not in html:
@@ -312,13 +374,22 @@ def verify(html_files, check_nav, check_footer):
             elif html.count('<!-- NAV:START -->') > 1:
                 errors.append(f'{filename}: 有多個 NAV:START 標記')
 
-        if check_footer:
+        if check_footer and not is_sub_layout:
             if '<!-- FOOTER:START -->' not in html:
                 errors.append(f'{filename}: 缺少 FOOTER:START 標記')
             elif '<!-- FOOTER:END -->' not in html:
                 errors.append(f'{filename}: 缺少 FOOTER:END 標記')
             elif html.count('<!-- FOOTER:START -->') > 1:
                 errors.append(f'{filename}: 有多個 FOOTER:START 標記')
+
+        # analytics 所有頁面都要有
+        if check_analytics:
+            if '<!-- ANALYTICS:START -->' not in html:
+                errors.append(f'{filename}: 缺少 ANALYTICS:START 標記')
+            elif '<!-- ANALYTICS:END -->' not in html:
+                errors.append(f'{filename}: 缺少 ANALYTICS:END 標記')
+            elif html.count('<!-- ANALYTICS:START -->') > 1:
+                errors.append(f'{filename}: 有多個 ANALYTICS:START 標記')
 
         # 檢查路徑前綴
         prefix = get_prefix(filepath)
