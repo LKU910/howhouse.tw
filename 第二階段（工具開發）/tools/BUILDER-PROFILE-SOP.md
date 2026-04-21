@@ -15,7 +15,7 @@
 
 ## 1. 路徑對照
 
-所有路徑以 mac 視角撰寫；在 bash 中需用 `/sessions/great-friendly-mayer/mnt/擇居/...` 前綴。
+所有路徑以 repo 根目錄（擇居/）為基準。在 bash 中使用當前 session 的掛載路徑前綴（每次 session 不同，請用 `find /sessions -name "CLAUDE.md" -path "*/擇居/*" 2>/dev/null` 定位）。
 
 | 用途 | 路徑 |
 | --- | --- |

@@ -42,12 +42,12 @@
       "stock_hint": "2539",
       "region_hint": "雙北·桃園",
       "notes": "中高價位住宅，北市深耕",
-      "status": "pending",
-      "attempt_count": 0,
-      "last_attempt": null,
+      "status": "done",
+      "attempt_count": 1,
+      "last_attempt": "2026-04-21T13:06:20Z",
       "skip_reason": null,
-      "completed_at": null,
-      "completed_slug": null
+      "completed_at": "2026-04-21T13:15:37Z",
+      "completed_slug": "yinghua"
     },
     {
       "slug_hint": "aishanlin",
