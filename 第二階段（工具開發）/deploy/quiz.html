@@ -89,7 +89,7 @@
             background: #fff;
         }
         .option-card:hover {
-            border-color: #B8956A;
+            border-color: #8A6820;
             background: #FFFFFF;
         }
         .option-card.selected {
@@ -124,7 +124,7 @@
         }
         .progress-fill {
             height: 100%;
-            background: #B8956A;
+            background: #8A6820;
             transition: width 0.4s ease;
             border-radius: 10px;
         }
@@ -142,7 +142,7 @@
             cursor: pointer;
             border: none;
         }
-        .btn-next.primary { background: #B8956A; color: white; }
+        .btn-next.primary { background: #8A6820; color: white; }
         .btn-next.primary:hover { background: #A67C52; }
         .btn-next.primary.button-disabled {
             background: #D5D0CB;
@@ -165,7 +165,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        .btn-back:hover { border-color: #B8956A; color: #121212; }
+        .btn-back:hover { border-color: #8A6820; color: #121212; }
 
         .result-container { display: none; }
         .result-container.active {
@@ -185,7 +185,7 @@
             gap: 14px;
         }
         .step-link-card:hover {
-            border-color: #B8956A;
+            border-color: #8A6820;
             background: #FFFFFF;
         }
 
@@ -197,7 +197,7 @@
         }
         .dim-bar-fill {
             height: 100%;
-            background: #B8956A;
+            background: #8A6820;
             border-radius: 3px;
             transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -209,7 +209,7 @@
             transition: all 0.2s ease; border: 1px solid #E5E2DE;
             background: #EDEBE8; color: #555;
         }
-        .share-btn:hover { border-color: #B8956A; color: #B8956A; }
+        .share-btn:hover { border-color: #8A6820; color: #8A6820; }
         .share-btn.line-btn { background: #06C755; color: white; border-color: #06C755; }
         .share-btn.line-btn:hover { background: #05b34c; }
 
@@ -219,8 +219,8 @@
             color: #888; cursor: pointer; background: #fff;
             transition: all 0.2s ease;
         }
-        .feedback-option:hover { border-color: #B8956A; color: #B8956A; }
-        .feedback-option.selected { border-color: #B8956A; background: #FAF7F3; color: #8B6A45; }
+        .feedback-option:hover { border-color: #8A6820; color: #8A6820; }
+        .feedback-option.selected { border-color: #8A6820; background: #FAF7F3; color: #8B6A45; }
 
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -255,7 +255,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -265,14 +265,14 @@
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -284,6 +284,7 @@
         </nav>
     </div>
 <!-- NAV:END -->
+<main>
 
 <!-- Header -->
 <div class="quiz-header" id="quizHeader">
@@ -487,7 +488,7 @@
 
             <!-- 人格標籤 + 描述 卡片 -->
             <div style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
-                <span style="font-size: 11px; letter-spacing: 0.15em; color: #B8956A;">你的決策傾向</span>
+                <span style="font-size: 11px; letter-spacing: 0.15em; color: #8A6820;">你的決策傾向</span>
                 <h2 id="personaTitle" style="font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 700; color: #121212; margin: 10px 0 16px; line-height: 1.3;"></h2>
                 <p id="personaDesc" style="font-size: 15px; color: #555; line-height: 1.8; margin: 0;"></p>
             </div>
@@ -500,8 +501,8 @@
 
             <!-- 盲點 卡片 -->
             <div style="background: #fff; border: 1px solid #E5E2DE; border-radius: 16px; padding: 28px; margin-bottom: 24px;">
-                <div style="border-left: 3px solid #B8956A; padding-left: 16px;">
-                    <h4 style="font-size: 13px; font-weight: 600; color: #B8956A; margin: 0 0 8px;">值得留意的是</h4>
+                <div style="border-left: 3px solid #8A6820; padding-left: 16px;">
+                    <h4 style="font-size: 13px; font-weight: 600; color: #8A6820; margin: 0 0 8px;">值得留意的是</h4>
                     <p id="personaBlindspot" style="font-size: 14px; color: #555; line-height: 1.8; margin: 0;"></p>
                 </div>
             </div>
@@ -551,13 +552,13 @@
                     <button class="feedback-option" onclick="submitFeedback('not_really')">不太像</button>
                 </div>
                 <div id="feedbackThanks" style="display: none; margin-top: 12px;">
-                    <p style="font-size: 13px; color: #B8956A; margin: 0;">收到，謝謝你的回饋。</p>
+                    <p style="font-size: 13px; color: #8A6820; margin: 0;">收到，謝謝你的回饋。</p>
                 </div>
             </div>
 
             <!-- 重來 -->
             <div id="retakeArea" style="text-align: center; padding-top: 16px;">
-                <button onclick="resetQuiz()" id="retakeBtn" style="font-size: 15px; color: #fff; background: #B8956A; border: none; cursor: pointer; padding: 14px 36px; border-radius: 12px; font-family: 'Noto Sans TC', sans-serif; font-weight: 600; letter-spacing: 0.05em; transition: background 0.2s;">再測一次</button>
+                <button onclick="resetQuiz()" id="retakeBtn" style="font-size: 15px; color: #fff; background: #8A6820; border: none; cursor: pointer; padding: 14px 36px; border-radius: 12px; font-family: 'Noto Sans TC', sans-serif; font-weight: 600; letter-spacing: 0.05em; transition: background 0.2s;">再測一次</button>
                 <p style="font-size: 12px; color: #BBB; margin-top: 10px;">重新回答 12 道情境題</p>
             </div>
         </div>
@@ -912,7 +913,7 @@
                 <div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                         <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #333;">${label.name}</span>
-                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #B8956A;">${descText}</span>
+                        <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #8A6820;">${descText}</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; text-align: right; flex-shrink: 0;">${label.low}</span>
@@ -940,7 +941,7 @@
         persona.steps.forEach(s => {
             stepsEl.innerHTML += `
                 <a href="step/${s.num}.html" class="step-link-card">
-                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #B8956A; flex-shrink: 0;">${s.num}</span>
+                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #8A6820; flex-shrink: 0;">${s.num}</span>
                     <div>
                         <h4 style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #121212; margin: 0 0 4px;">第 ${parseInt(s.num)} 步：${s.name}</h4>
                         <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;">${s.tip}</p>
@@ -1212,7 +1213,7 @@
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
                             <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 600; color: #333;">${label.name}</span>
-                            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #B8956A;">${descText}</span>
+                            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #8A6820;">${descText}</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 10px; color: #BBB; width: 48px; text-align: right; flex-shrink: 0;">${label.low}</span>
@@ -1242,7 +1243,7 @@
         persona.steps.forEach(s => {
             stepsEl.innerHTML += `
                 <a href="step/${s.num}.html" class="step-link-card">
-                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #B8956A; flex-shrink: 0;">${s.num}</span>
+                    <span style="font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #8A6820; flex-shrink: 0;">${s.num}</span>
                     <div>
                         <h4 style="font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 700; color: #121212; margin: 0 0 4px;">第 ${parseInt(s.num)} 步：${s.name}</h4>
                         <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; color: #888; margin: 0;">${s.tip}</p>
@@ -1265,5 +1266,6 @@
     // Initialize Lucide icons (for nav hamburger menu)
     if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>
+</main>
 </body>
 </html>

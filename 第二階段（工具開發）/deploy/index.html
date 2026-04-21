@@ -276,13 +276,13 @@
             border-radius: 8px;
             margin-bottom: 6px;
             border: none !important;
-            border-left: 3px solid #B8956A !important;
+            border-left: 3px solid #8A6820 !important;
         }
         .phase-header:hover {
             background: linear-gradient(135deg, #F0EBE5, #E8E0D8);
         }
         .phase-header:hover .phase-label {
-            color: #B8956A;
+            color: #8A6820;
         }
         .phase-icon-wrap {
             width: 40px;
@@ -338,9 +338,9 @@
             transition: all 0.3s ease;
         }
         .step-row:hover .step-num {
-            border-color: #B8956A;
+            border-color: #8A6820;
             color: #fff;
-            background: #B8956A;
+            background: #8A6820;
         }
         .step-row {
             border: 1px solid #EBEBEB;
@@ -356,7 +356,7 @@
         }
         .step-row:hover {
             background-color: #FFFFFF;
-            border-color: #B8956A;
+            border-color: #8A6820;
             box-shadow: 0 2px 12px rgba(166,124,82,0.10);
             transform: translateY(-1px);
         }
@@ -366,11 +366,11 @@
             flex-shrink: 0;
         }
         .step-row:hover .step-arrow {
-            color: #B8956A;
+            color: #8A6820;
             transform: translateX(3px);
         }
         .step-row:hover a.step-title {
-            color: #B8956A;
+            color: #8A6820;
         }
         .step-row:active {
             transform: translateY(0);
@@ -389,7 +389,7 @@
             transition: all 0.25s ease;
         }
         .step-row:hover::after {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23B8956A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%238A6820' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
             right: 12px;
         }
         @media (max-width: 640px) {
@@ -413,8 +413,8 @@
             white-space: nowrap;
         }
         .step-badge.core {
-            color: #B8956A;
-            border: 1px solid #B8956A;
+            color: #8A6820;
+            border: 1px solid #8A6820;
             background: rgba(166,124,82,0.06);
         }
         .step-badge.paid {
@@ -465,7 +465,7 @@
             transition: color 0.3s ease;
         }
         .resource-link:hover {
-            color: #B8956A;
+            color: #8A6820;
         }
         .chevron-icon {
             transition: transform 0.3s ease;
@@ -507,7 +507,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -517,14 +517,14 @@
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -536,12 +536,13 @@
         </nav>
     </div>
 <!-- NAV:END -->
+    <main>
     <!-- Hero -->
     <header class="flex-grow flex flex-col justify-center px-6 md:px-12 py-10 md:py-32 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div class="lg:col-span-8 lg:pt-4">
                 <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] text-stone-900">
-                    <span class="block text-base sm:text-lg md:text-xl font-sans font-medium tracking-widest text-stone-400 mb-2 md:mb-4 not-italic">擇居</span>
+                    <span class="block text-base sm:text-lg md:text-xl font-sans font-medium tracking-widest text-stone-500 mb-2 md:mb-4 not-italic">擇居</span>
                     每一步<br>
                     <span class="text-architect-bronze italic">都值得想清楚</span>
                 </h1>
@@ -552,10 +553,10 @@
                     <span id="heroDesc">買房是一連串的選擇。<br>每一步，都值得慢慢想。<br>不急，我們陪你從頭走到尾。</span>
                 </div>
 
-                <p class="font-sans text-xs tracking-widest text-stone-400 mb-3">還不確定從哪開始？</p>
+                <p class="font-sans text-xs tracking-widest text-stone-500 mb-3">還不確定從哪開始？</p>
                 <div class="flex flex-col gap-2">
                     <a href="quiz.html" class="hero-tool-link group" data-track-as="home_hero_tool_clicked" data-target="quiz">
-                        <span class="hero-tool-icon" style="background:rgba(184,149,106,0.10);"><i data-lucide="compass" class="w-3.5 h-3.5 stroke-[1.5]" style="color:#B8956A;"></i></span>
+                        <span class="hero-tool-icon" style="background:rgba(184,149,106,0.10);"><i data-lucide="compass" class="w-3.5 h-3.5 stroke-[1.5]" style="color:#8A6820;"></i></span>
                         <span class="hero-tool-name">我的決策性格</span>
                         <span class="hero-tool-desc">— 選擇之前，先認識自己</span>
                         <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-stone-300 group-hover:text-architect-bronze transition-colors ml-auto flex-shrink-0"></i>
@@ -696,7 +697,7 @@
 
         <!-- Phase: 入住經營 -->
         <div class="col-span-2 md:col-span-3 mt-4">
-          <span class="font-sans text-[11px] tracking-widest text-stone-400 font-medium uppercase">入住經營</span>
+          <span class="font-sans text-[11px] tracking-widest text-stone-500 font-medium uppercase">入住經營</span>
         </div>
         <a href="step/17.html" class="group relative bg-stone-50 border border-stone-200 rounded-lg p-5 md:p-6 hover:border-architect-bronze hover:shadow-sm transition-all duration-300">
           <div class="font-serif text-2xl font-black text-stone-200 group-hover:text-architect-bronze/30 transition-colors absolute top-4 right-4 leading-none">17</div>
@@ -733,7 +734,7 @@
                             <span class="phase-step-count">STEP 01–02</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -754,7 +755,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -786,7 +787,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -816,7 +817,7 @@
                             <span class="phase-step-count">STEP 03–06</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -836,7 +837,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -867,7 +868,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -899,7 +900,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -930,7 +931,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -962,7 +963,7 @@
                             <span class="phase-step-count">STEP 07–08</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -982,7 +983,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1012,7 +1013,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1043,7 +1044,7 @@
                             <span class="phase-step-count">STEP 09–11</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -1063,7 +1064,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1093,7 +1094,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1124,7 +1125,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1154,7 +1155,7 @@
                             <span class="phase-step-count">STEP 12–13</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -1175,7 +1176,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1204,7 +1205,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1236,7 +1237,7 @@
                             <span class="phase-step-count">STEP 14–15</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -1256,7 +1257,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1286,7 +1287,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1317,7 +1318,7 @@
                             <span class="phase-step-count">STEP 16–18</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 chevron-icon stroke-[1.5]"></i>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 chevron-icon stroke-[1.5]"></i>
                 </div>
                 <div class="accordion-body flow-connector">
 
@@ -1338,7 +1339,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1370,7 +1371,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1400,7 +1401,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-5 pl-10 lg:pl-0">
-                                <div class="accordion-toggle flex items-center gap-2 text-stone-400 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
+                                <div class="accordion-toggle flex items-center gap-2 text-stone-500 hover:text-architect-slate transition-colors" onclick="toggleResources(this, event)">
                                     <span class="font-sans text-xs tracking-widest">推薦資源</span>
                                     <i data-lucide="chevron-down" class="w-3 h-3 chevron-icon stroke-[1.5]"></i>
                                 </div>
@@ -1438,7 +1439,7 @@
           <div class="font-serif text-3xl md:text-4xl font-black text-white leading-tight mb-4">
             你的建商<br><span class="text-architect-bronze">背景乾淨嗎？</span>
           </div>
-          <p class="font-sans text-sm text-stone-400 leading-relaxed max-w-sm">
+          <p class="font-sans text-sm text-stone-500 leading-relaxed max-w-sm">
             司法紀錄、裁罰紀錄、住戶評價——這些公開資料散落各處。<br class="md:hidden">我們幫你整理好，簽約前多看一眼。
           </p>
         </div>
@@ -1449,7 +1450,7 @@
           <div class="relative w-full group mb-6">
             <div class="flex items-center border-b-2 border-stone-300 pb-3 group-hover:border-architect-bronze transition-colors duration-500">
               <input type="text" id="ctaSearch" class="w-full bg-transparent font-sans text-lg text-stone-900 placeholder-stone-400" placeholder="例：遠雄、國泰、寶佳…" onkeydown="if(event.key==='Enter'){window.location.href='builders.html?q='+encodeURIComponent(this.value)}">
-              <button onclick="window.location.href='builders.html?q='+encodeURIComponent(document.getElementById('ctaSearch').value)" class="ml-4 text-stone-400 group-hover:text-architect-bronze transition-colors duration-500">
+              <button onclick="window.location.href='builders.html?q='+encodeURIComponent(document.getElementById('ctaSearch').value)" class="ml-4 text-stone-500 group-hover:text-architect-bronze transition-colors duration-500" aria-label="搜尋建商">
                 <i data-lucide="arrow-right" class="w-5 h-5 stroke-[1.5]"></i>
               </button>
             </div>
@@ -1466,7 +1467,7 @@
     <section class="px-6 md:px-12 pb-24 md:pb-32 max-w-7xl mx-auto w-full">
         <div class="bg-stone-900 text-white p-10 md:p-14 group hover:bg-stone-800 transition-colors duration-500">
             <div class="flex justify-between items-start mb-8">
-                <span class="font-sans text-xs tracking-widest text-stone-400">深度觀點</span>
+                <span class="font-sans text-xs tracking-widest text-stone-500">深度觀點</span>
                 <i data-lucide="pen-tool" class="w-5 h-5 text-stone-500 stroke-[1.5] group-hover:text-architect-bronze transition-colors duration-500"></i>
             </div>
             <div class="max-w-2xl">
@@ -1634,23 +1635,24 @@
             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             加入 LINE 好友
         </a>
-        <p class="font-sans text-xs text-stone-400 mt-4">點擊按鈕直接開啟 LINE 加入好友</p>
+        <p class="font-sans text-xs text-stone-500 mt-4">點擊按鈕直接開啟 LINE 加入好友</p>
 
         <!-- Desktop: 額外顯示 ID 方便搜尋 -->
         <div class="hidden md:block mt-6">
-            <p class="font-sans text-xs text-stone-400">或在 LINE 搜尋 ID：<span class="font-bold text-stone-600">@howhouse</span></p>
+            <p class="font-sans text-xs text-stone-500">或在 LINE 搜尋 ID：<span class="font-bold text-stone-600">@howhouse</span></p>
         </div>
     </section>
 
     <div class="bg-stone-100 border-t border-stone-200 py-4 px-6 text-center text-xs text-stone-500 mt-12">
         本站內容僅供參考，不構成投資、法律或財務建議。資訊來源為公開資料，可能存在誤差或已過時。購屋決策請諮詢專業人士。<a href="/terms.html" class="underline hover:text-stone-700 ml-1">服務條款</a> · <a href="/privacy.html" class="underline hover:text-stone-700">隱私政策</a>
     </div>
+    </main>
 
 <!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -1659,8 +1661,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>
@@ -1734,7 +1736,7 @@
                         } else if (i === lineIdx) {
                             html += lines[i].substring(0, charIdx);
                             if (charIdx < lines[i].length) {
-                                html += '<span style="border-right:2px solid #B8956A;padding-right:2px;">&nbsp;</span>';
+                                html += '<span style="border-right:2px solid #8A6820;padding-right:2px;">&nbsp;</span>';
                             }
                         }
                     }

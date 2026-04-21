@@ -127,9 +127,9 @@
         }
         .step-select-wrap { position: relative; }
         .step-select { font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 600; color: #44403C; background: #fff; border: 1.5px solid #D6D3D1; border-radius: 10px; padding: 8px 36px 8px 14px; cursor: pointer; appearance: none; -webkit-appearance: none; min-width: 200px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-        .step-select:hover { border-color: #B8956A; box-shadow: 0 2px 6px rgba(166,124,82,0.12); }
-        .step-select:focus { outline: none; border-color: #B8956A; box-shadow: 0 0 0 3px rgba(166,124,82,0.15); }
-        .step-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #B8956A; font-size: 14px; pointer-events: none; font-weight: 700; }
+        .step-select:hover { border-color: #8A6820; box-shadow: 0 2px 6px rgba(166,124,82,0.12); }
+        .step-select:focus { outline: none; border-color: #8A6820; box-shadow: 0 0 0 3px rgba(166,124,82,0.15); }
+        .step-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #8A6820; font-size: 14px; pointer-events: none; font-weight: 700; }
         @media (max-width: 640px) {
             .step-select { font-size: 13px; min-width: 170px; padding: 7px 32px 7px 12px; }
         }
@@ -175,7 +175,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -185,14 +185,14 @@
             <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -365,7 +365,7 @@
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-6">
                             12 道情境題，幫你看清自己在做買房決定時的思考慣性。<br>沒有對錯，只有更認識自己。
                         </p>
-                        <a href="../quiz.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #B8956A;">
+                        <a href="../quiz.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #8A6820;">
                             開始測驗 →
                         </a>
                     </div>
@@ -414,7 +414,7 @@
             <!-- Disclaimer -->
             <section class="mt-8">
                 <div class="bg-stone-100 border border-stone-200 rounded p-4">
-                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                    <p class="font-sans text-xs text-stone-500 leading-relaxed">
                         <strong class="text-stone-500">說明：</strong>本文引用之決策心理學概念（損失趨避、極大化者/滿足化者、雙系統理論、計畫行為理論）為學術研究之通俗化解讀，不構成心理諮詢或醫療建議。擇居的決策性格分類為參考工具，幫助你反思自身決策模式，不作為任何投資或購屋建議。
                     </p>
                 </div>
@@ -427,7 +427,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">選擇之前，先認識自己</h3>
             <p class="font-sans text-stone-700 mb-6">5 分鐘測驗，看見你做買房決定時的思考慣性。</p>
-            <a href="../quiz.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #B8956A;">
+            <a href="../quiz.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #8A6820;">
                 開始決策性格測驗 →
             </a>
         </div>
@@ -437,7 +437,7 @@
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -446,8 +446,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>

@@ -80,7 +80,7 @@
 
         a.architectural-grid-item:hover {
             background-color: #FFFCF8;
-            border-color: #B8956A;
+            border-color: #8A6820;
         }
 
         @media (max-width: 768px) {
@@ -112,7 +112,7 @@
 
         .form-input:focus {
             outline: none;
-            border-bottom-color: #B8956A;
+            border-bottom-color: #8A6820;
         }
 
         .form-textarea {
@@ -135,7 +135,7 @@
 
         .form-textarea:focus {
             outline: none;
-            border-bottom-color: #B8956A;
+            border-bottom-color: #8A6820;
         }
 
         /* Submit Button */
@@ -213,7 +213,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -223,14 +223,14 @@
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -317,7 +317,7 @@
         <!-- 4. BOUNDARIES SECTION (DARK) -->
         <section class="bg-stone-900 w-full px-6 md:px-12 py-16 md:py-24">
             <div class="max-w-7xl mx-auto">
-                <div class="blueprint-label text-stone-400">03 / 我們的底線</div>
+                <div class="blueprint-label text-stone-500">03 / 我們的底線</div>
                 <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-10">我們不做的事</h2>
                 <ul class="space-y-6 max-w-2xl">
                     <li class="flex items-start gap-4">
@@ -477,7 +477,7 @@
                             target="hidden_iframe"
                         >
                             <div>
-                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                <label class="text-[12px] tracking-widest uppercase text-stone-500 font-sans mb-2 block">
                                     你目前在哪一步？ *
                                 </label>
                                 <select
@@ -493,7 +493,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                <label class="text-[12px] tracking-widest uppercase text-stone-500 font-sans mb-2 block">
                                     想了解的建商或區域
                                 </label>
                                 <input
@@ -504,7 +504,7 @@
                                 >
                             </div>
                             <div>
-                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                <label class="text-[12px] tracking-widest uppercase text-stone-500 font-sans mb-2 block">
                                     你最想解決的問題
                                 </label>
                                 <textarea
@@ -514,7 +514,7 @@
                                 ></textarea>
                             </div>
                             <div>
-                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                <label class="text-[12px] tracking-widest uppercase text-stone-500 font-sans mb-2 block">
                                     Email *
                                 </label>
                                 <input
@@ -549,7 +549,7 @@
                             target="hidden_iframe_fb"
                         >
                             <div>
-                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                <label class="text-[12px] tracking-widest uppercase text-stone-500 font-sans mb-2 block">
                                     意見內容 *
                                 </label>
                                 <textarea
@@ -560,7 +560,7 @@
                                 ></textarea>
                             </div>
                             <div>
-                                <label class="text-[12px] tracking-widest uppercase text-stone-400 font-sans mb-2 block">
+                                <label class="text-[12px] tracking-widest uppercase text-stone-500 font-sans mb-2 block">
                                     Email
                                 </label>
                                 <input
@@ -591,7 +591,7 @@
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -600,8 +600,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>
@@ -623,7 +623,7 @@
                         if (i < lineIdx) html += lines[i] + '<br>';
                         else if (i === lineIdx) {
                             html += lines[i].substring(0, charIdx);
-                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #B8956A;padding-right:2px;">&nbsp;</span>';
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #8A6820;padding-right:2px;">&nbsp;</span>';
                         }
                     }
                     el.innerHTML = html;

@@ -139,7 +139,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -149,14 +149,14 @@
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -168,6 +168,7 @@
         </nav>
     </div>
 <!-- NAV:END -->
+<main>
     <!-- Hero Section -->
     <section class="px-6 md:px-12 py-16 md:py-24">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -186,7 +187,7 @@
     <div class="px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-start gap-3 bg-stone-100 border border-stone-200 rounded-lg px-5 py-4">
-                <i data-lucide="info" class="w-4 h-4 text-stone-400 stroke-[1.5] flex-shrink-0 mt-0.5"></i>
+                <i data-lucide="info" class="w-4 h-4 text-stone-500 stroke-[1.5] flex-shrink-0 mt-0.5"></i>
                 <p class="font-sans text-sm text-stone-500 leading-relaxed">資料庫剛開始建置，目前收錄的建商數量有限。我們會持續搜集、查證、擴充，如果你想查的建商還沒收錄，歡迎<a href="about.html#contact" class="text-architect-bronze hover:underline">告訴我們</a>。</p>
             </div>
         </div>
@@ -258,13 +259,13 @@
     <!-- Disclaimer -->
     <div class="px-6 md:px-12 py-6">
         <div class="max-w-7xl mx-auto">
-            <p class="font-sans text-xs text-stone-400 leading-relaxed" style="letter-spacing:0.02em;">
+            <p class="font-sans text-xs text-stone-500 leading-relaxed" style="letter-spacing:0.02em;">
                 免責聲明：本頁所列建商資料（含成立年份、資本額、董事長、建案數量等）係整理自經濟部商業司、各公司公開資訊及媒體報導，部分數據為概估值，可能存在誤差或已過時。本站不保證資料之正確性、完整性及即時性，亦不對因使用本站資訊所生之任何損失負責。所有資料僅供參考，購屋決策前請自行至官方來源查證，並諮詢專業人士。
             </p>
-            <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2" style="letter-spacing:0.02em;">
+            <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2" style="letter-spacing:0.02em;">
                 警示標籤說明：部分建商頁面顯示的警示標籤，係依據以下標準標註——（1）經營階層涉入經司法機關偵查或起訴之案件；（2）公司組織架構經公開資料查證具有特殊性且可能影響消費者權益判斷者。標籤僅反映公開事實之摘要，不代表本站對該建商之整體評價。如建商認為標籤內容有誤或需要更新，歡迎透過<a href="about.html#builder-appeal" class="text-architect-slate hover:text-architect-bronze transition-colors">建商資料更正申請</a>提出。
             </p>
-            <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2" style="letter-spacing:0.02em;">
+            <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2" style="letter-spacing:0.02em;">
                 如發現資料錯誤，歡迎<a href="about.html#contact" class="text-architect-slate hover:text-architect-bronze transition-colors">來信回報</a>。
             </p>
         </div>
@@ -273,12 +274,13 @@
     <div class="bg-stone-100 border-t border-stone-200 py-4 px-6 text-center text-xs text-stone-500">
         <a href="/terms.html" class="underline hover:text-stone-700 ml-1">服務條款</a> · <a href="/privacy.html" class="underline hover:text-stone-700">隱私政策</a>
     </div>
+</main>
 
 <!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -287,8 +289,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>
@@ -450,7 +452,7 @@
                         </div>
                         <div class="flex justify-between items-baseline">
                             <span class="blueprint-label text-stone-500">建案數</span>
-                            <span class="font-serif text-base font-bold" style="color:#B8956A;">${builder.scale}${builder.approx ? '+' : ''}</span>
+                            <span class="font-serif text-base font-bold" style="color:#8A6820;">${builder.scale}${builder.approx ? '+' : ''}</span>
                         </div>
                     </div>
                 `;
@@ -480,7 +482,7 @@
                         <span class="font-sans text-sm text-stone-600">${builder.capitalLabel}</span>
                     </div>
                     <div class="col-span-3" style="display:flex;align-items:center;gap:4px;">
-                        <span style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:900;color:#B8956A;">${builder.scale}</span>
+                        <span style="font-family:'Noto Serif TC',serif;font-size:18px;font-weight:900;color:#8A6820;">${builder.scale}</span>
                         <span style="font-size:11px;color:#666;letter-spacing:0.08em;">${builder.approx ? '+' : ''} 建案</span>
                     </div>
                     <div class="col-span-2 flex justify-end">
@@ -514,8 +516,8 @@
                         ${warnDot}
                     </div>
                     <div class="mobile-list-right">
-                        <span class="font-sans text-xs text-stone-400" style="margin-right:4px;">${builder.capitalLabel}</span>
-                        <span class="font-sans text-sm" style="color:#B8956A;font-weight:600;">${builder.scale} 建案</span>
+                        <span class="font-sans text-xs text-stone-500" style="margin-right:4px;">${builder.capitalLabel}</span>
+                        <span class="font-sans text-sm" style="color:#8A6820;font-weight:600;">${builder.scale} 建案</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 stroke-[1.5] text-stone-500"></i>
                     </div>
                 `;
@@ -546,7 +548,7 @@
                         if (i < lineIdx) html += lines[i] + '<br>';
                         else if (i === lineIdx) {
                             html += lines[i].substring(0, charIdx);
-                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #B8956A;padding-right:2px;">&nbsp;</span>';
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #8A6820;padding-right:2px;">&nbsp;</span>';
                         }
                     }
                     el.innerHTML = html;

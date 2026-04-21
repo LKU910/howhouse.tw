@@ -113,9 +113,9 @@
         /* === Step Select === */
         .step-select-wrap { position: relative; }
         .step-select { font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 600; color: #44403C; background: #fff; border: 1.5px solid #D6D3D1; border-radius: 10px; padding: 8px 36px 8px 14px; cursor: pointer; appearance: none; -webkit-appearance: none; min-width: 200px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-        .step-select:hover { border-color: #B8956A; box-shadow: 0 2px 6px rgba(166,124,82,0.12); }
-        .step-select:focus { outline: none; border-color: #B8956A; box-shadow: 0 0 0 3px rgba(166,124,82,0.15); }
-        .step-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #B8956A; font-size: 14px; pointer-events: none; font-weight: 700; }
+        .step-select:hover { border-color: #8A6820; box-shadow: 0 2px 6px rgba(166,124,82,0.12); }
+        .step-select:focus { outline: none; border-color: #8A6820; box-shadow: 0 0 0 3px rgba(166,124,82,0.15); }
+        .step-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #8A6820; font-size: 14px; pointer-events: none; font-weight: 700; }
         @media (max-width: 640px) {
             .step-select { font-size: 13px; min-width: 170px; padding: 7px 32px 7px 12px; }
         }
@@ -164,9 +164,9 @@
 <body class="font-sans min-h-screen flex flex-col">
 
 <!-- NAV:START -->
-    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-50">
+    <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -176,14 +176,14 @@
             <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -199,7 +199,7 @@
     <div class="border-b border-stone-200 py-4 sm:py-6 sticky-progress">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-center gap-3">
-                <span class="font-sans text-xs tracking-widest text-stone-400">快速跳轉</span>
+                <span class="font-sans text-xs tracking-widest text-stone-500">快速跳轉</span>
                 <div class="step-select-wrap">
                     <select onchange="if(this.value)window.location.href=this.value" class="step-select">
                         <optgroup label="自我準備">
@@ -507,7 +507,7 @@
             <!-- Disclaimer -->
             <section class="mt-8">
                 <div class="bg-stone-100 border border-stone-200 rounded p-4">
-                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                    <p class="font-sans text-xs text-stone-500 leading-relaxed">
                         <strong class="text-stone-500">免責聲明：</strong>本文提及之費用、利率、法規等數據均為撰文時（2026 年 4 月）之公開資訊整理，可能因政策調整、市場變動而改變。實際費用請以各機構公告為準。本站不提供投資、法律或財務建議，購屋決策請諮詢專業人士。
                     </p>
                 </div>
@@ -520,7 +520,7 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 py-6 sm:py-8 border-t border-stone-200 step-nav-grid">
             <a href="17.html" class="group border border-stone-200 p-4 hover:border-architect-bronze transition-colors">
-                <span class="font-sans text-xs tracking-widest text-stone-400 group-hover:text-architect-bronze">← 上一步</span>
+                <span class="font-sans text-xs tracking-widest text-stone-500 group-hover:text-architect-bronze">← 上一步</span>
                 <p class="font-sans text-sm font-medium text-stone-900 mt-1">Step 17: 裝修與入住</p>
             </a>
             <div class="border border-stone-200 p-4 bg-architect-bronze/5 text-right">
@@ -539,7 +539,7 @@
                 <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
                 加入 LINE 好友
             </a>
-            <p class="font-sans text-xs text-stone-400 mt-3">點擊按鈕直接開啟 LINE</p>
+            <p class="font-sans text-xs text-stone-500 mt-3">點擊按鈕直接開啟 LINE</p>
         </div>
     </section>
 
@@ -549,7 +549,7 @@
         <a href="17.html" class="font-sans text-sm text-architect-bronze hover:text-stone-900 transition-colors">← 第 17 步：裝修與入住</a>
         <span class="font-sans text-sm text-stone-300">已是最後一步 →</span>
       </div>
-      <a href="../index.html#buyingFlow" class="inline-block font-sans text-xs text-stone-400 hover:text-architect-bronze border border-stone-200 hover:border-architect-bronze rounded px-4 py-2 transition-all duration-300 mx-auto block text-center">回到 18 步</a>
+      <a href="../index.html#buyingFlow" class="inline-block font-sans text-xs text-stone-500 hover:text-architect-bronze border border-stone-200 hover:border-architect-bronze rounded px-4 py-2 transition-all duration-300 mx-auto block text-center">回到 18 步</a>
     </nav>
 
     <div class="bg-stone-100 border-t border-stone-200 py-4 px-6 text-center text-xs text-stone-500 mt-12">
@@ -560,7 +560,7 @@
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -569,8 +569,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>

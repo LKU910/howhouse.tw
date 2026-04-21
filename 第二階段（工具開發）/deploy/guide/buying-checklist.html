@@ -201,7 +201,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -211,12 +211,14 @@
             <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
+
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -291,7 +293,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">1</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">1</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">自我準備（第 1–2 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-3">
@@ -314,7 +316,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">2</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">2</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">研究功課（第 3–6 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-3">
@@ -339,7 +341,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">3</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">3</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">實地勘查（第 7–8 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-3">
@@ -359,7 +361,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">4</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">4</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">議價成交（第 9–11 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-3">
@@ -383,7 +385,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">5</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">5</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">等待期（第 12–13 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed">
@@ -400,7 +402,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">6</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">6</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">交屋收尾（第 14–15 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-3">
@@ -423,7 +425,7 @@
                 <section>
                     <div class="border border-stone-200 rounded-lg p-5 sm:p-6 bg-white phase-card">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#B8956A;">7</span>
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold" style="background-color:#8A6820;">7</span>
                             <h3 class="font-serif text-lg font-bold text-stone-900">佈置入住（第 16–18 步）</h3>
                         </div>
                         <p class="font-sans text-base text-stone-600 leading-relaxed">
@@ -445,7 +447,7 @@
                         <p class="font-sans text-base text-stone-600 leading-relaxed mb-6">
                             用擇居的「我的買房地圖」，標記每一步的狀態、寫下你的思考筆記。<br>不是打卡，是幫你把散落的想法整理成一條清楚的路。
                         </p>
-                        <a href="../progress.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #B8956A;">
+                        <a href="../progress.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #8A6820;">
                             打開我的買房地圖 →
                         </a>
                     </div>
@@ -481,7 +483,7 @@
             <!-- Disclaimer -->
             <section class="mt-8">
                 <div class="bg-stone-100 border border-stone-200 rounded p-4">
-                    <p class="font-sans text-xs text-stone-400 leading-relaxed">
+                    <p class="font-sans text-xs text-stone-500 leading-relaxed">
                         <strong class="text-stone-500">免責聲明：</strong>本文內容僅供參考，不構成投資、法律或財務建議。買房流程可能因房屋類型（預售屋、新成屋、中古屋）和個人情況而有差異。實際決策請諮詢專業不動產經紀人、地政士或律師。
                     </p>
                 </div>
@@ -494,7 +496,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">看看你走到 18 步的哪了</h3>
             <p class="font-sans text-stone-700 mb-6">用擇居的買房地圖，把你的進度和想法整理起來。</p>
-            <a href="../progress.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #B8956A;">
+            <a href="../progress.html" class="inline-block text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:opacity-90 shadow-lg text-base" style="background-color: #8A6820;">
                 打開我的買房地圖 →
             </a>
         </div>
@@ -504,7 +506,7 @@
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -513,8 +515,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>

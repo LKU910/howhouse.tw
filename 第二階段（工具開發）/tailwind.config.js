@@ -16,7 +16,7 @@ module.exports = {
           900: '#121212',
         },
         architect: {
-          bronze: '#B8956A',
+          bronze: '#8A6820',
           terracotta: '#9C4A38',
           slate: '#4A5D6A',
         }

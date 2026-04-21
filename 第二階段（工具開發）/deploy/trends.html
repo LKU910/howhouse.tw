@@ -115,7 +115,7 @@
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -125,14 +125,14 @@
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -144,6 +144,7 @@
         </nav>
     </div>
 <!-- NAV:END -->
+<main>
     <!-- Hero Section -->
     <section class="px-6 md:px-12 py-16 md:py-24">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
@@ -163,7 +164,7 @@
     <!-- Last Updated -->
     <section class="px-6 md:px-12 max-w-7xl mx-auto w-full">
         <div class="border-t border-stone-200 pt-8 pb-4 flex items-center gap-3">
-            <span class="font-sans text-xs tracking-widest text-stone-400 uppercase">最後更新</span>
+            <span class="font-sans text-xs tracking-widest text-stone-500 uppercase">最後更新</span>
             <span class="font-sans text-xs text-stone-500">2026 年 4 月</span>
         </div>
     </section>
@@ -194,7 +195,7 @@
     <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="lg:col-span-4">
-                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">01</span>
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-500 uppercase">01</span>
                 <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">2025 年回顧：<br>量縮價撐</h2>
             </div>
             <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
@@ -210,7 +211,7 @@
                 <p>
                     推案市場同步降溫。2025 年全台推案總銷額約 2.1 兆元，較前一年減少約一成，十大建商總銷更年減近三成。開發商明顯放緩推案節奏，等待政策風向明朗。
                 </p>
-                <p class="text-xs text-stone-400 border-t border-stone-200 pt-4 mt-2">
+                <p class="text-xs text-stone-500 border-t border-stone-200 pt-4 mt-2">
                     📎 資料來源：六都地政局 2025 年全年買賣移轉棟數統計（<a href="https://www.cna.com.tw/news/afe/202601020225.aspx" target="_blank" rel="noopener" class="underline hover:text-stone-600">中央社 2026/1/2</a>）；預售屋漲幅數據整理自內政部實價登錄平台及各房仲研究機構彙整；推案總銷數據參考遠見雜誌（<a href="https://www.gvm.com.tw/article/127657" target="_blank" rel="noopener" class="underline hover:text-stone-600">遠見 2025/12</a>）。
                 </p>
             </div>
@@ -221,7 +222,7 @@
     <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="lg:col-span-4">
-                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">02</span>
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-500 uppercase">02</span>
                 <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">2026 年展望：<br>盤整與供給壓力</h2>
             </div>
             <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
@@ -240,7 +241,7 @@
                 <p>
                     對首購族來說，2026 年反而可能是相對有利的進場時點：賣方議價空間加大、物件選擇變多、政策對自住買方相對友善。但前提是做好功課 — 區位選擇、建商背景查核、貸款試算，一步都不能省。
                 </p>
-                <p class="text-xs text-stone-400 border-t border-stone-200 pt-4 mt-2">
+                <p class="text-xs text-stone-500 border-t border-stone-200 pt-4 mt-2">
                     📎 資料來源：房價修正預測參考李同榮觀點（<a href="https://www.farglory-realty.com.tw/life-proposal/expert_li_housing-challenges-2026/" target="_blank" rel="noopener" class="underline hover:text-stone-600">遠雄房地產</a>，註：李同榮為吉家網董事長，長期從事不動產趨勢研究，該文刊載於遠雄房地產平台，引用時請留意來源立場）；交屋潮數據引用永慶房產集團分析（<a href="https://house.ettoday.net/news/3089562" target="_blank" rel="noopener" class="underline hover:text-stone-600">ETtoday 2025/12</a>）；央行第二戶放寬資訊參考央行 2026/3/20 理監事會決議（<a href="https://money.udn.com/money/story/7307/9390779" target="_blank" rel="noopener" class="underline hover:text-stone-600">經濟日報</a>）。上述來源皆為業界觀點或媒體報導，不代表本站立場，僅供讀者交叉參考。
                 </p>
             </div>
@@ -251,12 +252,12 @@
     <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="lg:col-span-4">
-                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">03</span>
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-500 uppercase">03</span>
                 <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">首購族注意：<br>貸款與政策</h2>
             </div>
             <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
                 <p>
-                    <strong style="color:#2A2A2A">新青安貸款</strong>仍是 2026 年首購族最重要的政策工具。最低利率 1.775% 起、貸款年限最長 40 年、寬限期最長 5 年，大幅降低每月還款壓力。但請注意，申請截止日為 <strong style="color:#B8956A">2026 年 7 月 31 日</strong>，逾期不再受理。如果你正在看房，這是一個必須掌握的時間點。
+                    <strong style="color:#2A2A2A">新青安貸款</strong>仍是 2026 年首購族最重要的政策工具。最低利率 1.775% 起、貸款年限最長 40 年、寬限期最長 5 年，大幅降低每月還款壓力。但請注意，申請截止日為 <strong style="color:#8A6820">2026 年 7 月 31 日</strong>，逾期不再受理。如果你正在看房，這是一個必須掌握的時間點。
                 </p>
                 <p>
                     相對的，一般房貸利率已來到約 2.32%（2026/2 五大銀行新承做平均），是近年最高水準。如果不符合新青安資格（例如已有房屋、超過年齡限制、或購買非自住用途），利率成本會明顯增加。以貸款 1,000 萬元、30 年期計算，新青安與一般房貸每月月付差距約 3,000–4,000 元。
@@ -264,7 +265,7 @@
                 <p>
                     央行的選擇性信用管制主要針對多屋族和法人，對首購族影響較小。第一戶房貸成數仍可達 8 成，搭配新青安甚至可貸到 8.5 成。但第二戶以上成數上限僅 60%（2026/3 放寬後），第三戶以上更低。如果你是純首購，目前的政策環境其實是站在你這邊的。
                 </p>
-                <p class="text-xs text-stone-400 border-t border-stone-200 pt-4 mt-2">
+                <p class="text-xs text-stone-500 border-t border-stone-200 pt-4 mt-2">
                     📎 資料來源：新青安貸款條件依據財政部公告及各承辦銀行最新方案（<a href="https://rich01.com/young-housing-loans/" target="_blank" rel="noopener" class="underline hover:text-stone-600">Mr.Market 市場先生</a>、<a href="https://www.money101.com.tw/blog/%E5%8F%B0%E7%81%A3%E5%90%84%E5%AE%B6%E9%8A%80%E8%A1%8C%E5%AE%89%E5%BF%83%E6%88%90%E5%AE%B6%E9%9D%92%E5%B9%B4%E8%B3%BC%E5%B1%8B%E8%B2%B8%E6%AC%BE%E5%84%AA%E6%83%A0%E6%AF%94%E8%BC%83" target="_blank" rel="noopener" class="underline hover:text-stone-600">Money101</a>）；一般房貸利率為 2026/2 五大銀行新承做平均（<a href="https://www.money101.com.tw/blog/%E6%88%BF%E8%B2%B8%E5%88%A9%E7%8E%87" target="_blank" rel="noopener" class="underline hover:text-stone-600">Money101 房貸利率</a>）。
                 </p>
             </div>
@@ -275,7 +276,7 @@
     <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="lg:col-span-4">
-                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">04</span>
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-500 uppercase">04</span>
                 <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">六都房價<br>一張表看懂</h2>
             </div>
             <div class="lg:col-span-8">
@@ -329,7 +330,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="font-sans text-xs text-stone-400 mt-4 leading-relaxed">
+                <p class="font-sans text-xs text-stone-500 mt-4 leading-relaxed">
                     📎 資料來源：交易量變化 — 六都地政局 2025 全年買賣移轉棟數統計（<a href="https://www.cna.com.tw/news/afe/202601020225.aspx" target="_blank" rel="noopener" class="underline hover:text-stone-600">中央社</a>、<a href="https://money.udn.com/money/story/5621/9240957" target="_blank" rel="noopener" class="underline hover:text-stone-600">經濟日報</a>）；預售屋漲幅 — 內政部實價登錄平台、各房仲研究機構彙整（<a href="https://estate.ltn.com.tw/article/26914" target="_blank" rel="noopener" class="underline hover:text-stone-600">自由時報地產天下</a>）；2026 預估修正 — 李同榮觀點（吉家網董事長，文章刊載於遠雄房地產平台）、永慶房產集團研究報告（<a href="https://house.ettoday.net/news/3089562" target="_blank" rel="noopener" class="underline hover:text-stone-600">ETtoday</a>）。以上皆為業界觀點，數據為概估值，僅供交叉參考。
                 </p>
             </div>
@@ -340,7 +341,7 @@
     <section class="px-6 md:px-12 pb-20 md:pb-28 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div class="lg:col-span-4">
-                <span class="font-sans text-xs tracking-[0.3em] text-stone-400 uppercase">05</span>
+                <span class="font-sans text-xs tracking-[0.3em] text-stone-500 uppercase">05</span>
                 <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-900 mt-3 leading-snug">擇居<br>冷靜觀點</h2>
             </div>
             <div class="lg:col-span-8 font-sans text-base text-stone-700 leading-[1.9] space-y-6">
@@ -365,7 +366,7 @@
     <!-- Disclaimer -->
     <section class="px-6 md:px-12 pb-12 max-w-7xl mx-auto w-full">
         <div class="bg-stone-100 border border-stone-200 rounded p-6">
-            <p class="font-sans text-xs text-stone-400 leading-relaxed">
+            <p class="font-sans text-xs text-stone-500 leading-relaxed">
                 <strong class="text-stone-500">免責聲明：</strong>本頁數據整理自六都地政局、內政部不動產資訊平台及各房仲研究機構之公開資料（截至 2026 年 4 月），僅供參考，不構成投資建議或購屋建議。房價預測為市場機構觀點，非本站立場。利率、政策資訊可能因央行或政府決策而調整，請以各機構最新公告為準。購屋為重大財務決策，請諮詢專業不動產經紀人、地政士或財務顧問。
             </p>
         </div>
@@ -396,12 +397,13 @@
     <div class="bg-stone-100 border-stone-200 py-2 px-6 text-center text-xs text-stone-500">
         <a href="/terms.html" class="underline hover:text-stone-700">服務條款</a> · <a href="/privacy.html" class="underline hover:text-stone-700">隱私政策</a>
     </div>
+</main>
 
 <!-- FOOTER:START -->
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -410,8 +412,8 @@
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>
@@ -430,7 +432,7 @@
                         if (i < lineIdx) html += lines[i] + '<br>';
                         else if (i === lineIdx) {
                             html += lines[i].substring(0, charIdx);
-                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #B8956A;padding-right:2px;">&nbsp;</span>';
+                            if (charIdx < lines[i].length) html += '<span style="border-right:2px solid #8A6820;padding-right:2px;">&nbsp;</span>';
                         }
                     }
                     el.innerHTML = html;

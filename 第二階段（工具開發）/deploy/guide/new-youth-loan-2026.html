@@ -113,7 +113,7 @@
 
     <style>
         :root {
-            --color-bronze: #B8956A;
+            --color-bronze: #8A6820;
         }
 
         body {
@@ -380,10 +380,10 @@
 <!-- ANALYTICS:END -->
 </head>
 <body class="bg-stone-50">
-    <!-- Navigation -->
+<!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span class="architect-bronze">擇</span>居</a>
+            <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -393,31 +393,25 @@
             <a href="../trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="../about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
+            <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 z-30 md:hidden">
-        <div class="p-6 flex flex-col gap-6">
-            <button class="text-right text-stone-900" onclick="document.getElementById('mobileMenu').classList.add('hidden')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-            <nav class="flex flex-col gap-6 font-sans text-sm tracking-widest text-stone-500">
-                <a href="../index.html#buyingFlow" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-architect-bronze">買房 18 步</a>
-                <a href="../tools.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-architect-bronze">決策工具</a>
-                <a href="../builders.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-architect-bronze">建商履歷</a>
-                <a href="../trends.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-architect-bronze">市場趨勢</a>
-                <a href="../about.html" onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="hover:text-architect-bronze">關於擇居</a>
-            </nav>
-        </div>
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
+            <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
+        </button>
+        <nav class="flex flex-col gap-8 items-center">
+            <a href="../index.html#buyingFlow" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">買房 18 步</a>
+            <a href="../tools.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">決策工具</a>
+            <a href="../builders.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">建商履歷</a>
+            <a href="../trends.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">市場趨勢</a>
+            <a href="../about.html" class="text-2xl font-sans tracking-widest text-stone-700 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.add('hidden')">關於擇居</a>
+        </nav>
     </div>
-
+<!-- NAV:END -->
     <!-- Main Content -->
     <main class="w-full max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16">
         <!-- Breadcrumb -->
@@ -668,46 +662,25 @@
         </article>
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full border-t border-stone-200 mt-16 md:mt-20 bg-stone-100">
-        <div class="max-w-4xl mx-auto px-6 md:px-12 py-12 md:py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
-                <div>
-                    <a href="../index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none block mb-3">
-                        <span class="architect-bronze">擇</span>居
-                    </a>
-                    <p class="font-sans text-xs tracking-[0.2em] text-stone-500">先擇，後居</p>
-                </div>
-                <div>
-                    <h3 class="font-sans font-semibold text-sm tracking-widest text-stone-900 mb-4">買房工具</h3>
-                    <ul class="space-y-3 font-sans text-sm text-stone-600">
-                        <li><a href="../tools.html" class="hover:text-architect-bronze transition-colors">決策工具</a></li>
-                        <li><a href="../index.html#buyingFlow" class="hover:text-architect-bronze transition-colors">18 步流程</a></li>
-                        <li><a href="../builders.html" class="hover:text-architect-bronze transition-colors">建商履歷</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-sans font-semibold text-sm tracking-widest text-stone-900 mb-4">知識庫</h3>
-                    <ul class="space-y-3 font-sans text-sm text-stone-600">
-                        <li><a href="../trends.html" class="hover:text-architect-bronze transition-colors">市場趨勢</a></li>
-                        <li><a href="../guide/" class="hover:text-architect-bronze transition-colors">購屋指南</a></li>
-                        <li><a href="../about.html" class="hover:text-architect-bronze transition-colors">關於擇居</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-sans font-semibold text-sm tracking-widest text-stone-900 mb-4">聯繫我們</h3>
-                    <ul class="space-y-3 font-sans text-sm text-stone-600">
-                        <li><a href="https://line.me/R/ti/p/@howhouse" class="hover:text-architect-bronze transition-colors" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
-                        <li><a href="mailto:hello@howhouse.tw" class="hover:text-architect-bronze transition-colors">寄信給我們</a></li>
-                    </ul>
+<!-- FOOTER:START -->
+    <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
+                    <a href="../about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
+                    <a href="../about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
+                    <a href="../privacy.html" class="hover:text-stone-900 transition-colors duration-500">隱私政策</a>
+                    <a href="../terms.html" class="hover:text-stone-900 transition-colors duration-500">服務條款</a>
                 </div>
             </div>
-            <div class="border-t border-stone-300 pt-8 text-center font-sans text-xs tracking-widest text-stone-500">
-                <p>&copy; 2026 擇居 | 一起冷靜地買房</p>
+            <div class="border-t border-stone-100 pt-6">
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>
-
+<!-- FOOTER:END -->
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script>

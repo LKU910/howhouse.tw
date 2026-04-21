@@ -27,22 +27,22 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
 * { border-radius: 0 !important; }
-:root { --architect-bronze: #B8956A; --architect-terracotta: #9C4A38; --architect-slate: #4A5D6A; }
+:root { --architect-bronze: #8A6820; --architect-terracotta: #9C4A38; --architect-slate: #4A5D6A; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Noto Sans TC', sans-serif; background-color: #FAFAFA; color: #121212; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: #FAFAFA; }
-::-webkit-scrollbar-thumb { background: #B8956A; }
+::-webkit-scrollbar-thumb { background: #8A6820; }
 .hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-top: 24px; }
 .hs-card { background: #FAFAFA; padding: 24px; }
 .hs-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; }
 .hs-value { font-size: 16px; font-weight: 300; color: #121212; margin-bottom: 8px; }
 .hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-.hs-src:hover { color: #B8956A; }
+.hs-src:hover { color: #8A6820; }
 .page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
 .back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; }
-.back-btn:hover { color: #B8956A; }
+.back-btn:hover { color: #8A6820; }
 .hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; }
 .hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
 @media (min-width: 768px) { .hero-name { font-size: 60px; } }
@@ -54,12 +54,12 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
 .snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; }
 .snav-item:hover { color: #121212; }
 .snav-item.is-official:hover { color: #4A5D6A; border-bottom-color: #4A5D6A; }
-.snav-item.is-sentiment:hover { color: #B8956A; border-bottom-color: #B8956A; }
+.snav-item.is-sentiment:hover { color: #8A6820; border-bottom-color: #8A6820; }
 .snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
 .tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
 .tier-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; }
 .tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
-.tier-kicker.sent { color: #B8956A; border-color: #B8956A; }
+.tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
 .tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
 .tier-note { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
 .card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px;  background: #fff;}
@@ -70,12 +70,12 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
 .fact-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; }
 .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-a.src:hover { color: #B8956A; }
+a.src:hover { color: #8A6820; }
 .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
 .proj-sub { font-size: 14px; color: #666666; }
 .status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
 .s-done { color: #4A5D6A; }
-.s-presale { color: #B8956A; }
+.s-presale { color: #8A6820; }
 .q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
 .q-sub:last-child { border-bottom: none; }
 .q-sub-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; }
@@ -107,7 +107,7 @@ a.src:hover { color: #B8956A; }
       .legal-chevron { margin-left: auto; }
     }
 .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
-.t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B8956A; margin-bottom: 12px; }
+.t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
 .t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
 .criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
 .criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; }
@@ -167,12 +167,12 @@ input:focus, button:focus { outline: none; }
 }
     /* Expandable region section */    .s-planning { color: #7B6BA5; font-weight: 600; }
     .s-onsale   { color: #B8860B; font-weight: 600; }
-    .s-presale-active { color: #B8956A; font-weight: 600; }
+    .s-presale-active { color: #8A6820; font-weight: 600; }
 
 
     /* Tailwind custom color fallback */
-    .text-architect-bronze { color: #B8956A; }
-    .hover\:text-architect-bronze:hover { color: #B8956A !important; }    .proj-toggle-completed {
+    .text-architect-bronze { color: #8A6820; }
+    .hover\:text-architect-bronze:hover { color: #8A6820 !important; }    .proj-toggle-completed {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -187,8 +187,8 @@ input:focus, button:focus { outline: none; }
       margin-top: 12px;
     }
     .proj-toggle-completed:hover {
-      border-color: #B8956A;
-      color: #B8956A;
+      border-color: #8A6820;
+      color: #8A6820;
     }
 
   </style>
@@ -235,7 +235,7 @@ input:focus, button:focus { outline: none; }
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
-            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#B8956A">擇</span>居</a>
+            <a href="index.html" class="font-serif text-2xl font-semibold tracking-[0.15em] leading-none"><span style="color:#8A6820">擇</span>居</a>
             <span class="font-sans text-xs tracking-[0.2em] text-stone-500 mt-2">先擇，後居</span>
         </div>
         <div class="hidden md:flex gap-12 font-sans text-sm tracking-widest text-stone-500">
@@ -245,14 +245,14 @@ input:focus, button:focus { outline: none; }
             <a href="trends.html" class="hover:text-architect-bronze transition-colors duration-500">市場趨勢</a>
             <a href="about.html" class="hover:text-architect-bronze transition-colors duration-500">關於擇居</a>
         </div>
-        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')">
+        <button class="md:hidden text-stone-900 hover:text-architect-bronze transition-colors" onclick="document.getElementById('mobileMenu').classList.remove('hidden')" aria-label="開啟選單">
             <i data-lucide="menu" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden fixed inset-0 bg-stone-50/95 backdrop-blur z-50 flex flex-col items-center justify-center">
-        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors">
+        <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="absolute top-6 right-6 text-stone-900 hover:text-architect-bronze transition-colors" aria-label="關閉選單">
             <i data-lucide="x" class="w-6 h-6 stroke-[1.5]"></i>
         </button>
         <nav class="flex flex-col gap-8 items-center">
@@ -460,7 +460,7 @@ input:focus, button:focus { outline: none; }
     <footer class="border-t border-stone-200 px-6 md:px-12 py-10 w-full mt-auto">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-6">
-                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#B8956A">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
+                <div class="font-serif text-xl font-semibold tracking-[0.15em]"><span style="color:#8A6820">擇</span>居<span class="block font-sans text-xs tracking-[0.2em] text-stone-500 mt-1 font-normal">先擇，後居</span></div>
                 <div class="flex flex-wrap gap-6 font-sans text-sm text-stone-500 tracking-wide">
                     <a href="about.html" class="hover:text-stone-900 transition-colors duration-500">關於擇居</a>
                     <a href="about.html#contact" class="hover:text-stone-900 transition-colors duration-500">聯繫我們</a>
@@ -469,8 +469,8 @@ input:focus, button:focus { outline: none; }
                 </div>
             </div>
             <div class="border-t border-stone-100 pt-6">
-                <p class="font-sans text-xs text-stone-400 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
-                <p class="font-sans text-xs text-stone-400 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed">&copy; 2026 擇居. All rights reserved.</p>
+                <p class="font-sans text-xs text-stone-500 leading-relaxed mt-2">本站內容僅供參考，不構成投資、法律或財務建議。數據來源為公開資訊，可能存在誤差或時效性問題。購屋決策請諮詢專業不動產經紀人、地政士或財務顧問。</p>
             </div>
         </div>
     </footer>
