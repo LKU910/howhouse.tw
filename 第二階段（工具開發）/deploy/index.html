@@ -215,6 +215,55 @@
 
         /* Removed: typewriter effect (replaced with static text for 擇居 brand) */
 
+        /* Hero tool links */
+        .hero-tool-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.3s ease;
+        }
+        .hero-tool-link:hover {
+            background-color: rgba(184,149,106,0.06);
+        }
+        .hero-tool-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .hero-tool-name {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #292524;
+            white-space: nowrap;
+        }
+        .hero-tool-desc {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 12px;
+            color: #a8a29e;
+            white-space: nowrap;
+        }
+        /* Fix hero desc height so typewriter animation doesn't shift layout */
+        .hero-desc-wrap {
+            min-height: 4.8em; /* reserves space for 3 lines at base size */
+        }
+        @media (min-width: 768px) {
+            .hero-desc-wrap { min-height: 5.6em; } /* md:text-lg needs more room */
+        }
+        @media (max-width: 639px) {
+            .hero-tool-desc { display: none; }
+        }
+
+
+
         /* Flow phase */
         .phase-group {
             position: relative;
@@ -489,8 +538,8 @@
 <!-- NAV:END -->
     <!-- Hero -->
     <header class="flex-grow flex flex-col justify-center px-6 md:px-12 py-10 md:py-32 max-w-7xl mx-auto w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div class="lg:col-span-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-8 lg:pt-4">
                 <h1 class="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] text-stone-900">
                     <span class="block text-base sm:text-lg md:text-xl font-sans font-medium tracking-widest text-stone-400 mb-2 md:mb-4 not-italic">擇居</span>
                     每一步<br>
@@ -498,16 +547,32 @@
                 </h1>
             </div>
 
-            <div class="lg:col-span-4 pb-2">
-                <div class="font-sans text-base md:text-lg text-stone-600 leading-relaxed mb-10 max-w-sm">
+            <div class="lg:col-span-4">
+                <div class="font-sans text-base md:text-lg text-stone-600 leading-relaxed mb-10 max-w-sm hero-desc-wrap">
                     <span id="heroDesc">買房是一連串的選擇。<br>每一步，都值得慢慢想。<br>不急，我們陪你從頭走到尾。</span>
                 </div>
 
-                <a href="tools.html" class="group inline-flex items-center gap-3 border border-stone-200 rounded-lg px-5 py-3 hover:border-architect-bronze transition-all duration-300">
-                    <i data-lucide="layout-grid" class="w-4 h-4 text-architect-bronze stroke-[1.5] flex-shrink-0"></i>
-                    <span class="font-sans text-sm text-stone-500 group-hover:text-stone-900 transition-colors">還不確定從哪開始？試試<span class="text-architect-bronze font-medium">決策工具</span></span>
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-stone-300 group-hover:text-architect-bronze transition-colors flex-shrink-0"></i>
-                </a>
+                <p class="font-sans text-xs tracking-widest text-stone-400 mb-3">還不確定從哪開始？</p>
+                <div class="flex flex-col gap-2">
+                    <a href="quiz.html" class="hero-tool-link group" data-track-as="home_hero_tool_clicked" data-target="quiz">
+                        <span class="hero-tool-icon" style="background:rgba(184,149,106,0.10);"><i data-lucide="compass" class="w-3.5 h-3.5 stroke-[1.5]" style="color:#B8956A;"></i></span>
+                        <span class="hero-tool-name">我的決策性格</span>
+                        <span class="hero-tool-desc">— 選擇之前，先認識自己</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-stone-300 group-hover:text-architect-bronze transition-colors ml-auto flex-shrink-0"></i>
+                    </a>
+                    <a href="progress.html" class="hero-tool-link group" data-track-as="home_hero_tool_clicked" data-target="progress">
+                        <span class="hero-tool-icon" style="background:rgba(74,93,106,0.10);"><i data-lucide="map" class="w-3.5 h-3.5 stroke-[1.5]" style="color:#4A5D6A;"></i></span>
+                        <span class="hero-tool-name">我的買房地圖</span>
+                        <span class="hero-tool-desc">— 看看你走到哪了</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-stone-300 group-hover:text-architect-bronze transition-colors ml-auto flex-shrink-0"></i>
+                    </a>
+                    <a href="calculator.html" class="hero-tool-link group" data-track-as="home_hero_tool_clicked" data-target="calculator">
+                        <span class="hero-tool-icon" style="background:rgba(156,74,56,0.10);"><i data-lucide="calculator" class="w-3.5 h-3.5 stroke-[1.5]" style="color:#9C4A38;"></i></span>
+                        <span class="hero-tool-name">我的財務診斷</span>
+                        <span class="hero-tool-desc">— 看清這個決定的代價</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-stone-300 group-hover:text-architect-bronze transition-colors ml-auto flex-shrink-0"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>

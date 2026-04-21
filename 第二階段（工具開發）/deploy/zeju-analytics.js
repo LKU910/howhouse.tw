@@ -156,12 +156,24 @@
       if (!a || !a.href) return;
 
       const href = a.getAttribute('href') || '';
-      const eventName = a.getAttribute('data-track-as') || 'link_click';
+      let eventName = a.getAttribute('data-track-as') || 'link_click';
+
+      // 自動辨識 LINE 加好友連結 → 統一用 line_add_friend_clicked 事件
+      const isLineAddFriend = /^https?:\/\/(line\.me|lin\.ee)\//.test(href);
+      if (isLineAddFriend && eventName === 'link_click') {
+        eventName = 'line_add_friend_clicked';
+      }
+
       const params = {
         href: href,
         text: (a.textContent || '').trim().slice(0, 80),
         is_external: /^https?:\/\//.test(href) && !href.includes(location.host)
       };
+
+      // LINE 加好友額外帶上來源頁面類型（分析來自哪些內容）
+      if (isLineAddFriend) {
+        params.location = pageType;
+      }
 
       // data-track-* 額外屬性全部帶上
       Array.from(a.attributes).forEach(function (attr) {
@@ -196,14 +208,49 @@
     return 'other';
   }
 
+  // ─── 頁面上下文自動擷取 ─────────────────────────────
+
+  /**
+   * 根據 URL 擷取頁面相關的識別參數（step_id、builder_slug、guide_slug 等）
+   */
+  function extractPageContext(pageType) {
+    const path = location.pathname;
+    const ctx = {};
+
+    if (pageType === 'step_page') {
+      const m = path.match(/\/step\/(\d+)\.html/);
+      if (m) ctx.step_id = m[1];
+    } else if (pageType === 'builder_detail') {
+      const m = path.match(/\/builder-([^/]+)\.html/);
+      if (m) {
+        let slug = m[1];
+        ctx.is_full_version = slug.endsWith('-full');
+        if (ctx.is_full_version) slug = slug.replace(/-full$/, '');
+        ctx.builder_slug = slug;
+      }
+    } else if (pageType === 'guide') {
+      const m = path.match(/\/guide\/([^/]+)\.html/);
+      if (m) ctx.guide_slug = m[1];
+    } else if (pageType === 'quiz_result') {
+      const m = path.match(/\/quiz-result\/([^/]+)\.html/);
+      if (m) ctx.persona = m[1];
+    }
+
+    return ctx;
+  }
+
   // ─── 初始化 ─────────────────────────────────────────
 
   const pageType = detectPageType();
+  const pageContext = extractPageContext(pageType);
 
-  // 用 clarity.set 把 page_type 標進 session，之後能在 Clarity 篩選
+  // 用 clarity.set 把 page_type 與 context 標進 session，之後能在 Clarity 篩選
   try {
     if (typeof window.clarity === 'function') {
       window.clarity('set', 'page_type', pageType);
+      Object.keys(pageContext).forEach(function (k) {
+        window.clarity('set', k, String(pageContext[k]));
+      });
     }
   } catch (_) { /* ignore */ }
 
@@ -212,6 +259,25 @@
     document.addEventListener('DOMContentLoaded', autoTrackLinks);
   } else {
     autoTrackLinks();
+  }
+
+  // ─── 內容頁自動追蹤（滾動深度 + 停留時間）──────────
+
+  const CONTENT_PAGE_TYPES = [
+    'step_page', 'builder_detail', 'guide',
+    'trends', 'inspection', 'about', 'home'
+  ];
+
+  if (CONTENT_PAGE_TYPES.indexOf(pageType) !== -1) {
+    // 滾動深度事件帶頁面 context，讓 GA4 可以依 step_id / builder_slug 切分
+    trackScrollDepth(pageType + '_scroll_depth', pageContext);
+    // 停留時間（視為閱讀深度信號）
+    trackReadingTime(pageType, pageContext);
+  }
+
+  // 內容頁載入事件（帶 context）— 讓 GA4 可以用 content_page_viewed 看總覽
+  if (CONTENT_PAGE_TYPES.indexOf(pageType) !== -1) {
+    track('content_page_viewed', Object.assign({ page_type: pageType }, pageContext));
   }
 
   // ─── 對外 API ───────────────────────────────────────

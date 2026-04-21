@@ -361,6 +361,8 @@
 
         function handleSort(e) {
             const sortBy = e.target.value;
+            // 埋點：排序變更
+            if (window.zeju) window.zeju.track('builders_sort_changed', { sort_by: sortBy });
             switch(sortBy) {
                 case 'stroke':
                     filteredBuilders.sort((a, b) => a.strokes - b.strokes);
@@ -412,6 +414,20 @@
             document.getElementById('countBadge').textContent = filteredBuilders.length;
         }
 
+        // 埋點：點擊建商卡片（統一發事件後再導航）
+        function navigateToBuilder(builder, view) {
+            if (window.zeju) {
+                const slug = (builder.file || '').replace(/^builder-/, '').replace(/\.html$/, '');
+                window.zeju.track('builder_card_clicked', {
+                    builder_slug: slug,
+                    builder_name: builder.name,
+                    view: view, // grid / list / mobile
+                    is_listed: !!builder.listed
+                });
+            }
+            window.location.href = builder.file;
+        }
+
         function renderGrid() {
             const container = document.getElementById('gridContent');
             container.innerHTML = '';
@@ -419,7 +435,7 @@
             filteredBuilders.forEach((builder, index) => {
                 const card = document.createElement('div');
                 card.className = 'p-10 hover:bg-white transition-colors duration-500 cursor-pointer border border-stone-200';
-                card.onclick = () => window.location.href = builder.file;
+                card.onclick = () => navigateToBuilder(builder, 'grid');
 
                 card.innerHTML = `
                     <div class="mb-4">
@@ -450,7 +466,7 @@
             filteredBuilders.forEach((builder) => {
                 const row = document.createElement('div');
                 row.className = 'py-6 px-0 hover:bg-white transition-colors duration-500 cursor-pointer grid grid-cols-12 gap-4 items-center';
-                row.onclick = () => window.location.href = builder.file;
+                row.onclick = () => navigateToBuilder(builder, 'list');
 
                 let warnHTML = builder.warn ? `<span class="inline-block text-architect-terracotta font-sans text-xs tracking-widest py-0.5 px-1.5 border border-architect-terracotta ml-2">${builder.warnLabel}</span>` : '';
 
@@ -485,7 +501,7 @@
             filteredBuilders.forEach((builder) => {
                 const row = document.createElement('div');
                 row.className = 'mobile-list-row';
-                row.onclick = () => window.location.href = builder.file;
+                row.onclick = () => navigateToBuilder(builder, 'mobile');
 
                 let warnDot = '';
                 if (builder.warn) {

@@ -902,7 +902,7 @@ function renderPath() {
                     ${tipHtml}
                     ${depHtml}
                 </div>
-                <a href="step/${stepId}.html" class="step-link">閱讀這一步的完整內容 →</a>
+                <a href="step/${stepId}.html" class="step-link" data-track-as="progress_step_link_clicked" data-step-id="${stepId}">閱讀這一步的完整內容 →</a>
             `;
 
             stepsContainer.appendChild(card);
@@ -922,9 +922,17 @@ function renderPath() {
 // Actions
 // ══════════════════════════════════════════════
 function setStatus(stepId, status) {
+    const prevStatus = state.steps[stepId].status;
     state.steps[stepId].status = status;
     state.steps[stepId].updatedAt = new Date().toISOString();
     saveState();
+
+    // 埋點：步驟狀態改變
+    if (window.zeju) window.zeju.track('progress_step_status_changed', {
+        step_id: stepId,
+        from_status: prevStatus,
+        to_status: status
+    });
 
     // Update card
     const card = document.getElementById('step-' + stepId);
@@ -980,10 +988,20 @@ function setStatus(stepId, status) {
     renderEncouragement();
 }
 
+// 筆記儲存去抖動追蹤（避免每個按鍵都送事件）
+const _noteTrackTimers = {};
 function saveNotes(stepId, value) {
     state.steps[stepId].notes = value;
     state.steps[stepId].updatedAt = new Date().toISOString();
     saveState();
+    // 埋點：筆記儲存（去抖 2 秒，只在停止打字後才送）
+    if (_noteTrackTimers[stepId]) clearTimeout(_noteTrackTimers[stepId]);
+    _noteTrackTimers[stepId] = setTimeout(function() {
+        if (window.zeju) window.zeju.track('progress_note_saved', {
+            step_id: stepId,
+            note_length: value.length
+        });
+    }, 2000);
 }
 
 function togglePhase(phaseId) {
@@ -1296,6 +1314,34 @@ saveState = function() {
 (async function initApp() {
     // First render with local data (instant)
     render();
+
+    // 埋點：頁面載入時送 progress_loaded，包含進度摘要
+    (function trackProgressLoaded() {
+        const completedCount = Object.values(state.steps).filter(s => s.status === 'clear').length;
+        const thinkingCount = Object.values(state.steps).filter(s => s.status === 'thinking').length;
+        // 判斷是否回訪（localStorage 有過動作就算）
+        const anyTouched = Object.values(state.steps).some(s => s.updatedAt);
+        // 計算造訪次數（記在 localStorage）
+        let visitCount = 1;
+        try {
+            visitCount = parseInt(localStorage.getItem('zeju-progress-visits') || '0', 10) + 1;
+            localStorage.setItem('zeju-progress-visits', String(visitCount));
+        } catch(e) {}
+
+        if (window.zeju) window.zeju.track('progress_loaded', {
+            has_persona: !!personaId,
+            persona: personaId || 'none',
+            completed_steps: completedCount,
+            thinking_steps: thinkingCount,
+            is_return_visit: anyTouched,
+            visit_count: visitCount
+        });
+
+        // 埋點：回訪（第二次以上打開）
+        if (visitCount >= 2 && window.zeju) {
+            window.zeju.track('progress_return_visit', { visit_count: visitCount, completed_steps: completedCount });
+        }
+    })();
 
     // Then try cloud sync in background
     try {

@@ -522,11 +522,11 @@
             <div style="margin-bottom: 24px;">
                 <h3 style="font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: #121212; margin: 0 0 16px;">其他工具</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <a href="/calculator.html" class="step-link-card" style="display: block; text-decoration: none;">
+                    <a href="/calculator.html" class="step-link-card" style="display: block; text-decoration: none;" data-track-as="tool_to_tool_jump" data-from="quiz" data-to="calculator">
                         <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">我的財務診斷</h4>
                         <p style="font-size: 12px; color: #999; margin: 0;">看清楚這個決定的代價 →</p>
                     </a>
-                    <a href="/progress.html" class="step-link-card" style="display: block; text-decoration: none;">
+                    <a href="/progress.html" class="step-link-card" style="display: block; text-decoration: none;" data-track-as="tool_to_tool_jump" data-from="quiz" data-to="progress">
                         <h4 style="font-family: 'Noto Serif TC', serif; font-size: 14px; font-weight: 700; color: #121212; margin: 0 0 4px;">我的買房地圖</h4>
                         <p style="font-size: 12px; color: #999; margin: 0;">看看你走到 18 步的哪了 →</p>
                     </a>
@@ -763,6 +763,12 @@
         answers[q] = ans;
         try { localStorage.setItem('quizAnswersV2', JSON.stringify(answers)); } catch(e) {}
         updatePageProgress();
+        // 埋點：每題回答
+        if (window.zeju) window.zeju.track('quiz_question_answered', { question: q, answer: ans, total_answered: Object.keys(answers).length });
+        // 埋點：第一題回答時視為開始
+        if (Object.keys(answers).length === 1) {
+            if (window.zeju) window.zeju.track('quiz_started', {});
+        }
     }
 
     function updatePageProgress() {
@@ -967,6 +973,16 @@
             }));
         } catch(e) {}
 
+        // 埋點：測驗完成
+        if (window.zeju) window.zeju.track('quiz_completed', {
+            persona: result.primary,
+            secondary: result.secondary || 'none',
+            score_a: norm('A'),
+            score_b: norm('B'),
+            score_c: norm('C'),
+            score_d: norm('D')
+        });
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -981,6 +997,8 @@
 
     function copyResultLink() {
         const url = getShareUrl();
+        const personaId = window.location.hash.replace('#result=', '');
+        if (window.zeju) window.zeju.track('quiz_shared', { method: 'copy_link', persona: personaId });
         navigator.clipboard.writeText(url).then(() => {
             const btn = document.getElementById('copyBtn');
             btn.textContent = '✓ 已複製';
@@ -1000,9 +1018,11 @@
 
         // Mobile: use native share (covers LINE, iMessage, etc.)
         if (navigator.share) {
+            if (window.zeju) window.zeju.track('quiz_shared', { method: 'native_share', persona: personaId });
             navigator.share({ title: '擇居｜我的決策性格', text, url: shareUrl }).catch(() => {});
         } else {
             // Desktop: copy to clipboard
+            if (window.zeju) window.zeju.track('quiz_shared', { method: 'copy_text', persona: personaId });
             navigator.clipboard.writeText(text).then(() => {
                 const btn = document.querySelector('.share-btn.line-btn');
                 if (btn) { btn.textContent = '✅ 已複製分享文字'; setTimeout(() => btn.textContent = '💬 分享給朋友', 2000); }
@@ -1028,6 +1048,9 @@
             personaId = existing.persona || '';
             localStorage.setItem('quizResultV2', JSON.stringify(existing));
         } catch(e) {}
+
+        // 埋點：使用者對人格描述的回饋（「像/還行/不像」）— 對分析結果品質有幫助
+        if (window.zeju) window.zeju.track('quiz_feedback_submitted', { value: value, persona: personaId });
 
         // 發送到 Google Sheets
         if (FEEDBACK_WEBHOOK) {
@@ -1146,6 +1169,24 @@
         updatePageIndicator();
         updatePageProgress();
     });
+
+    // 埋點：使用者離開頁面但測驗未完成 → quiz_abandoned
+    (function(){
+        let fired = false;
+        function sendAbandoned() {
+            if (fired) return;
+            // 結果頁（含 hash）或回訪者（已有結果）不算 abandoned
+            if (location.hash.startsWith('#result=')) return;
+            const count = Object.keys(answers).length;
+            if (count === 0 || count >= 12) return;  // 未答或已完成都不算
+            fired = true;
+            if (window.zeju) window.zeju.track('quiz_abandoned', { last_question: count, total: 12 });
+        }
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden') sendAbandoned();
+        });
+        window.addEventListener('pagehide', sendAbandoned);
+    })();
 
     function renderResultDirectly(personaId, secondaryId) {
         const persona = personas[personaId];
