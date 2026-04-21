@@ -3,7 +3,7 @@
     "purpose": "排程自動建置建商履歷的候選佇列。每次排程觸發會挑第一筆 pending 建商處理，資料查不全就 skipped，查得到就 done。",
     "rule_100_percent": "核心六欄（公司全名、統編、成立年份、實收資本額、代表人、登記地址）缺一不可；若任一欄無法以可信來源查證則整家 skipped",
     "status_values": ["pending", "in_progress", "done", "skipped"],
-    "existing_slugs": ["baojia", "cathay", "continental", "dachien", "farglory", "guoyang", "hfd", "huahui", "huaku", "huangsiang", "hungkuo", "hungpai", "jingmao", "kindom", "kuander", "liqi", "longhome", "nanguocc", "risheng", "ruentex", "sanfa", "taizi", "yungching"],
+    "existing_slugs": ["baojia", "cathay", "continental", "dachien", "farglory", "guoyang", "hfd", "huahui", "huaku", "huangsiang", "hungkuo", "hungpai", "jingmao", "jitai", "kindom", "kuander", "liqi", "longhome", "nanguocc", "risheng", "ruentex", "sanfa", "taizi", "yungching"],
     "max_attempts_before_skip": 3
   },
   "builders": [
@@ -28,12 +28,12 @@
       "stock_hint": "2538",
       "region_hint": "雙北·台中",
       "notes": "基泰奈米、基泰之星系列；大直案歷史事件",
-      "status": "in_progress",
+      "status": "done",
       "attempt_count": 1,
       "last_attempt": "2026-04-21T12:27:57Z",
       "skip_reason": null,
-      "completed_at": null,
-      "completed_slug": null
+      "completed_at": "2026-04-21T12:36:56Z",
+      "completed_slug": "jitai"
     },
     {
       "slug_hint": "yinghua",

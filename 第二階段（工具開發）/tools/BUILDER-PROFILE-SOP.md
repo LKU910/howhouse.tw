@@ -138,20 +138,11 @@
 
 存回佇列檔。
 
-### 步驟 9 — Git commit（選用）
+### 步驟 9 — Git commit（停用）
 
-此步驟**不強制**。若 git 可用且乾淨，可執行：
+**不要執行 git commit。** 排程環境的 session 路徑每次不同，且缺少 GitHub push 權限，強行 commit 容易殘留 `.git/index.lock` 導致後續所有 git 操作失敗。
 
-```bash
-cd "/sessions/great-friendly-mayer/mnt/擇居"
-git add "第二階段（工具開發）/deploy/builder-{slug}.html" \
-         "第二階段（工具開發）/deploy/builders.html" \
-         "第二階段（工具開發）/deploy/sitemap.xml" \
-         "第二階段（工具開發）/tools/builder-queue.json"
-git commit -m "新增建商履歷：{name_zh}（自動排程 {YYYY-MM-DD}）"
-```
-
-若 repo 有其他未提交變動造成 commit 失敗，**僅 add 上述四個路徑**即可，不要強推或 reset。
+建商頁面的 git commit 與 push 由 Kuan 手動執行，或在互動 session 中由 Claude 協助完成。
 
 ### 步驟 10 — 回報
 
