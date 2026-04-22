@@ -4,6 +4,51 @@ Disallow: /data-config.json
 Disallow: /line-auto-reply.md
 Disallow: /checklist-*.pdf
 
+# --- AI 爬蟲封鎖 ---
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Google AI (Gemini 訓練用，不影響一般 Google 搜尋收錄)
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl (大量被 AI 公司用於訓練)
+User-agent: CCBot
+Disallow: /
+
+# Meta AI
+User-agent: FacebookBot
+Disallow: /
+
+# Apple AI
+User-agent: Applebot-Extended
+Disallow: /
+
+# Bytedance / 抖音
+User-agent: Bytespider
+Disallow: /
+
+# 其他已知 AI 爬蟲
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
 # Sitemaps
 Sitemap: https://howhouse.tw/sitemap.xml
 
