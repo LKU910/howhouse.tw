@@ -1773,12 +1773,18 @@
         document.getElementById('r_repay_total').textContent = formatWanFromYuan(totalRepay);
 
         // Insight 1
-        const monthlyWan = (displayMonthly / 10000).toFixed(1);
-        document.getElementById('insight1_text').textContent =
-            '每月 ' + formatNumber(Math.round(displayMonthly)) + ' 元，持續 ' + term + ' 年。' +
-            (totalInterest > loanAmount * 0.5
-                ? '利息總額超過借款金額的一半。這筆錢的時間成本，值得想清楚。'
-                : '這個數字你能想像放進日常生活嗎？');
+        let insight1Msg;
+        if (grace > 0) {
+            insight1Msg = '寬限期內每月 ' + formatNumber(Math.round(displayMonthly)) + ' 元（' + grace + ' 年），' +
+                '之後每月 ' + formatNumber(Math.round(monthlyAfterGrace)) + ' 元，持續 ' + (term - grace) + ' 年。' +
+                '這兩個數字的落差，是你要先想清楚的。';
+        } else {
+            insight1Msg = '每月 ' + formatNumber(Math.round(displayMonthly)) + ' 元，持續 ' + term + ' 年。' +
+                (totalInterest > loanAmount * 0.5
+                    ? '利息總額超過借款金額的一半。這筆錢的時間成本，值得想清楚。'
+                    : '這個數字你能想像放進日常生活嗎？');
+        }
+        document.getElementById('insight1_text').textContent = insight1Msg;
         document.getElementById('insight1').style.display = 'block';
 
         // === HIDDEN COSTS ===
@@ -1830,22 +1836,31 @@
         const afterTaxIncome = getAfterTaxIncome();
         updateTaxDisplay();
 
-        const monthlyTrue = Math.round(displayMonthly) + mgmt + maintenance;
+        const monthlyTrue = Math.round(monthlyAfterGrace) + mgmt + maintenance;
 
         const holdingResult = document.getElementById('holdingCostResult');
         holdingResult.style.display = 'block';
         const holdingItems = [
-            { label: '房貸月付金', value: Math.round(displayMonthly) },
+            { label: grace > 0 ? '房貸月付金（寬限期後）' : '房貸月付金', value: Math.round(monthlyAfterGrace) },
             { label: mgmtLabel, value: mgmt },
             { label: '維修準備金', value: maintenance },
         ];
-        document.getElementById('holdingCostItems').innerHTML = holdingItems.map(item =>
+        let holdingHTML = holdingItems.map(item =>
             '<div style="display:flex; justify-content:space-between; padding:8px 0; font-size:14px; border-bottom:1px solid #F5F3F0;">' +
             '<span style="color:#666;">' + item.label + '</span>' +
             '<span style="font-weight:600; color:#333;">' + formatNumber(item.value) + ' 元</span>' +
             '</div>'
         ).join('');
+        if (grace > 0) {
+            holdingHTML += '<div style="font-size:11px; color:#B8956A; margin-top:8px; line-height:1.5;">' +
+                '寬限期（前 ' + grace + ' 年）房貸月付僅 ' + formatNumber(Math.round(displayMonthly)) + ' 元，' +
+                '此處以寬限期後的正常月付金計算，較能反映長期負擔。</div>';
+        }
+        document.getElementById('holdingCostItems').innerHTML = holdingHTML;
         document.getElementById('r_monthly_true').textContent = formatNumber(monthlyTrue) + ' 元';
+        document.getElementById('holdingCostDesc').textContent = grace > 0
+            ? '寬限期後，房貸之外每月還要付的'
+            : '房貸之外，每月還要付的';
 
         // Insight 2
         const extraCost = day1Total - downPayment;
