@@ -501,6 +501,38 @@
                     </div>
                 </div>
 
+                <!-- 資產盤點（展開式） -->
+                <div id="assetHelper" style="margin-top:-4px; margin-bottom:16px;">
+                    <div onclick="document.getElementById('assetPanel').style.display = document.getElementById('assetPanel').style.display === 'none' ? 'block' : 'none'; this.querySelector('i').style.transform = document.getElementById('assetPanel').style.display === 'none' ? '' : 'rotate(180deg)';"
+                         style="cursor:pointer; display:flex; align-items:center; gap:6px; padding:8px 0;">
+                        <i data-lucide="wallet" class="w-4 h-4 stroke-[1.5]" style="color:#B8956A;"></i>
+                        <span style="font-size:13px; color:#B8956A; font-weight:500;">不確定自備款有多少？盤點一下手上的錢</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 stroke-[1.5]" style="color:#B8956A; transition:transform 0.2s;"></i>
+                    </div>
+                    <div id="assetPanel" style="display:none; padding:14px 16px; background:#FAF8F5; border-radius:12px; border-left:3px solid #B8956A;">
+                        <p style="font-size:12px; color:#999; margin-bottom:12px;">你的自備款可能比你想的多。把手上可動用的資金加起來看看。</p>
+                        <div id="assetFields" style="display:flex; flex-direction:column; gap:8px;">
+                        </div>
+                        <div style="border-top:1px solid #E8E2DA; margin-top:14px; padding-top:12px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <div>
+                                    <div style="font-size:12px; color:#999;">合計可動用</div>
+                                    <div style="font-family:'Noto Serif TC',serif; font-size:22px; font-weight:700; color:#3D3D3D;" id="assetTotal">0 萬</div>
+                                    <div style="font-size:12px; color:#666; margin-top:2px;" id="assetPctHint"></div>
+                                </div>
+                                <button onclick="applyAssetToDownPayment()" style="
+                                    font-family:'Noto Sans TC',sans-serif; font-size:13px;
+                                    padding:8px 16px; border-radius:8px;
+                                    background:#B8956A; color:white; border:none;
+                                    cursor:pointer; white-space:nowrap;
+                                ">試算看看</button>
+                            </div>
+                            <div id="assetApplyResult" style="display:none; margin-top:10px; padding:10px 12px; background:#F7F5F2; border-radius:8px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 貸款方案 -->
                 <div class="field-group">
                     <div class="toggle-row">
@@ -564,9 +596,10 @@
                     <label class="field-label">房屋評定現值（契稅計算用）</label>
                     <div class="input-with-unit">
                         <input type="number" class="input-number" id="assessedValueInput"
-                               min="0" step="10" placeholder="例：150" value="">
+                               min="0" step="10" placeholder="留空自動概估" value="">
                         <span class="unit">萬</span>
                     </div>
+                    <div id="assessedEstimateHint" style="font-size:12px; color:#B8956A; margin-top:4px;"></div>
                     <p class="field-hint">可從房屋稅單或買賣合約查到。若不確定，留空會以總價的 20% 概估（實際依屋齡、構造而異）。</p>
                 </div>
 
@@ -841,6 +874,61 @@
                 <p id="insight3_text"></p>
             </div>
 
+            <!-- ====== 你的房價光譜 ====== -->
+            <div class="result-card fade-in" id="priceSpectrumResult" style="display:none;">
+                <div class="result-label">你的房價光譜</div>
+                <div style="font-size:13px; color:#999; margin-bottom:16px;">以你的稅後收入和生活支出，不同總價帶會這樣影響你的日常。</div>
+
+                <!-- 光譜條 -->
+                <div style="position:relative; margin:20px 0 28px;">
+                    <!-- 背景漸層條 -->
+                    <div style="height:10px; border-radius:5px; background:linear-gradient(to right, #4A5D6A 0%, #B8956A 50%, #9C4A38 100%);"></div>
+                    <!-- 目前位置標記 -->
+                    <div id="spectrumMarker" style="position:absolute; top:-6px; transform:translateX(-50%); text-align:center;">
+                        <div style="width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:6px solid #3D3D3D; margin:0 auto;"></div>
+                        <div style="width:2px; height:10px; background:#3D3D3D; margin:0 auto;"></div>
+                        <div style="font-size:11px; font-weight:600; color:#3D3D3D; white-space:nowrap; margin-top:2px;" id="spectrumMarkerLabel">你的房價</div>
+                    </div>
+                    <!-- 門檻標記 -->
+                    <div style="display:flex; justify-content:space-between; margin-top:14px;">
+                        <div style="text-align:left;">
+                            <div style="font-size:11px; color:#4A5D6A; font-weight:500;">從容</div>
+                            <div style="font-size:11px; color:#999;">&lt; 30%</div>
+                        </div>
+                        <div style="text-align:center;">
+                            <div style="font-size:11px; color:#B8956A; font-weight:500;">拉緊</div>
+                            <div style="font-size:11px; color:#999;">30–40%</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:11px; color:#9C4A38; font-weight:500;">警戒</div>
+                            <div style="font-size:11px; color:#999;">&gt; 40%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 三個門檻數字卡 -->
+                <div class="result-grid" style="margin-top:8px; gap:8px;">
+                    <div id="spectrumCard1" style="flex:1; padding:12px; background:#F3F6F7; border-radius:10px; border-top:3px solid #4A5D6A;">
+                        <div style="font-size:11px; color:#4A5D6A; font-weight:500; margin-bottom:4px;">從容區上限</div>
+                        <div style="font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; color:#3D3D3D;">總價 <span id="spectrum_comfort">—</span></div>
+                        <div style="font-size:11px; color:#999; margin-top:2px;" id="spectrum_comfort_sub"></div>
+                    </div>
+                    <div id="spectrumCard2" style="flex:1; padding:12px; background:#FAF7F3; border-radius:10px; border-top:3px solid #B8956A;">
+                        <div style="font-size:11px; color:#B8956A; font-weight:500; margin-bottom:4px;">拉緊區上限</div>
+                        <div style="font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; color:#3D3D3D;">總價 <span id="spectrum_stretch">—</span></div>
+                        <div style="font-size:11px; color:#999; margin-top:2px;" id="spectrum_stretch_sub"></div>
+                    </div>
+                    <div id="spectrumCard3" style="flex:1; padding:12px; background:#FBF4F1; border-radius:10px; border-top:3px solid #9C4A38;">
+                        <div style="font-size:11px; color:#9C4A38; font-weight:500; margin-bottom:4px;">警戒線</div>
+                        <div style="font-family:'Noto Serif TC',serif; font-size:20px; font-weight:700; color:#3D3D3D;">總價 <span id="spectrum_danger">—</span></div>
+                        <div style="font-size:11px; color:#999; margin-top:2px;" id="spectrum_danger_sub"></div>
+                    </div>
+                </div>
+                <div class="insight-box" style="margin-top:14px;">
+                    <p id="spectrumInsight_text"></p>
+                </div>
+            </div>
+
             <!-- ====== STRESS TEST ====== -->
             <div class="result-card fade-in" id="stressTestResult" style="display:none;">
                 <div class="result-label">壓力測試：如果利率變了</div>
@@ -992,6 +1080,7 @@
     let state = {
         price: 1000,               // 萬
         downPaymentPct: 20,
+        pillDownPaymentPct: 20,    // 用戶從按鈕選的基準比例（不受資產套用影響）
         useYouthLoan: true,        // true = use youth rate
         rate: 1.775,
         term: 30,                  // 年
@@ -1019,12 +1108,16 @@
     priceSlider.addEventListener('input', () => {
         state.price = parseInt(priceSlider.value);
         priceInput.value = state.price;
+        updateAssetTotal();
+        updateAssessedHint();
     });
     priceInput.addEventListener('input', () => {
         const val = parseInt(priceInput.value) || 0;
         state.price = val;
         // Clamp slider display (slider has max but input doesn't)
         priceSlider.value = Math.min(Math.max(val, 300), 5000);
+        updateAssetTotal();
+        updateAssessedHint();
     });
     // Also sync on blur for clean formatting
     priceInput.addEventListener('blur', () => {
@@ -1032,6 +1125,8 @@
             priceInput.value = 300;
             state.price = 300;
             priceSlider.value = 300;
+            updateAssetTotal();
+            updateAssessedHint();
         }
     });
 
@@ -1057,10 +1152,12 @@
             customEl.style.display = 'none';
             state.downPaymentPct = parseInt(val);
         }
+        state.pillDownPaymentPct = state.downPaymentPct;
     });
 
     document.getElementById('customDPInput').addEventListener('input', e => {
         state.downPaymentPct = parseInt(e.target.value) || 20;
+        state.pillDownPaymentPct = state.downPaymentPct;
     });
 
     // Youth loan toggle (NEW)
@@ -1178,7 +1275,20 @@
     // Assessed value
     document.getElementById('assessedValueInput').addEventListener('input', e => {
         state.assessedValue = parseInt(e.target.value) || 0;
+        updateAssessedHint();
     });
+    function updateAssessedHint() {
+        const hintEl = document.getElementById('assessedEstimateHint');
+        if (!hintEl) return;
+        if (state.assessedValue > 0) {
+            hintEl.textContent = '以你填入的 ' + formatNumber(state.assessedValue) + ' 萬計算契稅。';
+            hintEl.style.color = '#4A5D6A';
+        } else {
+            const est = Math.round(state.price * 0.2);
+            hintEl.textContent = '未填寫，系統以總價 20% 概估為 ' + formatNumber(est) + ' 萬。';
+            hintEl.style.color = '#B8956A';
+        }
+    }
 
     // 坪數 → 管理費
     document.getElementById('pingInput').addEventListener('input', e => {
@@ -1213,6 +1323,154 @@
         state.taxManual = parseInt(e.target.value.replace(/,/g, '')) || 0;
         updateTaxDisplay();
     });
+
+    // ============================================
+    // 資產盤點
+    // ============================================
+    const ASSET_ITEMS = [
+        { key: 'cash',      label: '現金存款',           hint: '活存＋定存' },
+        { key: 'stock',     label: '股票／基金（可變現）',  hint: '以目前市值概估' },
+        { key: 'insurance', label: '保單價值準備金',       hint: '可向保險公司查詢解約金或保單借款額度' },
+        { key: 'family',    label: '家人資助',            hint: '' },
+        { key: 'other',     label: '其他',               hint: '外幣存款、已到期的儲蓄險、年終獎金（已入帳）等' },
+    ];
+
+    (function initAssetFields() {
+        const container = document.getElementById('assetFields');
+        if (!container) return;
+        container.innerHTML = ASSET_ITEMS.map(item =>
+            '<div style="display:flex; align-items:center; gap:8px;">' +
+                '<span style="flex:1; font-size:13px; color:#666;">' + item.label + '</span>' +
+                '<div class="input-with-unit" style="flex:0 0 120px;">' +
+                    '<input type="number" class="input-number" id="asset_' + item.key + '"' +
+                    ' min="0" step="10" placeholder="0"' +
+                    ' oninput="updateAssetTotal()"' +
+                    ' style="font-size:13px; padding:6px 36px 6px 10px;">' +
+                    '<span class="unit">萬</span>' +
+                '</div>' +
+            '</div>' +
+            (item.hint ? '<div style="text-align:right; font-size:11px; color:#bbb; margin-top:-4px;">' + item.hint + '</div>' : '')
+        ).join('');
+    })();
+
+    function updateAssetTotal() {
+        let total = 0;
+        ASSET_ITEMS.forEach(item => {
+            total += parseInt(document.getElementById('asset_' + item.key)?.value) || 0;
+        });
+        document.getElementById('assetTotal').textContent = formatNumber(total) + ' 萬';
+        // 換算自備款比例
+        const price = state.price;
+        if (price > 0 && total > 0) {
+            const pct = Math.round(total / price * 100);
+            document.getElementById('assetPctHint').textContent =
+                '相當於 ' + formatNumber(price) + ' 萬房價的 ' + pct + '% 自備款';
+        } else {
+            document.getElementById('assetPctHint').textContent = '';
+        }
+    }
+
+    function applyAssetToDownPayment() {
+        let total = 0;
+        ASSET_ITEMS.forEach(item => {
+            total += parseInt(document.getElementById('asset_' + item.key)?.value) || 0;
+        });
+        if (total <= 0) return;
+        const price = state.price;
+        if (price <= 0) return;
+        const pct = Math.min(Math.round(total / price * 100), 80);
+        const baseDP = state.pillDownPaymentPct;
+        const loanBefore = price * (1 - baseDP / 100);
+        const loanAfter = price * (1 - pct / 100);
+        const rate = state.useYouthLoan ? CONFIG.youthRate : (state.rate || CONFIG.standardRate);
+        const termYears = state.term - state.grace;
+        const monthlyBefore = Math.round(calcMonthlyPayment(loanBefore * 10000, rate, termYears));
+        const monthlyAfter = Math.round(calcMonthlyPayment(loanAfter * 10000, rate, termYears));
+        const diff = monthlyBefore - monthlyAfter;
+
+        // 顯示試算結果
+        const resultEl = document.getElementById('assetApplyResult');
+        resultEl.style.display = 'block';
+
+        let detailHTML = '';
+        if (pct !== baseDP) {
+            detailHTML =
+                '<div style="margin-top:10px; padding:10px 12px; background:#fff; border-radius:8px; font-size:13px; color:#666;">' +
+                    '<div style="margin-bottom:6px;">如果全數用來當自備款（' + pct + '%）：</div>' +
+                    '<div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #F0EEEB;">' +
+                        '<span>貸款金額</span><b style="color:#3D3D3D;">' + formatNumber(Math.round(loanAfter)) + ' 萬</b>' +
+                    '</div>' +
+                    '<div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #F0EEEB;">' +
+                        '<span>每月房貸</span><b style="color:#3D3D3D;">' + formatNumber(monthlyAfter) + ' 元</b>' +
+                    '</div>' +
+                    '<div style="display:flex; justify-content:space-between; padding:4px 0;">' +
+                        '<span>比自備 ' + baseDP + '% 每月' + (diff > 0 ? '少' : '多') + '付</span>' +
+                        '<b style="color:' + (diff > 0 ? '#4A5D6A' : '#9C4A38') + ';">' + formatNumber(Math.abs(diff)) + ' 元</b>' +
+                    '</div>' +
+                '</div>';
+        } else {
+            detailHTML =
+                '<div style="margin-top:10px; padding:10px 12px; background:#fff; border-radius:8px; font-size:13px; color:#666;">' +
+                    '<div>目前自備款比例已是 ' + baseDP + '%，與資產盤點結果相同。</div>' +
+                '</div>';
+        }
+
+        resultEl.innerHTML =
+            '<div style="font-size:13px; color:#3D3D3D; line-height:1.8;">' +
+                '可動用資金 <b>' + formatNumber(total) + ' 萬</b>，' +
+                '佔房價（' + formatNumber(price) + ' 萬）的 <b>' + pct + '%</b>' +
+            '</div>' +
+            detailHTML +
+            '<div style="font-size:11px; color:#B8956A; margin-top:10px; line-height:1.6;">' +
+                '⚠ 這是可動用上限，不是建議全部投入。留一筆緊急預備金（至少 6 個月生活費）會比較穩。' +
+            '</div>' +
+            (pct !== baseDP ?
+                '<button onclick="confirmApplyAsset()" style="' +
+                    'margin-top:10px; width:100%; font-family:\'Noto Sans TC\',sans-serif; font-size:13px;' +
+                    'padding:10px 16px; border-radius:8px;' +
+                    'background:#B8956A; color:white; border:none;' +
+                    'cursor:pointer;' +
+                '">套用這個比例，重新試算</button>' : '');
+    }
+
+    function confirmApplyAsset() {
+        let total = 0;
+        ASSET_ITEMS.forEach(item => {
+            total += parseInt(document.getElementById('asset_' + item.key)?.value) || 0;
+        });
+        const price = state.price;
+        if (total <= 0 || price <= 0) return;
+        const pct = Math.min(Math.round(total / price * 100), 80);
+        // 更新 state 和 UI
+        state.downPaymentPct = pct;
+        document.querySelectorAll('#downPaymentPills .pill').forEach(p => p.classList.remove('active'));
+        const customPill = document.querySelector('#downPaymentPills .pill[data-value="custom"]');
+        if (customPill) customPill.classList.add('active');
+        document.getElementById('customDownPayment').style.display = 'block';
+        document.getElementById('customDPInput').value = pct;
+        // 自動觸發計算
+        calculate();
+        // 收合資產盤點面板
+        const panel = document.getElementById('assetPanel');
+        panel.style.display = 'none';
+        const toggleBtn = document.querySelector('#assetHelper > div:first-child');
+        if (toggleBtn) {
+            const chevron = toggleBtn.querySelector('i:last-child');
+            if (chevron) chevron.style.transform = '';
+        }
+        // 捲動到自備款比例區，讓用戶看到「自訂 xx%」已更新
+        const dpPills = document.getElementById('downPaymentPills');
+        if (dpPills) {
+            dpPills.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // 短暫高亮自訂按鈕
+            const customPill = dpPills.querySelector('.pill[data-value="custom"]');
+            if (customPill) {
+                customPill.style.transition = 'box-shadow 0.3s';
+                customPill.style.boxShadow = '0 0 0 3px rgba(184,149,106,0.4)';
+                setTimeout(() => { customPill.style.boxShadow = ''; }, 1500);
+            }
+        }
+    }
 
     // Section toggle
     function toggleSection(id) {
@@ -1650,6 +1908,9 @@
             }
             document.getElementById('insight3_text').textContent = insightText;
 
+            // === PRICE SPECTRUM ===
+            renderPriceSpectrum(rate, term, grace, incomeBase, state.expense, state.downPaymentPct, mgmt, maintenance);
+
             // === STRESS TEST ===
             stressResult.style.display = 'block';
             renderStressTest(loanAmount, rate, term, grace, incomeBase);
@@ -1658,14 +1919,18 @@
             lifeResult.style.display = 'none';
             insight3.style.display = 'none';
             stressResult.style.display = 'none';
+            document.getElementById('priceSpectrumResult').style.display = 'none';
         }
 
         // === YOUTH LOAN COMPARISON (hidden now - user either chose it or didn't) ===
         const compareEl = document.getElementById('youthCompare');
         compareEl.style.display = 'none';  // Always hide - user made their choice
 
-        // Scroll to results
-        document.getElementById('coreResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Scroll to results（扣掉 sticky header 高度 + 間距）
+        const resultEl = document.getElementById('coreResult');
+        const navH = document.querySelector('nav.sticky')?.offsetHeight || 0;
+        const targetY = resultEl.getBoundingClientRect().top + window.pageYOffset - navH - 16;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
 
         // ─── 埋點 ─────────────────────────────────
         if (window.zeju) {
@@ -1703,6 +1968,84 @@
                 }
             }
         }
+    }
+
+    // ============================================
+    // PRICE SPECTRUM — 反推舒適房價帶
+    // ============================================
+    function renderPriceSpectrum(rate, term, grace, afterTaxIncome, expense, dpPct, mgmt, maintenance) {
+        const el = document.getElementById('priceSpectrumResult');
+        if (!el || afterTaxIncome <= 0) { if (el) el.style.display = 'none'; return; }
+        el.style.display = 'block';
+
+        // 反推：給定負擔比上限，算出對應的最高房價
+        // burden% = mortgage / afterTaxIncome
+        // mortgage = burden% × afterTaxIncome
+        // loanAmount = inversePMT(mortgage, rate, term-grace)
+        // price = loanAmount / (1 - dpPct/100)
+        function maxPriceForBurden(burdenPct) {
+            const maxMortgage = afterTaxIncome * (burdenPct / 100);
+            if (maxMortgage <= 0) return 0;
+            const r = rate / 100 / 12;
+            const n = (term - grace) * 12;
+            let loanAmt;
+            if (r === 0) {
+                loanAmt = maxMortgage * n;
+            } else {
+                // inversePMT: P = PMT × [(1+r)^n - 1] / [r × (1+r)^n]
+                loanAmt = maxMortgage * (Math.pow(1 + r, n) - 1) / (r * Math.pow(1 + r, n));
+            }
+            const maxPrice = loanAmt / (1 - dpPct / 100);
+            return Math.round(maxPrice / 10000); // 回傳萬
+        }
+
+        const comfort = maxPriceForBurden(30);
+        const stretch = maxPriceForBurden(40);
+        const danger  = maxPriceForBurden(50);
+
+        // 對應月付金
+        function mortgageForPrice(priceWan) {
+            const loan = priceWan * 10000 * (1 - dpPct / 100);
+            return Math.round(calcMonthlyPayment(loan, rate, term - grace));
+        }
+
+        document.getElementById('spectrum_comfort').textContent = formatNumber(comfort) + ' 萬';
+        document.getElementById('spectrum_comfort_sub').textContent =
+            '月付約 ' + formatNumber(mortgageForPrice(comfort)) + ' 元';
+
+        document.getElementById('spectrum_stretch').textContent = formatNumber(stretch) + ' 萬';
+        document.getElementById('spectrum_stretch_sub').textContent =
+            '月付約 ' + formatNumber(mortgageForPrice(stretch)) + ' 元';
+
+        document.getElementById('spectrum_danger').textContent = formatNumber(danger) + ' 萬';
+        document.getElementById('spectrum_danger_sub').textContent =
+            '月付約 ' + formatNumber(mortgageForPrice(danger)) + ' 元';
+
+        // 目前房價在光譜上的位置（0~100%）
+        const currentPrice = state.price;
+        // 光譜範圍：0% → 0 萬, 100% → danger × 1.2
+        const specMax = danger * 1.2;
+        const pct = specMax > 0 ? Math.min(Math.max(currentPrice / specMax * 100, 2), 98) : 50;
+        document.getElementById('spectrumMarker').style.left = pct + '%';
+        document.getElementById('spectrumMarkerLabel').textContent =
+            formatNumber(currentPrice) + ' 萬';
+
+        // Insight
+        let insightText = '';
+        if (currentPrice <= comfort) {
+            insightText = '以你的收入和支出，' + formatNumber(currentPrice) +
+                ' 萬的房子落在從容區。房貸不會大幅改變你的日常生活節奏。';
+        } else if (currentPrice <= stretch) {
+            insightText = '你的房價在拉緊區，代表生活需要做些調整，但客觀上還撐得住。' +
+                '如果未來收入有成長空間，這個壓力是暫時的。';
+        } else if (currentPrice <= danger) {
+            insightText = '目前的房價已經進入警戒區，日常會被明顯壓縮。' +
+                '不是不行，但值得問自己：這個緊繃你能持續多久？';
+        } else {
+            insightText = '目前的房價超出你填入的收支條件所能支撐的範圍。' +
+                '考慮提高自備款比例、找總價更低的物件，或等收入條件改善。';
+        }
+        document.getElementById('spectrumInsight_text').textContent = insightText;
     }
 
     // ============================================
@@ -2225,8 +2568,48 @@
                 }
             }
 
-            if (hasStress) {
+            // ── 房價光譜 ──
+            const spectrumEl = document.getElementById('priceSpectrumResult');
+            if (spectrumEl && spectrumEl.style.display !== 'none') {
                 if (hasLife) {
+                    ctx2.strokeStyle = C.divider; ctx2.lineWidth = 0.5;
+                    ctx2.beginPath(); ctx2.moveTo(ML, y2); ctx2.lineTo(PW - MR, y2); ctx2.stroke();
+                    y2 += 12;
+                }
+                y2 = drawSection(ctx2, '你的房價光譜', y2);
+                // 三個門檻
+                const specW = (CW - 12) / 3;
+                const specData = [
+                    { label: '從容區上限', value: _t('spectrum_comfort'), color: '#4A5D6A' },
+                    { label: '拉緊區上限', value: _t('spectrum_stretch'), color: '#B8956A' },
+                    { label: '警戒線',     value: _t('spectrum_danger'),  color: '#9C4A38' },
+                ];
+                specData.forEach((s, i) => {
+                    const sx = ML + i * (specW + 6);
+                    ctx2.fillStyle = '#FAFAF8'; ctx2.fillRect(sx, y2, specW, 48);
+                    ctx2.fillStyle = s.color; ctx2.fillRect(sx, y2, specW, 3);
+                    font(ctx2, 11, '500'); ctx2.fillStyle = s.color;
+                    ctx2.fillText(s.label, sx + 10, y2 + 14);
+                    font(ctx2, 16, '700'); ctx2.fillStyle = C.text;
+                    ctx2.fillText(s.value, sx + 10, y2 + 34);
+                });
+                y2 += 58;
+                // spectrum insight
+                const specInsight = _t('spectrumInsight_text');
+                if (specInsight && specInsight !== '—') {
+                    ctx2.fillStyle = C.stone;
+                    font(ctx2, 13, '400');
+                    const sLines = wrapLines(ctx2, specInsight, CW - 28);
+                    const sBlockH = sLines.length * 20 + 18;
+                    ctx2.fillRect(ML, y2, CW, sBlockH);
+                    ctx2.fillStyle = C.body;
+                    sLines.forEach((line, i) => { ctx2.fillText(line, ML + 14, y2 + 9 + i * 20); });
+                    y2 += sBlockH + 14;
+                }
+            }
+
+            if (hasStress) {
+                if (hasLife || (spectrumEl && spectrumEl.style.display !== 'none')) {
                     ctx2.strokeStyle = C.divider; ctx2.lineWidth = 0.5;
                     ctx2.beginPath(); ctx2.moveTo(ML, y2); ctx2.lineTo(PW - MR, y2); ctx2.stroke();
                     y2 += 12;
@@ -2392,6 +2775,9 @@
         if (ratio < 40) return 'caution';
         return 'danger';
     }
+
+    // Init hints
+    updateAssessedHint();
 
     // Init icons
     lucide.createIcons();
