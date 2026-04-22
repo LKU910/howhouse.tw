@@ -46,6 +46,26 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+    <!-- Firebase + LINE LIFF -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/versions/2.24.0/sdk.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBJ7p-UJQnFNuRGZUC9GrTXNkvhTf6eMjA",
+            authDomain: "zeju-howhouse.firebaseapp.com",
+            projectId: "zeju-howhouse",
+            storageBucket: "zeju-howhouse.firebasestorage.app",
+            messagingSenderId: "68831706244",
+            appId: "1:68831706244:web:4caac2feef181fe46a96d1",
+            measurementId: "G-977GTZY37F"
+        };
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    </script>
+
     <style>
         *, *::before, *::after { box-sizing: border-box; }
         body {
@@ -443,6 +463,32 @@
     </div>
 <!-- NAV:END -->
 <main>
+
+    <!-- LINE 登入提示 / 已登入狀態 -->
+    <div id="lineLoginBanner" onclick="CalcLineLiff.login()" style="
+        display:none; align-items:center; gap:10px; padding:12px 20px;
+        background:linear-gradient(135deg,#06C755 0%,#04B34C 100%); color:#fff;
+        cursor:pointer; font-size:13px; border-radius:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 5.83 2 10.5c0 3.06 2.04 5.73 5.08 7.23l-.73 2.67c-.06.22.18.4.38.28L10.32 18c.55.07 1.11.1 1.68.1 5.52 0 10-3.83 10-8.5S17.52 2 12 2z"/></svg>
+        <span>用 LINE 登入，下次回來直接看到上次的試算結果</span>
+    </div>
+
+    <!-- 上次結果提示（回訪時顯示） -->
+    <div id="savedResultBanner" style="
+        display:none; align-items:center; justify-content:space-between;
+        padding:14px 20px; background:#FAF8F5; border-bottom:1px solid #E8E2DA;
+        font-size:13px; color:#3D3D3D;">
+        <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:16px;">📋</span>
+            <span id="savedResultText">這是你上次的試算結果</span>
+        </div>
+        <button onclick="resetCalculator()" style="
+            font-family:'Noto Sans TC',sans-serif; font-size:12px; padding:6px 14px;
+            border:1px solid #B8956A; border-radius:20px; background:#fff;
+            color:#B8956A; cursor:pointer; white-space:nowrap; font-weight:500;">
+            重新計算
+        </button>
+    </div>
 
     <!-- Header -->
     <div class="calc-header">
@@ -2805,6 +2851,419 @@
             initial_price_wan: state.price
         });
     }, 500);
+
+    // ══════════════════════════════════════════════
+    // Firebase Sync — 計算器版（存 users/{uid}/calculator）
+    // ══════════════════════════════════════════════
+    const CalcFirebaseSync = {
+        initialized: false,
+        userId: null,
+        _pushTimer: null,
+
+        init(uid) {
+            this.userId = uid;
+            this.initialized = true;
+        },
+
+        schedulePush() {
+            if (!this.initialized) return;
+            clearTimeout(this._pushTimer);
+            this._pushTimer = setTimeout(() => this.push(), 2000);
+        },
+
+        async push() {
+            if (!this.initialized) return;
+            try {
+                await db.collection('users').doc(this.userId).set({
+                    calculator: {
+                        state: state,
+                        savedAt: new Date().toISOString()
+                    },
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: true });
+            } catch(e) {
+                console.warn('計算器雲端儲存失敗', e);
+            }
+        },
+
+        async pull() {
+            if (!this.initialized) return null;
+            try {
+                const doc = await db.collection('users').doc(this.userId).get();
+                if (doc.exists && doc.data().calculator) {
+                    return doc.data().calculator;
+                }
+            } catch(e) {
+                console.warn('計算器雲端讀取失敗', e);
+            }
+            return null;
+        }
+    };
+
+    // ══════════════════════════════════════════════
+    // LINE LIFF — 計算器版
+    // ══════════════════════════════════════════════
+    const CalcLineLiff = {
+        ready: false,
+        liffId: '2009797886-geRkxqSN',
+        profile: null,
+
+        async init() {
+            if (!this.liffId || typeof liff === 'undefined') return;
+            try {
+                await liff.init({ liffId: this.liffId });
+                this.ready = true;
+                if (liff.isLoggedIn()) {
+                    await this.loadProfile();
+                }
+                this.renderLoginUI();
+            } catch(e) {
+                console.warn('LIFF 初始化失敗（不影響基本功能）', e);
+            }
+        },
+
+        async loadProfile() {
+            try {
+                this.profile = await liff.getProfile();
+
+                if (CalcFirebaseSync.initialized && CalcFirebaseSync.userId) {
+                    var lineUserId = this.profile.userId;
+
+                    // ── 跨裝置同步：lineUsers/{lineUserId} mapping ──
+                    try {
+                        var mappingRef = db.collection('lineUsers').doc(lineUserId);
+                        var mappingDoc = await mappingRef.get();
+
+                        if (mappingDoc.exists) {
+                            var primaryUid = mappingDoc.data().firebaseUid;
+
+                            if (primaryUid && primaryUid !== CalcFirebaseSync.userId) {
+                                // 這個 LINE 帳號在其他裝置有資料 → 拉過來
+                                console.log('Calculator cross-device sync: pulling from', primaryUid);
+                                var remoteDoc = await db.collection('users').doc(primaryUid).get();
+
+                                if (remoteDoc.exists && remoteDoc.data().calculator &&
+                                    remoteDoc.data().calculator.state && remoteDoc.data().calculator.state.price) {
+                                    var remoteCalc = remoteDoc.data().calculator;
+                                    var remoteTime = remoteCalc.savedAt ? new Date(remoteCalc.savedAt).getTime() : 0;
+
+                                    // 比較本地 vs 遠端時間戳，較新的贏
+                                    var localTime = 0;
+                                    try {
+                                        var localSaved = localStorage.getItem('zeju-calc-state');
+                                        if (localSaved) {
+                                            var lp = JSON.parse(localSaved);
+                                            localTime = lp._savedAt ? new Date(lp._savedAt).getTime() : 0;
+                                        }
+                                    } catch(e) {}
+
+                                    if (remoteTime > localTime) {
+                                        restoreStateToUI(remoteCalc.state);
+                                        calculate();
+                                        var banner = document.getElementById('savedResultBanner');
+                                        if (banner) {
+                                            banner.style.display = 'flex';
+                                            document.getElementById('savedResultText').textContent =
+                                                '已從其他裝置同步你的試算結果';
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // 更新 mapping：最後登入的裝置 = 主要裝置
+                        await mappingRef.set({
+                            firebaseUid: CalcFirebaseSync.userId,
+                            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+
+                    } catch(e) {
+                        console.warn('LINE 跨裝置同步失敗（不影響本地功能）', e);
+                    }
+
+                    // 存 LINE profile 到目前的 user doc
+                    await db.collection('users').doc(CalcFirebaseSync.userId).set({
+                        lineProfile: {
+                            userId: this.profile.userId,
+                            displayName: this.profile.displayName,
+                            pictureUrl: this.profile.pictureUrl || null
+                        }
+                    }, { merge: true });
+                }
+                this.renderLoginUI();
+            } catch(e) {
+                console.warn('取得 LINE 個人資料失敗', e);
+            }
+        },
+
+        login() {
+            window.location.href = 'https://liff.line.me/' + this.liffId;
+        },
+
+        renderLoginUI() {
+            const banner = document.getElementById('lineLoginBanner');
+            if (!banner) return;
+
+            if (this.profile) {
+                const pic = this.profile.pictureUrl
+                    ? '<img src="' + this.profile.pictureUrl + '" style="width:24px;height:24px;border-radius:50%;flex-shrink:0;">'
+                    : '';
+                banner.onclick = null;
+                banner.style.cursor = 'default';
+                banner.style.background = '#E8F5E9';
+                banner.style.color = '#2E7D32';
+                banner.innerHTML = pic +
+                    '<span><strong>' + this.profile.displayName + '</strong> 已連結，試算結果會自動保存。</span>';
+                banner.style.display = 'flex';
+            } else if (this.ready && !liff.isLoggedIn()) {
+                banner.style.display = 'flex';
+            } else {
+                banner.style.display = 'none';
+            }
+        }
+    };
+
+    // ══════════════════════════════════════════════
+    // 自動儲存：每次 calculate() 完成後推到雲端
+    // ══════════════════════════════════════════════
+    const _origCalculate = calculate;
+    calculate = function() {
+        _origCalculate();
+        // 儲存到 localStorage
+        try {
+            localStorage.setItem('zeju-calc-state', JSON.stringify(state));
+            localStorage.setItem('zeju-calc-hasResult', '1');
+        } catch(e) {}
+        // 推到雲端
+        CalcFirebaseSync.schedulePush();
+    };
+
+    // ══════════════════════════════════════════════
+    // 重新計算：清除結果回到空白狀態
+    // ══════════════════════════════════════════════
+    function resetCalculator() {
+        // 重置 state 到預設值
+        state.price = 1000;
+        state.downPaymentPct = 20;
+        state.pillDownPaymentPct = 20;
+        state.useYouthLoan = true;
+        state.rate = 1.775;
+        state.term = 30;
+        state.grace = 0;
+        state.assessedValue = 0;
+        state.houseType = 'building';
+        state.ping = 0;
+        state.mgmtPerPing = 100;
+        state.hasBroker = false;
+        state.hasRenovation = false;
+        state.renovationBudget = 50;
+        state.income = 0;
+        state.expense = 0;
+        state.taxManual = 0;
+
+        // 重置表單 UI
+        document.getElementById('priceInput').value = 1000;
+        document.getElementById('priceSlider').value = 1000;
+        document.querySelectorAll('#downPaymentPills .pill').forEach(function(p, i) {
+            p.classList.toggle('active', i === 1); // 20%
+        });
+        document.getElementById('customDownPayment').style.display = 'none';
+        document.getElementById('assessedValueInput').value = '';
+        document.getElementById('pingInput').value = '';
+        document.getElementById('incomeInput').value = '';
+        document.getElementById('expenseInput').value = '';
+        document.getElementById('taxManualInput').value = '';
+        // 青安 pill
+        document.querySelectorAll('#youthLoanPills .pill').forEach(function(p) {
+            p.classList.toggle('active', p.dataset.value === 'yes');
+        });
+        // 年期 pill
+        document.querySelectorAll('#termPills .pill').forEach(function(p) {
+            p.classList.toggle('active', p.dataset.value === '30');
+        });
+        // 寬限期 pill
+        document.querySelectorAll('#gracePills .pill').forEach(function(p) {
+            p.classList.toggle('active', p.dataset.value === '0');
+        });
+        // 仲介 & 裝修
+        var brokerCb = document.getElementById('brokerCheckbox');
+        if (brokerCb) brokerCb.checked = false;
+        var renovCb = document.getElementById('renovationCheckbox');
+        if (renovCb) renovCb.checked = false;
+        var renovRow = document.getElementById('renovationBudgetRow');
+        if (renovRow) renovRow.style.display = 'none';
+
+        // 隱藏結果區
+        ['coreResult','holdingCostResult','lifeImpactResult','stressTestResult','spectrumResult'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        });
+
+        // 清除 localStorage 標記
+        try {
+            localStorage.removeItem('zeju-calc-hasResult');
+        } catch(e) {}
+
+        // 隱藏回訪提示
+        document.getElementById('savedResultBanner').style.display = 'none';
+
+        // 更新提示
+        updateAssessedHint();
+        updateTaxDisplay();
+
+        // 捲動到最上方
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ══════════════════════════════════════════════
+    // 還原已儲存的 state 到表單
+    // ══════════════════════════════════════════════
+    function restoreStateToUI(s) {
+        // 覆蓋 state
+        Object.assign(state, s);
+
+        // 房價
+        document.getElementById('priceInput').value = state.price;
+        document.getElementById('priceSlider').value = Math.min(Math.max(state.price, 300), 5000);
+
+        // 自備款
+        var dpPct = state.downPaymentPct;
+        var matched = false;
+        document.querySelectorAll('#downPaymentPills .pill').forEach(function(p) {
+            if (p.dataset.value === String(dpPct)) {
+                p.classList.add('active');
+                matched = true;
+            } else if (p.dataset.value === 'custom' && !matched) {
+                // will handle below
+            } else {
+                p.classList.remove('active');
+            }
+        });
+        if (!matched) {
+            document.querySelectorAll('#downPaymentPills .pill').forEach(function(p) {
+                p.classList.toggle('active', p.dataset.value === 'custom');
+            });
+            document.getElementById('customDownPayment').style.display = 'block';
+            document.getElementById('customDPInput').value = dpPct;
+        }
+
+        // 青安
+        document.querySelectorAll('#youthLoanPills .pill').forEach(function(p) {
+            p.classList.toggle('active', p.dataset.value === (state.useYouthLoan ? 'yes' : 'no'));
+        });
+
+        // 年期
+        document.querySelectorAll('#termPills .pill').forEach(function(p) {
+            p.classList.toggle('active', p.dataset.value === String(state.term));
+        });
+
+        // 寬限期
+        document.querySelectorAll('#gracePills .pill').forEach(function(p) {
+            p.classList.toggle('active', p.dataset.value === String(state.grace));
+        });
+
+        // 房屋評定現值
+        if (state.assessedValue > 0) {
+            document.getElementById('assessedValueInput').value = state.assessedValue;
+        }
+
+        // 坪數
+        if (state.ping > 0) {
+            document.getElementById('pingInput').value = state.ping;
+        }
+
+        // 收入 / 支出 / 稅
+        if (state.income > 0) document.getElementById('incomeInput').value = state.income;
+        if (state.expense > 0) document.getElementById('expenseInput').value = state.expense;
+        if (state.taxManual > 0) document.getElementById('taxManualInput').value = state.taxManual;
+
+        // 仲介 / 裝修
+        var brokerCb = document.getElementById('brokerCheckbox');
+        if (brokerCb) brokerCb.checked = !!state.hasBroker;
+        var renovCb = document.getElementById('renovationCheckbox');
+        if (renovCb) {
+            renovCb.checked = !!state.hasRenovation;
+            var renovRow = document.getElementById('renovationBudgetRow');
+            if (renovRow) renovRow.style.display = state.hasRenovation ? 'block' : 'none';
+        }
+
+        // 更新相關顯示
+        updateAssessedHint();
+        updateTaxDisplay();
+        updateAssetTotal();
+    }
+
+    // ══════════════════════════════════════════════
+    // 初始化：Firebase 登入 → 拉取雲端資料 → LINE LIFF
+    // ══════════════════════════════════════════════
+    (async function initCloudSync() {
+        // 先試 localStorage（即時）
+        var hasLocal = false;
+        try {
+            var saved = localStorage.getItem('zeju-calc-state');
+            var hasResult = localStorage.getItem('zeju-calc-hasResult');
+            if (saved && hasResult) {
+                var parsed = JSON.parse(saved);
+                if (parsed && parsed.price) {
+                    restoreStateToUI(parsed);
+                    calculate();
+                    hasLocal = true;
+                }
+            }
+        } catch(e) {}
+
+        // Firebase anonymous auth
+        try {
+            var userCredential = await auth.signInAnonymously();
+            var uid = userCredential.user.uid;
+            CalcFirebaseSync.init(uid);
+
+            // 拉取雲端資料
+            var cloud = await CalcFirebaseSync.pull();
+            if (cloud && cloud.state && cloud.state.price) {
+                var cloudTime = cloud.savedAt ? new Date(cloud.savedAt).getTime() : 0;
+                var localTime = 0;
+                try {
+                    var localSaved = localStorage.getItem('zeju-calc-state');
+                    if (localSaved) {
+                        var lp = JSON.parse(localSaved);
+                        localTime = lp._savedAt ? new Date(lp._savedAt).getTime() : 0;
+                    }
+                } catch(e) {}
+
+                if (cloudTime >= localTime) {
+                    // 雲端較新或相同 → 用雲端
+                    restoreStateToUI(cloud.state);
+                    calculate();
+                    hasLocal = true;
+                }
+            } else if (hasLocal) {
+                // 本地有資料但雲端沒有 → 推上去
+                CalcFirebaseSync.schedulePush();
+            }
+        } catch(e) {
+            console.warn('Firebase 初始化失敗（離線模式）', e);
+        }
+
+        // 顯示回訪提示
+        if (hasLocal) {
+            var banner = document.getElementById('savedResultBanner');
+            banner.style.display = 'flex';
+            // 捲動到結果區
+            setTimeout(function() {
+                var resultEl = document.getElementById('coreResult');
+                if (resultEl && resultEl.style.display !== 'none') {
+                    var navH = document.querySelector('nav.sticky')?.offsetHeight || 0;
+                    var targetY = resultEl.getBoundingClientRect().top + window.pageYOffset - navH - 16;
+                    window.scrollTo({ top: targetY, behavior: 'smooth' });
+                }
+            }, 300);
+        }
+
+        // LINE LIFF
+        CalcLineLiff.init();
+    })();
+
     </script>
 </main>
 

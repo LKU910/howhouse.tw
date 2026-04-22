@@ -332,11 +332,63 @@
         .sync-indicator .dot.online { background: #6B8E6B; }
         .sync-indicator .dot.offline { background: #DDD; }
 
+        /* ── Onboarding Hint ── */
+        .onboarding-hint {
+            background: #FDF6EE; border: 1px solid #EDE0CE; border-radius: 14px;
+            padding: 20px 24px; margin-bottom: 24px;
+            line-height: 1.8; font-size: 14px; color: #666;
+            transition: opacity 0.4s, max-height 0.4s;
+        }
+        .onboarding-hint .onboarding-title {
+            font-family: 'Noto Serif TC', serif; font-size: 16px;
+            font-weight: 700; color: #444; margin-bottom: 6px;
+        }
+        .onboarding-hint.hiding {
+            opacity: 0; max-height: 0; padding: 0 24px; margin: 0;
+            border-color: transparent; overflow: hidden;
+        }
+
+        /* ── Progress Bar ── */
+        .progress-bar-wrapper { margin: -16px 0 28px; }
+        .progress-bar {
+            display: flex; height: 6px; border-radius: 3px;
+            overflow: hidden; background: #E5E2DE;
+        }
+        .progress-bar .bar-clear {
+            background: #6B8E6B; transition: width 0.4s ease;
+        }
+        .progress-bar .bar-thinking {
+            background: #C9A84C; transition: width 0.4s ease;
+        }
+        .progress-bar-label {
+            font-size: 12px; color: #999; margin-top: 6px; text-align: center;
+        }
+
+        /* ── Pulse animation for new-user first card ── */
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.55; }
+        }
+        .pulse-hint .status-btn {
+            animation: subtle-pulse 2s ease-in-out infinite;
+        }
+        .pulse-hint .status-btn:hover { animation: none; }
+
+        /* ── Phase expand hint ── */
+        .phase-expand-hint {
+            font-size: 12px; color: #AAA; text-align: center;
+            margin-bottom: 16px; transition: opacity 0.3s;
+        }
+        .phase-expand-hint.hidden { display: none; }
+
         /* ── Encouragement Block ── */
         .encouragement {
             background: #fff; border: 1px solid #E5E2DE; border-radius: 16px;
             padding: 24px 28px; margin-top: 32px; text-align: center;
             transition: opacity 0.4s;
+        }
+        .encouragement.at-top {
+            margin-top: 0; margin-bottom: 24px;
         }
         .encouragement .enc-icon {
             font-size: 28px; margin-bottom: 8px; display: block;
@@ -493,6 +545,15 @@
             <div class="label">還沒走到</div>
         </div>
     </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-wrapper" id="progressBarWrapper">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-bar-label" id="progressBarLabel"></div>
+    </div>
+
+    <!-- Encouragement (top position for new users) -->
+    <div class="encouragement at-top" id="encouragementTop" style="display:none;"></div>
 
     <!-- LINE Login Banner -->
     <div class="line-login-banner" id="lineLoginBanner" style="display:none;" onclick="LineLiff.login()">
@@ -715,12 +776,20 @@ function loadPersona() {
 }
 
 // ══════════════════════════════════════════════
+// Helpers
+// ══════════════════════════════════════════════
+function isNewUser() {
+    return Object.values(state.steps).every(s => s.status === 'not_started');
+}
+
+// ══════════════════════════════════════════════
 // Render
 // ══════════════════════════════════════════════
 function render() {
     loadPersona();
     renderPersonaBanner();
     renderSummary();
+    renderProgressBar();
     renderPath();
     renderEncouragement();
 }
@@ -752,9 +821,38 @@ function renderSummary() {
     document.getElementById('countRemaining').textContent = notStarted;
 }
 
+function renderProgressBar() {
+    const bar = document.getElementById('progressBar');
+    const label = document.getElementById('progressBarLabel');
+    if (!bar || !label) return;
+
+    let clear = 0, thinking = 0;
+    Object.values(state.steps).forEach(s => {
+        if (s.status === 'clear') clear++;
+        else if (s.status === 'thinking') thinking++;
+    });
+    const notStarted = 18 - clear - thinking;
+
+    const pctClear = (clear / 18 * 100).toFixed(1);
+    const pctThinking = (thinking / 18 * 100).toFixed(1);
+
+    bar.innerHTML = `<div class="bar-clear" style="width:${pctClear}%"></div><div class="bar-thinking" style="width:${pctThinking}%"></div>`;
+
+    if (clear === 0 && thinking === 0) {
+        label.textContent = '還沒開始，從第一步看看吧';
+    } else if (clear === 18) {
+        label.textContent = '全部想清楚了！';
+    } else {
+        const parts = [];
+        if (clear > 0) parts.push(`${clear} 步想清楚了`);
+        if (thinking > 0) parts.push(`${thinking} 步正在想`);
+        label.textContent = parts.join('，');
+    }
+}
+
 function renderEncouragement() {
-    const el = document.getElementById('encouragement');
-    if (!el) return;
+    const elBottom = document.getElementById('encouragement');
+    const elTop = document.getElementById('encouragementTop');
 
     let clear = 0, thinking = 0;
     Object.values(state.steps).forEach(s => {
@@ -798,11 +896,23 @@ function renderEncouragement() {
         sub = '找一步最有感覺的，點開來看看就好。';
     }
 
-    el.innerHTML = `
+    const html = `
         <span class="enc-icon">${icon}</span>
         <div class="enc-msg">${msg}</div>
         <div class="enc-sub">${sub}</div>
     `;
+
+    // New users: show encouragement at top, hide bottom
+    // Returning users: show at bottom, hide top
+    const newUser = isNewUser();
+    if (elTop) {
+        elTop.style.display = newUser ? 'block' : 'none';
+        if (newUser) elTop.innerHTML = html;
+    }
+    if (elBottom) {
+        elBottom.style.display = newUser ? 'none' : 'block';
+        if (!newUser) elBottom.innerHTML = html;
+    }
 }
 
 function getPhaseStatus(phase) {
@@ -821,6 +931,29 @@ function getPhaseLabel(status) {
 function renderPath() {
     const map = document.getElementById('pathMap');
     map.innerHTML = '';
+    const newUser = isNewUser();
+    const onboarded = localStorage.getItem('zeju-progress-onboarded');
+
+    // Onboarding hint for brand-new users
+    if (newUser && !onboarded) {
+        const hint = document.createElement('div');
+        hint.className = 'onboarding-hint';
+        hint.id = 'onboardingHint';
+        hint.innerHTML = `
+            <div class="onboarding-title">從第一步開始就好</div>
+            點開任何一步，把你現在的狀態標記起來。<br>想到什麼就寫在筆記裡，之後回來看會很有用。
+        `;
+        map.appendChild(hint);
+    }
+
+    // Phase expand hint
+    if (!onboarded) {
+        const expandHint = document.createElement('div');
+        expandHint.className = 'phase-expand-hint';
+        expandHint.id = 'phaseExpandHint';
+        expandHint.textContent = '點擊任一階段即可展開';
+        map.appendChild(expandHint);
+    }
 
     PHASES.forEach((phase, pi) => {
         const phaseStatus = getPhaseStatus(phase);
@@ -830,8 +963,9 @@ function renderPath() {
         section.className = 'phase-section';
         section.id = 'phase-' + phase.id;
 
-        // Auto-open if in progress
+        // Auto-open if in progress, or first phase for new users
         if (phaseStatus === 'in-progress') section.classList.add('open');
+        if (newUser && pi === 0) section.classList.add('open');
 
         // Phase header
         section.innerHTML = `
@@ -874,6 +1008,9 @@ function renderPath() {
                 depHtml = `<div class="dep-hint ${showDep ? 'visible' : ''}">${DEP_HINTS[stepId]}</div>`;
             }
 
+            // Pulse animation on Step 01 for new users who haven't interacted yet
+            const shouldPulse = newUser && !onboarded && stepId === '01';
+
             card.innerHTML = `
                 <div class="step-top">
                     <div class="step-num"><span class="step-icon">${step.icon}</span>${stepId}</div>
@@ -882,9 +1019,9 @@ function renderPath() {
                         <div class="step-desc">${step.desc}</div>
                     </div>
                 </div>
-                <div class="status-switcher">
+                <div class="status-switcher${shouldPulse ? ' pulse-hint' : ''}">
                     <button class="status-btn ${stepState.status === 'not_started' ? 'active-not_started' : ''}"
-                            onclick="setStatus('${stepId}','not_started')">尚未面對</button>
+                            onclick="setStatus('${stepId}','not_started')">還沒開始</button>
                     <button class="status-btn ${stepState.status === 'thinking' ? 'active-thinking' : ''}"
                             onclick="setStatus('${stepId}','thinking')">正在想</button>
                     <button class="status-btn ${stepState.status === 'clear' ? 'active-clear' : ''}"
@@ -928,6 +1065,17 @@ function setStatus(stepId, status) {
     state.steps[stepId].status = status;
     state.steps[stepId].updatedAt = new Date().toISOString();
     saveState();
+
+    // Dismiss onboarding on first interaction
+    if (!localStorage.getItem('zeju-progress-onboarded')) {
+        localStorage.setItem('zeju-progress-onboarded', '1');
+        const hint = document.getElementById('onboardingHint');
+        if (hint) hint.classList.add('hiding');
+        const expandHint = document.getElementById('phaseExpandHint');
+        if (expandHint) expandHint.classList.add('hidden');
+        // Stop pulse animation
+        document.querySelectorAll('.pulse-hint').forEach(el => el.classList.remove('pulse-hint'));
+    }
 
     // 埋點：步驟狀態改變
     if (window.zeju) window.zeju.track('progress_step_status_changed', {
@@ -987,6 +1135,7 @@ function setStatus(stepId, status) {
     }
 
     renderSummary();
+    renderProgressBar();
     renderEncouragement();
 }
 
@@ -1009,6 +1158,9 @@ function saveNotes(stepId, value) {
 function togglePhase(phaseId) {
     const section = document.getElementById('phase-' + phaseId);
     section.classList.toggle('open');
+    // Hide expand hint after first manual toggle
+    const expandHint = document.getElementById('phaseExpandHint');
+    if (expandHint) expandHint.classList.add('hidden');
 }
 
 function expandAll() {
@@ -1154,8 +1306,61 @@ const LineLiff = {
             this.profile = await liff.getProfile();
             console.log('LINE profile:', this.profile.displayName);
 
-            // Upgrade anonymous Firebase user with LINE identity
             if (FirebaseSync.initialized && FirebaseSync.userId) {
+                const lineUserId = this.profile.userId;
+
+                // ── Cross-device sync via LINE userId mapping ──
+                // lineUsers/{lineUserId} → { firebaseUid } lets different
+                // devices find the same progress when logged into same LINE.
+                try {
+                    const mappingRef = db.collection('lineUsers').doc(lineUserId);
+                    const mappingDoc = await mappingRef.get();
+
+                    if (mappingDoc.exists) {
+                        const primaryUid = mappingDoc.data().firebaseUid;
+
+                        if (primaryUid && primaryUid !== FirebaseSync.userId) {
+                            // This LINE user has progress on another device — pull & merge
+                            console.log('LINE cross-device sync: pulling from', primaryUid);
+                            const remoteDoc = await db.collection('users').doc(primaryUid).get();
+
+                            if (remoteDoc.exists && remoteDoc.data().progress && remoteDoc.data().progress.steps) {
+                                const remoteState = remoteDoc.data().progress;
+                                let merged = false;
+
+                                // Per-step merge: newer timestamp wins
+                                Object.keys(state.steps).forEach(stepId => {
+                                    const local = state.steps[stepId];
+                                    const remote = remoteState.steps && remoteState.steps[stepId];
+                                    if (!remote) return;
+                                    const localTime = local.updatedAt ? new Date(local.updatedAt).getTime() : 0;
+                                    const remoteTime = remote.updatedAt ? new Date(remote.updatedAt).getTime() : 0;
+                                    if (remoteTime > localTime) {
+                                        state.steps[stepId] = remote;
+                                        merged = true;
+                                    }
+                                });
+
+                                if (merged) {
+                                    _originalSaveState(); // save merged state to localStorage
+                                    render();
+                                    showToast('已從其他裝置同步你的進度');
+                                }
+                            }
+                        }
+                    }
+
+                    // Update mapping to point to this device (latest login = primary)
+                    await mappingRef.set({
+                        firebaseUid: FirebaseSync.userId,
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+
+                } catch(e) {
+                    console.warn('LINE 跨裝置同步失敗（不影響本地功能）', e);
+                }
+
+                // Store LINE profile in current user doc
                 await db.collection('users').doc(FirebaseSync.userId).set({
                     lineProfile: {
                         userId: this.profile.userId,
@@ -1164,6 +1369,9 @@ const LineLiff = {
                     },
                     updatedAt: firebase.firestore.FieldValue.serverTimestamp()
                 }, { merge: true });
+
+                // Push current (possibly merged) state to cloud
+                FirebaseSync.push();
             }
             this.renderLoginUI();
         } catch(e) {

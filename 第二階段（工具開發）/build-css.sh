@@ -15,3 +15,9 @@ npx tailwindcss \
   --minify
 
 echo "✅ tailwind.css 已更新 ($(wc -c < deploy/tailwind.css) bytes)"
+
+# ── JS 混淆（僅在 Vercel CI 環境執行） ──
+if [ "$VERCEL" = "1" ] || [ "$CI" = "true" ]; then
+  echo "🔒 正在混淆 calculator.html JS..."
+  node build-obfuscate.js
+fi
