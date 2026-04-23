@@ -1061,18 +1061,18 @@
                         </div>
                     </div>
 
-                    <!-- 寄送成功後顯示 -->
+                    <!-- 寄送結果（成功或失敗） -->
                     <div id="emailGateSuccess" style="display:none;">
-                        <div style="padding:16px; background:#E8F5E9; border-radius:12px; margin-bottom:16px;">
-                            <p style="font-size:14px; color:#2E7D32; font-weight:500;">✓ 報告已寄出</p>
-                            <p id="emailConfirmText" style="font-size:12px; color:#4A5D6A; margin-top:4px;"></p>
+                        <div id="emailResultBox" style="padding:16px; border-radius:12px; margin-bottom:16px;">
+                            <p id="emailResultTitle" style="font-size:14px; font-weight:500;"></p>
+                            <p id="emailConfirmText" style="font-size:12px; margin-top:4px;"></p>
                         </div>
-                        <button onclick="handlePdfDownload(this)" style="
+                        <button onclick="retryPdfSend()" style="
                             display:inline-flex; align-items:center; gap:8px;
                             font-family:'Noto Sans TC',sans-serif;
                             font-size:13px; padding:10px 24px; border-radius:12px;
                             background:#fff; color:#8A6820; border:1px solid #E5E2DE;
-                            cursor:pointer;">
+                            cursor:pointer;" id="retrySendBtn">
                             <i data-lucide="send" class="w-4 h-4 stroke-[1.5]"></i>
                             再寄一次
                         </button>
@@ -2951,14 +2951,35 @@
         btn.innerHTML = origHTML;
         btn.disabled = false;
 
-        // 切換到成功狀態
+        // 切換到結果狀態（成功 or 失敗）
         document.getElementById('pdfTrigger').style.display = 'none';
         document.getElementById('emailGateForm').style.display = 'none';
         document.getElementById('emailGateSuccess').style.display = 'block';
-        document.getElementById('emailConfirmText').textContent = emailSent
-            ? '報告已寄到 ' + email + '，請查看信箱（含垃圾郵件匣）'
-            : '寄送暫時失敗，請稍後再試。你也可以截圖保存結果。';
+
+        var resultBox = document.getElementById('emailResultBox');
+        var resultTitle = document.getElementById('emailResultTitle');
+        if (emailSent) {
+            resultBox.style.background = '#E8F5E9';
+            resultTitle.style.color = '#2E7D32';
+            resultTitle.textContent = '✓ 報告已寄出';
+            document.getElementById('emailConfirmText').style.color = '#4A5D6A';
+            document.getElementById('emailConfirmText').textContent =
+                '已寄到 ' + email + '，請查看信箱（含垃圾郵件匣）';
+        } else {
+            resultBox.style.background = '#FFF3F0';
+            resultTitle.style.color = '#9C4A38';
+            resultTitle.textContent = '✕ 寄送失敗';
+            document.getElementById('emailConfirmText').style.color = '#9C4A38';
+            document.getElementById('emailConfirmText').textContent =
+                '可能是網路問題或信箱服務尚未就緒，請稍後再試。';
+        }
         lucide.createIcons();
+    }
+
+    function retryPdfSend() {
+        // 回到 email gate 表單讓用戶重新送出
+        document.getElementById('emailGateSuccess').style.display = 'none';
+        document.getElementById('emailGateForm').style.display = 'block';
     }
 
     // ============================================
