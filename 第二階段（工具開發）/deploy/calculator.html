@@ -464,32 +464,6 @@
 <!-- NAV:END -->
 <main>
 
-    <!-- LINE 登入提示 / 已登入狀態 -->
-    <div id="lineLoginBanner" onclick="CalcLineLiff.login()" style="
-        display:none; align-items:center; gap:10px; padding:12px 20px;
-        background:linear-gradient(135deg,#06C755 0%,#04B34C 100%); color:#fff;
-        cursor:pointer; font-size:13px; border-radius:0;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 5.83 2 10.5c0 3.06 2.04 5.73 5.08 7.23l-.73 2.67c-.06.22.18.4.38.28L10.32 18c.55.07 1.11.1 1.68.1 5.52 0 10-3.83 10-8.5S17.52 2 12 2z"/></svg>
-        <span>用 LINE 登入，下次回來直接看到上次的試算結果</span>
-    </div>
-
-    <!-- 上次結果提示（回訪時顯示） -->
-    <div id="savedResultBanner" style="
-        display:none; align-items:center; justify-content:space-between;
-        padding:14px 20px; background:#FAF8F5; border-bottom:1px solid #E8E2DA;
-        font-size:13px; color:#3D3D3D;">
-        <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-size:16px;">📋</span>
-            <span id="savedResultText">這是你上次的試算結果</span>
-        </div>
-        <button onclick="resetCalculator()" style="
-            font-family:'Noto Sans TC',sans-serif; font-size:12px; padding:6px 14px;
-            border:1px solid #B8956A; border-radius:20px; background:#fff;
-            color:#B8956A; cursor:pointer; white-space:nowrap; font-weight:500;">
-            重新計算
-        </button>
-    </div>
-
     <!-- Header -->
     <div class="calc-header">
         <h1>看清楚這個決定的代價</h1>
@@ -783,6 +757,24 @@
         <!-- ====== RESULTS AREA ====== -->
         <div id="resultsArea">
 
+            <!-- 回訪提示（有紀錄的用戶才看到，緊貼結果區上方） -->
+            <div id="savedResultBanner" style="
+                display:none; align-items:center; justify-content:space-between;
+                padding:14px 20px; margin-bottom:16px;
+                background:#FAF8F5; border:1px solid #E8E2DA; border-radius:12px;
+                font-size:13px; color:#3D3D3D;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="font-size:16px;">📋</span>
+                    <span id="savedResultText">這是你上次的試算結果</span>
+                </div>
+                <button onclick="resetCalculator()" style="
+                    font-family:'Noto Sans TC',sans-serif; font-size:12px; padding:6px 14px;
+                    border:1px solid #B8956A; border-radius:20px; background:#fff;
+                    color:#B8956A; cursor:pointer; white-space:nowrap; font-weight:500;">
+                    重新計算
+                </button>
+            </div>
+
             <!-- Core result -->
             <div class="result-card highlight fade-in" id="coreResult">
                 <div class="result-label">每月房貸</div>
@@ -1009,39 +1001,96 @@
                 </div>
             </div>
 
-            <!-- ====== PDF SAVE & EMAIL ====== -->
+            <!-- ====== PDF SAVE（Email Gate） ====== -->
             <div class="result-card fade-in" style="margin-top:16px;">
                 <div style="text-align:center; padding:0;">
                     <div class="result-label">留一份給自己</div>
                     <p style="font-size:13px; color:#999; margin:12px 0 20px;">數字會變，利率會調。下載一份完整的財務診斷報告，留著慢慢想。</p>
-                    <button id="pdfBtn" onclick="generatePDF(this)" style="
-                        display: inline-flex; align-items: center; gap: 8px;
-                        font-family: 'Noto Sans TC', sans-serif;
-                        font-size: 14px; letter-spacing: 0.08em;
-                        padding: 14px 32px; border-radius: 12px;
-                        background: #8A6820; color: white; border: none;
-                        cursor: pointer; transition: all 0.2s ease;
-                    " onmouseover="this.style.background='#A67C52'" onmouseout="this.style.background='#8A6820'">
-                        <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
-                        下載 PDF 報告
-                    </button>
 
-                    <div style="margin-top:24px; padding-top:20px; border-top:1px solid #E5E2DE;">
-                        <p style="font-size:13px; color:#666; margin-bottom:12px;">想收到利率或政策變動通知？（選填）</p>
-                        <div style="display:flex; gap:8px; max-width:400px; margin:0 auto 12px;">
-                            <input type="email" id="emailInput" placeholder="輸入你的 Email" style="
-                                flex:1; padding:12px 16px; border:1px solid #E5E2DE;
-                                border-radius:12px; font-size:14px; min-width:0;
-                                font-family:'Noto Sans TC',sans-serif; background:#FAFAF8;
+                    <!-- 初始狀態：只有一顆按鈕 -->
+                    <div id="pdfTrigger">
+                        <button onclick="showEmailGate()" style="
+                            display:inline-flex; align-items:center; gap:8px;
+                            font-family:'Noto Sans TC',sans-serif;
+                            font-size:14px; letter-spacing:0.08em;
+                            padding:14px 32px; border-radius:12px;
+                            background:#8A6820; color:white; border:none;
+                            cursor:pointer; transition:all 0.2s ease;
+                        " onmouseover="this.style.background='#A67C52'" onmouseout="this.style.background='#8A6820'">
+                            <i data-lucide="download" class="w-4 h-4 stroke-[1.5]"></i>
+                            下載 PDF 財務診斷報告
+                        </button>
+                    </div>
+
+                    <!-- Email Gate（點按鈕後展開） -->
+                    <div id="emailGateForm" style="display:none; margin-top:20px;">
+                        <div style="max-width:360px; margin:0 auto; text-align:left;
+                            padding:20px; background:#FAF8F5; border-radius:12px; border:1px solid #E8E2DA;">
+                            <p style="font-size:14px; color:#3D3D3D; font-weight:500; margin-bottom:14px; text-align:center;">
+                                輸入 Email，報告直接寄給你
+                            </p>
+                            <input type="email" id="pdfEmailInput" placeholder="your@email.com" style="
+                                width:100%; padding:12px 16px; border:1px solid #E5E2DE;
+                                border-radius:12px; font-size:16px; box-sizing:border-box;
+                                font-family:'Noto Sans TC',sans-serif; background:#fff;
                             ">
-                            <button onclick="saveToEmail()" style="
-                                padding:12px 20px; border-radius:12px; flex-shrink:0;
-                                background:#fff; color:#8A6820; border:1px solid #E5E2DE;
-                                font-size:14px; cursor:pointer; white-space:nowrap;
-                                font-family:'Noto Sans TC',sans-serif; transition:all 0.2s ease;
-                            " onmouseover="this.style.borderColor='#8A6820'" onmouseout="this.style.borderColor='#E5E2DE'">通知我</button>
+                            <div id="emailError" style="display:none; font-size:12px; color:#9C4A38; margin-top:4px;">
+                                請輸入有效的 Email 地址
+                            </div>
+
+                            <label style="display:flex; align-items:flex-start; gap:8px; margin-top:14px; cursor:pointer; font-size:13px; color:#666; line-height:1.6;">
+                                <input type="checkbox" id="newsletterOptIn" checked style="margin-top:3px; flex-shrink:0; accent-color:#8A6820;">
+                                <span>訂閱擇居電子報，收到最新買房資訊<br><span style="font-size:11px; color:#999;">不定期寄送，隨時可退訂</span></span>
+                            </label>
+
+                            <button id="pdfBtn" onclick="handlePdfDownload(this)" style="
+                                display:flex; align-items:center; justify-content:center; gap:8px;
+                                width:100%; font-family:'Noto Sans TC',sans-serif;
+                                font-size:14px; letter-spacing:0.08em;
+                                padding:14px; border-radius:12px; margin-top:16px;
+                                background:#8A6820; color:white; border:none;
+                                cursor:pointer; transition:all 0.2s ease;
+                            " onmouseover="this.style.background='#A67C52'" onmouseout="this.style.background='#8A6820'">
+                                <i data-lucide="send" class="w-4 h-4 stroke-[1.5]"></i>
+                                寄送報告到我的信箱
+                            </button>
+
+                            <p style="font-size:11px; color:#bbb; margin-top:10px; line-height:1.6; text-align:center;">
+                                提交即表示你同意擇居的<a href="privacy.html" target="_blank" style="color:#B8956A; text-decoration:underline;">隱私權政策</a>
+                            </p>
                         </div>
-                        <p style="font-size:11px; color:#bbb; line-height:1.6;">僅此用途，不會收到其他信件。</p>
+                    </div>
+
+                    <!-- 寄送成功後顯示 -->
+                    <div id="emailGateSuccess" style="display:none;">
+                        <div style="padding:16px; background:#E8F5E9; border-radius:12px; margin-bottom:16px;">
+                            <p style="font-size:14px; color:#2E7D32; font-weight:500;">✓ 報告已寄出</p>
+                            <p id="emailConfirmText" style="font-size:12px; color:#4A5D6A; margin-top:4px;"></p>
+                        </div>
+                        <button onclick="handlePdfDownload(this)" style="
+                            display:inline-flex; align-items:center; gap:8px;
+                            font-family:'Noto Sans TC',sans-serif;
+                            font-size:13px; padding:10px 24px; border-radius:12px;
+                            background:#fff; color:#8A6820; border:1px solid #E5E2DE;
+                            cursor:pointer;">
+                            <i data-lucide="send" class="w-4 h-4 stroke-[1.5]"></i>
+                            再寄一次
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LINE 登入 CTA（底部，用完工具後才出現） -->
+            <div id="lineLoginBanner" style="
+                display:none; margin-top:16px; padding:16px 20px;
+                background:#FAF8F5; border:1px solid #E8E2DA; border-radius:12px;
+                cursor:pointer; font-size:13px; color:#3D3D3D;"
+                onclick="CalcLineLiff.login()">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 5.83 2 10.5c0 3.06 2.04 5.73 5.08 7.23l-.73 2.67c-.06.22.18.4.38.28L10.32 18c.55.07 1.11.1 1.68.1 5.52 0 10-3.83 10-8.5S17.52 2 12 2z"/></svg>
+                    <div>
+                        <div style="font-weight:600; color:#3D3D3D;">用 LINE 帳號保存這份試算</div>
+                        <div style="font-size:12px; color:#999; margin-top:2px;">下次回來不用重填，換手機也不會丟</div>
                     </div>
                 </div>
             </div>
@@ -2768,44 +2817,93 @@
     // ============================================
     // EMAIL SAVE
     // ============================================
-    function saveToEmail() {
-        const email = document.getElementById('emailInput').value.trim();
-        if (!email || !email.includes('@')) {
-            document.getElementById('emailInput').style.borderColor = '#9C4A38';
+    // ══════════════════════════════════════════════
+    // PDF Email Gate — Tier 2 資料蒐集
+    // ══════════════════════════════════════════════
+    // ══════════════════════════════════════════════
+    // PDF Email Gate 流程
+    // ══════════════════════════════════════════════
+    var _lastSubmittedEmail = '';
+
+    function showEmailGate() {
+        document.getElementById('pdfTrigger').style.display = 'none';
+        document.getElementById('emailGateForm').style.display = 'block';
+        document.getElementById('emailGateSuccess').style.display = 'none';
+        // 如果之前填過，帶入
+        if (_lastSubmittedEmail) {
+            document.getElementById('pdfEmailInput').value = _lastSubmittedEmail;
+        }
+        setTimeout(function() {
+            document.getElementById('pdfEmailInput').focus();
+        }, 100);
+    }
+
+    async function handlePdfDownload(btn) {
+        var emailInput = document.getElementById('pdfEmailInput');
+        var email = emailInput.value.trim();
+        var errorEl = document.getElementById('emailError');
+
+        // 驗證 email
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailInput.style.borderColor = '#9C4A38';
+            if (errorEl) errorEl.style.display = 'block';
+            emailInput.focus();
             return;
         }
-        // 埋點：儲存到 Email（名單轉換信號）— 不記錄實際 email 只記錄動作
-        if (window.zeju) window.zeju.track('calculator_email_saved', {
+        emailInput.style.borderColor = '#E5E2DE';
+        if (errorEl) errorEl.style.display = 'none';
+        _lastSubmittedEmail = email;
+
+        var wantsNewsletter = document.getElementById('newsletterOptIn').checked;
+
+        // 存到 Firestore
+        try {
+            if (CalcFirebaseSync.initialized && CalcFirebaseSync.userId) {
+                await db.collection('users').doc(CalcFirebaseSync.userId).set({
+                    email: email,
+                    newsletterOptIn: wantsNewsletter,
+                    emailCollectedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    intentData: {
+                        priceWan: state.price,
+                        downPaymentPct: state.downPaymentPct,
+                        useYouthLoan: state.useYouthLoan,
+                        term: state.term,
+                        grace: state.grace,
+                        hasIncome: state.income > 0,
+                        incomeRange: state.income > 0 ? (state.income <= 5 ? '5萬以下' : state.income <= 10 ? '5-10萬' : state.income <= 15 ? '10-15萬' : '15萬以上') : null,
+                        collectedAt: new Date().toISOString()
+                    }
+                }, { merge: true });
+
+                await db.collection('emailSubscribers').doc(email.toLowerCase()).set({
+                    email: email,
+                    source: 'calculator_pdf',
+                    newsletterOptIn: wantsNewsletter,
+                    subscribedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    priceWan: state.price,
+                    useYouthLoan: state.useYouthLoan
+                }, { merge: true });
+            }
+        } catch(e) {
+            console.warn('Email 儲存失敗（不影響寄送）', e);
+        }
+
+        // 埋點
+        if (window.zeju) window.zeju.track('calculator_pdf_email_submitted', {
             price_wan: state.price,
-            use_youth_loan: state.useYouthLoan
+            newsletter_opt_in: wantsNewsletter
         });
 
-        // Build summary text
-        const price = state.price;
-        const loanAmount = price * (1 - state.downPaymentPct / 100);
-        const monthly = calcMonthlyPayment(loanAmount * 10000, state.rate, state.term - state.grace);
+        // 生成 PDF（目前先本地下載，未來接 email API 後改為寄送）
+        await generatePDF(btn);
 
-        const subject = encodeURIComponent('我的財務診斷結果｜擇居');
-        const body = encodeURIComponent(
-            '【我的財務診斷結果】\n\n' +
-            '房屋總價：' + formatWan(price) + ' 萬\n' +
-            '自備款：' + state.downPaymentPct + '%（' + formatWan(Math.round(price * state.downPaymentPct / 100)) + ' 萬）\n' +
-            '貸款利率：' + state.rate + '%\n' +
-            '貸款年限：' + state.term + ' 年\n' +
-            (state.grace > 0 ? '寬限期：' + state.grace + ' 年\n' : '') +
-            '每月房貸：約 ' + formatNumber(Math.round(monthly)) + ' 元\n\n' +
-            '——\n' +
-            '擇居｜先擇，後居\n' +
-            'https://howhouse.tw/calculator.html'
-        );
-
-        window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
-
-        // Visual feedback
-        const btn = document.querySelector('.email-input-row button');
-        btn.textContent = '已開啟郵件';
-        btn.style.background = '#4A5D6A';
-        setTimeout(() => { btn.textContent = '通知我'; btn.style.background = ''; }, 3000);
+        // 切換到成功狀態
+        document.getElementById('pdfTrigger').style.display = 'none';
+        document.getElementById('emailGateForm').style.display = 'none';
+        document.getElementById('emailGateSuccess').style.display = 'block';
+        document.getElementById('emailConfirmText').textContent =
+            '報告已寄到 ' + email;
+        lucide.createIcons();
     }
 
     // ============================================
@@ -2905,7 +3003,7 @@
     // ══════════════════════════════════════════════
     const CalcLineLiff = {
         ready: false,
-        liffId: '2009797886-geRkxqSN',
+        liffId: '2009797886-nrIICExE',  // 計算器專用 LIFF app
         profile: null,
 
         async init() {
@@ -3004,19 +3102,28 @@
             const banner = document.getElementById('lineLoginBanner');
             if (!banner) return;
 
+            // LINE 登入 CTA 只在結果區顯示時才出現（它在底部 PDF 區旁邊）
+            const resultsVisible = document.getElementById('resultsArea')?.classList.contains('visible');
+
             if (this.profile) {
-                const pic = this.profile.pictureUrl
-                    ? '<img src="' + this.profile.pictureUrl + '" style="width:24px;height:24px;border-radius:50%;flex-shrink:0;">'
-                    : '';
                 banner.onclick = null;
                 banner.style.cursor = 'default';
                 banner.style.background = '#E8F5E9';
-                banner.style.color = '#2E7D32';
-                banner.innerHTML = pic +
-                    '<span><strong>' + this.profile.displayName + '</strong> 已連結，試算結果會自動保存。</span>';
-                banner.style.display = 'flex';
-            } else if (this.ready && !liff.isLoggedIn()) {
-                banner.style.display = 'flex';
+                banner.style.borderColor = '#C8E6C9';
+                const pic = this.profile.pictureUrl
+                    ? '<img src="' + this.profile.pictureUrl + '" style="width:28px;height:28px;border-radius:50%;flex-shrink:0;">'
+                    : '';
+                banner.innerHTML =
+                    '<div style="display:flex; align-items:center; gap:10px;">' +
+                        pic +
+                        '<div>' +
+                            '<div style="font-weight:600; color:#2E7D32;">' + this.profile.displayName + ' 已連結</div>' +
+                            '<div style="font-size:12px; color:#4A5D6A; margin-top:2px;">試算結果會自動保存，換裝置也不會丟</div>' +
+                        '</div>' +
+                    '</div>';
+                banner.style.display = resultsVisible ? 'block' : 'none';
+            } else if (this.ready && !liff.isLoggedIn() && resultsVisible) {
+                banner.style.display = 'block';
             } else {
                 banner.style.display = 'none';
             }
@@ -3036,6 +3143,10 @@
         } catch(e) {}
         // 推到雲端
         CalcFirebaseSync.schedulePush();
+        // 結果區顯示後，更新 LINE 登入 CTA 的可見性
+        if (CalcLineLiff.ready || CalcLineLiff.profile) {
+            CalcLineLiff.renderLoginUI();
+        }
     };
 
     // ══════════════════════════════════════════════
@@ -3245,19 +3356,21 @@
             console.warn('Firebase 初始化失敗（離線模式）', e);
         }
 
-        // 顯示回訪提示
+        // 顯示回訪提示（只在結果區已顯示時）
         if (hasLocal) {
-            var banner = document.getElementById('savedResultBanner');
-            banner.style.display = 'flex';
-            // 捲動到結果區
             setTimeout(function() {
-                var resultEl = document.getElementById('coreResult');
-                if (resultEl && resultEl.style.display !== 'none') {
+                var resultsArea = document.getElementById('resultsArea');
+                var coreResult = document.getElementById('coreResult');
+                if (resultsArea && resultsArea.classList.contains('visible') &&
+                    coreResult && coreResult.style.display !== 'none') {
+                    var banner = document.getElementById('savedResultBanner');
+                    banner.style.display = 'flex';
+                    // 捲動到回訪提示
                     var navH = document.querySelector('nav.sticky')?.offsetHeight || 0;
-                    var targetY = resultEl.getBoundingClientRect().top + window.pageYOffset - navH - 16;
+                    var targetY = banner.getBoundingClientRect().top + window.pageYOffset - navH - 16;
                     window.scrollTo({ top: targetY, behavior: 'smooth' });
                 }
-            }, 300);
+            }, 500);
         }
 
         // LINE LIFF
