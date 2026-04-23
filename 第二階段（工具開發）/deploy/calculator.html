@@ -3157,10 +3157,10 @@
             const banner = document.getElementById('lineLoginBanner');
             if (!banner) return;
 
-            // LINE 登入 CTA 只在結果區顯示時才出現（它在底部 PDF 區旁邊）
             const resultsVisible = document.getElementById('resultsArea')?.classList.contains('visible');
 
             if (this.profile) {
+                // 已登入 — 永遠更新內容（不管結果區是否可見）
                 banner.onclick = null;
                 banner.style.cursor = 'default';
                 banner.style.background = '#E8F5E9';
@@ -3176,9 +3176,12 @@
                             '<div style="font-size:12px; color:#4A5D6A; margin-top:2px;">試算結果會自動保存，換裝置也不會丟</div>' +
                         '</div>' +
                     '</div>';
+                // 標記已更新（給 calculate 的 callback 用）
+                banner.dataset.loggedIn = '1';
                 banner.style.display = resultsVisible ? 'block' : 'none';
-            } else if (this.ready && !liff.isLoggedIn() && resultsVisible) {
-                banner.style.display = 'block';
+            } else if (this.ready && !liff.isLoggedIn()) {
+                banner.dataset.loggedIn = '';
+                banner.style.display = resultsVisible ? 'block' : 'none';
             } else {
                 banner.style.display = 'none';
             }
@@ -3199,7 +3202,12 @@
         // 推到雲端
         CalcFirebaseSync.schedulePush();
         // 結果區顯示後，更新 LINE 登入 CTA 的可見性
-        if (CalcLineLiff.ready || CalcLineLiff.profile) {
+        var lineBanner = document.getElementById('lineLoginBanner');
+        if (CalcLineLiff.profile) {
+            // 已登入 — 確保 banner 顯示且內容是已連結狀態
+            if (!lineBanner.dataset.loggedIn) CalcLineLiff.renderLoginUI();
+            else lineBanner.style.display = 'block';
+        } else if (CalcLineLiff.ready) {
             CalcLineLiff.renderLoginUI();
         }
     };

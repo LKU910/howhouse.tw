@@ -264,6 +264,14 @@
         }
 
         /* Mobile: tools CTA block */
+        /* Hero 電腦版/手機版切換 — 不依賴 Tailwind responsive class */
+        .hero-right-desktop { display: none; }
+        .hero-right-mobile  { display: block; }
+        @media (min-width: 1024px) {
+            .hero-right-desktop { display: block; }
+            .hero-right-mobile  { display: none; }
+        }
+
         .hero-tools-cta {
             display: block;
             text-decoration: none;
@@ -585,7 +593,7 @@
             </div>
 
             <!-- 電腦版：右側描述 + 工具列表 -->
-            <div class="hidden lg:block lg:col-span-4">
+            <div class="lg:col-span-4 hero-right-desktop">
                 <div class="font-sans text-lg text-stone-600 leading-relaxed mb-10 max-w-sm hero-desc-wrap">
                     <span id="heroDesc">買房是一連串的選擇。<br>每一步，都值得慢慢想。<br>不急，我們陪你從頭走到尾。</span>
                 </div>
@@ -614,7 +622,7 @@
             </div>
 
             <!-- 手機版：描述文字 + 決策工具大按鈕 -->
-            <div class="lg:hidden">
+            <div class="hero-right-mobile">
                 <div class="font-sans text-base text-stone-600 leading-relaxed mt-2 mb-8 hero-desc-wrap">
                     <span id="heroDescMobile">買房是一連串的選擇。<br>每一步，都值得慢慢想。<br>不急，我們陪你從頭走到尾。</span>
                 </div>
