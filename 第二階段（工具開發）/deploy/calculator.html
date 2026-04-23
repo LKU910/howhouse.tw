@@ -3193,22 +3193,27 @@
     // ══════════════════════════════════════════════
     const _origCalculate = calculate;
     calculate = function() {
-        _origCalculate();
+        try { _origCalculate(); } catch(e) { console.error('calculate error:', e); }
         // 儲存到 localStorage
         try {
             localStorage.setItem('zeju-calc-state', JSON.stringify(state));
             localStorage.setItem('zeju-calc-hasResult', '1');
         } catch(e) {}
         // 推到雲端
-        CalcFirebaseSync.schedulePush();
+        try { CalcFirebaseSync.schedulePush(); } catch(e) {}
         // 結果區顯示後，更新 LINE 登入 CTA 的可見性
-        var lineBanner = document.getElementById('lineLoginBanner');
-        if (CalcLineLiff.profile) {
-            // 已登入 — 確保 banner 顯示且內容是已連結狀態
-            if (!lineBanner.dataset.loggedIn) CalcLineLiff.renderLoginUI();
-            else lineBanner.style.display = 'block';
-        } else if (CalcLineLiff.ready) {
-            CalcLineLiff.renderLoginUI();
+        try {
+            var lineBanner = document.getElementById('lineLoginBanner');
+            if (lineBanner) {
+                if (CalcLineLiff.profile) {
+                    if (!lineBanner.dataset.loggedIn) CalcLineLiff.renderLoginUI();
+                    else lineBanner.style.display = 'block';
+                } else if (CalcLineLiff.ready) {
+                    CalcLineLiff.renderLoginUI();
+                }
+            }
+        } catch(e) {
+            console.warn('LINE banner update error:', e);
         }
     };
 
@@ -3267,15 +3272,9 @@
         var renovRow = document.getElementById('renovationBudgetRow');
         if (renovRow) renovRow.style.display = 'none';
 
-        // 隱藏整個結果區
+        // 隱藏整個結果區（移除 visible class 即可，不要設個別卡片的 inline display）
         var resultsArea = document.getElementById('resultsArea');
         if (resultsArea) resultsArea.classList.remove('visible');
-
-        // 也隱藏個別結果卡片（下次 calculate 時會重新顯示）
-        ['coreResult','holdingCostResult','lifeImpactResult','stressTestResult','spectrumResult'].forEach(function(id) {
-            var el = document.getElementById(id);
-            if (el) el.style.display = 'none';
-        });
 
         // 重置 PDF email gate 狀態
         var pdfTrigger = document.getElementById('pdfTrigger');
