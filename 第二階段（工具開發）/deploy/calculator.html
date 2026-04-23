@@ -2797,6 +2797,11 @@
         const fname = '我的財務診斷報告書_擇居_' + now.getFullYear() +
             (now.getMonth()+1).toString().padStart(2,'0') +
             now.getDate().toString().padStart(2,'0') + '.pdf';
+        // 如果 returnBase64 模式，回傳 base64 不下載
+        if (btn && btn._returnBase64) {
+            btn._pdfResult = doc.output('datauristring').split(',')[1]; // 純 base64
+            return;
+        }
         doc.save(fname);
 
         btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 stroke-[1.5]"></i> 已下載';
@@ -2894,15 +2899,65 @@
             newsletter_opt_in: wantsNewsletter
         });
 
-        // 生成 PDF（目前先本地下載，未來接 email API 後改為寄送）
+        // 生成 PDF 為 base64
+        btn._returnBase64 = true;
+        btn._pdfResult = null;
         await generatePDF(btn);
+        var pdfBase64 = btn._pdfResult;
+        btn._returnBase64 = false;
+
+        if (!pdfBase64) {
+            // PDF 生成失敗，fallback 文案已在 generatePDF 內處理
+            return;
+        }
+
+        // 更新按鈕狀態
+        var origHTML = btn.innerHTML;
+        btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 stroke-[1.5]"></i> 寄送中...';
+        btn.disabled = true;
+
+        // 透過 API 寄出 email
+        var emailSent = false;
+        try {
+            var loanAmount = state.price * (1 - state.downPaymentPct / 100);
+            var monthlyPayment = Math.round(calcMonthlyPayment(loanAmount * 10000,
+                state.useYouthLoan ? CONFIG.youthRate : state.rate,
+                state.term - state.grace));
+
+            var apiRes = await fetch('/api/send-report', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    pdfBase64: pdfBase64,
+                    summary: {
+                        price: formatNumber(state.price),
+                        monthly: formatNumber(monthlyPayment),
+                        downPaymentPct: state.downPaymentPct
+                    }
+                })
+            });
+
+            if (apiRes.ok) {
+                emailSent = true;
+            } else {
+                var errData = await apiRes.json().catch(function() { return {}; });
+                console.warn('Email API error:', errData);
+            }
+        } catch(e) {
+            console.warn('Email 寄送失敗:', e);
+        }
+
+        btn.innerHTML = origHTML;
+        btn.disabled = false;
 
         // 切換到成功狀態
         document.getElementById('pdfTrigger').style.display = 'none';
         document.getElementById('emailGateForm').style.display = 'none';
         document.getElementById('emailGateSuccess').style.display = 'block';
-        document.getElementById('emailConfirmText').textContent =
-            '報告已寄到 ' + email;
+        document.getElementById('emailConfirmText').textContent = emailSent
+            ? '報告已寄到 ' + email + '，請查看信箱（含垃圾郵件匣）'
+            : '寄送暫時失敗，請稍後再試。你也可以截圖保存結果。';
         lucide.createIcons();
     }
 
@@ -3204,11 +3259,27 @@
         var renovRow = document.getElementById('renovationBudgetRow');
         if (renovRow) renovRow.style.display = 'none';
 
-        // 隱藏結果區
+        // 隱藏整個結果區
+        var resultsArea = document.getElementById('resultsArea');
+        if (resultsArea) resultsArea.classList.remove('visible');
+
+        // 也隱藏個別結果卡片（下次 calculate 時會重新顯示）
         ['coreResult','holdingCostResult','lifeImpactResult','stressTestResult','spectrumResult'].forEach(function(id) {
             var el = document.getElementById(id);
             if (el) el.style.display = 'none';
         });
+
+        // 重置 PDF email gate 狀態
+        var pdfTrigger = document.getElementById('pdfTrigger');
+        if (pdfTrigger) pdfTrigger.style.display = 'block';
+        var emailGateForm = document.getElementById('emailGateForm');
+        if (emailGateForm) emailGateForm.style.display = 'none';
+        var emailGateSuccess = document.getElementById('emailGateSuccess');
+        if (emailGateSuccess) emailGateSuccess.style.display = 'none';
+
+        // 隱藏 LINE 登入 CTA（結果區沒了就不該顯示）
+        var lineBanner = document.getElementById('lineLoginBanner');
+        if (lineBanner) lineBanner.style.display = 'none';
 
         // 清除 localStorage 標記
         try {
