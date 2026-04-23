@@ -2845,17 +2845,19 @@
 
     async function handlePdfDownload(btn) {
         var emailInput = document.getElementById('pdfEmailInput');
-        var email = emailInput.value.trim();
+        var email = (emailInput && emailInput.value) ? emailInput.value.trim() : _lastSubmittedEmail;
         var errorEl = document.getElementById('emailError');
 
         // 驗證 email
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            emailInput.style.borderColor = '#9C4A38';
+            if (emailInput) {
+                emailInput.style.borderColor = '#9C4A38';
+                emailInput.focus();
+            }
             if (errorEl) errorEl.style.display = 'block';
-            emailInput.focus();
             return;
         }
-        emailInput.style.borderColor = '#E5E2DE';
+        if (emailInput) emailInput.style.borderColor = '#E5E2DE';
         if (errorEl) errorEl.style.display = 'none';
         _lastSubmittedEmail = email;
 
@@ -2977,9 +2979,15 @@
     }
 
     function retryPdfSend() {
-        // 回到 email gate 表單讓用戶重新送出
-        document.getElementById('emailGateSuccess').style.display = 'none';
-        document.getElementById('emailGateForm').style.display = 'block';
+        // 直接用上次填的 email 重新寄送
+        var btn = document.getElementById('retrySendBtn');
+        if (_lastSubmittedEmail && btn) {
+            handlePdfDownload(btn);
+        } else {
+            // fallback：回到表單
+            document.getElementById('emailGateSuccess').style.display = 'none';
+            document.getElementById('emailGateForm').style.display = 'block';
+        }
     }
 
     // ============================================
