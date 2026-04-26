@@ -25,8 +25,9 @@
 | 建商頁產出目錄 | `第二階段（工具開發）/deploy/` |
 | 建商列表頁 | `第二階段（工具開發）/deploy/builders.html` |
 | sitemap | `第二階段（工具開發）/deploy/sitemap.xml` |
-| 模板參考（完整版） | `第二階段（工具開發）/deploy/builder-huaku.html` |
-| 模板參考（有集團子公司寫法） | `第二階段（工具開發）/deploy/builder-baojia.html` |
+| **模板（完整版 1500+ 行 — 必用）** | `第二階段（工具開發）/deploy/builder-baojia.html` |
+| 模板參考（有警示標籤的寫法） | `第二階段（工具開發）/deploy/builder-baojia.html`（有 warn 案件展開示範） |
+| 模板參考（單純無警示的長版） | `第二階段（工具開發）/deploy/builder-cathay.html` |
 
 ---
 
@@ -34,10 +35,11 @@
 
 ### 步驟 1 — 讀取佇列並挑選標的
 
-讀 `builder-queue.json`，找第一筆符合以下條件之一：
+讀 `builder-queue.json`，找第一筆符合以下條件之一（**優先順序由上而下**）：
 
-- `status == "pending"` 且 `attempt_count < _meta.max_attempts_before_skip`
-- `status == "in_progress"`（代表上次排程中斷，要接續或重做）
+1. `status == "pending_upgrade"`（**升級任務優先**：把過去做的短版升級為長版）
+2. `status == "pending"` 且 `attempt_count < _meta.max_attempts_before_skip`
+3. `status == "in_progress"`（代表上次排程中斷，要接續或重做）
 
 **`status == "paused"` 要跳過**，代表 Kuan 暫時擱置；除非 Kuan 手動改回 pending，不要處理。
 **`status == "done"`／`"skipped"`** 當然也跳過。
@@ -45,6 +47,21 @@
 若找不到，直接回報「佇列已空，無需處理」並結束。
 
 **將該筆改為 `status: "in_progress"`**、`attempt_count` +1、`last_attempt` 填入當前 ISO 時間（請用 bash `date -u +%Y-%m-%dT%H:%M:%SZ`）。**立刻把佇列檔存回**，再繼續下一步。
+
+### 步驟 1.5 — 判定模式：新建 vs 升級
+
+讀取選定的這筆紀錄：
+
+- 若 `status == "pending_upgrade"`：**升級模式**（把過去做的短版升級為長版）
+  - 讀取既有的 `completed_slug` 取得舊頁面 slug
+  - 仍要走完整查證（步驟 2、2.5、4 — 因為升級的目的就是補司法／輿情／品質深度，需要重做）
+  - 但可以**重用** `builders.html` 陣列中該筆的核心資料（核對是否與你查到的最新資料一致；若 builders.html 中的資料較新，採信 builders.html；若你查到更新的資料，更新 builders.html 同筆）
+  - 步驟 5 用 baojia 長版模板**覆寫**舊 HTML（要先刪舊檔再寫新檔，避免內容殘留）
+  - 步驟 6（builders.html 陣列）：**不新增筆**，僅更新該筆欄位（如有變動）
+  - 步驟 7（sitemap.xml）：找到該 url 的 `<lastmod>` 改為今天日期（不新增 url）
+  - 步驟 8 改為：`status: "done"`，新增欄位 `upgraded_at: {ISO 時間}`
+
+- 若 `status == "pending"`：**新建模式**（一般流程，產新 HTML 並更新所有檔案）
 
 ### 步驟 2 — 核心資料查證（六欄必達）
 
@@ -133,7 +150,9 @@
 
 ### 步驟 5 — 產出 HTML
 
-複製 `builder-huaku.html` 為模板（1558 行結構已含完整版所有區塊），逐欄替換內容。**不要更動 <style>、<nav>、<footer>、<script> 區塊**。
+複製 `builder-baojia.html` 為模板（1641 行的長版完整結構），逐欄替換內容。**不要更動 <style>、<nav>、<footer>、<script> 區塊**。
+
+⚠️ **務必使用長版模板（baojia, 1500+ 行），不要用短版（500-700 行）**。早期 SOP 誤指 huaku 為模板（實際是短版），已於 2026-04-26 修正。短版頁面的司法紀錄、輿情卡片、品質四子區塊都被簡化掉，不符擇居「簽約前多看一眼」的定位。
 
 關鍵替換點（對應 baojia 參考）：
 - `<title>{name_zh} 建商履歷｜擇居</title>`
