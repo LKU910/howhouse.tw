@@ -5,22 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noai, noimageai">
-  <title>寶璽建設 建商履歷｜擇居</title>
-    <meta name="description" content="寶璽建設開發股份有限公司（SIGNET）建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。台中七期豪宅指標建商，資料僅供參考，購屋前請自行查證。">
-    <meta name="keywords" content="寶璽建設,SIGNET,寶璽天睿,寶璽天讚,寶璽睿觀,寶璽建設評價,寶璽建設建案,建商履歷,擇居">
-    <link rel="canonical" href="https://howhouse.tw/builder-baoxi.html">
+  <title>國泰建設 建商履歷｜擇居</title>
+    <meta name="description" content="國泰建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。資料僅供參考，購屋前請自行查證。">
+    <meta name="keywords" content="國泰建設,國泰建設評價,國泰建設建案,國泰建設司法紀錄,建商履歷,擇居">
+    <link rel="canonical" href="https://howhouse.tw/builder-cathay.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="寶璽建設 建商履歷｜擇居">
-    <meta property="og:description" content="寶璽建設開發股份有限公司（SIGNET）建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
-    <meta property="og:url" content="https://howhouse.tw/builder-baoxi.html">
+    <meta property="og:title" content="國泰建設 建商履歷｜擇居">
+    <meta property="og:description" content="國泰建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <meta property="og:url" content="https://howhouse.tw/builder-cathay.html">
     <meta property="og:site_name" content="擇居">
     <meta property="og:locale" content="zh_TW">
     <meta property="og:image" content="https://howhouse.tw/og/default.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="寶璽建設 建商履歷｜擇居">
-    <meta name="twitter:description" content="寶璽建設開發股份有限公司建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <meta name="twitter:title" content="國泰建設 建商履歷｜擇居">
+    <meta name="twitter:description" content="國泰建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -47,9 +47,6 @@
       color: #121212;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      word-break: break-word;
-      -webkit-text-size-adjust: 100%;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -122,7 +119,7 @@
     }
 
     .hero-en {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       margin-bottom: 24px;
@@ -149,7 +146,7 @@
     }
 
     .stat-key {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
     }
@@ -162,7 +159,7 @@
     }
 
     .last-update {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       margin-top: 32px;
@@ -192,7 +189,7 @@
     }
 
     .subnav-item {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       padding: 16px 20px;
@@ -234,7 +231,7 @@
     }
 
     .section-header {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       margin-bottom: 32px;
@@ -257,20 +254,13 @@
       align-items: baseline;
     }
 
-    @media (max-width: 640px) {
-      .fact-row {
-        grid-template-columns: 100px 1fr;
-        gap: 16px;
-      }
-    }
-
     .fact-row:last-child {
       border-bottom: none;
       padding-bottom: 0;
     }
 
     .fact-label {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       font-weight: 500;
@@ -279,7 +269,7 @@
     .fact-value {
       font-size: 14px;
       color: #121212;
-      line-height: 1.7;
+      line-height: 1.6;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -300,7 +290,7 @@
     }
 
     .data-footnote {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       margin-top: 32px;
@@ -315,7 +305,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       padding: 12px 16px;
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       cursor: pointer;
       transition: all 500ms;
@@ -330,12 +320,6 @@
 
     .toggle-btn:focus {
       outline: none;
-    }
-
-    @media (max-width: 768px) {
-    }
-
-    @media (max-width: 768px) {
     }
 
     .region-group {
@@ -392,7 +376,7 @@
     }
 
     .quality-title {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       font-weight: 600;
@@ -460,17 +444,10 @@
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
       margin-bottom: 80px;
-      overflow-x: hidden;
-    }
-
-    @media (max-width: 768px) {
-      .legal-section {
-        padding: 48px 24px;
-      }
     }
 
     .legal-header-label {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       margin-bottom: 40px;
@@ -502,7 +479,7 @@
     }
 
     .legal-stat-label {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       font-weight: 600;
@@ -562,7 +539,7 @@
     }
 
     .legal-item-type {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       font-weight: 600;
@@ -591,7 +568,7 @@
     }
 
     .legal-item-year {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.08em;
       color: #666666;
       min-width: 60px;
@@ -706,7 +683,7 @@
     }
 
     .sentiment-platform {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.04em;
       color: #666666;
       font-weight: 600;
@@ -743,7 +720,7 @@
     }
 
     .sentiment-warning {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #666666;
@@ -841,7 +818,7 @@
 
     /* ── Disclaimer ── */
     .page-disclaimer {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.08em;
       color: #666666;
       line-height: 1.8;
@@ -974,9 +951,9 @@
       margin: 0 auto;
       padding: 56px 40px 0;
     }
-  
+
     /* ══════════════════════════════════════════════
-       BRIDGE CSS: Reskin old class names to new 
+       BRIDGE CSS: Reskin old class names to new
        Swiss Design / Architectural Magazine aesthetic
        ══════════════════════════════════════════════ */
 
@@ -989,12 +966,12 @@
     .hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; background: transparent; }
     .hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
     @media (min-width: 768px) { .hero-name { font-size: 60px; } }
-    .hero-en { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
+    .hero-en { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
     .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-    .hero-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; background: transparent; }
+    .hero-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; background: transparent; }
     .hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; padding: 0; border-top: 1px solid #E5E5E5; margin-top: 24px; }
     .hs-card { background: #FAFAFA; padding: 24px; border: none; }
-    .hs-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; }
     .hs-value { font-size: 16px; font-weight: 300; color: #121212; letter-spacing: 0; line-height: 1.4; margin-bottom: 8px; font-family: 'Noto Sans TC', sans-serif; }
     .hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; letter-spacing: 0.04em; }
     .hs-src:hover { color: #8A6820; }
@@ -1003,7 +980,7 @@
     .snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
     .snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; overflow-x: auto; }
     .snav-inner::-webkit-scrollbar { display: none; }
-    .snav-item { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; font-family: 'Noto Sans TC', sans-serif; }
     .snav-item:hover { color: #121212; }
     .snav-item.is-official:hover, .snav-item.is-official.is-active { color: #4A5D6A; border-bottom-color: #4A5D6A; }
     .snav-item.is-sentiment:hover, .snav-item.is-sentiment.is-active { color: #8A6820; border-bottom-color: #8A6820; }
@@ -1011,11 +988,11 @@
 
     /* ── Tier Headers ── */
     .tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
-    .tier-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; background: transparent; }
+    .tier-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; background: transparent; }
     .tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
     .tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
     .tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
-    .tier-note { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
+    .tier-note { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
 
     /* ── Cards / Sections ── */
     .card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px; background: transparent; }
@@ -1027,16 +1004,16 @@
     .fact-table { display: flex; flex-direction: column; }
     .fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; align-items: baseline; }
     .fact-row:last-child { border-bottom: none; }
-    .fact-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; font-family: 'Noto Sans TC', sans-serif; }
+    .fact-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; font-family: 'Noto Sans TC', sans-serif; }
     .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; line-height: 1.6; }
-    .data-footnote { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 24px; text-align: right; }
+    .data-footnote { font-size: 11px; letter-spacing: 0.04em; color: #666666; margin-top: 24px; text-align: right; }
 
     /* ── Source Links ── */
     a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; padding: 4px 0; text-decoration: none; white-space: nowrap; transition: color 500ms; letter-spacing: 0.04em; border: none; background: none; }
     a.src:hover { color: #8A6820; }
 
     /* ── Projects Table ── */
-    .proj-toggle-btn { font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; background: none; border: 1px solid #121212; padding: 10px 16px; cursor: pointer; transition: all 500ms; color: #121212; }
+    .proj-toggle-btn { font-family: 'Noto Sans TC', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; background: none; border: 1px solid #121212; padding: 10px 16px; cursor: pointer; transition: all 500ms; color: #121212; }
     .proj-toggle-btn:hover { background: #121212; color: #FAFAFA; }
     /* Expandable region section */
     .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
@@ -1050,7 +1027,7 @@
     .q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
     .q-sub:first-child { padding-top: 0; }
     .q-sub:last-child { border-bottom: none; padding-bottom: 0; }
-    .q-sub-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; font-family: 'Noto Sans TC', sans-serif; }
+    .q-sub-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; font-family: 'Noto Sans TC', sans-serif; }
     .q-body { font-size: 16px; line-height: 1.7; color: #121212; }
     .q-body strong { color: #121212; font-weight: 600; }
     .q-warn { font-size: 12px; color: #9C4A38; margin-top: 12px; }
@@ -1059,7 +1036,7 @@
     .legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; margin-bottom: 32px; }
     .lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
     .lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; letter-spacing: -1.5px; margin-bottom: 8px; }
-    .lb-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    .lb-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
     .lb-green { color: #4A5D6A; }
     .lb-orange { color: #9C4A38; }
     .lb-red { color: #9C4A38; }
@@ -1076,12 +1053,12 @@
     .sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
     .sev-high { background: #9C4A38; }
     .sev-low { background: #8A8A8A; }
-    .legal-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
+    .legal-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
     .t-admin { color: #666666; }
     .t-criminal { color: #9C4A38; }
     .t-civil { color: #4A5D6A; }
     .legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; line-height: 1.5; transition: color 500ms; }
-    .legal-year { font-size: 11px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
+    .legal-year { font-size: 10px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
     .legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; transition: transform 300ms; flex-shrink: 0; }
     .legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; margin-left: 3px; }
     .legal-body.open { display: block; }
@@ -1096,7 +1073,7 @@
 
     /* ── Tier 2 Divider ── */
     .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
-    .t2d-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
+    .t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
     .t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
     .t2d-desc strong { color: #121212; font-weight: 500; }
 
@@ -1121,10 +1098,10 @@
     .sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
     .sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
     .sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-    .sent-platform { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
+    .sent-platform { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
     .sent-date { font-size: 11px; color: #666666; }
     .sent-dot { width: 3px; height: 3px; background: #8A8A8A; flex-shrink: 0; }
-    .tone { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
+    .tone { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
     .tone-pos { color: #4A5D6A; }
     .tone-neg { color: #9C4A38; }
     .tone-neu { color: #666666; }
@@ -1133,25 +1110,25 @@
     .sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .sent-warning { font-size: 11px; color: #666666; }
     .search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
-    .sl-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
+    .sl-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
     .sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
 
     /* ── Contact Block ── */
     .contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
     .c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
     .c-desc { font-size: 13px; color: #666666; line-height: 1.7; }
-    .contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
     .contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
 
     /* ── Page Footer ── */
     .page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; background: transparent; }
 
     /* ── Tags ── */
-    .rel-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; vertical-align: baseline; border: 1px solid; }
+    .rel-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; vertical-align: baseline; border: 1px solid; }
     .rel-owned { color: #4A5D6A; border-color: #4A5D6A; background: none; }
     .rel-invest { color: #8A6820; border-color: #8A6820; background: none; }
     .rel-partner { color: #666666; border-color: #E5E5E5; background: none; }
-    .sub-brand-badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; color: #8A6820; border: 1px solid #8A6820; margin-right: 6px; background: none; }
+    .sub-brand-badge { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; color: #8A6820; border: 1px solid #8A6820; margin-right: 6px; background: none; }
     .proj-sub-brand td { background: transparent !important; }
 
     /* ── Responsive ── */
@@ -1198,15 +1175,20 @@
   {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "寶璽建設開發股份有限公司",
-      "alternateName": "SIGNET PROPERTIES CO., LTD.",
-      "url": "https://howhouse.tw/builder-baoxi.html",
-      "description": "寶璽建設 建商履歷與評價 - 擇居提供的建商資訊頁面",
-      "areaServed": "TW",
+      "name": "國泰建設股份有限公司",
+      "alternateName": "Cathay Real Estate Development Co.",
+      "url": "https://www.cathay-red.com.tw/",
+      "logo": "https://howhouse.tw/favicon.svg",
+      "description": "國泰建設為台灣上市建商，成立於1964年，隸屬國泰金融控股集團，以高端住宅與地標建案著稱，主要市場集中於台北市信義區及精華地段。",
+      "foundingDate": "1964",
+      "areaServed": "Taiwan",
+      "sameAs": [
+          "https://www.cathay-red.com.tw/"
+      ],
       "contactPoint": {
           "@type": "ContactPoint",
-          "contactType": "customer service",
-          "availableLanguage": "Chinese"
+          "contactType": "Sales",
+          "areaServed": "Taiwan"
       }
   }
   </script>
@@ -1271,39 +1253,40 @@
 <div class="page">
   <button class="back-btn" onclick="history.back()">← 返回建商履歷卡</button>
 
-  <div style="background:#F4F4F4;padding:16px 20px;margin-bottom:32px;font-size:12px;color:#666;line-height:1.7;">
-    <strong style="color:#121212;">資料聲明</strong>：本頁資料整理自公開來源（經濟部商業司、司法院、公平交易委員會、PTT、Mobile01 等），可能存在錯誤、遺漏或已過時之情形。本站不保證資料之正確性與完整性，亦不對因使用本站資訊所致之任何損失負責。所有內容僅供參考，不構成任何投資或購屋建議。如發現資料有誤，歡迎<a href="about.html#contact" style="color:#4A5D6A;">來信回報</a>。
-  </div>
-
   <div class="hero">
-    <h1 class="hero-name">寶璽建設</h1>
-    <div class="hero-en">Signet Properties Co., Ltd. · 寶璽建設開發股份有限公司</div>
+    <h1 class="hero-name">國泰建設</h1>
+    <div class="hero-en">Cathay Real Estate Development Co. · 股份有限公司</div>
     <div class="hero-tags">
-      <span class="hero-tag">未上市</span>
-      <span class="hero-tag">成立 1987 年</span>
-      <span class="hero-tag">台中七期</span>
-      <span class="hero-tag">豪宅指標</span>
+      <span class="hero-tag">上市 2501</span>
+      <span class="hero-tag">成立 1964 年</span>
+      <span class="hero-tag">國泰金控</span>
+      <span class="hero-tag">高端住宅</span>
     </div>
     <div class="hero-bento">
       <div class="hs-card">
-        <div class="hs-label">統一編號</div>
-        <div class="hs-value">22420857</div>
-        <a href="https://www.twincn.com/item.aspx?no=22420857" target="_blank" class="hs-src">台灣公司網 ↗</a>
+        <div class="hs-label">上市代號</div>
+        <div class="hs-value">2501</div>
+        <a href="https://www.twincn.com/item.aspx?no=03374306" target="_blank" class="hs-src">商業司 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">實收資本額</div>
-        <div class="hs-value">NT$ 2.001 億</div>
-        <a href="https://www.twincn.com/item.aspx?no=22420857" target="_blank" class="hs-src">台灣公司網 ↗</a>
+        <div class="hs-value">NT$ 115.96 億</div>
+        <a href="https://www.twincn.com/item.aspx?no=03374306" target="_blank" class="hs-src">商業司 ↗</a>
       </div>
       <div class="hs-card">
-        <div class="hs-label">公司代表人</div>
-        <div class="hs-value">周白雪</div>
-        <a href="https://opengovtw.com/ban/22420857" target="_blank" class="hs-src">opengovtw ↗</a>
+        <div class="hs-label">董事長</div>
+        <div class="hs-value">張清櫆</div>
+        <a href="https://www.twincn.com/item.aspx?no=03374306" target="_blank" class="hs-src">商業司 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">登記地址</div>
-        <div class="hs-value" style="font-size:13px;letter-spacing:0">臺中市西屯區市政路 66 號</div>
-        <a href="https://www.twincn.com/item.aspx?no=22420857" target="_blank" class="hs-src">台灣公司網 ↗</a>
+        <div class="hs-value" style="font-size:13px;letter-spacing:0">台北市信義區松仁路 66 號</div>
+        <a href="https://www.twincn.com/item.aspx?no=03374306" target="_blank" class="hs-src">商業司 ↗</a>
+      </div>
+      <div class="hs-card">
+        <div class="hs-label">集團</div>
+        <div class="hs-value">國泰金融控股公司</div>
+        <a href="https://www.twincn.com/item.aspx?no=03374306" target="_blank" class="hs-src">商業司 ↗</a>
       </div>
     </div>
   </div>
@@ -1327,95 +1310,50 @@
   <div id="sec-reg" class="card">
     <div class="sec-label">基本資料</div>
     <div class="fact-table">
-      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">寶璽建設開發股份有限公司（SIGNET PROPERTIES CO., LTD.）<a class="src" href="https://www.twincn.com/item.aspx?no=22420857" target="_blank">來源 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">22420857 <a class="src" href="https://www.twincn.com/item.aspx?no=22420857" target="_blank">來源 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">1987 年 3 月 6 日（民國 76 年）<a class="src" href="https://www.twincn.com/item.aspx?no=22420857" target="_blank">來源 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">未上市未上櫃（私人企業）</span></div>
-      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 2.001 億元（200,100,000 元）<a class="src" href="https://www.twincn.com/item.aspx?no=22420857" target="_blank">來源 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">公司代表人</span><span class="fact-val">周白雪（登記代表人）；創辦人為梁德煌 <a class="src" href="https://opengovtw.com/ban/22420857" target="_blank">來源 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">臺中市西屯區市政路 66 號 <a class="src" href="https://www.twincn.com/item.aspx?no=22420857" target="_blank">來源 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">台中七期重劃區、台中市政中心精華地段；以「寶璽天睿」「寶璽天讚」「寶璽睿觀」「寶璽高第」「寶璽公園爵邸」「寶璽美第」等中高端豪宅與大坪數住宅為主軸 <a class="src" href="https://www.signet.tw/" target="_blank">官網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">市場地位</span><span class="fact-val">PTT、果仁家、ForgeMind 等公開排名常列入台中 T1（最高等級／買了超安心）建商之列；自 1986 年自立門戶後深耕七期豪宅近 40 年 <a class="src" href="https://applealmondrealty.com/posts/12595" target="_blank">果仁家 2024 評等 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">國泰建設股份有限公司 <a class="src" href="https://www.twincn.com/item.aspx?no=03374306" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">03374306 <a class="src" href="https://www.twincn.com/item.aspx?no=03374306" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">1964 年 <a class="src" href="https://www.twincn.com/item.aspx?no=03374306" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">上市公司（上市代號：2501）</span></div>
+      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 115.96 億元 <a class="src" href="https://www.twincn.com/item.aspx?no=03374306" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">董事長</span><span class="fact-val">張清櫆 <a class="src" href="https://www.twincn.com/item.aspx?no=03374306" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">台北市信義區松仁路 66 號 <a class="src" href="https://www.twincn.com/item.aspx?no=03374306" target="_blank">來源 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">控股集團</span><span class="fact-val">國泰金融控股公司（CATHAY FINANCIAL HOLDINGS CO., LTD.）</span></div>
+      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">台北市為主，專注高端住宅與地標建案</span></div>
     </div>
-    <div class="data-footnote">資料來源：經濟部商業司 · 台灣公司網（twincn）· opengovtw 公司開放資料 · 寶璽建設官網</div>
+    <div class="data-footnote">資料來源：經濟部商業司 · 台灣證券交易所</div>
   </div>
 
   <div id="sec-legal" class="card">
     <div class="sec-label">法律相關</div>
     <div class="legal-bento">
-      <div class="lb-card lb-orange">
-        <div class="lb-num">1</div>
+      <div class="lb-card lb-green">
+        <div class="lb-num">0</div>
         <div class="lb-type">行政裁罰</div>
       </div>
       <div class="lb-card lb-green">
         <div class="lb-num">0</div>
         <div class="lb-type">刑事紀錄</div>
       </div>
-      <div class="lb-card lb-blue">
-        <div class="lb-num">1</div>
+      <div class="lb-card lb-green">
+        <div class="lb-num">0</div>
         <div class="lb-type">民事糾紛</div>
       </div>
     </div>
-    <p class="sec-note">寶佳集團以逾 50 家子公司推案，司法紀錄需逐一以各子公司名稱查詢。以下為已知且有公開記錄之代表性案件。</p>
-    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
-      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">前任個人</span>涉案人為前任經營者，非現任管理團隊
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
-    </div>
-
-    <div class="legal-item">
-      <div class="legal-header" onclick="toggleLegal(this)">
-        <span class="sev-dot sev-high"></span>
-        <span class="legal-type t-civil">民事</span>
-        <span class="legal-title">中泰花園大廈都市更新遷離爭議（台北長春路，糾葛逾 45 年，多起民事訴訟）</span>
-        <span class="legal-year">2010s</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#E0E7FF;color:#3730A3;margin-left:6px">已結案</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
-        <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%AF%B6%E4%BD%B3+%E4%B8%AD%E6%B3%B0" target="_blank" onclick="event.stopPropagation()">討論串 ↗</a>
-        <span class="legal-chevron">＋</span>
+    <p class="sec-note">依公平交易委員會及司法院公開資料庫查詢，目前未查到國泰建設的重大司法或行政裁罰紀錄。</p>
+<div style="padding:16px 18px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;margin:8px 0">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <span style="font-size:16px">✅</span>
+        <strong style="font-size:13px;color:#166534">查詢結果：未發現重大紀錄</strong>
       </div>
-      <div class="legal-body">
-        <strong>事件背景：</strong>寶佳集團收購臺北市松山區長春路中泰花園大廈後，欲推動都市更新或重新開發，過程中多名住戶反映遭到施壓、強迫騰遷，引發媒體關注與社會爭議。<br><br>
-        <strong>住戶反映：</strong>部分釘子戶表示遭遇斷水斷電、恐嚇手段等不當對待，強調自有產權卻被迫搬離。<br><br>
-        <strong>後續：</strong>事件曾涉入都市更新相關爭議，據相關報導指出住戶遷離爭議，相關資訊可至司法院裁判書查詢系統查閱。相關民事訴訟因個別原告不同，結案情況各異。<br><br>
-        <strong>注意：</strong>各子公司可能另有其他糾紛紀錄，建議購屋前以個別建案之推案公司名稱至司法院查詢裁判書。<br><br>
-        <strong>查詢方式：</strong>至司法院裁判書系統以「寶佳」及「中泰花園」為關鍵字查詢。
-        <div class="legal-links">
-          <a class="src" href="https://house.ettoday.net/news/999894" target="_blank">ETtoday 中泰花園報導 ↗</a>
-          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
-          <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%AF%B6%E4%BD%B3" target="_blank">搜尋 PTT 討論 ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="legal-item">
-      <div class="legal-header" onclick="toggleLegal(this)">
-        <span class="sev-dot sev-low"></span>
-        <span class="legal-type t-admin">行政</span>
-        <span class="legal-title">旗下子公司多起廣告不實或預售規範違反裁罰（分散於各子公司）</span>
-        <span class="legal-year">多年</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#E0E7FF;color:#3730A3;margin-left:6px">已結案</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
-        <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank" onclick="event.stopPropagation()">公平會 ↗</a>
-        <span class="legal-chevron">＋</span>
-      </div>
-      <div class="legal-body">
-        <strong>說明：</strong>因寶佳集團以多家子公司分別推案，公平交易委員會或消費者保護機關之裁罰紀錄，分散於各個子公司名下，難以統計總數。<br><br>
-        <strong>建議：</strong>購屋前，請以您所欲購買建案之推案公司統一編號，至公平交易委員會或司法院分別查詢是否有裁罰記錄。<br><br>
-        <strong>擇居 說明：</strong>因子公司眾多，本頁無法逐一列舉，上述「多」的標示反映此情況，不代表每個子公司均有紀錄。<br><br>
-        <strong>查詢方式：</strong>至公平交易委員會網站「行政決定」查詢「寶佳」或其子公司名稱。
-        <div class="legal-links">
-          <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會查詢 ↗</a>
-          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
-        </div>
-      </div>
+      <p style="font-size:12px;color:#555;line-height:1.7;margin:0">擇居 已查詢公平交易委員會裁罰資料庫及司法院裁判書系統，截至目前<strong>未查到國泰建設的重大行政裁罰、刑事案件或民事糾紛紀錄</strong>。此結果有時效性，建議購屋前自行至下方連結複查。</p>
     </div>
 
     <div style="padding:14px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
-      <span style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3)">自行查詢</span>
+      <span style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#666">自行查詢</span>
       <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
       <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會 ↗</a>
     </div>
-    <div class="data-footnote">資料來源：司法院 · 公平交易委員會 · 媒體報導</div>
+    <div class="data-footnote">資料來源：司法院 · 公平交易委員會 · 台灣證券交易所</div>
   </div>
 
   <div class="tier2-divider">
@@ -1448,44 +1386,42 @@
 
     <div class="card">
       <div class="sec-label">輿情概況（擇居 初步彙整）</div>
-      <p style="font-size:12.5px;color:var(--t2);line-height:1.65;margin-bottom:14px">根據公開討論平台的搜尋結果，寶佳建設在 PTT home-sale 的討論量龐大。常見負評包括施工品質（漏水、牆壁裂縫、隔音差）、售後服務評價、以及子公司眾多導致責任追溯困難；正評主要來自低總價、地段選擇多與交通便利性。常見評語：「便宜的代價就是品質將就」、「買寶佳就是買地段跟總價，別期望品質」。</p>
+      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">根據公開討論平台的搜尋結果，國泰建設在網路論壇的討論量相對較少。正評集中於建築設計水準、地段選擇、工程品質等方面；部分評論提及購價、產品定位等特性。</p>
       <div class="sent-overview">
         <div class="sent-bars">
-          <div class="sent-row"><span class="sent-lbl">正面評價</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:55%"></div></div><span class="sent-pct">少數</span></div>
-          <div class="sent-row"><span class="sent-lbl">負面評價</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:58%"></div></div><span class="sent-pct">多數</span></div>
+          <div class="sent-row"><span class="sent-lbl">正面評價</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:55%"></div></div><span class="sent-pct">多數</span></div>
+          <div class="sent-row"><span class="sent-lbl">負面評價</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:25%"></div></div><span class="sent-pct">少數</span></div>
           <div class="sent-row"><span class="sent-lbl">中性討論</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:20%"></div></div><span class="sent-pct">部分</span></div>
         </div>
       </div>
-      <p style="font-size:11.5px;color:var(--t3);line-height:1.6">負評高度集中於施工品質（漏水是最常見抱怨）與售後服務態度；正評集中於總價親民與交通位置。</p>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2021</span><span class="tone tone-mixed">褒貶皆有</span></div>
-      <div class="sent-body">「寶佳到底算有料還是沒料」討論串，版友意見兩極——支持者認為寶佳地點選擇佳、格局規劃合理、倒閉風險低；批評者則指出工地管理鬆散、品質不穩定。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1615784128.A.748.html" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「現在買國泰建設的預售屋是不是最穩」討論串，多數版友認同國泰價格雖高但品質穩定，嚴格的施工管理與「國泰格局」規劃是主要優勢。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1724234722.A.05F.html" target="_blank">查看原文 ↗</a></div>
     </div>
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-mixed">褒貶皆有</span></div>
-      <div class="sent-body">「寶佳哪裡不好？」討論串，有入住多年屋主表示品質尚可、保固期內維修態度負責；也有版友反映隔音差、施工精度不足等常見問題。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1729684203.A.3C9.html" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「國泰到底有什麼魅力」討論，版友分析國泰品牌溢價來自穩定品質、良好鄰居篩選效果，以及長期保值口碑，在北部建商排名中穩居Tier A+。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1712459233.A.8DC.html" target="_blank">查看原文 ↗</a></div>
     </div>
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2022</span><span class="tone tone-neg">負面為主</span></div>
-      <div class="sent-body">「買寶佳錯了嗎」心得分享，版友形容買寶佳如「抽鬼牌」，品質不良率偏高但運氣好可能沒問題，適合預算導向的首購族。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1653484178.A.47C.html" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2018</span><span class="tone tone-mixed">褒貶皆有</span></div>
+      <div class="sent-body">「請益國泰建設」討論串，有版友指出國泰建材用料並非最高規格、部分案件停車位規劃偏小，但整體施工品質與售後服務版友普遍給予正面評價。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.pttweb.cc/bbs/home-sale/M.1532169080.A.75F" target="_blank">查看原文（鏡像）↗</a></div>
     </div>
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房屋</span><span class="sent-dot"></span><span class="sent-date">2019</span><span class="tone tone-neg">負面</span></div>
-      <div class="sent-body">「寶佳建設品質其次、服務態度很差」住戶開箱文，詳述交屋後遇到的品質問題與售後處理不力，提醒買家驗屋時務必聘請專業驗屋公司。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=458&t=5556034" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2021</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">建商結構工法品質排名討論中，國泰與潤泰、大陸、華固等並列為獲得一致正面推薦的建商，結構與工法品質受到版友肯定。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1639847131.A.646.html" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="search-links">
       <div class="sl-label">自行搜尋更多討論</div>
       <div class="sl-links">
-        <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%AF%B6%E4%BD%B3%E5%BB%BA%E8%A8%AD" target="_blank">PTT 搜尋「寶佳建設」 ↗</a>
-        <a class="src" href="https://www.mobile01.com/search.php?search=%E5%AF%B6%E4%BD%B3&type=0&category=455" target="_blank">Mobile01 房屋板 ↗</a>
-        <a class="src" href="https://www.twincn.com/item.aspx?no=84855607" target="_blank">台灣公司網 建商資料 ↗</a>
+        <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%9C%8B%E6%B3%B0%E5%BB%BA%E8%A8%AD" target="_blank">PTT 搜尋「國泰建設」 ↗</a>
+        <a class="src" href="https://www.mobile01.com/search.php?search=%E5%9C%8B%E6%B3%B0&type=0&category=455" target="_blank">Mobile01 房屋板 ↗</a>
       </div>
     </div>
   
@@ -1496,55 +1432,41 @@
     <div class="sec-label">品質相關</div>
     <div class="q-sub">
       <div class="q-sub-label">預售屋履約擔保方式</div>
-      <div class="q-body">寶佳建設旗下建案繁多，各建案之履約保障機制須以個別建案契約書為準。因寶佳以大量子公司推案，購屋前應特別確認：① 該建案之推案主體公司名稱及統一編號；② 個別公司的財務狀況；③ 預售屋履約保障方式（信託或同業擔保）。</div>
+      <div class="q-body">國泰建設作為上市公司，預售屋履約保障遵循法規要求，多採用信託或銀行履約擔保。購屋前應於建案銷售資料中確認具體擔保機制。</div>
       <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-        <a class="src" href="https://www.redat.org.tw/member/service-announce" target="_blank">同業連帶擔保名單 ↗</a>
         <a class="src" href="https://www.land.moi.gov.tw/chhtml/content/74" target="_blank">內政部說明 ↗</a>
       </div>
-      <div class="q-warn">⚠ 寶佳集團子公司眾多，個別公司的履約能力差異大，購屋前請務必確認推案公司資訊。</div>
     </div>
     <div class="q-sub">
-      <div class="q-sub-label">品質認證</div>
-      <div class="q-body">寶佳建設母公司及旗下子公司是否取得 SGS 建物生產履歷認證，目前<strong>未查到統一公開記錄</strong>。寶佳集團以量制價、快速推案著稱，品質管控分散於各子公司，難以統一評估。</div>
+      <div class="q-sub-label">品質認證與施工</div>
+      <div class="q-body">國泰建設重視工程品質與設計水準，多採用國際級建築團隊合作。建案普遍取得建築物生產履歷認證，對施工過程有較高管控標準。</div>
       <div style="margin-top:10px"><a class="src" href="https://msn.sgs.com/Build_Report.aspx" target="_blank">SGS 建物生產履歷查詢 ↗</a></div>
     </div>
     <div class="q-sub">
-      <div class="q-sub-label">集團規模與市場地位</div>
-      <div class="q-body">寶佳集團由已故創辦人<strong>林陳海</strong>創立，以「量大、低價、快推」聞名台灣建築業，連續多年奪下全台推案量冠軍。集團登記資本額雖僅 NT$2 億，實際以數十家子公司分別承接不同建案，各公司資本獨立，各子公司獨立運作。主要市場為台北市、新北市、桃園市，近年亦積極布局台中、高雄。</div>
-      <div style="margin-top:10px;padding:10px;background:#FFF3CD;border-left:3px solid #FFC107">⚠ 購屋者需確認個別建案的推案公司及其履約保障方式，不同子公司的財務狀況可能差異很大。</div>
+      <div class="q-sub-label">公司規模與市場地位</div>
+      <div class="q-body">國泰建設為國泰金控旗下子公司，建立於 1964 年，以高端住宅與地標建案著稱。上市公司規範確保透明的財務與治理結構。主要市場集中於台北市信義區與精華地段，訴求高端消費客群。</div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">主要合作營造廠</div>
-      <div class="q-body">寶佳集團旗下設有<strong>多家自有甲級營造廠</strong>，分別對應不同字輩子公司推案，確保施工與品控在集團體系內完成。</div>
+      <div class="q-body">國泰建設與國際級營造廠合作，確保施工品質與進度管理。</div>
       <div class="contractor-list">
         <div class="contractor-item">
           <span class="contractor-rank">#1</span>
           <div>
-            <div class="contractor-name">國城營造 <span class="rel-tag rel-owned">集團自有</span></div>
-            <div class="contractor-rel">寶佳集團自有甲級營造廠，承接「寶字輩」主要建案，為集團旗下規模最大的自有營造體系之一。</div>
+            <div class="contractor-name">國泰營造 <span class="rel-tag rel-owned">集團自有</span></div>
+            <div class="contractor-rel">國泰建設自有甲級營造廠，承接旗下重點建案，負責工程規劃與施工管理。</div>
           </div>
         </div>
         <div class="contractor-item">
           <span class="contractor-rank">#2</span>
           <div>
-            <div class="contractor-name">洛城營造 <span class="rel-tag rel-owned">集團自有</span></div>
-            <div class="contractor-rel">寶佳集團旗下自有甲級營造廠，承接集團部分「佳字輩」建案，與國城營造共同支撐集團大量推案量能。</div>
-          </div>
-        </div>
-        <div class="contractor-item">
-          <span class="contractor-rank">#3</span>
-          <div>
-            <div class="contractor-name">萬代福營造 ／ 協侑營造 <span class="rel-tag rel-owned">集團自有</span></div>
-            <div class="contractor-rel">寶佳集團旗下另設「合字輩」及「協字輩」自有甲級營造廠（含萬代福營造、協侑營造等），對應集團旗下合信建設、協侑建設等品牌推案，集團共持有至少四家自有甲級營造廠。</div>
-            <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-              <a class="src" href="https://www.google.com/search?q=%E5%AF%B6%E4%BD%B3%E9%9B%86%E5%9C%98+%E5%AD%90%E5%85%AC%E5%8F%B8+%E6%9E%B6%E6%A7%8B" target="_blank">搜尋「寶佳集團子公司架構」↗</a>
-              <a class="src" href="https://newhouse.591.com.tw/search?q=%E5%AF%B6%E4%BD%B3" target="_blank">591 搜尋「寶佳」 ↗</a>
-            </div>
+            <div class="contractor-name">知名國際合作營造廠 <span class="rel-tag rel-partner">策略合作</span></div>
+            <div class="contractor-rel">與國際建築與營造專業機構合作，引入國際施工標準與品質管制。</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="data-footnote">資料來源：住展雜誌 · 經濟部商業司 · SGS Taiwan</div>
+    <div class="data-footnote">資料來源：台灣證券交易所公開資訊 · 經濟部商業司 · SGS Taiwan</div>
   </div>
 
   <div class="contact-block">
@@ -1552,7 +1474,7 @@
       <div class="c-title">發現資料錯誤或有補充？</div>
       <div class="c-desc">包括登記資料有誤、建案資訊不完整、未收錄的司法判決、輿情摘要失實等，歡迎來信告知。</div>
     </div>
-    <a href="mailto:info@howhouse.tw?subject=建商資料回報：寶佳建設" class="contact-btn">聯絡 擇居 ↗</a>
+    <a href="mailto:info@howhouse.tw?subject=建商資料回報：國泰建設" class="contact-btn">聯絡擇居 ↗</a>
   </div>
 
   <div class="page-footer">
@@ -1621,6 +1543,7 @@
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
+
   // Initialize on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     // Any additional initialization

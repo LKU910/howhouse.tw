@@ -27,165 +27,1154 @@
     <link rel="stylesheet" href="tailwind.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-* { border-radius: 0 !important; }
-:root { --architect-bronze: #8A6820; --architect-terracotta: #9C4A38; --architect-slate: #4A5D6A; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Noto Sans TC', sans-serif; background-color: #FAFAFA; color: #121212; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #FAFAFA; }
-::-webkit-scrollbar-thumb { background: #8A6820; }
-.hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-top: 24px; }
-.hs-card { background: #FAFAFA; padding: 24px; }
-.hs-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; }
-.hs-value { font-size: 16px; font-weight: 300; color: #121212; margin-bottom: 8px; }
-.hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-.hs-src:hover { color: #8A6820; }
-.page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
-.back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; }
-.back-btn:hover { color: #8A6820; }
-.hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; }
-.hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
-@media (min-width: 768px) { .hero-name { font-size: 60px; } }
-.hero-en { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-.hero-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; }
-.snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
-.snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; }
-.snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; }
-.snav-item:hover { color: #121212; }
-.snav-item.is-official:hover { color: #4A5D6A; border-bottom-color: #4A5D6A; }
-.snav-item.is-sentiment:hover { color: #8A6820; border-bottom-color: #8A6820; }
-.snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
-.tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
-.tier-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; }
-.tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
-.tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
-.tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
-.tier-note { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
-.card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px;  background: #fff;}
-.sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; }
-.fact-table { display: flex; flex-direction: column; }
-.fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; }
-.fact-row:last-child { border-bottom: none; }
-.fact-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; }
-.fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-a.src:hover { color: #8A6820; }
-.proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
-.proj-sub { font-size: 14px; color: #666666; }
-.status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
-.s-done { color: #4A5D6A; }
-.s-presale { color: #8A6820; }
-.q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
-.q-sub:last-child { border-bottom: none; }
-.q-sub-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; }
-.q-body { font-size: 16px; line-height: 1.7; color: #121212; }
-.q-body strong { font-weight: 600; }
-.contractor-list { display: flex; flex-direction: column; gap: 24px; margin-top: 16px; }
-.contractor-item { display: flex; gap: 16px; }
-.contractor-rank { font-size: 12px; font-weight: 600; color: #666666; min-width: 24px; }
-.contractor-name { font-size: 14px; font-weight: 600; color: #121212; margin-bottom: 4px; }
-.contractor-rel { font-size: 13px; color: #666666; }
-.rel-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; border: 1px solid; }
-.rel-owned { color: #4A5D6A; border-color: #4A5D6A; }
-.legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-bottom: 32px; }
-.lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
-.lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
-.lb-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
-.lb-green { color: #4A5D6A; }
-.lb-orange { color: #9C4A38; }
-.lb-card.lb-green .lb-num { color: #4A5D6A; }
-.lb-card.lb-orange .lb-num { color: #9C4A38; }
-.legal-item { border-top: 1px solid #E5E5E5; }
-.legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
-.legal-header:hover .legal-title { color: #121212; }
-.sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
-.sev-high { background: #9C4A38; }
-.sev-low { background: #8A8A8A; }
-.legal-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
-.t-admin { color: #666666; }
-.t-civil { color: #4A5D6A; }
-.legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; }
-.legal-year { font-size: 10px; letter-spacing: 0.12em; color: #666666; }
-.legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; flex-shrink: 0; }
-.legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; }
-.legal-body.open { display: block; }
-.legal-body strong { color: #121212; font-weight: 500; }
-.legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    * {
+      border-radius: 0 !important;
+    }
+
+    :root {
+      --architect-bronze: #8A6820;
+      --architect-terracotta: #9C4A38;
+      --architect-slate: #4A5D6A;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #FAFAFA;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      word-break: break-word;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #8A6820;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9C4A38;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: color 500ms;
+    }
+
+    .back-link:hover {
+      color: var(--architect-bronze);
+    }
+
+    /* ── Hero Section ── */
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 80px;
+      border-top: 1px solid #E5E5E5;
+      border-bottom: 1px solid #E5E5E5;
+      padding: 56px 0;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-section {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .hero-left h1 {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #121212;
+    }
+
+    @media (min-width: 768px) {
+      .hero-left h1 {
+        font-size: 60px;
+      }
+    }
+
+    .hero-en {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .stat-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    .stat-pair:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .stat-key {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 300;
+      color: #121212;
+      line-height: 1.4;
+    }
+
+    .last-update {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-top: 32px;
+    }
+
+    /* ── Sticky Sub Nav ── */
+    .sticky-subnav {
+      position: sticky;
+      top: var(--nav-h, 0px);
+      z-index: 40;
+      background-color: rgba(250, 250, 250, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid #E5E5E5;
+      border-bottom: 1px solid #E5E5E5;
+      margin-bottom: 56px;
+    }
+
+    .sticky-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      overflow-x: auto;
+    }
+
+    .subnav-item {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: color 500ms;
+      white-space: nowrap;
+      font-weight: 500;
+      border: none;
+      background: none;
+    }
+
+    .subnav-item:hover {
+      color: var(--architect-bronze);
+    }
+
+    .subnav-item.is-legal {
+      color: #666666;
+    }
+
+    .subnav-item.is-legal:hover {
+      color: var(--architect-terracotta);
+    }
+
+    .subnav-item.is-sentiment:hover {
+      color: var(--architect-slate);
+    }
+
+    .subnav-sep {
+      width: 1px;
+      height: 16px;
+      background-color: #E5E5E5;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── Section Common ── */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-header {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    /* ── Fact Rows ── */
+    .fact-rows {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid #E5E5E5;
+      align-items: baseline;
+    }
+
+    @media (max-width: 640px) {
+      .fact-row {
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+      }
+    }
+
+    .fact-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-label {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 500;
+    }
+
+    .fact-value {
+      font-size: 14px;
+      color: #121212;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .source-link {
+      font-size: 12px;
+      color: var(--architect-slate);
+      text-decoration: none;
+      transition: color 500ms;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .source-link:hover {
+      color: var(--architect-bronze);
+    }
+
+    .data-footnote {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-top: 32px;
+    }
+
+    /* ── Projects Table ── */
+    .toggle-btn {
+      display: inline-block;
+      border: 1px solid #121212;
+      background-color: #FAFAFA;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 12px 16px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 500ms;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .toggle-btn:hover {
+      background-color: #121212;
+      color: white;
+    }
+
+    .toggle-btn:focus {
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+    }
+
+    @media (max-width: 768px) {
+    }
+
+    .region-group {
+      border-bottom: none !important;
+    }
+
+    .region-group td {
+      padding-top: 32px !important;
+      padding-bottom: 8px !important;
+    }
+
+    .proj-name {
+      font-weight: 500;
+      color: #121212;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .proj-sub {
+      font-size: 12px;
+      color: #666666;
+      line-height: 1.5;
+    }
+
+    .status-badge {
+      font-size: 12px;
+      font-weight: 500;
+      color: inherit;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .status-completed {
+      color: var(--architect-slate);
+    }
+
+    .status-presale {
+      color: var(--architect-bronze);
+    }
+
+    .status-planning {
+      color: #666666;
+    }
+
+    /* ── Quality Section ── */
+    .quality-subsection {
+      padding: 32px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    .quality-subsection:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .quality-title {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .quality-body {
+      font-size: 14px;
+      color: #121212;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .quality-body strong {
+      font-weight: 600;
+      color: #121212;
+    }
+
+    .quality-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .contractor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .contractor-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contractor-rank {
+      font-size: 12px;
+      font-weight: 600;
+      color: #666666;
+      min-width: 24px;
+      padding-top: 2px;
+    }
+
+    .contractor-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #121212;
+      margin-bottom: 4px;
+    }
+
+    .contractor-rel {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    /* ── Legal Section (Dark Block) ── */
+    .legal-section {
+      background-color: #121212;
+      color: white;
+      padding: 96px 40px;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      margin-bottom: 80px;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .legal-section {
+        padding: 48px 24px;
+      }
+    }
+
+    .legal-header-label {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-bottom: 40px;
+    }
+
+    .legal-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .legal-stat-cell {
+      background-color: #2A2A2A;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .legal-stat-number {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--architect-terracotta);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .legal-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+    }
+
+    .legal-note {
+      font-size: 12px;
+      color: #666666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .legal-items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legal-item {
+      border-bottom: 1px solid #2A2A2A;
+      padding: 24px 0;
+    }
+
+    .legal-item:last-child {
+      border-bottom: none;
+    }
+
+    .legal-item-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 500ms;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+    }
+
+    .legal-item-header:hover .legal-item-title {
+      color: white;
+    }
+
+    .legal-severity-dot {
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+    }
+
+    .severity-high {
+      background-color: var(--architect-terracotta);
+    }
+
+    .severity-low {
+      background-color: #666666;
+    }
+
+    .legal-item-type {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+      min-width: 48px;
+      flex-shrink: 0;
+    }
+
+    .legal-item-type.admin {
+      color: #666666;
+    }
+
+    .legal-item-type.criminal {
+      color: var(--architect-terracotta);
+    }
+
+    .legal-item-type.civil {
+      color: var(--architect-slate);
+    }
+
+    .legal-item-title {
+      flex: 1;
+      font-size: 14px;
+      color: #C0C0C0;
+      line-height: 1.5;
+      transition: color 500ms;
+    }
+
+    .legal-item-year {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #666666;
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .legal-item-chevron {
+      font-size: 16px;
+      color: #666666;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .legal-item-body {
+      display: none;
+      margin-top: 16px;
+      padding-left: 20px;
+      border-left: 1px solid #2A2A2A;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #C0C0C0;
+    }
+
+    .legal-item-body.open {
+      display: block;
+    }
+
+    .legal-item-body strong {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* ── Sentiment Section ── */
+    .sentiment-overview {
+      margin-bottom: 40px;
+      padding: 32px 40px;
+      background-color: #F4F4F4;
+    }
+
+    .sentiment-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sentiment-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sentiment-label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666666;
+      font-weight: 600;
+      min-width: 60px;
+    }
+
+    .sentiment-track {
+      flex: 1;
+      height: 3px;
+      background-color: #E5E5E5;
+    }
+
+    .sentiment-fill {
+      height: 100%;
+      transition: width 500ms;
+    }
+
+    .sentiment-positive {
+      background-color: var(--architect-slate);
+    }
+
+    .sentiment-negative {
+      background-color: var(--architect-terracotta);
+    }
+
+    .sentiment-neutral {
+      background-color: #C0C0C0;
+    }
+
+    .sentiment-pct {
+      font-size: 12px;
+      color: #666666;
+      min-width: 40px;
+      text-align: right;
+      font-weight: 500;
+    }
+
+    .sentiment-items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sentiment-card {
+      padding: 32px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    .sentiment-card:last-child {
+      border-bottom: none;
+    }
+
+    .sentiment-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .sentiment-platform {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+    }
+
+    .sentiment-date {
+      font-size: 11px;
+      color: #666666;
+    }
+
+    .sentiment-tone {
+      font-size: 11px;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .tone-positive {
+      color: var(--architect-slate);
+    }
+
+    .tone-negative {
+      color: var(--architect-terracotta);
+    }
+
+    .tone-neutral {
+      color: #666666;
+    }
+
+    .sentiment-body {
+      font-size: 14px;
+      color: #121212;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .sentiment-warning {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666666;
+    }
+
+    /* ── Criteria Expandable ── */
+    .criteria-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0;
+      cursor: pointer;
+      user-select: none;
+      transition: all 500ms;
+      border-bottom: 1px solid #E5E5E5;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .criteria-header:hover {
+      color: var(--architect-bronze);
+    }
+
+    .criteria-header:focus {
+      outline: none;
+    }
+
+    .criteria-title {
+      flex: 1;
+      font-size: 14px;
+      color: #121212;
+      font-weight: 500;
+    }
+
+    .criteria-chevron {
+      font-size: 16px;
+      color: #666666;
+      flex-shrink: 0;
+    }
+
+    .criteria-body {
+      display: none;
+      padding: 20px 0;
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.7;
+    }
+
+    .criteria-body.open {
+      display: block;
+    }
+
+    /* ── Contact Block ── */
+    .contact-block {
+      background-color: #121212;
+      color: white;
+      padding: 56px 40px;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      margin-top: 80px;
+      margin-bottom: 80px;
+      border-top: 1px solid #E5E5E5;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .contact-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .contact-link {
+      display: inline-block;
+      border: 1px solid #8A8A8A;
+      color: #666666;
+      padding: 12px 20px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 500ms;
+    }
+
+    .contact-link:hover {
+      border-color: white;
+      color: white;
+    }
+
+    /* ── Disclaimer ── */
+    .page-disclaimer {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #666666;
+      line-height: 1.8;
+      padding: 32px 0;
+      border-top: 1px solid #E5E5E5;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: #FAFAFA;
+      border-top: 1px solid #E5E5E5;
+      padding: 48px 40px;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #121212;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-links {
+        flex-direction: row;
+        gap: 48px;
+      }
+    }
+
+    .footer-link {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #666666;
+      text-decoration: none;
+      transition: color 500ms;
+    }
+
+    .footer-link:hover {
+      color: #121212;
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-section {
+        gap: 32px;
+      }
+
+      .hero-left h1 {
+        font-size: 40px;
+      }
+
+      .sticky-inner {
+        padding: 0 20px;
+        overflow-x: auto;
+      }
+
+      .sticky-inner::-webkit-scrollbar {
+        display: none;
+      }
+
+      .subnav-item {
+        padding: 12px 16px;
+        font-size: 9px;
+      }
+
+      .fact-row {
+        grid-template-columns: 120px 1fr;
+        gap: 16px;
+        padding: 16px 0;
+      }
+
+      .legal-section {
+        padding: 56px 20px;
+      }
+
+      .contact-block {
+        padding: 40px 20px;
+      }
+
+      footer {
+        padding: 32px 20px;
+      }
+
+      .page-wrapper {
+        padding: 32px 20px 0;
+      }
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    /* ── Page wrapper ── */
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 40px 0;
+    }
+  
+    /* ══════════════════════════════════════════════
+       BRIDGE CSS: Reskin old class names to new 
+       Swiss Design / Architectural Magazine aesthetic
+       ══════════════════════════════════════════════ */
+
+    /* ── Page Layout ── */
+    .page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
+    .back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .back-btn:hover { color: #8A6820; }
+
+    /* ── Hero ── */
+    .hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; background: transparent; }
+    .hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
+    @media (min-width: 768px) { .hero-name { font-size: 60px; } }
+    .hero-en { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .hero-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; background: transparent; }
+    .hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; padding: 0; border-top: 1px solid #E5E5E5; margin-top: 24px; }
+    .hs-card { background: #FAFAFA; padding: 24px; border: none; }
+    .hs-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-value { font-size: 16px; font-weight: 300; color: #121212; letter-spacing: 0; line-height: 1.4; margin-bottom: 8px; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; letter-spacing: 0.04em; }
+    .hs-src:hover { color: #8A6820; }
+
+    /* ── Sticky Sub-Nav ── */
+    .snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
+    .snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; overflow-x: auto; }
+    .snav-inner::-webkit-scrollbar { display: none; }
+    .snav-item { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .snav-item:hover { color: #121212; }
+    .snav-item.is-official:hover, .snav-item.is-official.is-active { color: #4A5D6A; border-bottom-color: #4A5D6A; }
+    .snav-item.is-sentiment:hover, .snav-item.is-sentiment.is-active { color: #8A6820; border-bottom-color: #8A6820; }
+    .snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
+
+    /* ── Tier Headers ── */
+    .tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
+    .tier-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; background: transparent; }
+    .tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
+    .tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
+    .tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
+    .tier-note { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
+
+    /* ── Cards / Sections ── */
+    .card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px; background: transparent; }
+    .sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; font-family: 'Noto Sans TC', sans-serif; }
+    .sec-label-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+    .sec-note { font-size: 15px; color: #666666; line-height: 1.75; margin-bottom: 24px; margin-top: -8px; }
+
+    /* ── Fact Rows ── */
+    .fact-table { display: flex; flex-direction: column; }
+    .fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; align-items: baseline; }
+    .fact-row:last-child { border-bottom: none; }
+    .fact-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; font-family: 'Noto Sans TC', sans-serif; }
+    .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; line-height: 1.6; }
+    .data-footnote { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 24px; text-align: right; }
+
+    /* ── Source Links ── */
+    a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; padding: 4px 0; text-decoration: none; white-space: nowrap; transition: color 500ms; letter-spacing: 0.04em; border: none; background: none; }
+    a.src:hover { color: #8A6820; }
+
+    /* ── Projects Table ── */
+    .proj-toggle-btn { font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; background: none; border: 1px solid #121212; padding: 10px 16px; cursor: pointer; transition: all 500ms; color: #121212; }
+    .proj-toggle-btn:hover { background: #121212; color: #FAFAFA; }
+    /* Expandable region section */
+    .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
+    .proj-sub { font-size: 14px; color: #666666; line-height: 1.5; }
+    .status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
+    .s-done { color: #4A5D6A; }
+    .s-ongoing { color: #8A6820; }
+    .s-presale { color: #8A6820; }
+
+    /* ── Quality Sub-sections ── */
+    .q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
+    .q-sub:first-child { padding-top: 0; }
+    .q-sub:last-child { border-bottom: none; padding-bottom: 0; }
+    .q-sub-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; font-family: 'Noto Sans TC', sans-serif; }
+    .q-body { font-size: 16px; line-height: 1.7; color: #121212; }
+    .q-body strong { color: #121212; font-weight: 600; }
+    .q-warn { font-size: 12px; color: #9C4A38; margin-top: 12px; }
+
+    /* ── Legal Bento Stats ── */
+    .legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; margin-bottom: 32px; }
+    .lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
+    .lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; letter-spacing: -1.5px; margin-bottom: 8px; }
+    .lb-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    .lb-green { color: #4A5D6A; }
+    .lb-orange { color: #9C4A38; }
+    .lb-red { color: #9C4A38; }
+    .lb-blue { color: #4A5D6A; }
+    .lb-card.lb-green .lb-num { color: #4A5D6A; }
+    .lb-card.lb-orange .lb-num { color: #9C4A38; }
+    .lb-card.lb-red .lb-num { color: #9C4A38; }
+    .lb-card.lb-blue .lb-num { color: #4A5D6A; }
+
+    /* ── Legal Items ── */
+    .legal-item { border-top: 1px solid #E5E5E5; }
+    .legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
+    .legal-header:hover .legal-title { color: #121212; }
+    .sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
+    .sev-high { background: #9C4A38; }
+    .sev-low { background: #8A8A8A; }
+    .legal-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
+    .t-admin { color: #666666; }
+    .t-criminal { color: #9C4A38; }
+    .t-civil { color: #4A5D6A; }
+    .legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; line-height: 1.5; transition: color 500ms; }
+    .legal-year { font-size: 11px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
+    .legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; transition: transform 300ms; flex-shrink: 0; }
+    .legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; margin-left: 3px; }
+    .legal-body.open { display: block; }
+    .legal-body strong { color: #121212; font-weight: 500; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    /* ── Legal record mobile layout ── */
     @media (max-width: 640px) {
       .legal-header { flex-wrap: wrap; gap: 6px 10px; }
       .legal-title { flex-basis: 100%; order: 10; font-size: 13px; line-height: 1.7; margin-top: 4px; }
       .legal-chevron { margin-left: auto; }
     }
-.tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
-.t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
-.t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
-.criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
-.criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; }
-.criteria-header:hover { background: #FFFFFF; }
-.criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
-.criteria-chevron { font-size: 14px; color: #666666; }
-.criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
-.criteria-body.open { display: block; }
-.criteria-body strong { color: #121212; font-weight: 500; }
-.sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
-.sent-bars { display: flex; flex-direction: column; gap: 12px; }
-.sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
-.sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
-.sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
-.sent-fill { height: 100%; }
-.fill-pos { background: #4A5D6A; }
-.fill-neg { background: #9C4A38; }
-.fill-neu { background: #8A8A8A; }
-.sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
-.sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
-.sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-.sent-platform { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
-.sent-date { font-size: 11px; color: #666666; }
-.tone { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
-.tone-pos { color: #4A5D6A; }
-.tone-neg { color: #9C4A38; }
-.tone-neu { color: #666666; }
-.sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
-.sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.sent-warning { font-size: 11px; color: #666666; }
-.search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
-.sl-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
-.sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
-.contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-.c-desc { font-size: 13px; color: #666666; }
-.contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-.contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
-.page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; }
-footer { background-color: #FAFAFA; border-top: 1px solid #E5E5E5; padding: 48px 40px; margin-top: 40px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
-@media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
-.footer-logo { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #121212; }
-.footer-links { display: flex; flex-direction: column; gap: 16px; }
-@media (min-width: 768px) { .footer-links { flex-direction: row; gap: 48px; } }
-.footer-link { font-size: 14px; letter-spacing: 0.08em; color: #666666; text-decoration: none; transition: color 500ms; }
-.footer-link:hover { color: #121212; }
-.footer-copyright { font-size: 14px; color: #666666; }
-.data-footnote { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 32px; }
-input:focus, button:focus { outline: none; }
-@media (max-width: 768px) {
-  .page { padding: 0 24px 80px; }
-  .hero-name { font-size: 36px; }
-  .card { padding: 28px; }
-  .hero-bento { grid-template-columns: 1fr 1fr; }
-  .snav-inner { padding: 0 24px; }
-  .legal-bento { grid-template-columns: 1fr; }
-  .contact-block { padding: 28px; }
-  footer { padding: 32px 20px; }
-}    .s-planning { color: #7B6BA5; font-weight: 600; }
+
+    /* ── Tier 2 Divider ── */
+    .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
+    .t2d-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
+    .t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
+    .t2d-desc strong { color: #121212; font-weight: 500; }
+
+    /* ── Sentiment ── */
+    .criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
+    .criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; transition: background 500ms; }
+    .criteria-header:hover { background: #FFFFFF; }
+    .criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
+    .criteria-chevron { font-size: 14px; color: #666666; }
+    .criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
+    .criteria-body.open { display: block; }
+    .criteria-body strong { color: #121212; font-weight: 500; }
+    .sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
+    .sent-bars { display: flex; flex-direction: column; gap: 12px; }
+    .sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
+    .sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
+    .sent-fill { height: 100%; }
+    .fill-pos { background: #4A5D6A; }
+    .fill-neg { background: #9C4A38; }
+    .fill-neu { background: #8A8A8A; }
+    .sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
+    .sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
+    .sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .sent-platform { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
+    .sent-date { font-size: 11px; color: #666666; }
+    .sent-dot { width: 3px; height: 3px; background: #8A8A8A; flex-shrink: 0; }
+    .tone { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
+    .tone-pos { color: #4A5D6A; }
+    .tone-neg { color: #9C4A38; }
+    .tone-neu { color: #666666; }
+    .tone-mix { color: #8A6820; }
+    .sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
+    .sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .sent-warning { font-size: 11px; color: #666666; }
+    .search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
+    .sl-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
+    .sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ── Contact Block ── */
+    .contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .c-desc { font-size: 13px; color: #666666; line-height: 1.7; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
+
+    /* ── Page Footer ── */
+    .page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; background: transparent; }
+
+    /* ── Tags ── */
+    .rel-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; vertical-align: baseline; border: 1px solid; }
+    .rel-owned { color: #4A5D6A; border-color: #4A5D6A; background: none; }
+    .rel-invest { color: #8A6820; border-color: #8A6820; background: none; }
+    .rel-partner { color: #666666; border-color: #E5E5E5; background: none; }
+    .sub-brand-badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; color: #8A6820; border: 1px solid #8A6820; margin-right: 6px; background: none; }
+    .proj-sub-brand td { background: transparent !important; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .page { padding: 0 24px 80px; }
+      .hero-name { font-size: 36px; }
+      .card { padding: 28px; }
+      .hero-bento { grid-template-columns: 1fr 1fr; }
+      .snav-inner { padding: 0 24px; }
+      .legal-bento { grid-template-columns: 1fr; }
+      .contact-block { padding: 28px; }
+    }
+    @media (max-width: 480px) {
+      .page { padding: 0 16px 60px; }
+      .hero-name { font-size: 30px; }
+      .card { padding: 20px; }
+      .fact-row { grid-template-columns: 1fr; gap: 4px; }
+      .hero-bento { grid-template-columns: 1fr; }
+      .lb-num { font-size: 32px; }
+      .contact-block { flex-direction: column; align-items: flex-start; }
+    }    .s-planning { color: #7B6BA5; font-weight: 600; }
     .s-onsale   { color: #B8860B; font-weight: 600; }
-    .s-presale-active { color: #8A6820; font-weight: 600; }
-
-
-    .text-architect-bronze { color: #8A6820; }
-    .hover\:text-architect-bronze:hover { color: #8A6820 !important; }    .proj-toggle-completed {
+    .s-presale-active { color: #8A6820; font-weight: 600; }    .proj-toggle-completed {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -245,6 +1234,7 @@ input:focus, button:focus { outline: none; }
 </head>
 <body>
 
+<!-- ── NAVIGATION ── -->
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
@@ -280,6 +1270,10 @@ input:focus, button:focus { outline: none; }
 <div class="page">
   <button class="back-btn" onclick="history.back()">← 返回建商履歷卡</button>
 
+  <div style="background:#F4F4F4;padding:16px 20px;margin-bottom:32px;font-size:12px;color:#666;line-height:1.7;">
+    <strong style="color:#121212;">資料聲明</strong>：本頁資料整理自公開來源（經濟部商業司、司法院、公平交易委員會、PTT、Mobile01 等），可能存在錯誤、遺漏或已過時之情形。本站不保證資料之正確性與完整性，亦不對因使用本站資訊所致之任何損失負責。所有內容僅供參考，不構成任何投資或購屋建議。如發現資料有誤，歡迎<a href="about.html#contact" style="color:#4A5D6A;">來信回報</a>。
+  </div>
+
   <div class="hero">
     <h1 class="hero-name">璞園建設</h1>
     <div class="hero-en">Pauian Development Co., Ltd. · 股份有限公司</div>
@@ -287,28 +1281,28 @@ input:focus, button:focus { outline: none; }
       <span class="hero-tag">未上市</span>
       <span class="hero-tag">成立 2006 年</span>
       <span class="hero-tag">璞園建築團隊 · PAUIAN</span>
-      <span class="hero-tag">雙北 · 北市中高端品牌</span>
+      <span class="hero-tag">雙北中高端品牌</span>
     </div>
     <div class="hero-bento">
       <div class="hs-card">
         <div class="hs-label">統一編號</div>
         <div class="hs-value">28205004</div>
-        <a href="https://opengovtw.com/ban/28205004" target="_blank" class="hs-src">opengovtw ↗</a>
+        <a href="https://www.twincn.com/item.aspx?no=28205004" target="_blank" class="hs-src">台灣公司網 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">實收資本額</div>
         <div class="hs-value">NT$ 6.5 億</div>
-        <a href="https://opengovtw.com/ban/28205004" target="_blank" class="hs-src">opengovtw ↗</a>
+        <a href="https://www.twincn.com/item.aspx?no=28205004" target="_blank" class="hs-src">台灣公司網 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">公司代表人</div>
         <div class="hs-value">李忠恕</div>
-        <a href="https://opengovtw.com/ban/28205004" target="_blank" class="hs-src">opengovtw ↗</a>
+        <a href="https://www.twincn.com/item.aspx?no=28205004" target="_blank" class="hs-src">台灣公司網 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">登記地址</div>
-        <div class="hs-value" style="font-size:13px;letter-spacing:0">臺北市內湖區新湖一路218號3樓</div>
-        <a href="https://opengovtw.com/ban/28205004" target="_blank" class="hs-src">opengovtw ↗</a>
+        <div class="hs-value" style="font-size:13px;letter-spacing:0">臺北市內湖區新湖一路 218 號 3 樓</div>
+        <a href="https://www.twincn.com/item.aspx?no=28205004" target="_blank" class="hs-src">台灣公司網 ↗</a>
       </div>
     </div>
   </div>
@@ -332,17 +1326,18 @@ input:focus, button:focus { outline: none; }
   <div id="sec-reg" class="card">
     <div class="sec-label">基本資料</div>
     <div class="fact-table">
-      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">璞園開發股份有限公司（Pauian Development Co., Ltd.） <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">28205004 <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">璞園開發股份有限公司（Pauian Development Co., Ltd.） <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">28205004 <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a></span></div>
       <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">2006 年 7 月 5 日 <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">非上市／上櫃公司（璞園建築團隊旗下多為關係企業控股結構） <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 6.5 億元（650,000,000 元，2024/12/19 由 3.5 億增資至 6.5 億） <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">公司代表人</span><span class="fact-val">李忠恕（璞園建築團隊董事長，2001 年創立璞園） <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a> <a class="src" href="https://estate.ltn.com.tw/article/1134" target="_blank">自由時報地產天下 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">臺北市內湖區新湖一路218號3樓 <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">雙北市（北市大安、中山、文山、新莊、青埔）為主；品牌定位為中高價位自住型住宅，近年跨足桃園青埔等重劃區 <a class="src" href="https://pyct.com.tw/project/" target="_blank">璞園官網建案 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">集團定位</span><span class="fact-val">璞園建築團隊（PAUIAN）核心開發公司，集團旗下另包含璞寶營造、璞全廣告、璞元建設、璞石建設、築觀建築、璞億建設、璞永建設、璞園設計等關係企業 <a class="src" href="https://pyct.com.tw/about-us/" target="_blank">璞園官網 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">非上市／非上櫃公司（璞園建築團隊以多家關係企業組成，主要開發、營造、代銷各自登記，未公開發行股票） <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 6.5 億元（650,000,000 元；2024/12/19 由 3.5 億增資至 6.5 億） <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">公司代表人</span><span class="fact-val">李忠恕（璞園建築團隊董事長／創辦人；2001 年正式成立璞園建築） <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://estate.ltn.com.tw/article/1134" target="_blank">自由時報地產天下 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">臺北市內湖區新湖一路 218 號 3 樓 <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/28205004" target="_blank">opengovtw ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">集團定位</span><span class="fact-val">璞園建築團隊（PAUIAN）核心開發公司；集團採「土地開發 → 規劃設計 → 行銷代銷 → 營造施工 → 售後保固」一條龍體系，旗下另有璞永建設（楊岳虎，1996 年成立，都更專家）、璞寶營造（2002 年集團自有甲級營造廠）、璞元建設、璞石建設、築觀建築、璞億建設、樂園廣告、璞全廣告、璞園房屋、璞滿滿餐飲、桃園璞園建築籃球隊等關係企業 <a class="src" href="https://pyct.com.tw/about-us/" target="_blank">璞園官網關於我們 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">市場定位</span><span class="fact-val">雙北市（北市大安、中山、文山、信義；新北板橋、新莊頭前、林口）為主，近年延伸至桃園青埔、中壢；品牌定位為中高價位自住型住宅，以建材用料、結構保固期長著稱 <a class="src" href="https://pyct.com.tw/project/" target="_blank">璞園建案列表 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">最近重大融資</span><span class="fact-val">2024 年 3 月 7 日完成由合庫銀行主辦之 64 億元聯貸案簽約，台灣中小企業銀行、兆豐銀、華南銀、農業金庫等共同參貸 <a class="src" href="https://udn.com/news/story/7239/7815968" target="_blank">經濟日報 ↗</a> <a class="src" href="https://news.cnyes.com/news/id/5478095" target="_blank">鉅亨網 ↗</a></span></div>
     </div>
-    <div class="data-footnote">資料來源：經濟部商業司 · opengovtw · 台灣公司網 · 璞園建築團隊官網</div>
+    <div class="data-footnote">資料來源：經濟部商業司 · 台灣公司網 · opengovtw · 璞園建築團隊官網 · 自由時報地產天下 · 聯合新聞網</div>
   </div>
 
   <div id="sec-legal" class="card">
@@ -361,13 +1356,22 @@ input:focus, button:focus { outline: none; }
         <div class="lb-type">民事糾紛</div>
       </div>
     </div>
-    <p class="sec-note">截至本頁更新日，擇居 以「璞園開發股份有限公司」及「璞園建築」為當事人關鍵字查詢司法院裁判書查詢系統及公平交易委員會決策查詢系統，目前未見公開之重大司法或行政裁罰紀錄。</p>
-<div style="padding:16px 18px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;margin:8px 0">
+    <p class="sec-note">截至本頁更新日，擇居 以「璞園開發股份有限公司」（統編 28205004）及「璞園建築」為當事人關鍵字查詢司法院裁判書查詢系統及公平交易委員會決策查詢系統，目前未見公開之重大司法或行政裁罰紀錄。</p>
+    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
+      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">前任個人</span>涉案人為前任經營者，非現任管理團隊
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
+    </div>
+
+    <div style="padding:16px 18px;background:#F0FDF4;border:1px solid #BBF7D0;margin:8px 0">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
         <span style="font-size:16px">✅</span>
         <strong style="font-size:13px;color:#166534">查詢結果：未發現以本公司為當事人之公開重大紀錄</strong>
       </div>
-      <p style="font-size:12px;color:#555;line-height:1.7;margin:0">擇居 已查詢公平交易委員會裁罰資料庫及司法院裁判書系統，截至目前<strong>未查到璞園開發股份有限公司（統編 28205004）作為當事人之公開行政裁罰、刑事案件或重大民事糾紛紀錄</strong>。然而，璞園建築團隊旗下含多家關係企業（璞永建設、璞石建設、璞元建設等），若個案產生糾紛可能以個別子公司為當事人登記，建議購屋前自行以個案銷售公司名稱複查。司法紀錄以裁判書原文為準，此結果具時效性。</p>
+      <p style="font-size:12px;color:#555;line-height:1.7;margin:0">擇居 已查詢公平交易委員會裁罰資料庫及司法院裁判書系統，截至目前<strong>未查到璞園開發股份有限公司（統編 28205004）作為當事人之公開行政裁罰、刑事案件或重大民事糾紛紀錄</strong>。然而，璞園建築團隊旗下含多家關係企業（璞永建設、璞寶營造、璞元建設、璞石建設、築觀建築、璞億建設等），若個案產生糾紛可能以個別子公司為當事人登記，建議購屋前自行以個案銷售公司名稱複查。司法紀錄以裁判書原文為準，此結果具時效性。</p>
     </div>
 
     <div style="padding:14px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
@@ -376,13 +1380,13 @@ input:focus, button:focus { outline: none; }
       <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會 ↗</a>
       <a class="src" href="https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" target="_blank">經濟部商業司 ↗</a>
     </div>
-    <div class="data-footnote">資料來源：司法院 · 公平交易委員會</div>
+    <div class="data-footnote">資料來源：司法院 · 公平交易委員會 · 經濟部商業司</div>
   </div>
 
   <div class="tier2-divider">
     <div class="t2d-kicker">第二層 — 網路輿情資料</div>
-    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責。</strong></div>
-
+    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責，亦不代表本站立場。</strong></div>
+  
     <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#FFF9F0;border-left:3px solid #D4A574;font-size:12px;line-height:1.8;color:#666">⚖️ 以上司法紀錄摘要來自公開資訊整理，連結將前往司法院裁判書查詢系統，需自行輸入當事人名稱搜尋。實際案情請以法院裁判書原文為準。</p>
   </div>
 
@@ -390,55 +1394,64 @@ input:focus, button:focus { outline: none; }
     <div class="tier-head">
       <span class="tier-kicker sent">網路輿情 · 第二層</span>
       <div class="tier-rule"></div>
-      <span class="tier-note">PTT · Mobile01</span>
+      <span class="tier-note">PTT · Mobile01 · Dcard（公開討論）</span>
     </div>
 
     <div class="criteria-block">
       <div class="criteria-header" onclick="toggleCriteria(this)">
-        <span class="criteria-title">本頁輿情篩選標準</span>
+        <span class="criteria-title">本頁輿情篩選標準（① 討論量 · ② 時效 · ③ 建案對應 · ④ 不刻意平衡 · ⑤ 人工審閱）</span>
         <span class="criteria-chevron">＋</span>
       </div>
       <div class="criteria-body">
-        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文。<br>
+        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文或 5 個不同 ID 的實質回覆。<br>
         <strong>② 時效分層</strong>：三年內的討論為主要資料。<br>
-        <strong>③ 人工最終審閱</strong>：所有摘要由 擇居 編輯審閱後才發布。
+        <strong>③ 建案對應</strong>：每則輿情盡量標明針對的具體建案。<br>
+        <strong>④ 不刻意平衡正負</strong>：正負比例反映真實的搜尋結果。<br>
+        <strong>⑤ 人工最終審閱</strong>：所有摘要由 擇居 編輯審閱後才發布。
       </div>
     </div>
 
     <div class="card">
-      <div class="sec-label">輿情概況</div>
-      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">璞園建築團隊在 PTT home-sale 與 Mobile01 房屋板多被視為「北台灣中高價位自住品牌代表」，版友評價多集中於建材用料、保固長度與施工品質（多為正面），負面聲音主要集中於「定價偏高」、「代銷氣焰」等議題。</p>
+      <div class="sec-label">輿情概況（擇居 初步彙整）</div>
+      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">璞園建築團隊在 PTT home-sale 與 Mobile01 房屋板多被視為「北台灣中高價位自住品牌代表」。版友評價主要集中在三個面向：<strong>建材用料與保固長度</strong>（多為正面，多案宣稱 7 年防水／結構保固，遠長於業界平均 1 年）、<strong>定價偏高</strong>（多數案在區域內屬高標）、<strong>議價空間有限</strong>（代銷較為強硬，幾乎不二價）。負評集中於價格與代銷態度，少見施工品質方面的負評。</p>
       <div class="sent-overview">
         <div class="sent-bars">
-          <div class="sent-row"><span class="sent-lbl">正面</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:55%"></div></div><span class="sent-pct">多數</span></div>
-          <div class="sent-row"><span class="sent-lbl">負面</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:20%"></div></div><span class="sent-pct">部分</span></div>
-          <div class="sent-row"><span class="sent-lbl">中性</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:25%"></div></div><span class="sent-pct">部分</span></div>
+          <div class="sent-row"><span class="sent-lbl">正面評價</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:60%"></div></div><span class="sent-pct">多數</span></div>
+          <div class="sent-row"><span class="sent-lbl">負面評價</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:18%"></div></div><span class="sent-pct">部分</span></div>
+          <div class="sent-row"><span class="sent-lbl">中性討論</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:22%"></div></div><span class="sent-pct">部分</span></div>
         </div>
       </div>
+      <p style="font-size:11.5px;color:#666;line-height:1.6">正面意見集中於建材、保固與一條龍體系；負面意見集中於定價偏高與代銷氣焰；中性意見集中於是否值得區域高標的價格。</p>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房屋板</span><span class="sent-dot"></span><span class="sent-date">近年</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「璞園的家」長討論串（逾 18 頁），版友肯定璞園建材多為進口、附裝潢，且防水／結構保固期較業界平均長（部分案有 7 年／10 年保固），認為是自住導向、品質導向的品牌；但也提及定價屬區域高標。</div>
+      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房屋</span><span class="sent-dot"></span><span class="sent-date">長期</span><span class="tone tone-pos">正面為主</span></div>
+      <div class="sent-body">「璞園的家」長討論串（逾 18 頁），版友肯定璞園建材多為進口、附裝潢，且防水／結構保固期較業界平均長（部分案有 7 年／10 年保固），多數認為是自住導向、品質導向的品牌。但也提及定價屬區域高標，「想撿便宜的就不要看」。</div>
       <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=456&t=5334471" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房屋板</span><span class="sent-dot"></span><span class="sent-date">2018</span><span class="tone tone-neu">中性</span></div>
-      <div class="sent-body">「有人注意青埔『實德璞園的家』這個案子嗎？」討論串，版友分析桃園青埔實德璞園的家建案定位、單價與週邊環境，對璞園品質多表肯定，但質疑青埔價位是否合理。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=456&t=5025110" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2021</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「[請益] 新莊幸福璞園的成交價」討論串，版友詢問新莊頭前重劃區「幸福璞園」成交價，回文多認為在重劃區裡屬於品質導向、保固長、建材扎實的選項，符合璞園品牌一貫定位。也提及璞園案議價空間極小，「不講價就是不講價」。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1610288374.A.4EE.html" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="sent-card">
       <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2018</span><span class="tone tone-neu">中性</span></div>
-      <div class="sent-body">「[請益] 青埔的璞園之家」討論串，版友詢問青埔璞園建案的投資與自住屬性，主流意見認為「以璞園的品質和價格，自住客會比投資客更適合」。</div>
+      <div class="sent-body">「[請益] 青埔的璞園之家」討論串，版友詢問青埔璞園建案的投資與自住屬性，主流意見認為「以璞園的品質和價格，自住客會比投資客更適合」；也有版友提醒青埔當時開價偏高，需評估是否為品牌溢價買單。</div>
       <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1536736888.A.E83.html" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2021</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「[請益] 新莊幸福璞園的成交價」討論串，版友詢問新莊頭前重劃區「幸福璞園」成交價，回文多認為在重劃區裡屬於品質導向、保固長、建材扎實的選項，符合璞園品牌一貫定位。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1610288374.A.4EE.html" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2020</span><span class="tone tone-mix">褒貶皆有</span></div>
+      <div class="sent-body">「[閒聊] 幸福璞園-頭前重劃區」討論串，版友以新莊頭前重劃區實價登錄資料討論幸福璞園開價約 70 萬／坪是否合理，正評提及璞園隔音窗、廚具、廚房規劃用心；負評認為開價偏高、社區公設使用率有疑慮。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1597850916.A.FE3.html" target="_blank">查看原文 ↗</a></div>
+    </div>
+
+    <div class="sent-card">
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2021</span><span class="tone tone-neu">中性</span></div>
+      <div class="sent-body">「[閒聊] 林口『璞園學』已購戶群組」討論串，版友以已購戶身份分享林口「璞園學」交屋與裝修進度，討論氛圍偏向理性務實，已購戶多對品質與保固期表達肯定，但也提醒社區管委會運作初期摩擦在所難免。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1625231227.A.094.html" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="search-links">
@@ -447,52 +1460,81 @@ input:focus, button:focus { outline: none; }
         <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E7%92%9E%E5%9C%92" target="_blank">PTT 搜尋「璞園」 ↗</a>
         <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E7%92%9E%E5%9C%92%E5%BB%BA%E8%A8%AD" target="_blank">PTT 搜尋「璞園建設」 ↗</a>
         <a class="src" href="https://www.mobile01.com/search.php?search=%E7%92%9E%E5%9C%92&type=0&category=455" target="_blank">Mobile01 房屋板搜尋「璞園」 ↗</a>
+        <a class="src" href="https://www.twincn.com/item.aspx?no=28205004" target="_blank">台灣公司網 建商資料 ↗</a>
       </div>
     </div>
-
-    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT、Mobile01 等公開論壇的整理歸納。各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
+  
+    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT、Mobile01 等公開論壇的整理歸納，連結將前往對應平台的搜尋頁面，非特定貼文直連。各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
   </div>
 
   <div id="sec-quality" class="card">
-    <div class="sec-label">履約保障與品質認證</div>
+    <div class="sec-label">品質相關</div>
     <div class="q-sub">
       <div class="q-sub-label">預售屋履約擔保方式</div>
-      <div class="q-body">璞園建築團隊於雙北、桃園之建案多為預售屋與少數新成屋。預售屋履約擔保依內政部規定辦理（通常為不動產開發信託、價金信託或連帶保證其中一式），<strong>璞園官網未統一公告所有建案之履約擔保類型</strong>，建議購屋前向銷售代表索取個案〈預售屋履約擔保書〉或信託合約副本。</div>
+      <div class="q-body">璞園建築團隊於雙北、桃園、新竹之預售案多採內政部規定之五式履約擔保（不動產開發信託、價金信託、價金返還、同業連帶保證、同業共同保證）擇一辦理。<strong>璞園官網未統一公告所有建案之履約擔保類型</strong>，實際採用方式以個案銷售合約為準。可參考案例：「璞園學豐」建案（位於台北市文山區）已於台北市政府地政局完成預售屋買賣契約核備。建議購屋前向銷售代表索取個案〈預售屋履約擔保書〉、信託合約副本，或至台北市政府地政局核備系統查詢個案是否完成備查。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://www-ws.gov.taipei/001/Upload/305/relfile/11498/7640523/54932f6f-ca85-4034-9c9d-eaaba113b31a.pdf" target="_blank">璞園學豐預售契約核備表（範例）↗</a>
+        <a class="src" href="https://land.gov.taipei/News_Content.aspx?n=8A3402C77837B32D&s=939BFFE8DBB2E6AB" target="_blank">北市地政局履約擔保說明 ↗</a>
+        <a class="src" href="https://www.land.moi.gov.tw/chhtml/content/74" target="_blank">內政部說明 ↗</a>
+      </div>
     </div>
     <div class="q-sub">
-      <div class="q-sub-label">品質認證與施工</div>
-      <div class="q-body">璞園建築團隊以<strong>「誠信、品質」</strong>為核心價值，採一貫化體系：「土地評估 → 設計規劃 → 行銷 → 營建 → 售後服務」全由集團自營不假外人。在 Mobile01 房屋板長討論串中，版友普遍肯定璞園<strong>建材多為進口、附裝潢、保固期較業界平均長</strong>（部分建案有 7 年或 10 年的防水／結構保固）。具體每案是否通過綠建築、耐震或智慧建築標章認證，請以個案銷售資料為準。<a class="src" href="https://www.mobile01.com/topicdetail.php?f=456&t=5334471" target="_blank">Mobile01 璞園的家 ↗</a></div>
+      <div class="q-sub-label">品質認證與保固</div>
+      <div class="q-body">璞園建築團隊以「<strong>誠信、品質</strong>」為核心價值，採一條龍體系：「土地評估 → 設計規劃 → 行銷 → 營建 → 售後服務」全由集團自營，不假他人之手。在 Mobile01 房屋板「璞園的家」18 頁長討論串中，版友普遍肯定璞園<strong>建材多為進口、附裝潢、保固期較業界平均長</strong>（多案宣稱 7 年防水／結構保固，部分達 10 年）。中壢「實德璞園的家」案亦標榜 10 年防水保固，遠長於業界內政部規範的 1 年防水基本保固。具體每案是否通過綠建築、耐震或智慧建築標章認證，請以個案銷售資料為準。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://www.mobile01.com/topicdetail.php?f=456&t=5334471" target="_blank">Mobile01 璞園的家討論串 ↗</a>
+        <a class="src" href="https://msn.sgs.com/Build_Report.aspx" target="_blank">SGS 建物生產履歷查詢 ↗</a>
+      </div>
     </div>
     <div class="q-sub">
-      <div class="q-sub-label">公司規模與集團定位</div>
-      <div class="q-body">璞園開發（統編 28205004）成立於 2006 年，為<strong>璞園建築團隊（PAUIAN）</strong>現階段的核心開發公司。集團由李忠恕於 2001 年創立，前後陸續成立璞永建設、璞全廣告、樂園廣告、璞昇建設、璞寶營造（2002 年）；其後續擴充璞元、璞石、築觀、璞億等建設／開發關係企業。集團並跨足籃球（桃園璞園建築籃球隊，2007 年接手）與餐飲（璞滿滿）等領域。建案主力推案區為<strong>台北市大安區、中山區、文山區、新莊幸福重劃區、桃園青埔</strong>等地段，近年代表作包含「璞園花見」、「富富話合」、「寶德璞園的家」、「天賞大願」、「實德璞園的家」，以及在建中的「璞園泊隱」、「築觀」、「璞園喆里東」、「璞園畾畾青」等案。<a class="src" href="https://pyct.com.tw/about-us/" target="_blank">璞園官網關於我們 ↗</a> <a class="src" href="https://pyct.com.tw/development-progress/" target="_blank">在建工程進度 ↗</a></div>
+      <div class="q-sub-label">集團規模與市場地位</div>
+      <div class="q-body">璞園建築團隊由<strong>李忠恕</strong>（土木工程系背景，早年從事水利工程、高爾夫球場監造）於 2001 年正式創立，第一案為石牌「璞園上誠」。集團採家族企業多公司分業模式，旗下代表性關係企業包含：
+        <ul style="margin:8px 0 0 24px;padding:0;font-size:14px;line-height:1.8;list-style-type:disc">
+          <li><strong>璞園開發</strong>（本公司，2006 年成立，為現階段核心開發主體）</li>
+          <li><strong>璞永建設</strong>（1996 年成立，董事長楊岳虎，主導都更／危老案，被媒體稱「都更王」，手握 20 多件都更重建案，代表案：醇建築、璞園仁仰）</li>
+          <li><strong>璞寶營造</strong>（2002 年成立，集團自有甲級營造廠，承擔多數璞園系列建案施工）</li>
+          <li><strong>璞元建設、璞石建設、築觀建築、璞億建設</strong>（依個案分案推案）</li>
+          <li><strong>樂園廣告、璞全廣告</strong>（自有代銷／廣告體系）</li>
+          <li><strong>璞園房屋</strong>（房仲，整合售後服務）</li>
+          <li><strong>璞滿滿餐飲、桃園璞園建築籃球隊</strong>（多角化事業）</li>
+        </ul>
+        2024 年 3 月完成由合庫銀行主辦之 64 億元聯貸案簽約，顯示集團規模具一定融資能力。集團主力推案區域為<strong>台北市大安、中山、文山、信義、內湖；新北市板橋、新莊頭前、林口；桃園青埔、中壢；新竹</strong>。代表建案：富富話合（北市，獲國際藝術評論關注）、璞園花見、寶德璞園的家（桃園）、天賞大願、實德璞園的家（中壢）、璞園畾畾青（青埔，開價 60–65 萬／坪）、璞園學（林口）、璞園學豐（文山）、幸福璞園（新莊）、璞園仁仰（北市東區，2024–2025 推案）、醇建築（中山區指標都更案）；在建工程：璞園泊隱（2024/1/15 開工，預計 2028/9 完工）、築觀（2023/9/16 開工）。
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://pyct.com.tw/about-us/" target="_blank">璞園官網關於我們 ↗</a>
+        <a class="src" href="https://pyct.com.tw/development-progress/" target="_blank">在建工程進度 ↗</a>
+        <a class="src" href="https://estate.ltn.com.tw/article/1134" target="_blank">自由時報：李忠恕專訪 ↗</a>
+        <a class="src" href="https://estate.ltn.com.tw/article/20076" target="_blank">自由時報：璞永楊岳虎都更專訪 ↗</a>
+        <a class="src" href="https://udn.com/news/story/7239/7815968" target="_blank">經濟日報：64 億聯貸 ↗</a>
+      </div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">主要合作營造廠</div>
+      <div class="q-body">璞園建築團隊自 2002 年起即採「土地開發、規劃設計、行銷代銷、營建施工、售後保固」一條龍模式，主要由集團自有甲級營造廠承攬施工。部分合建、都更或特殊結構案可能協同其他專業廠商，詳以個案工程看板為準。</div>
       <div class="contractor-list">
         <div class="contractor-item">
           <span class="contractor-rank">#1</span>
           <div>
             <div class="contractor-name">璞寶營造股份有限公司 <span class="rel-tag rel-owned">集團自有</span></div>
-            <div class="contractor-rel">璞園建築團隊 2002 年成立之集團自有營造廠，負責璞園系列建案之施工統包，亦是璞園「一貫化自建自售」體系的施工端。<a class="src" href="https://pyct.com.tw/about-us/" target="_blank">璞園官網 ↗</a></div>
+            <div class="contractor-rel">璞園建築團隊 2002 年成立之集團自有甲級營造廠，負責璞園系列建案之施工統包，亦為璞園「自地自建自售」一條龍體系的施工端。<a class="src" href="https://pyct.com.tw/about-us/" target="_blank">璞園官網 ↗</a> <a class="src" href="https://pyct.com.tw/construction/" target="_blank">營造事業 ↗</a></div>
           </div>
         </div>
       </div>
-      <p style="font-size:12px;color:#666;margin-top:16px;line-height:1.7">璞園建築團隊自 2002 年起採「土地開發、規劃設計、行銷、營建、售後」一條龍模式，主要由集團自有營造廠璞寶營造承攬施工。部分合建、都更或特殊結構案亦可能協同其他專業廠商，詳以個案工程看板為準。</p>
+      <p style="font-size:12px;color:#666;margin-top:16px;line-height:1.7">璞園建築團隊強調「全由集團自營、不假他人」，與部分以分包為主的開發商相比，集團對施工品質的掌控度較高，但同時也意味著責任與風險集中於同一集團；購屋者宜以個案契約所載承造廠資訊為準。</p>
     </div>
-    <div class="data-footnote">資料來源：璞園建築團隊官網 · opengovtw · 台灣公司網 · 自由時報地產天下</div>
+    <div class="data-footnote">資料來源：璞園建築團隊官網 · 經濟部商業司 · 台灣公司網 · 自由時報地產天下 · 聯合新聞網 · 鉅亨網 · 北市地政局</div>
   </div>
 
   <div class="contact-block">
     <div>
       <div class="c-title">發現資料錯誤或有補充？</div>
-      <div class="c-desc">包括登記資料有誤、建案資訊不完整、司法判決、輿情摘要等，歡迎來信告知。</div>
+      <div class="c-desc">包括登記資料有誤、建案資訊不完整、未收錄的司法判決、輿情摘要失實等，歡迎來信告知。</div>
     </div>
-    <a href="mailto:info@howhouse.tw?subject=建商資料回報：璞園建設" class="contact-btn">聯絡擇居 ↗</a>
+    <a href="mailto:info@howhouse.tw?subject=建商資料回報：璞園建設" class="contact-btn">聯絡 擇居 ↗</a>
   </div>
 
   <div class="page-footer">
-    公開資料（第一層）來源標示於每個欄位旁。輿情資料（第二層）為 擇居 編輯彙整之公開討論摘要。本頁最後更新：2026 年 4 月。
+    公開資料（第一層）來源標示於每個欄位旁，均可點擊驗證。輿情資料（第二層）為 擇居 編輯彙整之公開討論摘要，不代表本站評價或立場。本頁最後更新：2026 年 4 月。
   </div>
 </div>
 
@@ -523,19 +1565,31 @@ input:focus, button:focus { outline: none; }
     </footer>
 <!-- FOOTER:END -->
 <script>
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  // Tailwind Config
+  // Initialize Lucide Icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // Toggle Legal Items
   function toggleLegal(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.legal-chevron');
+
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
+
+  // Toggle Criteria
   function toggleCriteria(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.criteria-chevron');
+
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
+
+  // Jump to Section
   function jumpTo(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -545,8 +1599,14 @@ input:focus, button:focus { outline: none; }
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
+  // Initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Any additional initialization
+  });
 </script>
+
 <script>
+// Set --nav-h for sticky snav positioning
 (function() {
   var nav = document.querySelector('nav');
   if (!nav) return;

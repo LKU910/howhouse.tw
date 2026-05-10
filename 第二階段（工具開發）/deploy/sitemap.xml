@@ -224,7 +224,7 @@
   <!-- 建商個別頁面 -->
   <url>
     <loc>https://howhouse.tw/builder-aishanlin.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -284,7 +284,7 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-dachien.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -302,13 +302,13 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-haiyue.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-hechang.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -320,19 +320,19 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-hongsheng.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-hongpu.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-huangpu.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -351,6 +351,12 @@
   <url>
     <loc>https://howhouse.tw/builder-huayoulian.html</loc>
     <lastmod>2026-04-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://howhouse.tw/builder-fumao.html</loc>
+    <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -404,13 +410,13 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-jitai.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-risheng.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -428,7 +434,7 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-shuntian.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -446,103 +452,103 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-yinghua.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-lianshangfa.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-zongtai.html</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-xianglin.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-longda.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-mingxuan.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-xinmeiqi.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-xinye.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-zhongtai.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-puyuan.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-quankun.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-yaxin.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-dali.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-yuanli.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-jiashanlin.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-jiangjie.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-longbang.html</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -554,49 +560,49 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-sanfeng.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-yongxin.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-shangyao.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-dingyue.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-hanhuang.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-longshanlin.html</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-hongzhu.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-guoxiong.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -632,19 +638,19 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-jingrui.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-huiyu.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://howhouse.tw/builder-panyu.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -668,7 +674,7 @@
   </url>
   <url>
     <loc>https://howhouse.tw/builder-longbao.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

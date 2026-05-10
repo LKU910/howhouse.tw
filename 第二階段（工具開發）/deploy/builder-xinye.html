@@ -27,168 +27,236 @@
     <link rel="stylesheet" href="tailwind.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-* { border-radius: 0 !important; }
-:root { --architect-bronze: #8A6820; --architect-terracotta: #9C4A38; --architect-slate: #4A5D6A; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Noto Sans TC', sans-serif; background-color: #FAFAFA; color: #121212; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #FAFAFA; }
-::-webkit-scrollbar-thumb { background: #8A6820; }
-.hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-top: 24px; }
-.hs-card { background: #FAFAFA; padding: 24px; }
-.hs-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; }
-.hs-value { font-size: 16px; font-weight: 300; color: #121212; margin-bottom: 8px; }
-.hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-.hs-src:hover { color: #8A6820; }
-.page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
-.back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; }
-.back-btn:hover { color: #8A6820; }
-.hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; }
-.hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
-@media (min-width: 768px) { .hero-name { font-size: 60px; } }
-.hero-en { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-.hero-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; }
-.snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
-.snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; }
-.snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; }
-.snav-item:hover { color: #121212; }
-.snav-item.is-official:hover { color: #4A5D6A; border-bottom-color: #4A5D6A; }
-.snav-item.is-sentiment:hover { color: #8A6820; border-bottom-color: #8A6820; }
-.snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
-.tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
-.tier-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; }
-.tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
-.tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
-.tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
-.tier-note { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
-.card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px;  background: #fff;}
-.sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; }
-.fact-table { display: flex; flex-direction: column; }
-.fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; }
-.fact-row:last-child { border-bottom: none; }
-.fact-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; }
-.fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-a.src:hover { color: #8A6820; }
-/* Expandable region section */
-.proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
-.proj-sub { font-size: 14px; color: #666666; }
-.status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
-.s-done { color: #4A5D6A; }
-.s-presale { color: #8A6820; }
-.q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
-.q-sub:last-child { border-bottom: none; }
-.q-sub-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; }
-.q-body { font-size: 16px; line-height: 1.7; color: #121212; }
-.q-body strong { font-weight: 600; }
-.contractor-list { display: flex; flex-direction: column; gap: 24px; margin-top: 16px; }
-.contractor-item { display: flex; gap: 16px; }
-.contractor-rank { font-size: 12px; font-weight: 600; color: #666666; min-width: 24px; }
-.contractor-name { font-size: 14px; font-weight: 600; color: #121212; margin-bottom: 4px; }
-.contractor-rel { font-size: 13px; color: #666666; }
-.rel-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; border: 1px solid; }
-.rel-owned { color: #4A5D6A; border-color: #4A5D6A; }
-.legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-bottom: 32px; }
-.lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
-.lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
-.lb-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
-.lb-green { color: #4A5D6A; }
-.lb-orange { color: #9C4A38; }
-.lb-card.lb-green .lb-num { color: #4A5D6A; }
-.lb-card.lb-orange .lb-num { color: #9C4A38; }
-.legal-item { border-top: 1px solid #E5E5E5; }
-.legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
-.legal-header:hover .legal-title { color: #121212; }
-.sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
-.sev-high { background: #9C4A38; }
-.sev-low { background: #8A8A8A; }
-.legal-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
-.t-admin { color: #666666; }
-.t-civil { color: #4A5D6A; }
-.legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; }
-.legal-year { font-size: 10px; letter-spacing: 0.12em; color: #666666; }
-.legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; flex-shrink: 0; }
-.legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; }
-.legal-body.open { display: block; }
-.legal-body strong { color: #121212; font-weight: 500; }
-.legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-    /* ── Legal record mobile layout ── */
+    * {
+      border-radius: 0 !important;
+    }
+
+    :root {
+      --architect-bronze: #8A6820;
+      --architect-terracotta: #9C4A38;
+      --architect-slate: #4A5D6A;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #FAFAFA;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      word-break: break-word;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #FAFAFA; }
+    ::-webkit-scrollbar-thumb { background: #8A6820; }
+    ::-webkit-scrollbar-thumb:hover { background: #9C4A38; }
+
+    /* ══════════════════════════════════════════════
+       BRIDGE CSS: Swiss Design / Architectural Magazine
+       ══════════════════════════════════════════════ */
+
+    /* ── Page Layout ── */
+    .page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
+    .back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .back-btn:hover { color: #8A6820; }
+
+    /* ── Hero ── */
+    .hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; background: transparent; }
+    .hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
+    @media (min-width: 768px) { .hero-name { font-size: 60px; } }
+    .hero-en { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .hero-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; background: transparent; }
+    .hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; padding: 0; border-top: 1px solid #E5E5E5; margin-top: 24px; }
+    .hs-card { background: #FAFAFA; padding: 24px; border: none; }
+    .hs-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-value { font-size: 16px; font-weight: 300; color: #121212; letter-spacing: 0; line-height: 1.4; margin-bottom: 8px; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; letter-spacing: 0.04em; }
+    .hs-src:hover { color: #8A6820; }
+
+    /* ── Sticky Sub-Nav ── */
+    .snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
+    .snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; overflow-x: auto; }
+    .snav-inner::-webkit-scrollbar { display: none; }
+    .snav-item { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .snav-item:hover { color: #121212; }
+    .snav-item.is-official:hover, .snav-item.is-official.is-active { color: #4A5D6A; border-bottom-color: #4A5D6A; }
+    .snav-item.is-sentiment:hover, .snav-item.is-sentiment.is-active { color: #8A6820; border-bottom-color: #8A6820; }
+    .snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
+
+    /* ── Tier Headers ── */
+    .tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
+    .tier-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; background: transparent; }
+    .tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
+    .tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
+    .tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
+    .tier-note { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
+
+    /* ── Cards / Sections ── */
+    .card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px; background: transparent; }
+    .sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; font-family: 'Noto Sans TC', sans-serif; }
+    .sec-note { font-size: 15px; color: #666666; line-height: 1.75; margin-bottom: 24px; margin-top: -8px; }
+
+    /* ── Fact Rows ── */
+    .fact-table { display: flex; flex-direction: column; }
+    .fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; align-items: baseline; }
+    .fact-row:last-child { border-bottom: none; }
+    .fact-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; font-family: 'Noto Sans TC', sans-serif; }
+    .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; line-height: 1.6; }
+    .data-footnote { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 24px; text-align: right; }
+
+    /* ── Source Links ── */
+    a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; padding: 4px 0; text-decoration: none; white-space: nowrap; transition: color 500ms; letter-spacing: 0.04em; border: none; background: none; }
+    a.src:hover { color: #8A6820; }
+
+    /* ── Quality Sub-sections ── */
+    .q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
+    .q-sub:first-child { padding-top: 0; }
+    .q-sub:last-child { border-bottom: none; padding-bottom: 0; }
+    .q-sub-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; font-family: 'Noto Sans TC', sans-serif; }
+    .q-body { font-size: 16px; line-height: 1.7; color: #121212; }
+    .q-body strong { color: #121212; font-weight: 600; }
+    .q-warn { font-size: 12px; color: #9C4A38; margin-top: 12px; }
+
+    /* ── Legal Bento Stats ── */
+    .legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; margin-bottom: 32px; }
+    .lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
+    .lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; letter-spacing: -1.5px; margin-bottom: 8px; }
+    .lb-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    .lb-green { color: #4A5D6A; }
+    .lb-orange { color: #9C4A38; }
+    .lb-card.lb-green .lb-num { color: #4A5D6A; }
+    .lb-card.lb-orange .lb-num { color: #9C4A38; }
+
+    /* ── Legal Items ── */
+    .legal-item { border-top: 1px solid #E5E5E5; }
+    .legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
+    .legal-header:hover .legal-title { color: #121212; }
+    .sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
+    .sev-high { background: #9C4A38; }
+    .sev-low { background: #8A8A8A; }
+    .legal-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
+    .t-admin { color: #666666; }
+    .t-criminal { color: #9C4A38; }
+    .t-civil { color: #4A5D6A; }
+    .legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; line-height: 1.5; transition: color 500ms; }
+    .legal-year { font-size: 11px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
+    .legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; transition: transform 300ms; flex-shrink: 0; }
+    .legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; margin-left: 3px; }
+    .legal-body.open { display: block; }
+    .legal-body strong { color: #121212; font-weight: 500; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
     @media (max-width: 640px) {
       .legal-header { flex-wrap: wrap; gap: 6px 10px; }
       .legal-title { flex-basis: 100%; order: 10; font-size: 13px; line-height: 1.7; margin-top: 4px; }
       .legal-chevron { margin-left: auto; }
     }
-.tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
-.t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
-.t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
-.criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
-.criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; }
-.criteria-header:hover { background: #FFFFFF; }
-.criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
-.criteria-chevron { font-size: 14px; color: #666666; }
-.criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
-.criteria-body.open { display: block; }
-.criteria-body strong { color: #121212; font-weight: 500; }
-.sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
-.sent-bars { display: flex; flex-direction: column; gap: 12px; }
-.sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
-.sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
-.sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
-.sent-fill { height: 100%; }
-.fill-pos { background: #4A5D6A; }
-.fill-neg { background: #9C4A38; }
-.fill-neu { background: #8A8A8A; }
-.sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
-.sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
-.sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-.sent-platform { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
-.sent-date { font-size: 11px; color: #666666; }
-.tone { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
-.tone-pos { color: #4A5D6A; }
-.tone-neg { color: #9C4A38; }
-.tone-neu { color: #666666; }
-.sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
-.sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.sent-warning { font-size: 11px; color: #666666; }
-.search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
-.sl-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
-.sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
-.contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-.c-desc { font-size: 13px; color: #666666; }
-.contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-.contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
-.page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; }
-footer { background-color: #FAFAFA; border-top: 1px solid #E5E5E5; padding: 48px 40px; margin-top: 40px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
-@media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
-.footer-logo { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #121212; }
-.footer-links { display: flex; flex-direction: column; gap: 16px; }
-@media (min-width: 768px) { .footer-links { flex-direction: row; gap: 48px; } }
-.footer-link { font-size: 14px; letter-spacing: 0.08em; color: #666666; text-decoration: none; transition: color 500ms; }
-.footer-link:hover { color: #121212; }
-.footer-copyright { font-size: 14px; color: #666666; }
-.data-footnote { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 32px; }
-input:focus, button:focus { outline: none; }
-@media (max-width: 768px) {
-  .page { padding: 0 24px 80px; }
-  .hero-name { font-size: 36px; }
-  .card { padding: 28px; }
-  .hero-bento { grid-template-columns: 1fr 1fr; }
-  .snav-inner { padding: 0 24px; }
-  .legal-bento { grid-template-columns: 1fr; }
-  .contact-block { padding: 28px; }
-  footer { padding: 32px 20px; }
-}    .s-planning { color: #7B6BA5; font-weight: 600; }
+
+    /* ── Tier 2 Divider ── */
+    .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
+    .t2d-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
+    .t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
+    .t2d-desc strong { color: #121212; font-weight: 500; }
+
+    /* ── Sentiment ── */
+    .criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
+    .criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; transition: background 500ms; }
+    .criteria-header:hover { background: #FFFFFF; }
+    .criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
+    .criteria-chevron { font-size: 14px; color: #666666; }
+    .criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
+    .criteria-body.open { display: block; }
+    .criteria-body strong { color: #121212; font-weight: 500; }
+    .sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
+    .sent-bars { display: flex; flex-direction: column; gap: 12px; }
+    .sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
+    .sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
+    .sent-fill { height: 100%; }
+    .fill-pos { background: #4A5D6A; }
+    .fill-neg { background: #9C4A38; }
+    .fill-neu { background: #8A8A8A; }
+    .sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
+    .sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
+    .sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .sent-platform { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
+    .sent-date { font-size: 11px; color: #666666; }
+    .sent-dot { width: 3px; height: 3px; background: #8A8A8A; flex-shrink: 0; }
+    .tone { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
+    .tone-pos { color: #4A5D6A; }
+    .tone-neg { color: #9C4A38; }
+    .tone-neu { color: #666666; }
+    .tone-mix { color: #8A6820; }
+    .sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
+    .sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .sent-warning { font-size: 11px; color: #666666; }
+    .search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
+    .sl-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
+    .sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ── Contractor List ── */
+    .contractor-list { display: flex; flex-direction: column; gap: 24px; margin-top: 16px; }
+    .contractor-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contractor-rank { font-size: 12px; font-weight: 600; color: #666666; min-width: 24px; padding-top: 2px; }
+    .contractor-name { font-size: 14px; font-weight: 600; color: #121212; margin-bottom: 4px; }
+    .contractor-rel { font-size: 13px; color: #666666; line-height: 1.6; }
+    .rel-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; vertical-align: baseline; border: 1px solid; }
+    .rel-owned { color: #4A5D6A; border-color: #4A5D6A; background: none; }
+    .rel-partner { color: #666666; border-color: #E5E5E5; background: none; }
+
+    /* ── Contact Block ── */
+    .contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .c-desc { font-size: 13px; color: #666666; line-height: 1.7; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
+
+    /* ── Page Footer ── */
+    .page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; background: transparent; }
+
+    /* ── Footer ── */
+    footer { background-color: #FAFAFA; border-top: 1px solid #E5E5E5; padding: 48px 40px; margin-top: 40px; }
+
+    /* ── Status Pills ── */
+    .status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
+    .s-done { color: #4A5D6A; }
+    .s-presale { color: #8A6820; }
+    .s-planning { color: #7B6BA5; font-weight: 600; }
     .s-onsale   { color: #B8860B; font-weight: 600; }
     .s-presale-active { color: #8A6820; font-weight: 600; }
 
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .page { padding: 0 24px 80px; }
+      .hero-name { font-size: 36px; }
+      .card { padding: 28px; }
+      .hero-bento { grid-template-columns: 1fr 1fr; }
+      .snav-inner { padding: 0 24px; }
+      .legal-bento { grid-template-columns: 1fr; }
+      .contact-block { padding: 28px; }
+      footer { padding: 32px 20px; }
+    }
+    @media (max-width: 480px) {
+      .page { padding: 0 16px 60px; }
+      .hero-name { font-size: 30px; }
+      .card { padding: 20px; }
+      .fact-row { grid-template-columns: 1fr; gap: 4px; }
+      .hero-bento { grid-template-columns: 1fr; }
+      .lb-num { font-size: 32px; }
+      .contact-block { flex-direction: column; align-items: flex-start; }
+    }
 
-    /* Tailwind custom color fallback */
-    .text-architect-bronze { color: #8A6820; }
-    .hover\:text-architect-bronze:hover { color: #8A6820 !important; }    .proj-toggle-completed {
+    .proj-toggle-completed {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -207,6 +275,7 @@ input:focus, button:focus { outline: none; }
       color: #8A6820;
     }
 
+    input:focus, button:focus { outline: none; }
   </style>
   <script type="application/ld+json">
   {
@@ -280,8 +349,13 @@ input:focus, button:focus { outline: none; }
         </nav>
     </div>
 <!-- NAV:END -->
+
 <div class="page">
   <button class="back-btn" onclick="history.back()">← 返回建商履歷卡</button>
+
+  <div style="background:#F4F4F4;padding:16px 20px;margin-bottom:32px;font-size:12px;color:#666;line-height:1.7;">
+    <strong style="color:#121212;">資料聲明</strong>：本頁資料整理自公開來源（經濟部商業司、司法院、公平交易委員會、PTT、Mobile01 等），可能存在錯誤、遺漏或已過時之情形。本站不保證資料之正確性與完整性，亦不對因使用本站資訊所致之任何損失負責。所有內容僅供參考，不構成任何投資或購屋建議。如發現資料有誤，歡迎<a href="about.html#contact" style="color:#4A5D6A;">來信回報</a>。
+  </div>
 
   <div class="hero">
     <h1 class="hero-name">新業建設</h1>
@@ -335,17 +409,48 @@ input:focus, button:focus { outline: none; }
   <div id="sec-reg" class="card">
     <div class="sec-label">基本資料</div>
     <div class="fact-table">
-      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">新業建設股份有限公司 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/70517367" target="_blank">政府開放資料 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">70517367 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="http://datagovtw.com/company.php?id=70517367" target="_blank">DataGovTW ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">2000 年 5 月 26 日 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://www.alphaloan.co/company/zh/70517367" target="_blank">AlphaLoan ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">未上市未上櫃（私人公司）</span></div>
-      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 2.09 億元（209,000,000 元） <a class="src" href="https://www.alphaloan.co/company/zh/70517367" target="_blank">AlphaLoan ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">公司代表人</span><span class="fact-val">卓勝隆 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/70517367" target="_blank">政府開放資料 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">臺中市西屯區安和路 168 號 11 樓之 1 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="http://datagovtw.com/company.php?id=70517367" target="_blank">DataGovTW ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">品牌起源</span><span class="fact-val">2003 年由全友建設前董事長穆椿松、同隆實業董事長卓勝隆，及前美村建設總經理鍾尹堂等三位資深建築人共同重組成立「新業建築團隊」，凝聚全友建設、同隆實業 30 年建築經驗。 <a class="src" href="https://www.epochtimes.com/b5/17/8/18/n9542484.htm" target="_blank">大紀元 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">以<strong>台中</strong>為大本營，深耕北屯、南屯、西屯、十四期重劃區；2010 年代後期起進軍<strong>新竹／竹南</strong>科學園區生活圈，並已設立新竹分公司。 <a class="src" href="https://www.ctee.com.tw/news/20240125701956-430606" target="_blank">工商時報 ↗</a></span></div>
+      <div class="fact-row">
+        <span class="fact-lbl">公司全名</span>
+        <span class="fact-val">新業建設股份有限公司 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/70517367" target="_blank">政府開放資料 ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">統一編號</span>
+        <span class="fact-val">70517367 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="http://datagovtw.com/company.php?id=70517367" target="_blank">DataGovTW ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">成立日期</span>
+        <span class="fact-val">2000 年 5 月 26 日 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://www.alphaloan.co/company/zh/70517367" target="_blank">AlphaLoan ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">股票狀態</span>
+        <span class="fact-val">未上市未上櫃（私人公司）</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">實收資本額</span>
+        <span class="fact-val">NT$ 2.09 億元（209,000,000 元） <a class="src" href="https://www.alphaloan.co/company/zh/70517367" target="_blank">AlphaLoan ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">公司代表人</span>
+        <span class="fact-val">卓勝隆 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://opengovtw.com/ban/70517367" target="_blank">政府開放資料 ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">登記地址</span>
+        <span class="fact-val">臺中市西屯區安和路 168 號 11 樓之 1 <a class="src" href="https://www.twincn.com/item.aspx?no=70517367" target="_blank">台灣公司網 ↗</a> <a class="src" href="http://datagovtw.com/company.php?id=70517367" target="_blank">DataGovTW ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">品牌起源</span>
+        <span class="fact-val">2003 年由全友建設前董事長穆椿松、同隆實業董事長卓勝隆，及前美村建設總經理鍾尹堂等三位資深建築人共同重組成立「新業建築團隊」，凝聚全友建設、同隆實業逾 30 年建築經驗。 <a class="src" href="https://www.epochtimes.com/b5/17/8/18/n9542484.htm" target="_blank">大紀元 ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">主要市場</span>
+        <span class="fact-val">以<strong>台中</strong>為大本營，深耕北屯十四期、南屯單元二、西屯七期等重劃區；2010 年代後期起進軍<strong>新竹／竹南</strong>科學園區生活圈，並已設立新竹分公司。 <a class="src" href="https://www.ctee.com.tw/news/20240125701956-430606" target="_blank">工商時報 ↗</a></span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">集團關係</span>
+        <span class="fact-val">獨立私人公司，無上市集團母公司。創辦核心成員來自全友建設與同隆實業系統。 <a class="src" href="https://www.hsinyeh.com/" target="_blank">官網 ↗</a></span>
+      </div>
     </div>
-    <div class="data-footnote">資料來源：經濟部商業司 · 台灣公司網 · AlphaLoan · 政府開放資料平台 · 大紀元 · 工商時報</div>
+    <div class="data-footnote">資料來源：台灣公司網 · AlphaLoan · 政府開放資料平台 · 大紀元 · 工商時報</div>
   </div>
 
   <div id="sec-legal" class="card">
@@ -364,8 +469,10 @@ input:focus, button:focus { outline: none; }
         <div class="lb-type">民事糾紛</div>
       </div>
     </div>
-    <p class="sec-note">擇居以「新業建設股份有限公司」公司全名於司法院裁判書查詢系統與公平交易委員會決議查詢系統檢索，目前未公開檢索到以本公司為當事人之具體行政裁罰、刑事或民事紀錄。</p>
-<div style="padding:16px 18px;background:#F0F8F4;border:1px solid #B8D8C5;border-radius:8px;margin:8px 0">
+
+    <p class="sec-note">擇居以「新業建設股份有限公司」公司全名於司法院裁判書查詢系統與公平交易委員會決議查詢系統檢索，目前未查到以本公司為當事人之具體行政裁罰、刑事或民事公開紀錄。</p>
+
+    <div style="padding:16px 18px;background:#F0F8F4;border:1px solid #B8D8C5;margin:8px 0">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
         <span style="font-size:16px">✓</span>
         <strong style="font-size:13px;color:#2F6B47">查詢結果：本公司未查到具體公開紀錄</strong>
@@ -384,7 +491,7 @@ input:focus, button:focus { outline: none; }
 
   <div class="tier2-divider">
     <div class="t2d-kicker">第二層 — 網路輿情資料</div>
-    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責。</strong></div>
+    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責，亦不代表本站立場。</strong></div>
 
     <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#FFF9F0;border-left:3px solid #D4A574;font-size:12px;line-height:1.8;color:#666">⚖️ 以上司法紀錄摘要來自公開資訊整理，連結將前往司法院裁判書查詢系統，需自行輸入當事人名稱搜尋。實際案情請以法院裁判書原文為準。</p>
   </div>
@@ -398,19 +505,21 @@ input:focus, button:focus { outline: none; }
 
     <div class="criteria-block">
       <div class="criteria-header" onclick="toggleCriteria(this)">
-        <span class="criteria-title">本頁輿情篩選標準</span>
+        <span class="criteria-title">本頁輿情篩選標準（① 討論量 · ② 時效 · ③ 建案對應 · ④ 不刻意平衡 · ⑤ 人工審閱）</span>
         <span class="criteria-chevron">＋</span>
       </div>
       <div class="criteria-body">
-        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文。<br>
-        <strong>② 時效分層</strong>：三年內的討論為主要資料。<br>
-        <strong>③ 人工最終審閱</strong>：所有摘要由 擇居 編輯審閱後才發布。
+        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文或 5 個不同 ID 的實質回覆。<br>
+        <strong>② 時效分層</strong>：三年內的討論為主要資料；更早期討論標注年份，供歷史對比參考。<br>
+        <strong>③ 建案對應</strong>：每則輿情盡量標明針對的具體建案或地區。<br>
+        <strong>④ 不刻意平衡正負</strong>：正負比例如實反映搜尋結果，不為了「看起來公允」而扭曲比例。<br>
+        <strong>⑤ 人工最終審閱</strong>：所有摘要由 擇居 編輯審閱後才發布。
       </div>
     </div>
 
     <div class="card">
-      <div class="sec-label">輿情概況</div>
-      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">新業建設在台中網友間的評價屬於「<strong>中等偏上</strong>」，台中房市排行榜常年被列入第二、三梯次的「可放心買」名單。網友主要肯定其「會選地」、「保值率不錯」、「售後服務尚可」，少數負評多集中在公設與細節討論，未見大量結構性品質爭議。</p>
+      <div class="sec-label">輿情概況（擇居 初步彙整）</div>
+      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">新業建設在台中房產論壇的整體評價屬「<strong>中等偏上</strong>」，在台中建商排行討論中常被列入第二、三梯次的「可放心買」名單。網友主要肯定其「會選地」、「保值率不錯」、「售後服務尚可」；少數負評多集中在公設與細節討論，未見大量結構性品質爭議。2024 年擴展至竹南站前後，買盤以竹科科技人為主，媒體報導銷售成績亮眼。</p>
       <div class="sent-overview">
         <div class="sent-bars">
           <div class="sent-row"><span class="sent-lbl">正面</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:55%"></div></div><span class="sent-pct">多數</span></div>
@@ -418,36 +527,91 @@ input:focus, button:focus { outline: none; }
           <div class="sent-row"><span class="sent-lbl">中性</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:30%"></div></div><span class="sent-pct">部分</span></div>
         </div>
       </div>
+      <p style="font-size:11.5px;color:#666;line-height:1.6;margin-top:12px">正評集中於地段選擇佳、保值率與品牌穩定性；負評較少，多為個案細節品質或公設比之討論。</p>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2023</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「[閒聊] 2023 台中最新建商排名」討論串中，網友將新業建設列為台中可信任的建商之一（多數版友列入 T2-T3 級），整體討論偏向肯定其穩定性與保值能力。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1684725098.A.AA1.html" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta">
+        <span class="sent-platform">PTT · home-sale</span>
+        <span class="sent-dot"></span>
+        <span class="sent-date">2023</span>
+        <span class="tone tone-pos">正面</span>
+      </div>
+      <div class="sent-body">「[閒聊] 2023 台中最新建商排名」討論串中，多數版友將新業建設列為台中可信任建商之一（T2–T3 梯次），整體討論偏向肯定其穩定性與保值能力，部分網友提及「新業選地眼光不差，北屯十四期幾案買了沒人賠錢」。</div>
+      <div class="sent-footer">
+        <span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span>
+        <a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1684725098.A.AA1.html" target="_blank">查看原文 ↗</a>
+      </div>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房地產</span><span class="sent-dot"></span><span class="sent-date">2010</span><span class="tone tone-neu">中性</span></div>
-      <div class="sent-body">「新業建設的房子好嗎????」討論串，網友對新業房子的評價多為「比上不足，比下有餘」；肯定售後服務可接受、會選地（地段都還不錯），對價格相對於同區段豪宅級建商認為合理。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=460&t=1698628" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta">
+        <span class="sent-platform">Mobile01 · 房地產</span>
+        <span class="sent-dot"></span>
+        <span class="sent-date">2010</span>
+        <span class="tone tone-neu">中性</span>
+      </div>
+      <div class="sent-body">「新業建設的房子好嗎????」討論串，網友對新業房子評價多為「比上不足，比下有餘」；肯定售後服務可接受、選地眼光不錯（地段普遍尚可），對價格相對同區段豪宅建商認為合理。為早期記錄，可作歷史參考。</div>
+      <div class="sent-footer">
+        <span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span>
+        <a class="src" href="https://www.mobile01.com/topicdetail.php?f=460&t=1698628" target="_blank">查看原文 ↗</a>
+      </div>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房地產</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「請問以下建商在台中市民中的排名?」討論串，多位版友在意見交換中提到新業近年案子地段選擇佳、保值率不錯，「近年買新業房子的第一手還沒有賠錢的」是少數網友的引用觀察。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=460&t=5222343&p=4" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta">
+        <span class="sent-platform">Mobile01 · 房地產</span>
+        <span class="sent-dot"></span>
+        <span class="sent-date">2024</span>
+        <span class="tone tone-pos">正面</span>
+      </div>
+      <div class="sent-body">「請問以下建商在台中市民中的排名?」討論串，多位版友在意見交換中提到新業近年案子地段選擇佳、保值率不錯，有版友引述「近年買新業房子的第一手還沒有賠錢的」作為評估依據。</div>
+      <div class="sent-footer">
+        <span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span>
+        <a class="src" href="https://www.mobile01.com/topicdetail.php?f=460&t=5222343&p=4" target="_blank">查看原文 ↗</a>
+      </div>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">媒體 · 工商時報</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「新業建設 2024 年將在竹科生活圈推出逾 60 億的新案搶市」報導指出，新業建設成立 21 年累計推出 32 個建案、設立新竹分公司、於竹南站前推出地標案「新業恆一」，定位首都站前科技人住宅。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ctee.com.tw/news/20240125701956-430606" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta">
+        <span class="sent-platform">媒體 · 工商時報</span>
+        <span class="sent-dot"></span>
+        <span class="sent-date">2024</span>
+        <span class="tone tone-pos">正面</span>
+      </div>
+      <div class="sent-body">「新業建設 2024 年將在竹科生活圈推出逾 60 億的新案搶市」報導指出，新業建設成立逾 20 年累計推出 32 個建案，設立新竹分公司，於竹南站前推出地標案「新業恆一」，定位首都站前科技人住宅，顯示品牌已從台中擴張至北台灣。</div>
+      <div class="sent-footer">
+        <span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span>
+        <a class="src" href="https://www.ctee.com.tw/news/20240125701956-430606" target="_blank">查看原文 ↗</a>
+      </div>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">媒體 · 工商時報</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「竹南新業恆一 三個月熱銷破 7 成」報導，新業恆一推案後三個月內銷售達七成以上，買盤以竹科科技人為主；該案以「站前地標、24 層」為主要訴求。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.chinatimes.com/newspapers/20241205000302-260210" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta">
+        <span class="sent-platform">媒體 · 工商時報</span>
+        <span class="sent-dot"></span>
+        <span class="sent-date">2024</span>
+        <span class="tone tone-pos">正面</span>
+      </div>
+      <div class="sent-body">「竹南新業恆一 三個月熱銷破 7 成」報導，新業恆一推案後三個月內銷售達七成以上，買盤以竹科科技人為主；該案以「站前地標、24 層」為主要訴求，為新業建設跨區策略的重要里程碑。</div>
+      <div class="sent-footer">
+        <span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span>
+        <a class="src" href="https://www.chinatimes.com/newspapers/20241205000302-260210" target="_blank">查看原文 ↗</a>
+      </div>
+    </div>
+
+    <div class="sent-card">
+      <div class="sent-meta">
+        <span class="sent-platform">媒體 · 大紀元</span>
+        <span class="sent-dot"></span>
+        <span class="sent-date">2017</span>
+        <span class="tone tone-neu">中性</span>
+      </div>
+      <div class="sent-body">「台中老牌建商新業建設 董事長卓勝隆：深耕台中 品質即品牌」專訪，介紹新業建設由全友建設、同隆實業資深建築人共同創立的品牌故事，強調「選地不選偏、品質穩為先」的經營哲學，為早期品牌形象建立的重要參考。</div>
+      <div class="sent-footer">
+        <span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span>
+        <a class="src" href="https://www.epochtimes.com/b5/17/8/18/n9542484.htm" target="_blank">查看原文 ↗</a>
+      </div>
     </div>
 
     <div class="search-links">
@@ -464,44 +628,62 @@ input:focus, button:focus { outline: none; }
   </div>
 
   <div id="sec-quality" class="card">
-    <div class="sec-label">履約保障與品質認證</div>
+    <div class="sec-label">品質相關</div>
+
     <div class="q-sub">
       <div class="q-sub-label">預售屋履約擔保方式</div>
-      <div class="q-body">新業建設為未上市股份有限公司，預售屋履約擔保依《公平交易法》及內政部規範，購屋前應於建案契約中確認所採取之擔保方式（價金信託、不動產開發信託、同業連帶保證、公會連帶保證或其他經內政部公告同意者）。<strong>具體擔保機制各案可能不同</strong>，請以該建案契約為準。</div>
+      <div class="q-body">新業建設為未上市股份有限公司，預售屋履約擔保依《不動產經紀業管理條例》及內政部規範，購屋前應於建案契約中確認所採取之擔保方式（價金信託、不動產開發信託、同業連帶保證、公會連帶保證或其他經內政部公告同意者）。<strong>具體擔保機制各案可能不同</strong>，請以該建案契約為準。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://www.redat.org.tw/member/service-announce" target="_blank">同業連帶擔保名單 ↗</a>
+        <a class="src" href="https://www.land.moi.gov.tw/chhtml/content/74" target="_blank">內政部說明 ↗</a>
+      </div>
     </div>
+
     <div class="q-sub">
       <div class="q-sub-label">品質認證與設計</div>
-      <div class="q-body">新業建設以「<strong>理性建築人 × 感性生活家</strong>」為品牌定位，產品線多走<strong>綠建築與宜居建築路線</strong>。代表作「大塊森鄰」榮獲 <strong>2021 國家卓越建設獎「最佳規劃設計類住宅類—卓越獎」</strong>及第十屆台灣景觀大獎「住宅居住環境類—優質獎」，提出「樹島陽台 × 四季合院 × 垂直森林」設計理念；「大塊森濤」延續宜居綠宅概念，於 22 層超高樓設計三座庭院、水景與瀑布、種植 275 棵喬木。 <a class="src" href="https://www.hsinyeh.com/classic-content.php?ID=43" target="_blank">官網實績 ↗</a> <a class="src" href="https://taichung.housetube.tw/40686" target="_blank">台中房地王 ↗</a></div>
+      <div class="q-body">新業建設以「<strong>理性建築人 × 感性生活家</strong>」為品牌定位，產品線多走<strong>綠建築與宜居建築路線</strong>。代表作「大塊森鄰」榮獲 <strong>2021 國家卓越建設獎「最佳規劃設計類住宅類—卓越獎」</strong>及第十屆台灣景觀大獎「住宅居住環境類—優質獎」，提出「樹島陽台 × 四季合院 × 垂直森林」設計理念；「大塊森濤」延續宜居綠宅概念，於 22 層超高樓設計三座庭院、水景與瀑布、種植 275 棵喬木，為台中重劃區近年頗受矚目的景觀住宅案。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://www.hsinyeh.com/classic-content.php?ID=43" target="_blank">官網實績 ↗</a>
+        <a class="src" href="https://taichung.housetube.tw/40686" target="_blank">台中房地王 ↗</a>
+      </div>
     </div>
+
     <div class="q-sub">
       <div class="q-sub-label">集團規模與市場地位</div>
-      <div class="q-body">新業建設於 2000 年 5 月成立，實收資本額 NT$ 2.09 億元，為<strong>未上市私人公司</strong>，規模屬中型。依工商時報 2024 年報導，公司成立 21 年累計推出<strong>約 32 案</strong>，主要集中於台中各重劃區（北屯十四期、南屯單元二、西屯七期等）；近年延伸至新竹／竹南站前。代表建案包含：大塊森濤（北屯 14 期）、大塊森鄰（南屯）、新業睿見、新業觀峰、新業誠家、新業宜家、新業自由居、新業築願景、新業築森鄰、新業恆一（竹南站前）等。 <a class="src" href="https://www.ctee.com.tw/news/20240125701956-430606" target="_blank">工商時報 ↗</a> <a class="src" href="https://www.hsinyeh.com/classic.php" target="_blank">官網業績 ↗</a> <a class="src" href="https://community.houseprice.tw/builder/23117/" target="_blank">5168 歷年建案 ↗</a></div>
+      <div class="q-body">新業建設於 2000 年 5 月成立，實收資本額 NT$ 2.09 億元，為<strong>未上市私人公司</strong>，規模屬台中中型建商。依工商時報 2024 年報導，公司成立逾 20 年累計推出<strong>約 32 案</strong>，主要集中於台中各重劃區（北屯十四期、南屯單元二、西屯七期等）；近年延伸至新竹／竹南站前，設立新竹分公司，逐步向中台灣以外市場拓展。代表建案包含：大塊森濤（北屯 14 期）、大塊森鄰（南屯）、新業睿見、新業觀峰、新業誠家、新業宜家、新業自由居、新業築願景、新業築森鄰、新業恆一（竹南站前）等。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://www.ctee.com.tw/news/20240125701956-430606" target="_blank">工商時報 ↗</a>
+        <a class="src" href="https://www.hsinyeh.com/classic.php" target="_blank">官網業績 ↗</a>
+        <a class="src" href="https://community.houseprice.tw/builder/23117/" target="_blank">5168 歷年建案 ↗</a>
+      </div>
     </div>
+
     <div class="q-sub">
       <div class="q-sub-label">主要合作營造廠</div>
       <div class="contractor-list">
         <div class="contractor-item">
           <span class="contractor-rank">—</span>
           <div>
-            <div class="contractor-name">未查到公開紀錄</div>
-            <div class="contractor-rel">擇居 目前未查到新業建設長期合作之主要營造廠系統性公開紀錄。實際案件之營造廠請以該案<strong>建造執照</strong>與<strong>使用執照</strong>所載為準，公開資訊可至<a class="src" href="https://cpabm.cpami.gov.tw/cers/SearchProDetial.do?p01_code=10019" target="_blank">內政部建築工程履歷查詢系統 ↗</a>查詢。</div>
+            <div class="contractor-name">未查到系統性公開紀錄</div>
+            <div class="contractor-rel">擇居目前未查到新業建設長期合作之主要營造廠系統性公開紀錄。實際案件之營造廠請以該案<strong>建造執照</strong>與<strong>使用執照</strong>所載為準，公開資訊可至<a class="src" href="https://cpabm.cpami.gov.tw/cers/SearchProDetial.do?p01_code=10019" target="_blank">內政部建築工程履歷查詢系統 ↗</a>查詢。若有興趣深入了解特定建案的施工體系，亦可向代銷業務要求提供相關資訊。</div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="data-footnote">資料來源：經濟部商業司 · 新業建設官網 · 工商時報 · 5168 實價登錄比價王 · 內政部建築工程履歷查詢系統</div>
   </div>
 
   <div class="contact-block">
     <div>
       <div class="c-title">發現資料錯誤或有補充？</div>
-      <div class="c-desc">包括登記資料有誤、建案資訊不完整、司法判決、輿情摘要等，歡迎來信告知。</div>
+      <div class="c-desc">包括登記資料有誤、建案資訊不完整、司法判決、輿情摘要失實等，歡迎來信告知。</div>
     </div>
-    <a href="mailto:info@howhouse.tw?subject=建商資料回報：新業建設" class="contact-btn">聯絡擇居 ↗</a>
+    <a href="mailto:info@howhouse.tw?subject=建商資料回報：新業建設" class="contact-btn">聯絡 擇居 ↗</a>
   </div>
 
   <div class="page-footer">
-    公開資料（第一層）來源標示於每個欄位旁。輿情資料（第二層）為 擇居 編輯彙整之公開討論摘要。本頁最後更新：2026 年 4 月。
+    公開資料（第一層）來源標示於每個欄位旁，均可點擊驗證。輿情資料（第二層）為 擇居 編輯彙整之公開討論摘要，不代表本站評價或立場。本頁最後更新：2026 年 5 月。
   </div>
 </div>
 
@@ -531,20 +713,24 @@ input:focus, button:focus { outline: none; }
         </div>
     </footer>
 <!-- FOOTER:END -->
+
 <script>
   if (typeof lucide !== 'undefined') lucide.createIcons();
+
   function toggleLegal(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.legal-chevron');
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
+
   function toggleCriteria(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.criteria-chevron');
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
+
   function jumpTo(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -554,9 +740,12 @@ input:focus, button:focus { outline: none; }
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Additional initialization if needed
+  });
 </script>
 <script>
-// Set --nav-h for sticky snav positioning
 (function() {
   var nav = document.querySelector('nav');
   if (!nav) return;

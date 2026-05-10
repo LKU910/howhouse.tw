@@ -27,168 +27,1154 @@
     <link rel="stylesheet" href="tailwind.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-* { border-radius: 0 !important; }
-:root { --architect-bronze: #8A6820; --architect-terracotta: #9C4A38; --architect-slate: #4A5D6A; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Noto Sans TC', sans-serif; background-color: #FAFAFA; color: #121212; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif TC', serif; }
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: #FAFAFA; }
-::-webkit-scrollbar-thumb { background: #8A6820; }
-.hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-top: 24px; }
-.hs-card { background: #FAFAFA; padding: 24px; }
-.hs-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; }
-.hs-value { font-size: 16px; font-weight: 300; color: #121212; margin-bottom: 8px; }
-.hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-.hs-src:hover { color: #8A6820; }
-.page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
-.back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; }
-.back-btn:hover { color: #8A6820; }
-.hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; }
-.hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
-@media (min-width: 768px) { .hero-name { font-size: 60px; } }
-.hero-en { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
-.hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-.hero-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; }
-.snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
-.snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; }
-.snav-item { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; }
-.snav-item:hover { color: #121212; }
-.snav-item.is-official:hover { color: #4A5D6A; border-bottom-color: #4A5D6A; }
-.snav-item.is-sentiment:hover { color: #8A6820; border-bottom-color: #8A6820; }
-.snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
-.tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
-.tier-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; }
-.tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
-.tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
-.tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
-.tier-note { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
-.card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px;  background: #fff;}
-.sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; }
-.fact-table { display: flex; flex-direction: column; }
-.fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; }
-.fact-row:last-child { border-bottom: none; }
-.fact-lbl { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; }
-.fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; }
-a.src:hover { color: #8A6820; }
-/* Expandable region section */
-.proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
-.proj-sub { font-size: 14px; color: #666666; }
-.status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
-.s-done { color: #4A5D6A; }
-.s-presale { color: #8A6820; }
-.q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
-.q-sub:last-child { border-bottom: none; }
-.q-sub-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; }
-.q-body { font-size: 16px; line-height: 1.7; color: #121212; }
-.q-body strong { font-weight: 600; }
-.contractor-list { display: flex; flex-direction: column; gap: 24px; margin-top: 16px; }
-.contractor-item { display: flex; gap: 16px; }
-.contractor-rank { font-size: 12px; font-weight: 600; color: #666666; min-width: 24px; }
-.contractor-name { font-size: 14px; font-weight: 600; color: #121212; margin-bottom: 4px; }
-.contractor-rel { font-size: 13px; color: #666666; }
-.rel-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; border: 1px solid; }
-.rel-owned { color: #4A5D6A; border-color: #4A5D6A; }
-.legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; margin-bottom: 32px; }
-.lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
-.lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; margin-bottom: 8px; }
-.lb-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
-.lb-green { color: #4A5D6A; }
-.lb-orange { color: #9C4A38; }
-.lb-card.lb-green .lb-num { color: #4A5D6A; }
-.lb-card.lb-orange .lb-num { color: #9C4A38; }
-.legal-item { border-top: 1px solid #E5E5E5; }
-.legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
-.legal-header:hover .legal-title { color: #121212; }
-.sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
-.sev-high { background: #9C4A38; }
-.sev-low { background: #8A8A8A; }
-.legal-type { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
-.t-admin { color: #666666; }
-.t-civil { color: #4A5D6A; }
-.legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; }
-.legal-year { font-size: 10px; letter-spacing: 0.12em; color: #666666; }
-.legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; flex-shrink: 0; }
-.legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; }
-.legal-body.open { display: block; }
-.legal-body strong { color: #121212; font-weight: 500; }
-.legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    * {
+      border-radius: 0 !important;
+    }
+
+    :root {
+      --architect-bronze: #8A6820;
+      --architect-terracotta: #9C4A38;
+      --architect-slate: #4A5D6A;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #FAFAFA;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      word-break: break-word;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FAFAFA;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #8A6820;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9C4A38;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-block;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: color 500ms;
+    }
+
+    .back-link:hover {
+      color: var(--architect-bronze);
+    }
+
+    /* ── Hero Section ── */
+    .hero-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 80px;
+      border-top: 1px solid #E5E5E5;
+      border-bottom: 1px solid #E5E5E5;
+      padding: 56px 0;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-section {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .hero-left h1 {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #121212;
+    }
+
+    @media (min-width: 768px) {
+      .hero-left h1 {
+        font-size: 60px;
+      }
+    }
+
+    .hero-en {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .stat-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    .stat-pair:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .stat-key {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 300;
+      color: #121212;
+      line-height: 1.4;
+    }
+
+    .last-update {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-top: 32px;
+    }
+
+    /* ── Sticky Sub Nav ── */
+    .sticky-subnav {
+      position: sticky;
+      top: var(--nav-h, 0px);
+      z-index: 40;
+      background-color: rgba(250, 250, 250, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid #E5E5E5;
+      border-bottom: 1px solid #E5E5E5;
+      margin-bottom: 56px;
+    }
+
+    .sticky-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      overflow-x: auto;
+    }
+
+    .subnav-item {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: color 500ms;
+      white-space: nowrap;
+      font-weight: 500;
+      border: none;
+      background: none;
+    }
+
+    .subnav-item:hover {
+      color: var(--architect-bronze);
+    }
+
+    .subnav-item.is-legal {
+      color: #666666;
+    }
+
+    .subnav-item.is-legal:hover {
+      color: var(--architect-terracotta);
+    }
+
+    .subnav-item.is-sentiment:hover {
+      color: var(--architect-slate);
+    }
+
+    .subnav-sep {
+      width: 1px;
+      height: 16px;
+      background-color: #E5E5E5;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── Section Common ── */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-header {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    /* ── Fact Rows ── */
+    .fact-rows {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fact-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid #E5E5E5;
+      align-items: baseline;
+    }
+
+    @media (max-width: 640px) {
+      .fact-row {
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+      }
+    }
+
+    .fact-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-label {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 500;
+    }
+
+    .fact-value {
+      font-size: 14px;
+      color: #121212;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .source-link {
+      font-size: 12px;
+      color: var(--architect-slate);
+      text-decoration: none;
+      transition: color 500ms;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .source-link:hover {
+      color: var(--architect-bronze);
+    }
+
+    .data-footnote {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-top: 32px;
+    }
+
+    /* ── Projects Table ── */
+    .toggle-btn {
+      display: inline-block;
+      border: 1px solid #121212;
+      background-color: #FAFAFA;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 12px 16px;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 500ms;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .toggle-btn:hover {
+      background-color: #121212;
+      color: white;
+    }
+
+    .toggle-btn:focus {
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+    }
+
+    @media (max-width: 768px) {
+    }
+
+    .region-group {
+      border-bottom: none !important;
+    }
+
+    .region-group td {
+      padding-top: 32px !important;
+      padding-bottom: 8px !important;
+    }
+
+    .proj-name {
+      font-weight: 500;
+      color: #121212;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .proj-sub {
+      font-size: 12px;
+      color: #666666;
+      line-height: 1.5;
+    }
+
+    .status-badge {
+      font-size: 12px;
+      font-weight: 500;
+      color: inherit;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .status-completed {
+      color: var(--architect-slate);
+    }
+
+    .status-presale {
+      color: var(--architect-bronze);
+    }
+
+    .status-planning {
+      color: #666666;
+    }
+
+    /* ── Quality Section ── */
+    .quality-subsection {
+      padding: 32px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    .quality-subsection:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .quality-title {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .quality-body {
+      font-size: 14px;
+      color: #121212;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .quality-body strong {
+      font-weight: 600;
+      color: #121212;
+    }
+
+    .quality-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .contractor-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .contractor-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contractor-rank {
+      font-size: 12px;
+      font-weight: 600;
+      color: #666666;
+      min-width: 24px;
+      padding-top: 2px;
+    }
+
+    .contractor-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #121212;
+      margin-bottom: 4px;
+    }
+
+    .contractor-rel {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    /* ── Legal Section (Dark Block) ── */
+    .legal-section {
+      background-color: #121212;
+      color: white;
+      padding: 96px 40px;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      margin-bottom: 80px;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .legal-section {
+        padding: 48px 24px;
+      }
+    }
+
+    .legal-header-label {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      margin-bottom: 40px;
+    }
+
+    .legal-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .legal-stat-cell {
+      background-color: #2A2A2A;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .legal-stat-number {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--architect-terracotta);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .legal-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+    }
+
+    .legal-note {
+      font-size: 12px;
+      color: #666666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .legal-items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legal-item {
+      border-bottom: 1px solid #2A2A2A;
+      padding: 24px 0;
+    }
+
+    .legal-item:last-child {
+      border-bottom: none;
+    }
+
+    .legal-item-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 500ms;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      padding: 0;
+    }
+
+    .legal-item-header:hover .legal-item-title {
+      color: white;
+    }
+
+    .legal-severity-dot {
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+    }
+
+    .severity-high {
+      background-color: var(--architect-terracotta);
+    }
+
+    .severity-low {
+      background-color: #666666;
+    }
+
+    .legal-item-type {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+      min-width: 48px;
+      flex-shrink: 0;
+    }
+
+    .legal-item-type.admin {
+      color: #666666;
+    }
+
+    .legal-item-type.criminal {
+      color: var(--architect-terracotta);
+    }
+
+    .legal-item-type.civil {
+      color: var(--architect-slate);
+    }
+
+    .legal-item-title {
+      flex: 1;
+      font-size: 14px;
+      color: #C0C0C0;
+      line-height: 1.5;
+      transition: color 500ms;
+    }
+
+    .legal-item-year {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #666666;
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .legal-item-chevron {
+      font-size: 16px;
+      color: #666666;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .legal-item-body {
+      display: none;
+      margin-top: 16px;
+      padding-left: 20px;
+      border-left: 1px solid #2A2A2A;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #C0C0C0;
+    }
+
+    .legal-item-body.open {
+      display: block;
+    }
+
+    .legal-item-body strong {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* ── Sentiment Section ── */
+    .sentiment-overview {
+      margin-bottom: 40px;
+      padding: 32px 40px;
+      background-color: #F4F4F4;
+    }
+
+    .sentiment-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sentiment-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sentiment-label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666666;
+      font-weight: 600;
+      min-width: 60px;
+    }
+
+    .sentiment-track {
+      flex: 1;
+      height: 3px;
+      background-color: #E5E5E5;
+    }
+
+    .sentiment-fill {
+      height: 100%;
+      transition: width 500ms;
+    }
+
+    .sentiment-positive {
+      background-color: var(--architect-slate);
+    }
+
+    .sentiment-negative {
+      background-color: var(--architect-terracotta);
+    }
+
+    .sentiment-neutral {
+      background-color: #C0C0C0;
+    }
+
+    .sentiment-pct {
+      font-size: 12px;
+      color: #666666;
+      min-width: 40px;
+      text-align: right;
+      font-weight: 500;
+    }
+
+    .sentiment-items {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sentiment-card {
+      padding: 32px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+
+    .sentiment-card:last-child {
+      border-bottom: none;
+    }
+
+    .sentiment-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .sentiment-platform {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #666666;
+      font-weight: 600;
+    }
+
+    .sentiment-date {
+      font-size: 11px;
+      color: #666666;
+    }
+
+    .sentiment-tone {
+      font-size: 11px;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    .tone-positive {
+      color: var(--architect-slate);
+    }
+
+    .tone-negative {
+      color: var(--architect-terracotta);
+    }
+
+    .tone-neutral {
+      color: #666666;
+    }
+
+    .sentiment-body {
+      font-size: 14px;
+      color: #121212;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .sentiment-warning {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666666;
+    }
+
+    /* ── Criteria Expandable ── */
+    .criteria-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0;
+      cursor: pointer;
+      user-select: none;
+      transition: all 500ms;
+      border-bottom: 1px solid #E5E5E5;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .criteria-header:hover {
+      color: var(--architect-bronze);
+    }
+
+    .criteria-header:focus {
+      outline: none;
+    }
+
+    .criteria-title {
+      flex: 1;
+      font-size: 14px;
+      color: #121212;
+      font-weight: 500;
+    }
+
+    .criteria-chevron {
+      font-size: 16px;
+      color: #666666;
+      flex-shrink: 0;
+    }
+
+    .criteria-body {
+      display: none;
+      padding: 20px 0;
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.7;
+    }
+
+    .criteria-body.open {
+      display: block;
+    }
+
+    /* ── Contact Block ── */
+    .contact-block {
+      background-color: #121212;
+      color: white;
+      padding: 56px 40px;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      margin-top: 80px;
+      margin-bottom: 80px;
+      border-top: 1px solid #E5E5E5;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .contact-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .contact-link {
+      display: inline-block;
+      border: 1px solid #8A8A8A;
+      color: #666666;
+      padding: 12px 20px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 500ms;
+    }
+
+    .contact-link:hover {
+      border-color: white;
+      color: white;
+    }
+
+    /* ── Disclaimer ── */
+    .page-disclaimer {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #666666;
+      line-height: 1.8;
+      padding: 32px 0;
+      border-top: 1px solid #E5E5E5;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: #FAFAFA;
+      border-top: 1px solid #E5E5E5;
+      padding: 48px 40px;
+      margin-top: 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-logo {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #121212;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-links {
+        flex-direction: row;
+        gap: 48px;
+      }
+    }
+
+    .footer-link {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: #666666;
+      text-decoration: none;
+      transition: color 500ms;
+    }
+
+    .footer-link:hover {
+      color: #121212;
+    }
+
+    .footer-copyright {
+      font-size: 14px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-section {
+        gap: 32px;
+      }
+
+      .hero-left h1 {
+        font-size: 40px;
+      }
+
+      .sticky-inner {
+        padding: 0 20px;
+        overflow-x: auto;
+      }
+
+      .sticky-inner::-webkit-scrollbar {
+        display: none;
+      }
+
+      .subnav-item {
+        padding: 12px 16px;
+        font-size: 9px;
+      }
+
+      .fact-row {
+        grid-template-columns: 120px 1fr;
+        gap: 16px;
+        padding: 16px 0;
+      }
+
+      .legal-section {
+        padding: 56px 20px;
+      }
+
+      .contact-block {
+        padding: 40px 20px;
+      }
+
+      footer {
+        padding: 32px 20px;
+      }
+
+      .page-wrapper {
+        padding: 32px 20px 0;
+      }
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    /* ── Page wrapper ── */
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 40px 0;
+    }
+  
+    /* ══════════════════════════════════════════════
+       BRIDGE CSS: Reskin old class names to new 
+       Swiss Design / Architectural Magazine aesthetic
+       ══════════════════════════════════════════════ */
+
+    /* ── Page Layout ── */
+    .page { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
+    .back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 40px; cursor: pointer; transition: color 500ms; border: none; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .back-btn:hover { color: #8A6820; }
+
+    /* ── Hero ── */
+    .hero { border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; padding: 56px 0; margin-bottom: 56px; background: transparent; }
+    .hero-name { margin: 0; font-family: 'Noto Serif TC', serif; font-size: 48px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; color: #121212; }
+    @media (min-width: 768px) { .hero-name { font-size: 60px; } }
+    .hero-en { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 24px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .hero-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; border: 1px solid #E5E5E5; padding: 6px 14px; font-weight: 500; background: transparent; }
+    .hero-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; padding: 0; border-top: 1px solid #E5E5E5; margin-top: 24px; }
+    .hs-card { background: #FAFAFA; padding: 24px; border: none; }
+    .hs-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 8px; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-value { font-size: 16px; font-weight: 300; color: #121212; letter-spacing: 0; line-height: 1.4; margin-bottom: 8px; font-family: 'Noto Sans TC', sans-serif; }
+    .hs-src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; text-decoration: none; transition: color 500ms; letter-spacing: 0.04em; }
+    .hs-src:hover { color: #8A6820; }
+
+    /* ── Sticky Sub-Nav ── */
+    .snav { position: sticky; top: var(--nav-h, 0px); z-index: 50; background: rgba(250,250,250,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: 56px; }
+    .snav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 2px; overflow-x: auto; }
+    .snav-inner::-webkit-scrollbar { display: none; }
+    .snav-item { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 16px 20px; color: #666666; cursor: pointer; transition: color 500ms; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; background: none; font-family: 'Noto Sans TC', sans-serif; }
+    .snav-item:hover { color: #121212; }
+    .snav-item.is-official:hover, .snav-item.is-official.is-active { color: #4A5D6A; border-bottom-color: #4A5D6A; }
+    .snav-item.is-sentiment:hover, .snav-item.is-sentiment.is-active { color: #8A6820; border-bottom-color: #8A6820; }
+    .snav-sep { width: 1px; height: 16px; background: #E5E5E5; margin: 0 8px; flex-shrink: 0; }
+
+    /* ── Tier Headers ── */
+    .tier-head { display: flex; align-items: center; gap: 16px; margin: 40px 0 24px; }
+    .tier-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; padding: 6px 12px; border: 1px solid #E5E5E5; background: transparent; }
+    .tier-kicker.off { color: #4A5D6A; border-color: #4A5D6A; }
+    .tier-kicker.sent { color: #8A6820; border-color: #8A6820; }
+    .tier-rule { flex: 1; height: 1px; background: #E5E5E5; }
+    .tier-note { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #666666; flex-shrink: 0; }
+
+    /* ── Cards / Sections ── */
+    .card { border: 1px solid #E5E5E5; padding: 40px; margin-bottom: 16px; background: transparent; }
+    .sec-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; margin-bottom: 32px; font-family: 'Noto Sans TC', sans-serif; }
+    .sec-label-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+    .sec-note { font-size: 15px; color: #666666; line-height: 1.75; margin-bottom: 24px; margin-top: -8px; }
+
+    /* ── Fact Rows ── */
+    .fact-table { display: flex; flex-direction: column; }
+    .fact-row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid #E5E5E5; align-items: baseline; }
+    .fact-row:last-child { border-bottom: none; }
+    .fact-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; font-weight: 500; font-family: 'Noto Sans TC', sans-serif; }
+    .fact-val { font-size: 16px; font-weight: 400; color: #121212; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; line-height: 1.6; }
+    .data-footnote { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 24px; text-align: right; }
+
+    /* ── Source Links ── */
+    a.src { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; color: #4A5D6A; padding: 4px 0; text-decoration: none; white-space: nowrap; transition: color 500ms; letter-spacing: 0.04em; border: none; background: none; }
+    a.src:hover { color: #8A6820; }
+
+    /* ── Projects Table ── */
+    .proj-toggle-btn { font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; background: none; border: 1px solid #121212; padding: 10px 16px; cursor: pointer; transition: all 500ms; color: #121212; }
+    .proj-toggle-btn:hover { background: #121212; color: #FAFAFA; }
+    /* Expandable region section */
+    .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
+    .proj-sub { font-size: 14px; color: #666666; line-height: 1.5; }
+    .status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
+    .s-done { color: #4A5D6A; }
+    .s-ongoing { color: #8A6820; }
+    .s-presale { color: #8A6820; }
+
+    /* ── Quality Sub-sections ── */
+    .q-sub { padding: 32px 0; border-bottom: 1px solid #E5E5E5; }
+    .q-sub:first-child { padding-top: 0; }
+    .q-sub:last-child { border-bottom: none; padding-bottom: 0; }
+    .q-sub-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 16px; font-family: 'Noto Sans TC', sans-serif; }
+    .q-body { font-size: 16px; line-height: 1.7; color: #121212; }
+    .q-body strong { color: #121212; font-weight: 600; }
+    .q-warn { font-size: 12px; color: #9C4A38; margin-top: 12px; }
+
+    /* ── Legal Bento Stats ── */
+    .legal-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5; margin-bottom: 32px; }
+    .lb-card { padding: 32px; text-align: center; background: #FAFAFA; }
+    .lb-num { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 900; line-height: 1; letter-spacing: -1.5px; margin-bottom: 8px; }
+    .lb-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    .lb-green { color: #4A5D6A; }
+    .lb-orange { color: #9C4A38; }
+    .lb-red { color: #9C4A38; }
+    .lb-blue { color: #4A5D6A; }
+    .lb-card.lb-green .lb-num { color: #4A5D6A; }
+    .lb-card.lb-orange .lb-num { color: #9C4A38; }
+    .lb-card.lb-red .lb-num { color: #9C4A38; }
+    .lb-card.lb-blue .lb-num { color: #4A5D6A; }
+
+    /* ── Legal Items ── */
+    .legal-item { border-top: 1px solid #E5E5E5; }
+    .legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
+    .legal-header:hover .legal-title { color: #121212; }
+    .sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
+    .sev-high { background: #9C4A38; }
+    .sev-low { background: #8A8A8A; }
+    .legal-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
+    .t-admin { color: #666666; }
+    .t-criminal { color: #9C4A38; }
+    .t-civil { color: #4A5D6A; }
+    .legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; line-height: 1.5; transition: color 500ms; }
+    .legal-year { font-size: 11px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
+    .legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; transition: transform 300ms; flex-shrink: 0; }
+    .legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; margin-left: 3px; }
+    .legal-body.open { display: block; }
+    .legal-body strong { color: #121212; font-weight: 500; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
     /* ── Legal record mobile layout ── */
     @media (max-width: 640px) {
       .legal-header { flex-wrap: wrap; gap: 6px 10px; }
       .legal-title { flex-basis: 100%; order: 10; font-size: 13px; line-height: 1.7; margin-top: 4px; }
       .legal-chevron { margin-left: auto; }
     }
-.tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
-.t2d-kicker { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
-.t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
-.criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
-.criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; }
-.criteria-header:hover { background: #FFFFFF; }
-.criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
-.criteria-chevron { font-size: 14px; color: #666666; }
-.criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
-.criteria-body.open { display: block; }
-.criteria-body strong { color: #121212; font-weight: 500; }
-.sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
-.sent-bars { display: flex; flex-direction: column; gap: 12px; }
-.sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
-.sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
-.sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
-.sent-fill { height: 100%; }
-.fill-pos { background: #4A5D6A; }
-.fill-neg { background: #9C4A38; }
-.fill-neu { background: #8A8A8A; }
-.sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
-.sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
-.sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
-.sent-platform { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
-.sent-date { font-size: 11px; color: #666666; }
-.tone { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
-.tone-pos { color: #4A5D6A; }
-.tone-neg { color: #9C4A38; }
-.tone-neu { color: #666666; }
-.sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
-.sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.sent-warning { font-size: 11px; color: #666666; }
-.search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
-.sl-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
-.sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
-.contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-.c-desc { font-size: 13px; color: #666666; }
-.contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
-.contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
-.page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; }
-footer { background-color: #FAFAFA; border-top: 1px solid #E5E5E5; padding: 48px 40px; margin-top: 40px; }
-.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
-@media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; } }
-.footer-logo { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #121212; }
-.footer-links { display: flex; flex-direction: column; gap: 16px; }
-@media (min-width: 768px) { .footer-links { flex-direction: row; gap: 48px; } }
-.footer-link { font-size: 14px; letter-spacing: 0.08em; color: #666666; text-decoration: none; transition: color 500ms; }
-.footer-link:hover { color: #121212; }
-.footer-copyright { font-size: 14px; color: #666666; }
-.data-footnote { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-top: 32px; }
-input:focus, button:focus { outline: none; }
-@media (max-width: 768px) {
-  .page { padding: 0 24px 80px; }
-  .hero-name { font-size: 36px; }
-  .card { padding: 28px; }
-  .hero-bento { grid-template-columns: 1fr 1fr; }
-  .snav-inner { padding: 0 24px; }
-  .legal-bento { grid-template-columns: 1fr; }
-  .contact-block { padding: 28px; }
-  footer { padding: 32px 20px; }
-}    .s-planning { color: #7B6BA5; font-weight: 600; }
+
+    /* ── Tier 2 Divider ── */
+    .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
+    .t2d-kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8A6820; margin-bottom: 12px; }
+    .t2d-desc { font-size: 13px; color: #666666; line-height: 1.7; max-width: 640px; }
+    .t2d-desc strong { color: #121212; font-weight: 500; }
+
+    /* ── Sentiment ── */
+    .criteria-block { border: 1px solid #E5E5E5; overflow: hidden; margin-bottom: 24px; }
+    .criteria-header { display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; user-select: none; transition: background 500ms; }
+    .criteria-header:hover { background: #FFFFFF; }
+    .criteria-title { flex: 1; font-size: 13px; font-weight: 400; color: #666666; }
+    .criteria-chevron { font-size: 14px; color: #666666; }
+    .criteria-body { display: none; padding: 20px; border-top: 1px solid #E5E5E5; font-size: 13px; line-height: 1.8; color: #666666; }
+    .criteria-body.open { display: block; }
+    .criteria-body strong { color: #121212; font-weight: 500; }
+    .sent-overview { border: 1px solid #E5E5E5; padding: 24px; margin-bottom: 24px; }
+    .sent-bars { display: flex; flex-direction: column; gap: 12px; }
+    .sent-row { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+    .sent-lbl { width: 70px; color: #666666; flex-shrink: 0; font-size: 12px; }
+    .sent-track { flex: 1; height: 3px; background: #E5E5E5; overflow: hidden; }
+    .sent-fill { height: 100%; }
+    .fill-pos { background: #4A5D6A; }
+    .fill-neg { background: #9C4A38; }
+    .fill-neu { background: #8A8A8A; }
+    .sent-pct { font-size: 12px; color: #666666; width: 40px; text-align: right; flex-shrink: 0; }
+    .sent-card { border-top: 1px solid #E5E5E5; padding: 24px 0; }
+    .sent-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .sent-platform { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #666666; font-weight: 600; }
+    .sent-date { font-size: 11px; color: #666666; }
+    .sent-dot { width: 3px; height: 3px; background: #8A8A8A; flex-shrink: 0; }
+    .tone { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0; border: none; background: none !important; }
+    .tone-pos { color: #4A5D6A; }
+    .tone-neg { color: #9C4A38; }
+    .tone-neu { color: #666666; }
+    .tone-mix { color: #8A6820; }
+    .sent-body { font-size: 14px; line-height: 1.8; color: #121212; margin-bottom: 12px; }
+    .sent-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .sent-warning { font-size: 11px; color: #666666; }
+    .search-links { border: 1px solid #E5E5E5; padding: 24px; margin-top: 24px; }
+    .sl-label { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; margin-bottom: 12px; }
+    .sl-links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ── Contact Block ── */
+    .contact-block { margin-top: 56px; background: #121212; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .c-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .c-desc { font-size: 13px; color: #666666; line-height: 1.7; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #666666; border: 1px solid #8A8A8A; padding: 12px 20px; transition: all 500ms; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .contact-btn:hover { color: #FAFAFA; border-color: #FAFAFA; }
+
+    /* ── Page Footer ── */
+    .page-footer { margin-top: 24px; padding: 24px 0; border-top: 1px solid #E5E5E5; font-size: 11px; color: #666666; line-height: 1.8; background: transparent; }
+
+    /* ── Tags ── */
+    .rel-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; margin-right: 6px; vertical-align: baseline; border: 1px solid; }
+    .rel-owned { color: #4A5D6A; border-color: #4A5D6A; background: none; }
+    .rel-invest { color: #8A6820; border-color: #8A6820; background: none; }
+    .rel-partner { color: #666666; border-color: #E5E5E5; background: none; }
+    .sub-brand-badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; color: #8A6820; border: 1px solid #8A6820; margin-right: 6px; background: none; }
+    .proj-sub-brand td { background: transparent !important; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .page { padding: 0 24px 80px; }
+      .hero-name { font-size: 36px; }
+      .card { padding: 28px; }
+      .hero-bento { grid-template-columns: 1fr 1fr; }
+      .snav-inner { padding: 0 24px; }
+      .legal-bento { grid-template-columns: 1fr; }
+      .contact-block { padding: 28px; }
+    }
+    @media (max-width: 480px) {
+      .page { padding: 0 16px 60px; }
+      .hero-name { font-size: 30px; }
+      .card { padding: 20px; }
+      .fact-row { grid-template-columns: 1fr; gap: 4px; }
+      .hero-bento { grid-template-columns: 1fr; }
+      .lb-num { font-size: 32px; }
+      .contact-block { flex-direction: column; align-items: flex-start; }
+    }    .s-planning { color: #7B6BA5; font-weight: 600; }
     .s-onsale   { color: #B8860B; font-weight: 600; }
-    .s-presale-active { color: #8A6820; font-weight: 600; }
-
-
-    /* Tailwind custom color fallback */
-    .text-architect-bronze { color: #8A6820; }
-    .hover\:text-architect-bronze:hover { color: #8A6820 !important; }    .proj-toggle-completed {
+    .s-presale-active { color: #8A6820; font-weight: 600; }    .proj-toggle-completed {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -248,6 +1234,7 @@ input:focus, button:focus { outline: none; }
 </head>
 <body>
 
+<!-- ── NAVIGATION ── -->
 <!-- NAV:START -->
     <nav class="w-full px-6 md:px-12 py-8 flex justify-between items-start border-b border-stone-200 sticky top-0 bg-stone-50/95 backdrop-blur-sm z-40">
         <div class="flex flex-col">
@@ -283,6 +1270,10 @@ input:focus, button:focus { outline: none; }
 <div class="page">
   <button class="back-btn" onclick="history.back()">← 返回建商履歷卡</button>
 
+  <div style="background:#F4F4F4;padding:16px 20px;margin-bottom:32px;font-size:12px;color:#666;line-height:1.7;">
+    <strong style="color:#121212;">資料聲明</strong>：本頁資料整理自公開來源（經濟部商業司、司法院、公平交易委員會、PTT、Mobile01 等），可能存在錯誤、遺漏或已過時之情形。本站不保證資料之正確性與完整性，亦不對因使用本站資訊所致之任何損失負責。所有內容僅供參考，不構成任何投資或購屋建議。如發現資料有誤，歡迎<a href="about.html#contact" style="color:#4A5D6A;">來信回報</a>。
+  </div>
+
   <div class="hero">
     <h1 class="hero-name">元利建設</h1>
     <div class="hero-en">Yuan Lih Constructions Co., Ltd. · 股份有限公司</div>
@@ -290,7 +1281,7 @@ input:focus, button:focus { outline: none; }
       <span class="hero-tag">未上市</span>
       <span class="hero-tag">成立 1992 年</span>
       <span class="hero-tag">台北豪宅指標</span>
-      <span class="hero-tag">元利集團 · 林敏雄家族</span>
+      <span class="hero-tag">元利機構 · 林敏雄家族</span>
     </div>
     <div class="hero-bento">
       <div class="hs-card">
@@ -340,12 +1331,14 @@ input:focus, button:focus { outline: none; }
       <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">1992 年 8 月 11 日 <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://costring.com/business/86691334/" target="_blank">商業登記 ↗</a></span></div>
       <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">未上市／未上櫃（未公開發行）</span></div>
       <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 35.705 億元（3,570,500,000 元） <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://www.alphaloan.co/company/zh/86691334" target="_blank">AlphaLoan ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">董事長／代表人</span><span class="fact-val">蔡建生（登記代表人） <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://costring.com/business/86691334/" target="_blank">商業登記 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">董事長／代表人</span><span class="fact-val">蔡建生（登記代表人／董事長） <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://costring.com/business/86691334/" target="_blank">商業登記 ↗</a></span></div>
       <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">臺北市中山區敬業四路 33 號 14 樓 <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://costring.com/business/86691334/" target="_blank">商業登記 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">集團關係</span><span class="fact-val">元利建設集團（元利機構）；集團總裁為全聯實業創辦人林敏雄，於公司擔任董事；次子林弘人、監察人藍阿文亦為集團成員。 <a class="src" href="https://www.ctee.com.tw/news/20230214700981-439803" target="_blank">工商時報 ↗</a> <a class="src" href="http://www.yuanlih.com.tw/" target="_blank">元利機構官網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">台北市中高端住宅與豪宅（信義、大安、中山、文山），亦跨足飯店投資（台北四季酒店開發案）。</span></div>
+      <div class="fact-row"><span class="fact-lbl">董事與監察人</span><span class="fact-val">董事長：蔡建生；董事：林敏雄、林弘人；監察人：藍阿文。林敏雄為元利機構集團總裁兼全聯實業創辦人，於本公司擔任董事；次子林弘人代表家族於董事會。 <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">集團關係</span><span class="fact-val">元利機構（元利建設集團）旗艦事業體；集團另含全聯實業（全聯福利中心 PX Mart 母公司）、大樂量販等。 <a class="src" href="http://www.yuanlih.com.tw/" target="_blank">元利機構官網 ↗</a> <a class="src" href="https://www.ctee.com.tw/news/20230214700981-439803" target="_blank">工商時報 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">台北市中高端住宅與豪宅（信義、大安、中山、文山）為主；亦跨足飯店投資（台北四季酒店開發案）。代表單價案 ONE PARK TAIPEI 元利信義聯勤實價約 NT$ 250–267 萬／坪。 <a class="src" href="https://market.591.com.tw/35905" target="_blank">591 實價登錄 ↗</a></span></div>
+      <div class="fact-row"><span class="fact-lbl">營業項目</span><span class="fact-val">土地開發、不動產投資開發、不動產仲介、自有不動產租賃；自述以水電工程承攬起家，早年承攬遠企中心、凱悅飯店（今君悅）、震旦大樓等地標工程，1992 年成立元利建設後逐步轉型為以建設為主業之家族集團。 <a class="src" href="http://www.yuanlih.com.tw/" target="_blank">元利機構官網 ↗</a></span></div>
     </div>
-    <div class="data-footnote">資料來源：台灣公司網 · 經濟部商業司 · 元利機構官網</div>
+    <div class="data-footnote">資料來源：台灣公司網 · 經濟部商業司 · AlphaLoan · 元利機構官網 · 工商時報</div>
   </div>
 
   <div id="sec-legal" class="card">
@@ -359,18 +1352,49 @@ input:focus, button:focus { outline: none; }
         <div class="lb-num">0</div>
         <div class="lb-type">刑事紀錄</div>
       </div>
-      <div class="lb-card lb-green">
-        <div class="lb-num">0</div>
-        <div class="lb-type">民事糾紛</div>
+      <div class="lb-card lb-orange">
+        <div class="lb-num">1</div>
+        <div class="lb-type">歷史住戶糾紛</div>
       </div>
     </div>
-    <p class="sec-note">依公平交易委員會及司法院公開資料庫查詢，擇居目前未查到以元利建設企業股份有限公司為當事人／受處分人之公開司法判決書或行政裁罰紀錄。</p>
-<div style="padding:16px 18px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;margin:8px 0">
+    <p class="sec-note">擇居以「元利建設企業股份有限公司」為當事人查詢司法院裁判書、公平交易委員會決策資料庫，<strong>截至本頁更新日期未查到任何在案的行政裁罰、刑事案件或勝訴／敗訴判決紀錄</strong>。下表保留 2010 年板橋「國家世紀」社區之住戶抗議事件（媒體與 Mobile01 公開可查），列入「歷史住戶糾紛」供購屋人參考。</p>
+    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
+      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">非訟糾紛</span>住戶／社區公開抗議或申訴，未必進入司法程序
+      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
+    </div>
+
+    <div style="padding:16px 18px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;margin:8px 0">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
         <span style="font-size:16px">✅</span>
-        <strong style="font-size:13px;color:#166534">查詢結果：未發現重大紀錄</strong>
+        <strong style="font-size:13px;color:#166534">查詢結果：未發現重大司法或行政紀錄</strong>
       </div>
-      <p style="font-size:12px;color:#555;line-height:1.7;margin:0">擇居 已查詢公平交易委員會裁罰資料庫及司法院裁判書系統，截至目前<strong>未查到元利建設的重大行政裁罰、刑事案件或民事糾紛紀錄</strong>。此結果有時效性，建議購屋前自行至下方連結複查。</p>
+      <p style="font-size:12px;color:#555;line-height:1.7;margin:0">擇居 已查詢公平交易委員會裁罰資料庫及司法院裁判書系統，截至目前<strong>未查到元利建設企業股份有限公司的重大行政裁罰、刑事案件或民事敗訴紀錄</strong>。此結果有時效性，建議購屋前自行至下方連結複查。</p>
+    </div>
+
+    <div class="legal-item">
+      <div class="legal-header" onclick="toggleLegal(this)">
+        <span class="sev-dot sev-low"></span>
+        <span class="legal-type t-civil">糾紛</span>
+        <span class="legal-title">2010 板橋「國家世紀」社區住戶抗議擅改設計事件（已結案，未進入司法判決）</span>
+        <span class="legal-year">2010</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#F3E8FF;color:#6B21A8;margin-left:6px">非訟糾紛</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">公司</span>
+        <a class="src" href="https://www.mobile01.com/topicdetail.php?f=455&t=1165470" target="_blank" onclick="event.stopPropagation()">Mobile01 原文 ↗</a>
+        <span class="legal-chevron">＋</span>
+      </div>
+      <div class="legal-body">
+        <strong>事件背景：</strong>新北市板橋區「新板特區」之「國家世紀館」社區（2009 年完工，由元利建設興建，共 314 戶）部分住戶反映建商擅自變更原設計：總統級迴轉道狹窄需倒車進入；豪華交誼廳大理石地板被改為塑膠板與木板；原本宣稱的噴泉與庭園造景僅有枯萎樹木，且大雨會有積水倒灌進交誼廳。<br><br>
+        <strong>住戶行動：</strong>逾 200 名住戶曾前往台北市長安東路元利建設總部灑冥紙抗議，反映與建商協調 18 次未果。<br><br>
+        <strong>結案狀態：</strong>事件未見公開判決書紀錄，亦未在公平交易委員會裁罰資料庫中查得對應處分；公開資訊顯示為當時媒體與論壇報導之社區糾紛，事後雙方私下協調或調解。距今已逾 15 年，近年未見同案延伸糾紛。<br><br>
+        <strong>擇居 說明：</strong>本筆紀錄列入「歷史住戶糾紛」是為保留資訊完整性，<strong>不等於司法判決紀錄</strong>。購屋前建議直接查驗目標建案的承造廠商、社區自治運作與公設交付狀況。
+        <div class="legal-links">
+          <a class="src" href="https://www.mobile01.com/topicdetail.php?f=455&t=1165470" target="_blank">Mobile01 原貼文 ↗</a>
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://www.sinyi.com.tw/communitylist/communityinfo/0007508" target="_blank">信義房屋：國家世紀館社區資料 ↗</a>
+        </div>
+      </div>
     </div>
 
     <div style="padding:14px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
@@ -379,13 +1403,13 @@ input:focus, button:focus { outline: none; }
       <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會 ↗</a>
       <a class="src" href="https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" target="_blank">經濟部商業司 ↗</a>
     </div>
-    <div class="data-footnote">資料來源：司法院裁判書查詢系統 · 公平交易委員會決策查詢</div>
+    <div class="data-footnote">資料來源：司法院裁判書查詢系統 · 公平交易委員會決策查詢 · Mobile01 房地產板</div>
   </div>
 
   <div class="tier2-divider">
     <div class="t2d-kicker">第二層 — 網路輿情資料</div>
-    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責。</strong></div>
-
+    <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責，亦不代表本站立場。</strong></div>
+  
     <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#FFF9F0;border-left:3px solid #D4A574;font-size:12px;line-height:1.8;color:#666">⚖️ 以上司法紀錄摘要來自公開資訊整理，連結將前往司法院裁判書查詢系統，需自行輸入當事人名稱搜尋。實際案情請以法院裁判書原文為準。</p>
   </div>
 
@@ -393,60 +1417,64 @@ input:focus, button:focus { outline: none; }
     <div class="tier-head">
       <span class="tier-kicker sent">網路輿情 · 第二層</span>
       <div class="tier-rule"></div>
-      <span class="tier-note">PTT · Mobile01 · 公開新聞</span>
+      <span class="tier-note">PTT · Mobile01 · Dcard（公開討論）</span>
     </div>
 
     <div class="criteria-block">
       <div class="criteria-header" onclick="toggleCriteria(this)">
-        <span class="criteria-title">本頁輿情篩選標準</span>
+        <span class="criteria-title">本頁輿情篩選標準（① 討論量 · ② 時效 · ③ 建案對應 · ④ 不刻意平衡 · ⑤ 人工審閱）</span>
         <span class="criteria-chevron">＋</span>
       </div>
       <div class="criteria-body">
-        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文。<br>
+        <strong>① 討論量門檻</strong>：PTT 串需有至少 10 則推文或 5 個不同 ID 的實質回覆。<br>
         <strong>② 時效分層</strong>：三年內的討論為主要資料。<br>
-        <strong>③ 人工最終審閱</strong>：所有摘要由 擇居 編輯審閱後才發布。
+        <strong>③ 建案對應</strong>：每則輿情盡量標明針對的具體建案。<br>
+        <strong>④ 不刻意平衡正負</strong>：正負比例反映真實的搜尋結果。<br>
+        <strong>⑤ 人工最終審閱</strong>：所有摘要由 擇居 編輯審閱後才發布。
       </div>
     </div>
 
     <div class="card">
-      <div class="sec-label">輿情概況</div>
-      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">元利建設在 PTT home-sale 與 Mobile01 的討論多圍繞旗艦豪宅案（信義聯勤、和平大苑、四季莊園）與文山木柵造鎮案展開。近三年討論整體偏正向，版友肯定品牌量體與建築品質；但在較早期案件曾出現住戶抗議擅改設計的紀錄，擇居併陳以供參考。</p>
+      <div class="sec-label">輿情概況（擇居 初步彙整）</div>
+      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">元利建設在 PTT home-sale 與 Mobile01 上的討論集中在三類：一是旗艦豪宅案（ONE PARK TAIPEI 元利信義聯勤、和平大苑、四季莊園）的單價與設計；二是文山區木柵造鎮、新店、桃園蘆竹等中價位案的入住心得；三是 2023 年 PTT 整理的「2023 台北頂級建商」討論將元利列為 Tier S。整體討論偏正向，少數歷史性負評（板橋國家世紀館 2010 抗議事件）距今已 15 年以上。常見正評：「先建後售、看得到才買」、「Richard Rogers／Kelly Hoppen 等國際團隊規格」。常見批評：「單價偏高」、「成屋價格不容易議」。</p>
       <div class="sent-overview">
         <div class="sent-bars">
-          <div class="sent-row"><span class="sent-lbl">正面</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:60%"></div></div><span class="sent-pct">多數</span></div>
-          <div class="sent-row"><span class="sent-lbl">中性</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:25%"></div></div><span class="sent-pct">部分</span></div>
-          <div class="sent-row"><span class="sent-lbl">負面</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:15%"></div></div><span class="sent-pct">少數</span></div>
+          <div class="sent-row"><span class="sent-lbl">正面評價</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:60%"></div></div><span class="sent-pct">多數</span></div>
+          <div class="sent-row"><span class="sent-lbl">中性討論</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:25%"></div></div><span class="sent-pct">部分</span></div>
+          <div class="sent-row"><span class="sent-lbl">負面評價</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:15%"></div></div><span class="sent-pct">少數</span></div>
         </div>
       </div>
+      <p style="font-size:11.5px;color:#666;line-height:1.6">正評集中於品牌、建築品質、國際合作陣容；負評以單價偏高與歷史抗議事件為主。</p>
     </div>
 
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-date">2024–2025</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「元利文山木柵二期 四季莊園」討論串：版友普遍肯定一期「森活莊園」去化表現強勢，並期待二期以超大基地與公設規劃為文山區木柵路再建指標。整體討論偏正向。</div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2023</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「2023 台北頂級建商及建築師討論」整理串：版友將元利列為 Tier S（最高級），與「忠泰、皇翔」並列；推文評語「目前最強，無庸置疑—One Park 平均成交量與總價最高」。和平大苑被認為「不錯，外觀見仁見智」。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1685201263.A.778.html" target="_blank">查看原文 ↗</a></div>
+    </div>
+    <div class="sent-card">
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2024–2025</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「元利文山木柵二期 四季莊園」討論：版友普遍肯定一期「森活莊園」去化表現強勢，並期待二期以超大基地（約 12,000 坪）與公設規劃為文山區再建指標。整體討論偏正向，部分提及單價已拉升至非首購族區間。</div>
       <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.pttweb.cc/bbs/home-sale/t/48487356" target="_blank">查看原文（鏡像）↗</a></div>
     </div>
-
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-date">2024</span><span class="tone tone-neu">中性</span></div>
-      <div class="sent-body">「請問元利建設植物園案大概何時開案?」貼文串：版友互相打聽元利於南海路植物園周邊基地的推案時程，多以資訊分享與期待討論為主。</div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-neu">中性</span></div>
+      <div class="sent-body">「請問元利建設植物園案大概何時開案？」討論：版友互相打聽元利於南海路植物園周邊基地的推案時程，多以資訊分享、預期單價推估為主，未見正負評集中。</div>
       <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.pttweb.cc/bbs/home-sale/M.1715679621.A.871" target="_blank">查看原文（鏡像）↗</a></div>
     </div>
-
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-date">2024</span><span class="tone tone-neu">中性</span></div>
-      <div class="sent-body">「桃園蘆竹-元利電通市」社區討論：版友分享該案的室內規格與交屋體驗，以理性比價、實住心得為主，未見集體負評。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.pttweb.cc/bbs/home-sale/M.1721344722.A.8EC" target="_blank">查看原文（鏡像）↗</a></div>
-    </div>
-
-    <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房屋</span><span class="sent-date">2024–2025</span><span class="tone tone-pos">正面</span></div>
-      <div class="sent-body">「元利四季莊園」成屋討論：網友圍繞基地規模、景觀面、建築師陣容與單價分析進行交流，多肯定元利深耕文山區的長期投入與社區營造企圖。</div>
+      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房屋</span><span class="sent-dot"></span><span class="sent-date">2024–2025</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「元利四季莊園」成屋討論：網友圍繞基地規模、景觀面、建築師陣容、單價分析交流，多肯定元利深耕文山區的長期投入與社區營造企圖；亦有人質疑該區段是否撐得起豪宅單價。</div>
       <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=454&t=7016144" target="_blank">查看原文 ↗</a></div>
     </div>
-
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房地產</span><span class="sent-date">2010（歷史紀錄）</span><span class="tone tone-neg">負面</span></div>
-      <div class="sent-body">「元利建設擅改設計住戶灑冥紙抗議」貼文：當年板橋「國家世紀」社區部分住戶反映建商變更原設計、迴車動線與交屋落差等爭議，曾於公司門口抗議。此案距今時間較久，擇居併陳以供歷史參考，近年未見同類集體糾紛出現。</div>
+      <div class="sent-meta"><span class="sent-platform">591 實價登錄</span><span class="sent-dot"></span><span class="sent-date">2024–2025</span><span class="tone tone-neu">中性（資料）</span></div>
+      <div class="sent-body">「One Park Taipei 元利信義聯勤 A 棟」實價登錄頁面：累計 41 筆成交，均價約 NT$ 267 萬／坪。資料顯示元利信義聯勤已穩坐台北豪宅單價第一梯隊，與「和平大苑」並列為元利雙旗艦。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為公開實價登錄整理，非個人意見</span><a class="src" href="https://market.591.com.tw/35905" target="_blank">查看 591 ↗</a></div>
+    </div>
+    <div class="sent-card">
+      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房地產</span><span class="sent-dot"></span><span class="sent-date">2010（歷史）</span><span class="tone tone-neg">負面</span></div>
+      <div class="sent-body">「元利建設擅改設計住戶灑冥紙抗議」貼文：當年板橋「國家世紀館」社區部分住戶反映建商變更原設計、迴車動線狹窄與交屋公設落差，曾於公司門口抗議。此案距今已逾 15 年，近年未見同類集體糾紛重現，併陳以供購屋人歷史參考。</div>
       <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=455&t=1165470" target="_blank">查看原文 ↗</a></div>
     </div>
 
@@ -455,61 +1483,97 @@ input:focus, button:focus { outline: none; }
       <div class="sl-links">
         <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%85%83%E5%88%A9%E5%BB%BA%E8%A8%AD" target="_blank">PTT 搜尋「元利建設」 ↗</a>
         <a class="src" href="https://www.mobile01.com/search.php?search=%E5%85%83%E5%88%A9%E5%BB%BA%E8%A8%AD&type=0&category=455" target="_blank">Mobile01 房屋板 ↗</a>
-        <a class="src" href="https://www.google.com/search?q=%E5%85%83%E5%88%A9%E5%BB%BA%E8%A8%AD+%E8%A9%95%E5%83%B9" target="_blank">Google 搜尋 ↗</a>
+        <a class="src" href="https://community.houseprice.tw/builder/2402/comment" target="_blank">5168 比價王：元利建設討論彙整 ↗</a>
+        <a class="src" href="https://www.twincn.com/item.aspx?no=86691334" target="_blank">台灣公司網 建商資料 ↗</a>
       </div>
     </div>
-
-    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT、Mobile01 等公開論壇的整理歸納，連結將前往對應平台的原文或搜尋頁面。各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
+  
+    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT、Mobile01 等公開論壇的整理歸納，連結將前往對應平台的搜尋頁面，非特定貼文直連。各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
   </div>
 
   <div id="sec-quality" class="card">
-    <div class="sec-label">履約保障與品質認證</div>
+    <div class="sec-label">品質相關</div>
     <div class="q-sub">
       <div class="q-sub-label">預售屋履約擔保方式</div>
-      <div class="q-body">元利建設長期採「先建後售」（完工交屋才公開銷售）模式，因此近年旗艦案多以成屋或近交屋狀態銷售，履約擔保議題相對少見。若案件以預售推出，依《預售屋買賣定型化契約》應備置五選一擔保（不動產信託、公會連帶保證、同業連帶擔保、價金信託、價金返還），購屋前請於銷售資料與買賣契約明確確認採取方式。<a class="src" href="https://www.businesstoday.com.tw/article/category/80404/post/202008200027/%E6%B2%92%E6%9C%89%E3%80%8C%E9%A0%90%E5%94%AE%E3%80%8D%E5%B1%8B%EF%BC%9F%E4%B8%8D%E6%80%A5%E2%80%A6%E8%B1%AA%E5%AE%85%E5%AE%8C%E5%B7%A5%E5%86%8D%E6%85%A2%E6%85%A2%E8%B3%A3%E3%80%80%E6%8F%AD%E5%AF%86%E6%9E%97%E6%95%8F%E9%9B%84%E3%80%8C%E7%B4%B0%E7%A9%B6%E6%85%A2%E7%86%AC%E3%80%8D%E9%A4%8A%E5%9C%B0%E5%AD%B8" target="_blank">今周刊：林敏雄「先建後售」策略 ↗</a></div>
+      <div class="q-body">元利建設長期採「<strong>先建後售</strong>」（完工取得使照、甚至成屋才公開銷售）模式，旗艦案如 ONE PARK TAIPEI 元利信義聯勤、和平大苑、四季莊園等多以成屋或近交屋狀態銷售，<strong>履約擔保議題相對少見</strong>。若個別案件以預售推出，依《預售屋買賣定型化契約》應備置「五選一」擔保（不動產信託、公會連帶保證、同業連帶擔保、價金信託、價金返還），購屋前請於銷售資料與買賣契約逐字確認採取之擔保方式與信託銀行。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://www.businesstoday.com.tw/article/category/80404/post/202008200027/%E6%B2%92%E6%9C%89%E3%80%8C%E9%A0%90%E5%94%AE%E3%80%8D%E5%B1%8B%EF%BC%9F%E4%B8%8D%E6%80%A5%E2%80%A6%E8%B1%AA%E5%AE%85%E5%AE%8C%E5%B7%A5%E5%86%8D%E6%85%A2%E6%85%A2%E8%B3%A3%E3%80%80%E6%8F%AD%E5%AF%86%E6%9E%97%E6%95%8F%E9%9B%84%E3%80%8C%E7%B4%B0%E7%A9%B6%E6%85%A2%E7%86%AC%E3%80%8D%E9%A4%8A%E5%9C%B0%E5%AD%B8" target="_blank">今周刊：林敏雄「先建後售」策略 ↗</a>
+        <a class="src" href="https://www.land.moi.gov.tw/chhtml/content/74" target="_blank">內政部預售屋履保說明 ↗</a>
+      </div>
+      <div class="q-warn">⚠ 本欄資訊適用於元利建設整體營運慣例；個別建案請以該案銷售文件為準。</div>
     </div>
     <div class="q-sub">
-      <div class="q-sub-label">品質認證與國際合作</div>
-      <div class="q-body">元利自述以水電工程起家，早年承攬過遠企中心、凱悅飯店（今君悅）、震旦大樓等地標工程，轉型建商後長期與國際建築師團隊合作，代表陣容包括普立茲克建築獎得主 Richard Rogers 爵士（規劃中之台北四季酒店建築）、皇室御用室內設計師 Kelly Hoppen 爵士、義大利精品空間訂製大師 Lorenzo Tondelli 等。<a class="src" href="http://www.yuanlih.com.tw/" target="_blank">元利機構官網 ↗</a> <a class="src" href="https://www.ctee.com.tw/news/20230214700981-439803" target="_blank">工商時報 ↗</a></div>
+      <div class="q-sub-label">品質認證與國際合作陣容</div>
+      <div class="q-body">元利建設自述以<strong>水電工程承攬</strong>起家，早年曾承攬遠企中心、凱悅飯店（今君悅）、震旦大樓等地標工程，1992 年正式成立元利建設後逐步轉型為以建設為主業的家族集團。轉型建商後長期與國際建築與室內設計團隊合作，代表陣容包含：
+        <ul style="margin-top:8px;padding-left:20px;line-height:1.85">
+          <li>普立茲克建築獎得主 <strong>Richard Rogers</strong> 爵士（規劃中之「台北四季酒店」建築設計）</li>
+          <li>英國皇室與美國總統御用設計師 <strong>Kelly Hoppen</strong> 爵士（ONE PARK TAIPEI 室內設計）</li>
+          <li>義大利精品空間訂製大師 <strong>Lorenzo Tondelli</strong>（私人會所與旗艦樣品屋）</li>
+          <li>普立茲克建築獎得主 <strong>Richard Meier</strong> 事務所（曾參與元利早期豪宅案規劃）</li>
+        </ul>
+      元利母公司「元利機構」未公開取得 SGS 建物生產履歷之統一資料，購屋前可至 SGS 公開資料庫以「元利建設」或目標建案名稱查詢。</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="http://www.yuanlih.com.tw/" target="_blank">元利機構官網 ↗</a>
+        <a class="src" href="https://www.ctee.com.tw/news/20230214700981-439803" target="_blank">工商時報：元利國際合作報導 ↗</a>
+        <a class="src" href="https://msn.sgs.com/Build_Report.aspx" target="_blank">SGS 建物生產履歷查詢 ↗</a>
+      </div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">公司規模與市場地位</div>
-      <div class="q-body">元利建設 1992 年成立，實收資本 NT$ 35.71 億元，為<strong>未上市</strong>的私人建設公司，屬全聯實業創辦人林敏雄所領導的元利機構旗艦體系。以少量、精銳、先建後售為操作特色，旗艦案多集中於台北市信義／大安／文山等精華地段，近年代表作包含「ONE PARK TAIPEI 元利信義聯勤」、「和平大苑」、「元利四季莊園」（文山 12,000 坪造鎮案），並主導投資 200 億元以上興建台灣首座四季酒店（位於信義計畫區 D3 地塊，預計 2025–2026 年開幕）。<a class="src" href="https://estate.ltn.com.tw/article/13973" target="_blank">自由時報：信義聯勤、和平大苑熱銷 ↗</a> <a class="src" href="https://www.ctee.com.tw/news/20250328701844-430601" target="_blank">工商時報：四季莊園二期 ↗</a></div>
+      <div class="q-body">元利建設成立於 1992 年，實收資本 <strong>NT$ 35.71 億元</strong>，為<strong>未上市</strong>的私人家族公司，屬全聯實業創辦人<strong>林敏雄</strong>所領導之元利機構旗艦事業體；集團另含全聯福利中心（PX Mart 母公司）、大樂量販等。公司營運特色：
+        <ul style="margin-top:8px;padding-left:20px;line-height:1.85">
+          <li><strong>少量、精銳、先建後售</strong>：旗艦案以成屋銷售為主，避開預售屋常見之契約糾紛</li>
+          <li><strong>地段集中</strong>：旗艦案多落於台北市信義／大安／中山／文山，與周邊豪宅地段競爭</li>
+          <li><strong>跨足飯店投資</strong>：主導投資逾 NT$ 200 億元興建台灣首座<strong>四季酒店</strong>（位於信義計畫區 D3 地塊，預計 2025–2026 年開幕）</li>
+          <li><strong>單價地位</strong>：ONE PARK TAIPEI 元利信義聯勤實價約 NT$ 267 萬／坪，為台北豪宅單價第一梯隊；和平大苑為周杰倫指標豪宅</li>
+        </ul>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <a class="src" href="https://estate.ltn.com.tw/article/13973" target="_blank">自由時報：信義聯勤、和平大苑熱銷 ↗</a>
+        <a class="src" href="https://www.ctee.com.tw/news/20250328701844-430601" target="_blank">工商時報：四季莊園二期 ↗</a>
+        <a class="src" href="https://market.591.com.tw/35905" target="_blank">591 實價登錄：信義聯勤 A ↗</a>
+      </div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">代表建案</div>
       <div class="q-body">
-        <strong>信義／大安豪宅</strong>：ONE PARK TAIPEI 元利信義聯勤（信義區．大安森林公園第一排）、和平大苑（大安區．愛國東路）、水世紀、和平世紀。<br>
-        <strong>文山造鎮</strong>：元利森活莊園（一期）、元利四季莊園（二期，基地約 12,000 坪，全台單一建照最大總銷之一）。<br>
+        <strong>信義／大安豪宅</strong>：ONE PARK TAIPEI 元利信義聯勤（信義區．大安森林公園第一排，2018 年完工，雙塔設計，Richard Rogers + Kelly Hoppen 操刀）、和平大苑（大安區．愛國東路，周杰倫私宅指標）、水世紀、和平世紀。<br>
+        <strong>文山造鎮</strong>：元利森活莊園（文山一期）、元利四季莊園（文山二期，基地約 12,000 坪，全台單一建照最大總銷之一，2024 年開工進行中）。<br>
         <strong>其他</strong>：忠順大院、信忠順大院／忠順大院 II、桃園蘆竹電通市等。<br>
-        <a class="src" href="https://community.houseprice.tw/builder/2402/" target="_blank">5168 實價登錄：元利歷年建案 ↗</a> <a class="src" href="https://www.newland.tw/case/SeasonVillage" target="_blank">元利四季莊園官方頁 ↗</a>
+        <strong>跨業旗艦</strong>：台北四季酒店（信義 D3 地塊，BOT 改民營化飯店投資案）。<br>
+        <a class="src" href="https://community.houseprice.tw/builder/2402/" target="_blank">5168 比價王：元利歷年建案 ↗</a> <a class="src" href="https://www.newland.tw/case/SeasonVillage" target="_blank">元利四季莊園官方頁 ↗</a> <a class="src" href="https://oneparktaipei.com.tw/" target="_blank">ONE PARK TAIPEI 官網 ↗</a>
       </div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">主要合作營造廠</div>
+      <div class="q-body">元利自述以水電工程承攬起家，早年累積營造實力，但<strong>未於公開資料中查得單一長期綁定之營造廠</strong>。近年旗艦案多採「國際建築師＋多家營造廠競標／分標」之模式，例如 ONE PARK TAIPEI 由達欣工程營造參與部分結構工程；台北四季酒店則由麗寶營造、互助營造等大型營造廠競標承造。</div>
       <div class="contractor-list">
         <div class="contractor-item">
           <span class="contractor-rank">—</span>
           <div>
-            <div class="contractor-name">未查到固定長期合作營造廠公開紀錄</div>
-            <div class="contractor-rel">元利自述以水電承攬起家，累積營造實力，但未於公開資料中查得單一長期綁定之營造廠。近年旗艦案多採國際建築師 + 多家營造廠競標／分標模式。購屋前建議直接向銷售中心詢問該案之起造與承造廠商資訊。</div>
+            <div class="contractor-name">未查到固定長期合作營造廠公開紀錄 <span class="rel-tag rel-partner">分案發包</span></div>
+            <div class="contractor-rel">元利官網與媒體報導均未明列固定承造合作關係。購屋前建議直接向銷售中心詢問該案之起造與承造廠商資訊，並至內政部營建署之建照資料庫核對。</div>
+            <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="src" href="https://cpabm.cpami.gov.tw/" target="_blank">營建署建照查詢 ↗</a>
+              <a class="src" href="https://newhouse.591.com.tw/search?q=%E5%85%83%E5%88%A9" target="_blank">591 搜尋「元利」 ↗</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="data-footnote">資料來源：元利機構官網 · 工商時報 · 自由時報 · 今周刊</div>
+    <div class="data-footnote">資料來源：元利機構官網 · 工商時報 · 自由時報 · 今周刊 · 591 · 5168 比價王</div>
   </div>
 
   <div class="contact-block">
     <div>
       <div class="c-title">發現資料錯誤或有補充？</div>
-      <div class="c-desc">包括登記資料有誤、建案資訊不完整、司法判決、輿情摘要等，歡迎來信告知。</div>
+      <div class="c-desc">包括登記資料有誤、建案資訊不完整、未收錄的司法判決、輿情摘要失實等，歡迎來信告知。</div>
     </div>
-    <a href="mailto:info@howhouse.tw?subject=建商資料回報：元利建設" class="contact-btn">聯絡擇居 ↗</a>
+    <a href="mailto:info@howhouse.tw?subject=建商資料回報：元利建設" class="contact-btn">聯絡 擇居 ↗</a>
   </div>
 
   <div class="page-footer">
-    公開資料（第一層）來源標示於每個欄位旁。輿情資料（第二層）為 擇居 編輯彙整之公開討論摘要。本頁最後更新：2026 年 4 月。
+    公開資料（第一層）來源標示於每個欄位旁，均可點擊驗證。輿情資料（第二層）為 擇居 編輯彙整之公開討論摘要，不代表本站評價或立場。本頁最後更新：2026 年 4 月。
   </div>
 </div>
 
@@ -540,19 +1604,31 @@ input:focus, button:focus { outline: none; }
     </footer>
 <!-- FOOTER:END -->
 <script>
-  if (typeof lucide !== 'undefined') lucide.createIcons();
+  // Tailwind Config
+  // Initialize Lucide Icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // Toggle Legal Items
   function toggleLegal(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.legal-chevron');
+
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
+
+  // Toggle Criteria
   function toggleCriteria(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.criteria-chevron');
+
     body.classList.toggle('open');
     chevron.textContent = body.classList.contains('open') ? '－' : '＋';
   }
+
+  // Jump to Section
   function jumpTo(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -562,7 +1638,12 @@ input:focus, button:focus { outline: none; }
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
+  // Initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Any additional initialization
+  });
 </script>
+
 <script>
 // Set --nav-h for sticky snav positioning
 (function() {
