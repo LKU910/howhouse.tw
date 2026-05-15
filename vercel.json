@@ -3,6 +3,11 @@
   "outputDirectory": "第二階段（工具開發）/deploy",
   "installCommand": "echo 'skip root install'",
   "framework": null,
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "@vercel/node@3"
+    }
+  },
   "headers": [
     {
       "source": "/tailwind.css",
