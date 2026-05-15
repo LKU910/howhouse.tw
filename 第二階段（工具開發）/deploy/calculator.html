@@ -2901,6 +2901,9 @@
             newsletter_opt_in: wantsNewsletter
         });
 
+        // 先存按鈕原始狀態（generatePDF 會暫時改成「產生中...」）
+        var origHTML = btn.innerHTML;
+
         // 生成 PDF 為 base64
         btn._returnBase64 = true;
         btn._pdfResult = null;
@@ -2908,13 +2911,16 @@
         var pdfBase64 = btn._pdfResult;
         btn._returnBase64 = false;
 
+        // generatePDF 在 returnBase64 模式不會還原按鈕，手動還原
+        btn.innerHTML = origHTML;
+        btn.style.background = '#8A6820';
+        btn.disabled = false;
+
         if (!pdfBase64) {
-            // PDF 生成失敗，fallback 文案已在 generatePDF 內處理
             return;
         }
 
         // 更新按鈕狀態
-        var origHTML = btn.innerHTML;
         btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 stroke-[1.5]"></i> 寄送中...';
         btn.disabled = true;
 
