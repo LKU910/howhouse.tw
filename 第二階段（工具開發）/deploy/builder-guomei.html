@@ -5,22 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noai, noimageai">
-  <title>京城建設 建商履歷｜擇居</title>
-    <meta name="description" content="京城建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。資料僅供參考，購屋前請自行查證。">
-    <meta name="keywords" content="京城建設,京城建設評價,京城建設建案,京城建設股票,2524,京城建設司法紀錄,蔡天贊,建商履歷,擇居">
-    <link rel="canonical" href="https://howhouse.tw/builder-kindom.html">
+  <title>國美建設 建商履歷｜擇居</title>
+    <meta name="description" content="國美建設（Goodman）建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。資料僅供參考，購屋前請自行查證。">
+    <meta name="keywords" content="國美建設,國美建設評價,國美建設建案,國美建設司法紀錄,建商履歷,擇居,Goodman">
+    <link rel="canonical" href="https://howhouse.tw/builder-guomei.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="京城建設 建商履歷｜擇居">
-    <meta property="og:description" content="京城建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
-    <meta property="og:url" content="https://howhouse.tw/builder-kindom.html">
+    <meta property="og:title" content="國美建設 建商履歷｜擇居">
+    <meta property="og:description" content="國美建設（Goodman）建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <meta property="og:url" content="https://howhouse.tw/builder-guomei.html">
     <meta property="og:site_name" content="擇居">
     <meta property="og:locale" content="zh_TW">
     <meta property="og:image" content="https://howhouse.tw/og/default.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="京城建設 建商履歷｜擇居">
-    <meta name="twitter:description" content="京城建設 建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
+    <meta name="twitter:title" content="國美建設 建商履歷｜擇居">
+    <meta name="twitter:description" content="國美建設（Goodman）建商履歷：公開資料、建案列表、司法紀錄與網路輿情整理。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -521,107 +521,40 @@
     }
 
     .legal-item {
-      border-bottom: 1px solid #2A2A2A;
-      padding: 24px 0;
+      border-top: 1px solid #E5E5E5;
     }
 
-    .legal-item:last-child {
-      border-bottom: none;
-    }
-
-    .legal-item-header {
+    .legal-header {
       display: flex;
       align-items: center;
       gap: 12px;
+      padding: 20px 0;
       cursor: pointer;
       user-select: none;
-      transition: all 500ms;
-      background: none;
-      border: none;
-      width: 100%;
-      text-align: left;
-      padding: 0;
-    }
-
-    .legal-item-header:hover .legal-item-title {
-      color: white;
-    }
-
-    .legal-severity-dot {
-      width: 8px;
-      height: 8px;
-      flex-shrink: 0;
-    }
-
-    .severity-high {
-      background-color: var(--architect-terracotta);
-    }
-
-    .severity-low {
-      background-color: #666666;
-    }
-
-    .legal-item-type {
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      color: #666666;
-      font-weight: 600;
-      min-width: 48px;
-      flex-shrink: 0;
-    }
-
-    .legal-item-type.admin {
-      color: #666666;
-    }
-
-    .legal-item-type.criminal {
-      color: var(--architect-terracotta);
-    }
-
-    .legal-item-type.civil {
-      color: var(--architect-slate);
-    }
-
-    .legal-item-title {
-      flex: 1;
-      font-size: 14px;
-      color: #C0C0C0;
-      line-height: 1.5;
       transition: color 500ms;
     }
 
-    .legal-item-year {
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: #666666;
-      min-width: 60px;
-      text-align: right;
-    }
+    .legal-header:hover .legal-title { color: #121212; }
 
-    .legal-item-chevron {
-      font-size: 16px;
-      color: #666666;
-      margin-left: 12px;
-      flex-shrink: 0;
-    }
+    .sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
+    .sev-high { background: #9C4A38; }
+    .sev-low { background: #8A8A8A; }
+    .legal-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
+    .t-admin { color: #666666; }
+    .t-criminal { color: #9C4A38; }
+    .t-civil { color: #4A5D6A; }
+    .legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; line-height: 1.5; transition: color 500ms; }
+    .legal-year { font-size: 11px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
+    .legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; transition: transform 300ms; flex-shrink: 0; }
+    .legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; margin-left: 3px; }
+    .legal-body.open { display: block; }
+    .legal-body strong { color: #121212; font-weight: 500; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 
-    .legal-item-body {
-      display: none;
-      margin-top: 16px;
-      padding-left: 20px;
-      border-left: 1px solid #2A2A2A;
-      font-size: 13px;
-      line-height: 1.7;
-      color: #C0C0C0;
-    }
-
-    .legal-item-body.open {
-      display: block;
-    }
-
-    .legal-item-body strong {
-      color: white;
-      font-weight: 600;
+    @media (max-width: 640px) {
+      .legal-header { flex-wrap: wrap; gap: 6px 10px; }
+      .legal-title { flex-basis: 100%; order: 10; font-size: 13px; line-height: 1.7; margin-top: 4px; }
+      .legal-chevron { margin-left: auto; }
     }
 
     /* ── Sentiment Section ── */
@@ -974,9 +907,9 @@
       margin: 0 auto;
       padding: 56px 40px 0;
     }
-  
+
     /* ══════════════════════════════════════════════
-       BRIDGE CSS: Reskin old class names to new 
+       BRIDGE CSS: Reskin old class names to new
        Swiss Design / Architectural Magazine aesthetic
        ══════════════════════════════════════════════ */
 
@@ -1038,7 +971,6 @@
     /* ── Projects Table ── */
     .proj-toggle-btn { font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; background: none; border: 1px solid #121212; padding: 10px 16px; cursor: pointer; transition: all 500ms; color: #121212; }
     .proj-toggle-btn:hover { background: #121212; color: #FAFAFA; }
-    /* Expandable region section */
     .proj-name { font-weight: 500; margin-bottom: 4px; font-size: 16px; color: #121212; }
     .proj-sub { font-size: 14px; color: #666666; line-height: 1.5; }
     .status-pill { font-size: 11px; font-weight: 500; padding: 0; white-space: nowrap; display: inline-block; background: none !important; border: none; }
@@ -1068,31 +1000,6 @@
     .lb-card.lb-orange .lb-num { color: #9C4A38; }
     .lb-card.lb-red .lb-num { color: #9C4A38; }
     .lb-card.lb-blue .lb-num { color: #4A5D6A; }
-
-    /* ── Legal Items ── */
-    .legal-item { border-top: 1px solid #E5E5E5; }
-    .legal-header { display: flex; align-items: center; gap: 12px; padding: 20px 0; cursor: pointer; user-select: none; transition: color 500ms; }
-    .legal-header:hover .legal-title { color: #121212; }
-    .sev-dot { width: 6px; height: 6px; flex-shrink: 0; }
-    .sev-high { background: #9C4A38; }
-    .sev-low { background: #8A8A8A; }
-    .legal-type { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; flex-shrink: 0; min-width: 42px; }
-    .t-admin { color: #666666; }
-    .t-criminal { color: #9C4A38; }
-    .t-civil { color: #4A5D6A; }
-    .legal-title { flex: 1; font-size: 14px; font-weight: 400; color: #666666; line-height: 1.5; transition: color 500ms; }
-    .legal-year { font-size: 11px; letter-spacing: 0.12em; color: #666666; flex-shrink: 0; }
-    .legal-chevron { font-size: 14px; color: #666666; margin-left: 8px; transition: transform 300ms; flex-shrink: 0; }
-    .legal-body { display: none; padding: 0 0 24px 20px; font-size: 14px; line-height: 1.8; color: #666666; border-left: 1px solid #E5E5E5; margin-left: 3px; }
-    .legal-body.open { display: block; }
-    .legal-body strong { color: #121212; font-weight: 500; }
-    .legal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-    /* ── Legal record mobile layout ── */
-    @media (max-width: 640px) {
-      .legal-header { flex-wrap: wrap; gap: 6px 10px; }
-      .legal-title { flex-basis: 100%; order: 10; font-size: 13px; line-height: 1.7; margin-top: 4px; }
-      .legal-chevron { margin-left: auto; }
-    }
 
     /* ── Tier 2 Divider ── */
     .tier2-divider { margin: 56px 0 0; border-top: 1px solid #E5E5E5; padding: 32px 0 0; }
@@ -1151,8 +1058,6 @@
     .rel-owned { color: #4A5D6A; border-color: #4A5D6A; background: none; }
     .rel-invest { color: #8A6820; border-color: #8A6820; background: none; }
     .rel-partner { color: #666666; border-color: #E5E5E5; background: none; }
-    .sub-brand-badge { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; color: #8A6820; border: 1px solid #8A6820; margin-right: 6px; background: none; }
-    .proj-sub-brand td { background: transparent !important; }
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
@@ -1172,35 +1077,16 @@
       .hero-bento { grid-template-columns: 1fr; }
       .lb-num { font-size: 32px; }
       .contact-block { flex-direction: column; align-items: flex-start; }
-    }    .s-planning { color: #7B6BA5; font-weight: 600; }
-    .s-onsale   { color: #B8860B; font-weight: 600; }
-    .s-presale-active { color: #8A6820; font-weight: 600; }    .proj-toggle-completed {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: #666;
-      cursor: pointer;
-      padding: 10px 16px;
-      border: 1px solid #E5E5E5;
-      background: none;
-      transition: all 0.3s;
-      margin-top: 12px;
     }
-    .proj-toggle-completed:hover {
-      border-color: #8A6820;
-      color: #8A6820;
-    }
-
   </style>
   <script type="application/ld+json">
   {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "京城建設",
-      "url": "https://howhouse.tw/builder-kindom.html",
-      "description": "京城建設 建商履歷與評價 - 擇居提供的建商資訊頁面",
+      "name": "國美建設",
+      "alternateName": "Kuo Mei Construction Co., Ltd.",
+      "url": "https://howhouse.tw/builder-guomei.html",
+      "description": "國美建設（Goodman）建商履歷與評價 - 擇居提供的建商資訊頁面",
       "areaServed": "TW",
       "contactPoint": {
           "@type": "ContactPoint",
@@ -1275,33 +1161,34 @@
   </div>
 
   <div class="hero">
-    <h1 class="hero-name">京城建設</h1>
-    <div class="hero-en">Kindom Construction Corp. · 股份有限公司 · 證交所代號 2524</div>
+    <h1 class="hero-name">國美建設</h1>
+    <div class="hero-en">Kuo Mei Construction Co., Ltd. · 品牌：Goodman 國美機構 · 股份有限公司</div>
     <div class="hero-tags">
-      <span class="hero-tag">上市 2524</span>
-      <span class="hero-tag">成立 1985 年</span>
-      <span class="hero-tag">南台灣 · 高雄</span>
+      <span class="hero-tag">未上市</span>
+      <span class="hero-tag">成立 1996 年</span>
+      <span class="hero-tag">雙北高端建商</span>
+      <span class="hero-tag">PTT 評為 Tier S</span>
     </div>
     <div class="hero-bento">
       <div class="hs-card">
         <div class="hs-label">統一編號</div>
-        <div class="hs-value">06667446</div>
-        <a href="https://www.twincn.com/item.aspx?no=06667446" target="_blank" class="hs-src">台灣公司網 ↗</a>
+        <div class="hs-value">97128469</div>
+        <a href="https://data.bznk.com/97128469" target="_blank" class="hs-src">必可 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">實收資本額</div>
-        <div class="hs-value">NT$ 37.59 億</div>
-        <a href="https://goodinfo.tw/tw/BasicInfo.asp?STOCK_ID=2524" target="_blank" class="hs-src">Goodinfo ↗</a>
+        <div class="hs-value">NT$ 25.5 億</div>
+        <a href="https://info.technews.tw/company/97128469-%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank" class="hs-src">科技新報 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">公司代表人</div>
-        <div class="hs-value">蔡天贊（董事長）</div>
-        <a href="https://www.twincn.com/item.aspx?no=06667446" target="_blank" class="hs-src">台灣公司網 ↗</a>
+        <div class="hs-value">盧明德</div>
+        <a href="https://data.bznk.com/97128469" target="_blank" class="hs-src">必可 ↗</a>
       </div>
       <div class="hs-card">
         <div class="hs-label">登記地址</div>
-        <div class="hs-value" style="font-size:13px;letter-spacing:0">高雄市左營區博愛二路 150 號 12 樓</div>
-        <a href="https://www.twincn.com/item.aspx?no=06667446" target="_blank" class="hs-src">台灣公司網 ↗</a>
+        <div class="hs-value" style="font-size:13px;letter-spacing:0">臺北市中山區復興北路 2 號 8 樓之 10</div>
+        <a href="https://data.bznk.com/97128469" target="_blank" class="hs-src">必可 ↗</a>
       </div>
     </div>
   </div>
@@ -1325,61 +1212,141 @@
   <div id="sec-reg" class="card">
     <div class="sec-label">基本資料</div>
     <div class="fact-table">
-      <div class="fact-row"><span class="fact-lbl">公司全名</span><span class="fact-val">京城建設股份有限公司 <a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://zh.wikipedia.org/zh-tw/%E4%BA%AC%E5%9F%8E%E9%9B%86%E5%9C%98" target="_blank">維基 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">統一編號</span><span class="fact-val">06667446 <a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 ↗</a> <a class="src" href="https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do" target="_blank">商業司 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">成立日期</span><span class="fact-val">1985 年 9 月 13 日 <a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">股票狀態</span><span class="fact-val">證交所上市（代號 2524） <a class="src" href="https://goodinfo.tw/tw/StockDetail.asp?STOCK_ID=2524" target="_blank">Goodinfo ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">實收資本額</span><span class="fact-val">NT$ 37.59 億元（3,759,261,550 元）<a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">董事長</span><span class="fact-val">蔡天贊（人稱「高雄土地公」）<a class="src" href="https://www.mirrormedia.mg/story/20161122bus001" target="_blank">鏡週刊 ↗</a> <a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">登記地址</span><span class="fact-val">高雄市左營區博愛二路 150 號 12 樓 <a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">集團關係</span><span class="fact-val">京城集團：京城建設、京城商業銀行（前身台南五信，蔡天贊家族持股）、京城天悅大飯店、建誌營造、百鋐營造等 <a class="src" href="https://zh.wikipedia.org/zh-tw/%E4%BA%AC%E5%9F%8E%E9%9B%86%E5%9C%98" target="_blank">維基 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">主要市場</span><span class="fact-val">南台灣為主，深耕高雄。近年北上推案，包括台北中華路安藤忠雄設計豪宅案 <a class="src" href="https://tw.stock.yahoo.com/quote/2524.TW/news" target="_blank">Yahoo 新聞 ↗</a></span></div>
-      <div class="fact-row"><span class="fact-lbl">營業項目</span><span class="fact-val">住宅及大樓開發租售業、一般旅館業、餐館業</span></div>
+      <div class="fact-row">
+        <span class="fact-lbl">公司全名</span>
+        <span class="fact-val">國美建設股份有限公司
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">必可 ↗</a>
+          <a class="src" href="https://info.technews.tw/company/97128469-%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank">科技新報 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">統一編號</span>
+        <span class="fact-val">97128469
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">必可 ↗</a>
+          <a class="src" href="https://info.technews.tw/company/97128469-%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank">科技新報 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">成立日期</span>
+        <span class="fact-val">1996 年 9 月 30 日（核准設立）
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">必可 ↗</a>
+          <a class="src" href="https://info.technews.tw/company/97128469-%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank">科技新報 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">股票狀態</span>
+        <span class="fact-val">未上市（私人公司）</span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">實收資本額</span>
+        <span class="fact-val">NT$ 25.5 億（2,550,000,000 元；最後異動 2015-10-16）
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">必可 ↗</a>
+          <a class="src" href="https://info.technews.tw/company/97128469-%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank">科技新報 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">公司代表人</span>
+        <span class="fact-val">盧明德（2024 年 2 月起；前任代表人張金枝 2014–2024）
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">必可 ↗</a>
+          <a class="src" href="https://info.technews.tw/company/97128469-%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank">科技新報 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">登記地址</span>
+        <span class="fact-val">臺北市中山區復興北路 2 號 8 樓之 10
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">必可 ↗</a>
+          <a class="src" href="https://goodmangroup.tw/" target="_blank">官網 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">集團品牌</span>
+        <span class="fact-val">國美機構（Goodman Group）——含國美建設本體及相關投資公司（泰隆開發投資、寶聚開發、暉德、全棣等）
+          <a class="src" href="https://goodmangroup.tw/" target="_blank">官網 ↗</a>
+        </span>
+      </div>
+      <div class="fact-row">
+        <span class="fact-lbl">市場地位</span>
+        <span class="fact-val">深耕雙北（台北市、新北市）的中高端建商，以精品定位聞名；PTT home-sale 版 2023 年被版友評為北部 Tier S 頂級建商；現售建案含國美榕遇（信義區）、國美瑞安（大安區）
+          <a class="src" href="https://goodmangroup.tw/cases/" target="_blank">建案官網 ↗</a>
+          <a class="src" href="https://community.houseprice.tw/builder/16839" target="_blank">5168 建商資料 ↗</a>
+        </span>
+      </div>
     </div>
-    <div class="data-footnote">資料來源：台灣公司網 · 經濟部商業司 · 證券交易所 · 維基百科</div>
+    <div class="data-footnote">資料來源：必可（data.bznk.com） · 科技新報公司登記系統 · 國美機構官網</div>
   </div>
 
   <div id="sec-legal" class="card">
     <div class="sec-label">法律相關</div>
     <div class="legal-bento">
-      <div class="lb-card lb-green">
-        <div class="lb-num">0</div>
-        <div class="lb-type">公平會處分</div>
+      <div class="lb-card lb-orange">
+        <div class="lb-num">1</div>
+        <div class="lb-type">行政訴訟</div>
       </div>
-      <div class="lb-card lb-green">
-        <div class="lb-num">0</div>
-        <div class="lb-type">擇居 已彙整刑事</div>
+      <div class="lb-card lb-red">
+        <div class="lb-num">1</div>
+        <div class="lb-type">刑事紀錄</div>
       </div>
       <div class="lb-card lb-blue">
-        <div class="lb-num">—</div>
-        <div class="lb-type">民事 · 待自查</div>
+        <div class="lb-num">多</div>
+        <div class="lb-type">民事糾紛</div>
       </div>
     </div>
-    <p class="sec-note">擇居 以公開搜尋方式檢視京城建設（統編 06667446）之公開司法／行政紀錄，目前 <strong>尚未發現以本公司為當事人之公平會處分案或刑事判決</strong>。京城為 40 年歷史之上市公司，民事訴訟（如客戶交屋糾紛、營造合約爭議）難免存在但分散於各別當事人；建議購屋前以本公司全名至司法院裁判書系統自行查詢最新狀態。</p>
-    <div style="margin:12px 0 18px;padding:12px 16px;background:#F8F7F6;border:1px solid #E8E6E3;border-radius:8px;font-size:12px;line-height:1.8;color:#666">
-      <strong style="color:#444;font-size:11px;letter-spacing:0.5px">分級標籤說明</strong><br>
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEF3C7;color:#92400E;margin-right:4px">審理中</span>案件尚在司法程序中，未有確定判決
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#DCFCE7;color:#166534;margin:0 4px">判決確定</span>已有終局判決
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#E0E7FF;color:#3730A3;margin:0 4px">已結案</span>行政處分確定或案件終結<br>
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#F3E8FF;color:#6B21A8;margin-right:4px">前任個人</span>涉案人為前任經營者，非現任管理團隊
-      <span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;background:#FEE2E2;color:#991B1B;margin:0 4px">公司</span>以公司名義涉入之案件
+    <p class="sec-note">以下為 BZNK 必可關聯判決資料庫所列之代表性案件（共 20 筆關聯紀錄）。<strong>注意：</strong>BZNK 本身說明「公司負責人或相關訴訟有同名問題，資料僅供參考」，部分判決可能涉及同名個人而非公司本體，建議自行至司法院裁判書查詢系統確認。</p>
+
+    <div class="legal-item">
+      <div class="legal-header" onclick="toggleLegal(this)">
+        <span class="sev-dot sev-high"></span>
+        <span class="legal-type t-criminal">刑事</span>
+        <span class="legal-title">違反商業會計法等（士林地院 112 年度訴緝字第 10、11 號）</span>
+        <span class="legal-year">2023</span>
+        <span style="display:inline-block;padding:1px 7px;font-size:10px;font-weight:600;background:#FEE2E2;color:#991B1B;margin-left:6px">刑事</span>
+        <span class="legal-chevron">＋</span>
+      </div>
+      <div class="legal-body">
+        <strong>案號：</strong>臺灣士林地方法院 112 年度訴緝字第 10、11 號刑事判決（2023 年 11 月 29 日）<br><br>
+        <strong>案由：</strong>違反商業會計法等。此為刑事案件，涉及商業會計相關規定違反。<br><br>
+        <strong>重要說明：</strong>BZNK 資料庫以盧明德（負責人）為關鍵字搜尋所列，不排除涉案主體為個人或關聯公司而非國美建設本體。請自行至司法院裁判書查詢系統輸入「國美建設」確認。<br><br>
+        <div class="legal-links">
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">BZNK 關聯紀錄 ↗</a>
+        </div>
+      </div>
     </div>
 
     <div class="legal-item">
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-low"></span>
         <span class="legal-type t-admin">行政</span>
-        <span class="legal-title">公平交易委員會：擇居 目前未查到以京城建設為當事人之公開處分案</span>
-        <span class="legal-year">—</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#DCFCE7;color:#166534;margin-left:6px">未發現</span>
-        <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank" onclick="event.stopPropagation()">公平會 ↗</a>
+        <span class="legal-title">都市更新行政爭訟（台北高等行政法院 112 年度訴字第 74 號）</span>
+        <span class="legal-year">2023</span>
+        <span style="display:inline-block;padding:1px 7px;font-size:10px;font-weight:600;background:#E0E7FF;color:#3730A3;margin-left:6px">行政</span>
         <span class="legal-chevron">＋</span>
       </div>
       <div class="legal-body">
-        <strong>查詢說明：</strong>擇居 以「京城建設」、統編「06667446」於公平交易委員會「行政決定」查詢系統及一般搜尋引擎進行檢視，截至本頁更新日期，未發現以京城建設股份有限公司為當事人之公平會公開處分案件。<br><br>
-        <strong>注意：</strong>本結果具時效性，且建商廣告與預售違規等案件多以個別建案推案主體（如以子公司或代銷名義）列被處分人，並非一定列母公司。建議購屋前以您欲購買建案之名稱與推案主體名稱另行查詢。<br><br>
-        <strong>查詢方式：</strong>至公平交易委員會網站「行政決定」查詢「京城」或具體建案名稱。
+        <strong>案號：</strong>臺北高等行政法院 112 年度訴字第 74 號行政判決（2023 年 8 月 6 日）<br><br>
+        <strong>案由：</strong>都市更新相關行政爭訟。國美建設積極推動都市更新，與地主或主管機關之間就都更程序、同意比例、容積分配等產生行政爭訟並非罕見。<br><br>
+        <strong>說明：</strong>行政訴訟屬程序性爭議，不等同於違法認定。建議自行至司法院確認案情與結果。<br><br>
         <div class="legal-links">
-          <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會查詢 ↗</a>
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">BZNK 關聯紀錄 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-item">
+      <div class="legal-header" onclick="toggleLegal(this)">
+        <span class="sev-dot sev-low"></span>
+        <span class="legal-type t-civil">民事</span>
+        <span class="legal-title">返還寄託款等（台灣高等法院 111 年度重上字第 899 號）</span>
+        <span class="legal-year">2023</span>
+        <span style="display:inline-block;padding:1px 7px;font-size:10px;font-weight:600;background:#DCFCE7;color:#166534;margin-left:6px">上訴審</span>
+        <span class="legal-chevron">＋</span>
+      </div>
+      <div class="legal-body">
+        <strong>案號：</strong>臺灣高等法院 111 年度重上字第 899 號民事判決（2023 年 5 月 30 日）。一審為臺灣臺北地方法院 111 年度重訴字第 238 號（2022 年 9 月 21 日）。<br><br>
+        <strong>案由：</strong>返還寄託款等民事糾紛，涉及金錢寄託或相關合約之給付爭議。<br><br>
+        <strong>說明：</strong>本件已進入高等法院上訴審，代表一審有判決結果。BZNK 同名問題適用，建議自行查詢確認。<br><br>
+        <div class="legal-links">
           <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
         </div>
       </div>
@@ -1389,43 +1356,62 @@
       <div class="legal-header" onclick="toggleLegal(this)">
         <span class="sev-dot sev-low"></span>
         <span class="legal-type t-civil">民事</span>
-        <span class="legal-title">司法院裁判書系統：個別民事糾紛須以公司全名實際查詢，擇居 未彙整個案</span>
-        <span class="legal-year">—</span><span style="display:inline-block;padding:1px 7px;border-radius:3px;font-size:10px;font-weight:600;background:#FEF3C7;color:#92400E;margin-left:6px">請自行查詢</span>
-        <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank" onclick="event.stopPropagation()">司法院 ↗</a>
+        <span class="legal-title">損害賠償（台灣台北地院 112 年度訴字第 4135 號）</span>
+        <span class="legal-year">2024</span>
+        <span style="display:inline-block;padding:1px 7px;font-size:10px;font-weight:600;background:#FEF3C7;color:#92400E;margin-left:6px">審理中</span>
         <span class="legal-chevron">＋</span>
       </div>
       <div class="legal-body">
-        <strong>說明：</strong>40 年歷史的上市建商，難免存在客戶交屋糾紛、營造合約、土地買賣或都更談判等民事訴訟紀錄，但分散於各別當事人，擇居 未逐案彙整。<br><br>
-        <strong>建議：</strong>購屋前請至司法院裁判書查詢系統，以「京城建設股份有限公司」或統一編號「06667446」為當事人關鍵字進行查詢，可篩選年度（如近 3 年）與案件類型（民事／刑事／行政），以了解最新動態。<br><br>
-        <strong>注意：</strong>裁判書內容不代表案件最終結果，部分案件原告或被告非建設公司本身（例如代銷、住戶之間訴訟），請務必詳閱原文判斷。
+        <strong>案號：</strong>臺灣臺北地方法院 112 年度訴字第 4135 號民事判決（2024 年 6 月 10 日）<br><br>
+        <strong>案由：</strong>損害賠償民事訴訟。<br><br>
+        <strong>說明：</strong>BZNK 關聯紀錄，涉案主體（公司或個人）請自行至司法院確認。<br><br>
         <div class="legal-links">
           <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
-          <a class="src" href="https://www.kingtown.com.tw/06.php" target="_blank">京城建設投資人專區 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-item">
+      <div class="legal-header" onclick="toggleLegal(this)">
+        <span class="sev-dot sev-low"></span>
+        <span class="legal-type t-civil">民事</span>
+        <span class="legal-title">侵權行為損害賠償（士林地院 114 年度訴字第 1138 號）</span>
+        <span class="legal-year">2025</span>
+        <span style="display:inline-block;padding:1px 7px;font-size:10px;font-weight:600;background:#FEF3C7;color:#92400E;margin-left:6px">近期</span>
+        <span class="legal-chevron">＋</span>
+      </div>
+      <div class="legal-body">
+        <strong>案號：</strong>臺灣士林地方法院 114 年度訴字第 1138 號民事判決（2025 年 11 月 4 日）<br><br>
+        <strong>案由：</strong>侵權行為損害賠償。<br><br>
+        <strong>說明：</strong>BZNK 關聯紀錄。建議自行至司法院裁判書查詢系統以「國美建設」為關鍵字搜尋確認最新進展。<br><br>
+        <div class="legal-links">
+          <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
+          <a class="src" href="https://data.bznk.com/97128469" target="_blank">BZNK 全部關聯紀錄（共 20 筆）↗</a>
         </div>
       </div>
     </div>
 
     <div style="padding:14px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
-      <span style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#666">自行查詢</span>
+      <span style="font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#4A5D6A">自行查詢</span>
       <a class="src" href="https://judgment.judicial.gov.tw/FJUD/default.aspx" target="_blank">前往司法院查詢 ↗</a>
       <a class="src" href="https://www.ftc.gov.tw/internet/main/decision/decisionlist.aspx" target="_blank">公平交易委員會 ↗</a>
-      <a class="src" href="https://mops.twse.com.tw/mops/web/index" target="_blank">公開資訊觀測站 ↗</a>
+      <a class="src" href="https://data.bznk.com/97128469" target="_blank">BZNK 全部關聯紀錄 ↗</a>
     </div>
-    <div class="data-footnote">資料來源：司法院 · 公平交易委員會 · 公開資訊觀測站</div>
+    <div class="data-footnote">資料來源：BZNK 必可（lawplayer.com 裁判書資料庫）· 司法院</div>
   </div>
 
   <div class="tier2-divider">
     <div class="t2d-kicker">第二層 — 網路輿情資料</div>
     <div class="t2d-desc">以下資料來自 PTT、Mobile01 等公開討論平台。擇居 僅彙整摘要與連結，<strong>不對內容真實性負責，亦不代表本站立場。</strong></div>
-  
-    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#FFF9F0;border-left:3px solid #D4A574;font-size:12px;line-height:1.8;color:#666">⚖️ 以上司法紀錄摘要來自公開資訊整理，連結將前往司法院裁判書查詢系統，需自行輸入當事人名稱搜尋。實際案情請以法院裁判書原文為準。</p>
+
+    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#FFF9F0;border-left:3px solid #D4A574;font-size:12px;line-height:1.8;color:#666">⚖️ 以上司法紀錄摘要來自 BZNK 公開資訊整理，連結將前往司法院裁判書查詢系統，需自行輸入當事人名稱搜尋。BZNK 本身說明同名問題，請以司法院原文為準。</p>
   </div>
 
   <div id="sec-sentiment">
     <div class="tier-head">
       <span class="tier-kicker sent">網路輿情 · 第二層</span>
       <div class="tier-rule"></div>
-      <span class="tier-note">PTT · Mobile01 · Dcard（公開討論）</span>
+      <span class="tier-note">PTT · Mobile01（公開討論）</span>
     </div>
 
     <div class="criteria-block">
@@ -1444,116 +1430,91 @@
 
     <div class="card">
       <div class="sec-label">輿情概況（擇居 初步彙整）</div>
-      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">在 PTT home-sale 與 Mobile01 房屋板，「京城建設」是高雄區討論度最高的建商之一。版友普遍肯定其<strong>地段選擇佳、產品線多元、近年豪宅化轉型敢用色設計</strong>；批評集中於<strong>價格灌水、早年瘋狂推案後人手不足造成的售後風評</strong>、<strong>公設美感不足、品質需個案檢視</strong>。多位版友指出「以前口碑臭掉是事實，但近 10 年豪宅線有明顯進步」。</p>
+      <p style="font-size:12.5px;color:#666;line-height:1.65;margin-bottom:14px">根據 PTT home-sale 版公開討論，國美建設在北部建商評價中屬頂級梯隊。常見正評包括：十年防水保固、建材設備水準高、施工品質穩定；版友將國美與潤泰、忠泰、璞園、元利等一線建商並列。討論量相對集中，品牌溢價明顯（開價普遍偏高），部分版友認為「買國美就是在買品牌跟保固」。</p>
       <div class="sent-overview">
         <div class="sent-bars">
-          <div class="sent-row"><span class="sent-lbl">正面</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:50%"></div></div><span class="sent-pct">部分</span></div>
-          <div class="sent-row"><span class="sent-lbl">負面</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:35%"></div></div><span class="sent-pct">少數</span></div>
-          <div class="sent-row"><span class="sent-lbl">中性</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:25%"></div></div><span class="sent-pct">部分</span></div>
+          <div class="sent-row"><span class="sent-lbl">正面評價</span><div class="sent-track"><div class="sent-fill fill-pos" style="width:75%"></div></div><span class="sent-pct">多數</span></div>
+          <div class="sent-row"><span class="sent-lbl">負面評價</span><div class="sent-track"><div class="sent-fill fill-neg" style="width:15%"></div></div><span class="sent-pct">少數</span></div>
+          <div class="sent-row"><span class="sent-lbl">中性討論</span><div class="sent-track"><div class="sent-fill fill-neu" style="width:25%"></div></div><span class="sent-pct">部分</span></div>
         </div>
       </div>
-      <p style="font-size:11.5px;color:#666;line-height:1.6">正評集中於南高雄地段選擇與近年豪宅化設計；負評集中於早年推案速度、價格與部分案的施工細節。</p>
+      <p style="font-size:11.5px;color:#666;line-height:1.6">正評集中於品牌保固與建材品質；少數負評多指向定價偏高、部分建案地段一般。整體而言在 PTT 屬評價顯著偏正的少數建商之一。</p>
+    </div>
+
+    <div class="sent-card">
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2023</span><span class="tone tone-pos">正面為主</span></div>
+      <div class="sent-body">「2023 台北頂級建商及建築師討論」串，版友將國美建設列為北部 Tier S 頂級建商，評語包括「品牌保固長、施工穩定」，與潤泰、忠泰、璞園等並列。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1685201263.A.778.html" target="_blank">查看原文 ↗</a></div>
+    </div>
+
+    <div class="sent-card">
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2022</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「板橋禾3 與新莊頭前國美珩月」討論串，有版友問及國美珩月，回文評價：「國美品牌保固優秀，有名的防水十年與建材設備都很好。」另有版友補充「國美的好只有住過國美的懂」，認為品質需親身體驗才能感受。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1647176665.A.70F.html" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="sent-card">
       <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2022</span><span class="tone tone-mix">褒貶皆有</span></div>
-      <div class="sent-body">「京城建設評價」討論串，版友指出京城地點選擇佳、產品多元，但早年因瘋狂推案致售後人手不足，風評一度下滑；近年走豪宅路線（綠翡翠、天峰、美術皇居）有明顯改善。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1654665604.A.1C5.html" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-body">「閒聊心目中買房子第一品牌」串，多位版友推薦國美；但也有版友指出「國美二期位置沒有一期好，建材和規劃方面普普，就是賣地點和品牌」，顯示個案差異存在，並非所有建案品質均等。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1644472046.A.693.html" target="_blank">查看原文 ↗</a></div>
     </div>
+
     <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2020</span><span class="tone tone-mix">褒貶皆有</span></div>
-      <div class="sent-body">「京城的房子到底如何」請益文，版友認為京城格局精簡、地段選擇好，公設美感見仁見智；自住可考慮，但近年價格灌了不少，建議貨比三家。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1583578608.A.BA2.html" target="_blank">查看原文 ↗</a></div>
-    </div>
-    <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2019</span><span class="tone tone-neu">中性</span></div>
-      <div class="sent-body">「高雄的京X 這幾年新建案風評怎樣」討論，版友分析京城近年敢用色彩設計（綠翡翠、天峰、美術皇居等），外觀比過往有趣，但品質仍需個案實際看屋判斷。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1555667207.A.E84.html" target="_blank">查看原文 ↗</a></div>
-    </div>
-    <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2018</span><span class="tone tone-neg">負面</span></div>
-      <div class="sent-body">「京城建設怎麼能一次開這麼案子擺著」討論串，版友質疑早年京城同時推出大量建案，銷售與管理品質參差，是過往口碑下滑的主因之一。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1527423274.A.C54.html" target="_blank">查看原文 ↗</a></div>
-    </div>
-    <div class="sent-card">
-      <div class="sent-meta"><span class="sent-platform">Mobile01 · 房地產</span><span class="sent-dot"></span><span class="sent-date">2024</span><span class="tone tone-mix">褒貶皆有</span></div>
-      <div class="sent-body">「請問京城建設的房子近年品質如何？」討論串，有網友肯定京城南高雄推案的地段與設計，也有人指出建材選用有下降趨勢，購屋前應實際看屋並對照公開實價。</div>
-      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.mobile01.com/topicdetail.php?f=469&t=6747397" target="_blank">查看原文 ↗</a></div>
+      <div class="sent-meta"><span class="sent-platform">PTT · home-sale</span><span class="sent-dot"></span><span class="sent-date">2022</span><span class="sent-dot"></span><span class="sent-date">建商排名</span><span class="tone tone-pos">正面</span></div>
+      <div class="sent-body">「知名建商各自強項」討論中，版友評析：「台北來說，國美、昇陽、忠泰、元大水準都很不錯。」國美被歸類為施工與保固表現穩定的一線品牌之一。</div>
+      <div class="sent-footer"><span class="sent-warning">⚠ 此為摘要，請點入原文自行判讀</span><a class="src" href="https://www.ptt.cc/bbs/home-sale/M.1642604620.A.6DC.html" target="_blank">查看原文 ↗</a></div>
     </div>
 
     <div class="search-links">
       <div class="sl-label">自行搜尋更多討論</div>
       <div class="sl-links">
-        <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E4%BA%AC%E5%9F%8E%E5%BB%BA%E8%A8%AD" target="_blank">PTT home-sale 搜尋「京城建設」 ↗</a>
-        <a class="src" href="https://www.ptt.cc/bbs/Kaohsiung/search?q=%E4%BA%AC%E5%9F%8E%E5%BB%BA%E8%A8%AD" target="_blank">PTT Kaohsiung 搜尋 ↗</a>
-        <a class="src" href="https://www.mobile01.com/search.php?search=%E4%BA%AC%E5%9F%8E%E5%BB%BA%E8%A8%AD&type=0&category=455" target="_blank">Mobile01 房屋板 ↗</a>
-        <a class="src" href="https://www.twincn.com/item.aspx?no=06667446" target="_blank">台灣公司網 建商資料 ↗</a>
+        <a class="src" href="https://www.ptt.cc/bbs/home-sale/search?q=%E5%9C%8B%E7%BE%8E%E5%BB%BA%E8%A8%AD" target="_blank">PTT 搜尋「國美建設」 ↗</a>
+        <a class="src" href="https://www.mobile01.com/search.php?search=%E5%9C%8B%E7%BE%8E&type=0&category=455" target="_blank">Mobile01 房屋板搜尋「國美」 ↗</a>
+        <a class="src" href="https://community.houseprice.tw/builder/16839" target="_blank">5168 國美建設履歷 ↗</a>
       </div>
     </div>
-  
-    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT、Mobile01 等公開論壇的整理歸納，連結將前往對應平台的搜尋頁面，非特定貼文直連。各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
+
+    <p class="sec-note" style="margin-top:16px;padding:10px 14px;background:#F0F5FF;border-left:3px solid #7B9BC0;font-size:12px;line-height:1.8;color:#666">💬 以上輿情摘要來自 PTT 公開討論串整理歸納，各討論串觀點僅代表個別網友意見，請自行判斷參考。</p>
   </div>
 
   <div id="sec-quality" class="card">
     <div class="sec-label">品質相關</div>
     <div class="q-sub">
       <div class="q-sub-label">預售屋履約擔保方式</div>
-      <div class="q-body">京城建設為證交所上市公司，預售屋履約保障依《預售屋買賣定型化契約應記載及不得記載事項》規定辦理。實際擔保方式（不動產開發信託、價金信託、價金返還、同業連帶擔保、公會連帶保證五擇一）依各建案不同，<strong>須以個別建案契約書約定為準</strong>。簽約前請確認：① 該建案的擔保方式名稱；② 信託銀行或保證單位名稱；③ 是否以本公司為推案主體（非代銷或子公司）。</div>
+      <div class="q-body">國美建設各建案之履約保障機制須以個別建案契約書及銷售說明書為準。依預售屋買賣定型化契約應記載事項，建商須揭露採用之擔保方式（價金信託或同業連帶擔保等）。建議購屋前向代銷業者索取正式契約書確認。</div>
       <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-        <a class="src" href="https://www.land.moi.gov.tw/chhtml/content/74" target="_blank">內政部 履約擔保說明 ↗</a>
-        <a class="src" href="https://www.kingtown.com.tw/04-1-1.php" target="_blank">京城官網 強銷個案 ↗</a>
+        <a class="src" href="https://www.redat.org.tw/member/service-announce" target="_blank">同業連帶擔保名單 ↗</a>
+        <a class="src" href="https://www.land.moi.gov.tw/chhtml/content/74" target="_blank">內政部說明 ↗</a>
       </div>
-      <div class="q-warn">⚠ 上市公司營運穩健不等於個別建案 100% 無風險；簽約前仍須逐案確認履約擔保條款並保留契約。</div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">品質認證</div>
-      <div class="q-body">京城建設母公司及個別建案是否取得 SGS 建物生產履歷或 ISO 等認證，<strong>擇居 目前未查到統一公開記錄</strong>。公司官網「建築工藝」頁面標示「基礎工學、防水工學、用心工學、堅固工學、環保工學」五大工法，但未對應到第三方認證資料。建議購屋前向銷售人員索取該建案的工程履歷、結構設計簽證、防水保固期間等書面資料。</div>
-      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-        <a class="src" href="https://msn.sgs.com/Build_Report.aspx" target="_blank">SGS 建物生產履歷查詢 ↗</a>
-        <a class="src" href="https://www.kingtown.com.tw/08.php" target="_blank">京城官網 建築工藝 ↗</a>
-      </div>
+      <div class="q-body">國美建設以「10 年防水保固」為主要品質承諾，在 PTT 討論中獲得多次提及。至於 SGS 建物生產履歷認證，目前<strong>未查到公開認證記錄</strong>，建議購屋前直接向業務確認該建案是否申請相關認證。</div>
+      <div style="margin-top:10px"><a class="src" href="https://msn.sgs.com/Build_Report.aspx" target="_blank">SGS 建物生產履歷查詢 ↗</a></div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">集團規模與市場地位</div>
-      <div class="q-body">京城集團由董事長<strong>蔡天贊</strong>領軍，是南台灣（高雄）規模最大的建商之一，跨足建設、營造、銀行、飯店四大事業。財務面：2024 年合併營收 92.83 億元創歷史新高、每股獲利 7.67 元，2025 年前 4 月營收居高雄上市櫃建商之冠（依公開新聞）。產品線從中產社區到南台灣豪宅（京城天贊、美術皇居、京城凱悅）皆有，並委請普立茲克獎得主<strong>安藤忠雄</strong>規劃台北中華路豪宅案，近年積極北上發展。集團另有<strong>京城商業銀行</strong>（前身台南五信，蔡家族持股）為其特色。</div>
-      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
-        <a class="src" href="https://zh.wikipedia.org/zh-tw/%E4%BA%AC%E5%9F%8E%E9%9B%86%E5%9C%98" target="_blank">維基 京城集團 ↗</a>
-        <a class="src" href="https://www.cnyes.com/twstock/2524" target="_blank">鉅亨網 2524 ↗</a>
-        <a class="src" href="https://statementdog.com/analysis/2524" target="_blank">財報狗 2524 ↗</a>
+      <div class="q-body">國美建設自 1996 年成立，旗下以<strong>「國美機構」（Goodman Group）</strong>品牌深耕台北市、新北市高端住宅市場。近三十年間推出「國美」系列精品建案，包括國美國家藝術館、國美華爾道夫、國美寶格麗等，以台北都心為主要陣地，定位高端。現任董事長盧明德接棒後，機構持續推進都市更新案，目前在售建案含台北市信義區國美榕遇（開價 155–170 萬/坪）及大安區國美瑞安（開價 180–200 萬/坪）。
+        <a class="src" href="https://newhouse.591.com.tw/137099" target="_blank">國美榕遇 591 ↗</a>
+        <a class="src" href="https://newhouse.591.com.tw/137673" target="_blank">國美瑞安 591 ↗</a>
       </div>
     </div>
     <div class="q-sub">
       <div class="q-sub-label">主要合作營造廠</div>
-      <div class="q-body">京城建設多數建案由集團<strong>自有營造廠</strong>承攬，確保品控在集團體系內完成。</div>
+      <div class="q-body">根據 BZNK 董監事資料，<strong>金弘承營造股份有限公司</strong>以法人董事身分持有國美建設股份（43,554,000 股），顯示兩者具有深度關聯，為國美建設長期配合之主要營造體系。其他合作營造商之公開資料目前<strong>未查到完整紀錄</strong>，建議購屋前索取建案施工合約相關說明。</div>
       <div class="contractor-list">
         <div class="contractor-item">
           <span class="contractor-rank">#1</span>
           <div>
-            <div class="contractor-name">建誌營造 <span class="rel-tag rel-owned">集團自有</span></div>
-            <div class="contractor-rel">京城集團旗下自有營造廠，承接京城建設多數高雄建案，是集團北高雄推案的主要施工體系之一。</div>
-          </div>
-        </div>
-        <div class="contractor-item">
-          <span class="contractor-rank">#2</span>
-          <div>
-            <div class="contractor-name">百鋐營造 <span class="rel-tag rel-owned">集團自有</span></div>
-            <div class="contractor-rel">京城集團另一家自有營造廠，與建誌營造共同承攬京城建設南台灣建案，為集團體系內補充施工量能的主力之一。</div>
-          </div>
-        </div>
-        <div class="contractor-item">
-          <span class="contractor-rank">#3</span>
-          <div>
-            <div class="contractor-name">外部營造廠（個別案視規模搭配）<span class="rel-tag rel-partner">非集團</span></div>
-            <div class="contractor-rel">部分指標性大型豪宅案會視規模、結構或建築師指定，搭配大型甲級外部營造廠（如針對中華路安藤忠雄案的高難度結構施工）。實際承造單位請於建案契約「承造廠商」欄位確認。</div>
-            <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-              <a class="src" href="https://www.kingtown.com.tw/04-2-1.php" target="_blank">京城官網 在建個案 ↗</a>
-              <a class="src" href="https://newhouse.591.com.tw/housing/search?cityId=7&type=new&kw=%E4%BA%AC%E5%9F%8E" target="_blank">591 搜尋「京城」（高雄）↗</a>
+            <div class="contractor-name">金弘承營造股份有限公司 <span class="rel-tag rel-owned">法人董事</span></div>
+            <div class="contractor-rel">為國美建設之法人董事，持有 43,554,000 股，推測為長期配合施工之主力營造體系。
+              <a class="src" href="https://data.bznk.com/97128469" target="_blank">來源 ↗</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="data-footnote">資料來源：京城建設官網 · 證交所公開資訊觀測站 · 鉅亨網 · 維基百科</div>
+    <div class="data-footnote">資料來源：BZNK 必可 · 591 新建案 · PTT home-sale 公開討論 · 內政部</div>
   </div>
 
   <div class="contact-block">
@@ -1561,7 +1522,7 @@
       <div class="c-title">發現資料錯誤或有補充？</div>
       <div class="c-desc">包括登記資料有誤、建案資訊不完整、未收錄的司法判決、輿情摘要失實等，歡迎來信告知。</div>
     </div>
-    <a href="mailto:info@howhouse.tw?subject=建商資料回報：京城建設" class="contact-btn">聯絡 擇居 ↗</a>
+    <a href="mailto:info@howhouse.tw?subject=建商資料回報：國美建設" class="contact-btn">聯絡 擇居 ↗</a>
   </div>
 
   <div class="page-footer">
@@ -1596,7 +1557,6 @@
     </footer>
 <!-- FOOTER:END -->
 <script>
-  // Tailwind Config
   // Initialize Lucide Icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
@@ -1630,10 +1590,8 @@
     const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
   }
-  // Initialize on DOM ready
-  document.addEventListener('DOMContentLoaded', () => {
-    // Any additional initialization
-  });
+
+  document.addEventListener('DOMContentLoaded', () => {});
 </script>
 
 <script>
